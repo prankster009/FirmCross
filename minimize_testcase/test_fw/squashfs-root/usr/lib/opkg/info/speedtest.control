@@ -1,0 +1,8 @@
+Package: speedtest
+Version: 1
+Depends: libc, libpthread, libcurl
+Source: package/gemtek/speedtest
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 366517
+Description:  Command line client for speedtest.net written in C and lua

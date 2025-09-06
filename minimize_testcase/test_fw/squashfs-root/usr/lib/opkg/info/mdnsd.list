@@ -1,0 +1,4 @@
+/usr/lib/libdns_sd.so.1
+/usr/lib/libdns_sd.so
+/usr/sbin/mdnsd
+/etc/init.d/mdnsd

@@ -1,0 +1,13 @@
+{
+    "help_troubleshooting_log": {
+        "lang_help_troubleshooting_log_title": "Journal",
+        "lang_htl1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_htl2": "Journal",
+        "lang_htl3": "Activé/Désactivé",
+        "lang_htl4": "L'option de journal vous permet de suivre le trafic entre le réseau local et Internet.",
+        "lang_htl5": "Afficher journal",
+        "lang_htl6": "Pour consulter les journaux, cliquez sur cette option.",
+        "lang_htl7": "Le journal des entrées affiche une liste temporaire du trafic Internet entrant. Le journal des sorties affiche une liste temporaire du trafic Internet sortant. Le journal de sécurité affiche les données de connexion pour l’utilitaire Web du routeur. Le journal du client DHCP affiche l’état du serveur DHCP local.",
+        "lang_htl8": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

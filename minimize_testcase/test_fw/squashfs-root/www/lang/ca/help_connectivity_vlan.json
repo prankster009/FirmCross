@@ -1,0 +1,6 @@
+{
+    "help_connectivity_vlan": {
+        "lang_help_connectivity_vlan_title": "Configuration VLAN",
+        "lang_hcv1": "Le VLAN (réseau local virtuel) vous permet de regrouper des dispositifs sur un sous-réseau. Ces dispositifs peuvent communiquer entre eux, mais pas avec des dispositifs sur d’autres sous-réseaux."
+    }
+}

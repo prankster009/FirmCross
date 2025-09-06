@@ -1,0 +1,9 @@
+Package: wizard
+Version: 2019-02-15
+Depends: libc, libevent2
+Source: package/gemtek/wizard
+Section: utils
+Maintainer: Evans Lai <evans_lai@gemteks.com>
+Architecture: ramips_24kec
+Installed-Size: 35823
+Description:  A daemon for manufacturing, debug and FQC

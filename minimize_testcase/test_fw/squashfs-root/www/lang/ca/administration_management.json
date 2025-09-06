@@ -1,0 +1,21 @@
+{
+    "administration_management": {
+        "lang_management_passwd_tips_prefix": "Si vous activez la gestion à distance, nous vous recommandons",
+        "lang_management_passwd_tips_link": "De changer votre mot de passe administrateur",
+        "lang_management_passwd_tips_postfix": "pour des raisons de sécurité.",
+        "lang_management_zone_local_mg_title": "Accès local de gestion",
+        "lang_local_http_mode_title": "Accès via",
+        "lang_http_title": "HTTP",
+        "lang_https_title": "HTTPS",
+        "lang_local_wireless_title": "Accès sans fil",
+        "lang_management_zone_remote_mg_title": "Accès de gestion à distance",
+        "lang_remote_enable_title": "Gestion à distance",
+        "lang_remote_http_mode_title": "Accès via",
+        "lang_remote_upgrade_title": "Mise à niveau à distance",
+        "lang_remote_allow_ip_any_title": "Adresse IP à distance autorisée",
+        "lang_remote_allow_ip_any": "Toute adresse IP",
+        "lang_remote_port_title": "Port de gestion à distance",
+        "lang_to": "à",
+        "lang_default_ps_warning": "Le routeur dispose actuellement de son mot de passe par défaut. Par mesure de sécurité, vous devez modifier le mot de passe pour que la fonction de gestion à distance puisse ensuite être activée. Cliquez sur le bouton OK pour modifier votre mot de passe.  Cliquez sur le bouton Annuler pour laisser la fonction de gestion à distance désactivée."
+    }
+}

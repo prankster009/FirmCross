@@ -1,0 +1,10 @@
+{
+    "idp_prt_item_creator": {
+        "lang_prt_item_creator_title": "Thêm Kích hoạt dải cổng mới",
+        "lang_prt_item_app_name_title": "Tên ứng dụng",
+        "lang_prt_item_trigger_range_title": "Dải kích hoạt",
+        "lang_prt_item_forward_range_title": "Dải chuyển tiếp",
+        "lang_prt_item_to_title": "tới",
+        "lang_prt_item_enable_title": "Bật"
+    }
+}

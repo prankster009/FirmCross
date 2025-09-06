@@ -1,0 +1,14 @@
+{
+    "wifi_macfilter": {
+        "lang_wifi_mac_filter_enable_title": "Lọc MAC không dây",
+        "lang_access_state_prevent_title": "Không cho",
+        "lang_access_state_prevent_info": "các máy tính trong danh sách dưới đây truy nhập mạng không dây",
+        "lang_access_state_permit_title": "Cho phép",
+        "lang_access_state_permit_info": "các máy tính trong danh sách dưới đây truy nhập mạng không dây",
+        "lang_mafilter_zone_mac_addr_filter_list_title": "Danh sách lọc địa chỉ MAC",
+        "lang_client_list_button": "Danh sách thiết bị khách không dây",
+        "lang_mac_address_title": "MAC",
+        "lang_wps_disable_title": "Cài đặt mới của bạn sẽ tắt Wi-Fi Protected Setup. Bạn có muốn tiếp tục không?",
+        "lang_enable_warning": "Nếu bạn muốn bật Bộ lọc MAC không dây, bạn cần vào \"Cài đặt không dây cơ bản\" -> bỏ chọn EasyMesh"
+    }
+}

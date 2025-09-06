@@ -1,0 +1,26 @@
+{
+    "WlanBridgeT": [
+        {
+            "gid": "270991360",
+            "name": "WlanBridgeT0",
+            "enable": "0",
+            "ssid": "",
+            "ifname": "apcli0",
+            "type": "2",
+            "authtype": "OPEN",
+            "encrypType": "NONE",
+            "wpaPsk": ""
+        },
+        {
+            "gid": "270991361",
+            "name": "WlanBridgeT1",
+            "enable": "0",
+            "ssid": "",
+            "ifname": "apclii0",
+            "type": "5",
+            "authtype": "OPEN",
+            "encrypType": "NONE",
+            "wpaPsk": ""
+        }
+    ]
+}

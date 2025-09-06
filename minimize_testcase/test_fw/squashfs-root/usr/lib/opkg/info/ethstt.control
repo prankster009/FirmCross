@@ -1,0 +1,8 @@
+Package: ethstt
+Version: 1
+Depends: libc
+Source: package/mtk/applications/ethstt
+Section: MTK Properties
+Architecture: ramips_24kec
+Installed-Size: 1647
+Description:  Ethernet port status

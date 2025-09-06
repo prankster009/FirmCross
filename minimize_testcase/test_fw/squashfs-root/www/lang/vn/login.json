@@ -1,0 +1,11 @@
+{
+    "login": {
+        "lang_auth_title": "YÊU CẦU XÁC THỰC",
+        "lang_acnt_username": "Tên người dùng",
+        "lang_acnt_passwd": "Mật khẩu",
+        "lang_try_again": "Vui lòng đăng nhập lại!",
+        "lang_login": "ĐĂNG NHẬP",
+        "lang_login_invalid": "Tên người dùng hoặc mật khẩu không hợp lệ.",
+        "lang_session_fail": "Phiên không thành công."
+    }
+}

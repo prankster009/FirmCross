@@ -1,0 +1,12 @@
+{
+    "idp_wps_result": {
+        "lang_idp_wps_result_fail_title": "การเชื่อมต่อล้มเหลว!",
+        "lang_idp_wps_result_success_title": "ขอแสดงความยินดีด้วย!",
+        "lang_idp_wps_result_fail_info1_title": "อุปกรณ์ไคลเอ็นต์ของคุณเชื่อมต่อกับเครือข่ายไม่สำเร็จ",
+        "lang_idp_wps_result_success_info1_title": "ขณะนี้อุปกรณ์ไคลเอ็นต์ของคุณเชื่อมต่อกับเครือข่ายเรียบร้อยแล้ว",
+        "lang_idp_wps_result_info2_title": "กลับไปที่อุปกรณ์ไคลเอ็นต์ของคุณเพื่อดูคำแนะนำเพิ่มเติม",
+        "lang_idp_wps_result_info3_title": "กด  \"",
+        "lang_idp_wps_result_info4_title": "\" เพื่อดำเนินการต่อ",
+        "lang_idp_wps_result_ok_button": "ตกลง"
+    }
+}

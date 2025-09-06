@@ -1,0 +1,9 @@
+Package: lua-requests
+Version: 2019-06-06-ba7f67be3da4c1ea395fe9f765f9ad9c988318dc
+Depends: libc, lua
+Source: package/lang/lua-requests
+License: MIT
+Section: lang
+Architecture: ramips_24kec
+Installed-Size: 2709
+Description:  Requests for Lua!

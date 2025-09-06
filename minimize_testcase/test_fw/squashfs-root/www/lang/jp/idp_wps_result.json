@@ -1,0 +1,12 @@
+{
+    "idp_wps_result": {
+        "lang_idp_wps_result_fail_title": "接続に失敗！",
+        "lang_idp_wps_result_success_title": "おめでとうございます！",
+        "lang_idp_wps_result_fail_info1_title": "クライアント デバイスがネットワークへ接続するのに失敗しました。",
+        "lang_idp_wps_result_success_info1_title": "現在、クライアント デバイスが、ネットワークに安全に接続されています。",
+        "lang_idp_wps_result_info2_title": "詳細な指示については、クライアント デバイスを参照してください。",
+        "lang_idp_wps_result_info3_title": "続行するには \"",
+        "lang_idp_wps_result_info4_title": "\" を押します。",
+        "lang_idp_wps_result_ok_button": "オーケー"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "help_administration_backup": {
+        "lang_help_administration_backup_title": "Sauvegarder",
+        "lang_hab1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hab2": "Sauvegarde et restauration",
+        "lang_hab3": "Sauvegarder la configuration",
+        "lang_hab4": "Pour sauvegarder les paramètres de configuration du routeur, cliquez sur cette option et suivez les instructions qui s'affichent à l'écran.",
+        "lang_hab5": "Restaurer la configuration",
+        "lang_hab6": "Pour rétablir les paramètres de configuration du routeur, cliquez sur cette option et suivez les instructions qui s’affichent à l’écran. (Vous devez avoir sauvegardé au préalable les paramètres de configuration du routeur).",
+        "lang_hab7": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

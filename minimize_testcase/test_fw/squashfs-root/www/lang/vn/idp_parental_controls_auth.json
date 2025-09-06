@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_auth": {
+        "lang_idp_parental_controls_auth_title": "Kiểm soát của cha mẹ",
+        "lang_idp_parental_controls_auth_info_title": "Nhập mật khẩu kiểm soát của cha mẹ:",
+        "lang_idp_parental_controls_auth_forgot_pwd_title": "Tôi đã quên mật khẩu",
+        "lang_idp_parental_controls_auth_errmsg_title": "Mật khẩu không chính xác."
+    }
+}

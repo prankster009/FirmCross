@@ -1,0 +1,23 @@
+{
+    "help_administration_management": {
+        "lang_help_administration_management_title": "관리",
+        "lang_ham1": "참고: 변경한 후 <b>설정 저장</b>을 클릭하여 변경 사항을 적용하십시오.",
+        "lang_ham2": "로컬 관리 액세스",
+        "lang_ham3": "액세스 경로",
+        "lang_ham4": "로컬 액세스를 위한 프로토콜을 선택합니다.",
+        "lang_ham5": "무선을 통한 액세스",
+        "lang_ham6": "라우터의 브라우저 기반 유틸리티에 무선으로 액세스할 수 있게 하려면, 기본값인 <b>활성화</b>를 유지하십시오.",
+        "lang_ham7": "원격 관리 액세스",
+        "lang_ham8": "원격 관리",
+        "lang_ham9": "인터넷을 통해 라우터를 관리하려면, <b>활성화</b>를 선택합니다.",
+        "lang_ham10": "액세스 경로",
+        "lang_ham11": "원격 액세스를 위한 프로토콜을 선택합니다.",
+        "lang_ham12": "원격 업그레이드",
+        "lang_ham13": "인터넷을 통해 라우터의 펌웨어를 업그레이드하려면, <b>활성화</b>를 선택합니다.",
+        "lang_ham14": "허용된 원격 IP 주소",
+        "lang_ham15": "외부 IP 주소에서 라우터에 액세스할 수 있게 하려면 <b>임의의 IP 주소</b>를 선택합니다. 외부 IP 주소 또는 IP 주소 범위를 지정하려면 IP 주소 범위 필드를 선택하고 이를 작성합니다.",
+        "lang_ham16": "원격 관리 포트",
+        "lang_ham17": "원격 액세스에 개방될 포트 번호를 입력합니다.",
+        "lang_ham18": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

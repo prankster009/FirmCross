@@ -1,0 +1,14 @@
+{
+    "wifi_macfilter": {
+        "lang_wifi_mac_filter_enable_title": "Filtre MAC sans fil",
+        "lang_access_state_prevent_title": "Interdire",
+        "lang_access_state_prevent_info": "l’accès au réseau sans fil aux ordinateurs indiqués ci-dessous",
+        "lang_access_state_permit_title": "Autoriser",
+        "lang_access_state_permit_info": "l’accès au réseau sans fil aux ordinateurs indiqués ci-dessous",
+        "lang_mafilter_zone_mac_addr_filter_list_title": "Liste de filtrage d'adresses MAC",
+        "lang_client_list_button": "Liste de périphériques clients sans fil",
+        "lang_mac_address_title": "MAC",
+        "lang_wps_disable_title": "Vos nouveaux paramètres vont désactiver le protocole Wi-Fi Protected Setup. Voulez-vous continuer ?",
+        "lang_enable_warning": "Si vous souhaitez activer le filtre MAC sans fil, vous devez aller dans \"Paramètres sans fil de base\" -> décochez EasyMesh"
+    }
+}

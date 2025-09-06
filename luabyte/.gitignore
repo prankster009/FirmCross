@@ -1,0 +1,8 @@
+*.log
+/source_result/
+*.pyc
+/result/
+*.ko
+/test_case/ruijie_RG-EW3200GX/
+squashfs-root/
+scan_result/

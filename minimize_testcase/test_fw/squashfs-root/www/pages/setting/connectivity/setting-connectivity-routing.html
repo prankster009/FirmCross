@@ -1,0 +1,690 @@
+<script type="text/javascript">
+var OBJ_LIST = ['route','staticRoute','wan','lan']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var INFO_LIST = ['InternetConnection'];
+var INFO_DATA = {};
+var interface_str = ['interface_opt_lan_wifi','interface_opt_wan'];
+var interface_val = ['lan','wan'];
+var SAVE_SR_WAITING_TIME = 25000;
+var cur_index;
+</script>
+<form id='ui-form'>
+<div class="table-title advanced_routing_zone">
+<span class="multi_lang" id="lang_routing_zone_advanced_routing_title"></span>
+</div>
+<hr class="table-title-underline advanced_routing_zone">
+<table class="table table-info advanced_routing_zone">
+<tbody>
+<tr id="tr_nat_enable" >
+<td><script>draw_checkbox('route.RouteP[NAT]', 'lang_nat_enable_title', 'on', "nat_enable_checked()");</script><span id="checkbox_div_route.RouteP[NAT]"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title dynamic_routing_zone">
+<span class="multi_lang" id="lang_routing_zone_dynamic_routing_title"></span>
+</div>
+<hr class="table-title-underline dynamic_routing_zone">
+<table class="table table-info dynamic_routing_zone">
+<tbody>
+<tr id="tr_dynamic_rt_enable" >
+<td><script>draw_checkbox('route.RouteP[RIP]', 'lang_dynamic_rt_enable_title', 'on', "dynamic_rt_enable_checked()");</script><span id="checkbox_div_route.RouteP[RIP]"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title static_routing_zone">
+<span class="multi_lang" id="lang_routing_zone_static_routing_title"></span>
+</div>
+<hr class="table-title-underline static_routing_zone">
+<table class="table table-info static_routing_zone">
+<tbody>
+<tr id="tr_rt_entries" >
+<td>
+<span class="multi_lang" id="lang_rt_entries_title"></span>
+</td>
+<td>
+<div id="select_div_rt_entries">
+<div class="selector" style="min-width:auto;width:auto;">
+<span class="selectSpan"><p class=""></p></span>
+<select class="selectOption valid untouched pristine logger_bot" id="rt_entries" name="rt_entries" onchange=";update_selected(this.name);rt_entries_selected(this.value)"></select>
+</div>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_delete_entry_button" onclick="delete_entry_click()"></button>
+</div>
+</td>
+</tr>
+<tr id="tr_rt_name" >
+<td>
+<span class="multi_lang" id="lang_rt_name_title"></span>
+</td>
+<td>
+<input maxlength="64" value="" name="rt_name" id="rt_name" onblur="valid_name1(this,'Route%20Name',SPACE_NO)" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_dst_lan_ip" >
+<td>
+<span class="multi_lang" id="lang_dst_lan_ip_title"></span>
+</td>
+<td>
+<input type="hidden" id="dst_lan_ip" name="dst_lan_ip" uisync="ip4;dst_lan_ip_0;dst_lan_ip_1;dst_lan_ip_2;dst_lan_ip_3" class="logger_bot">
+<input maxlength="3" value="" name="dst_lan_ip_0" id="dst_lan_ip_0" onblur="valid_range(this,1,223,'IP')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="dst_lan_ip_1" id="dst_lan_ip_1" onblur="valid_range(this,0,255,'IP')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="dst_lan_ip_2" id="dst_lan_ip_2" onblur="valid_range(this,0,255,'IP')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="dst_lan_ip_3" id="dst_lan_ip_3" onblur="valid_range(this,0,254,'IP')" size="3" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_subnet_mask" >
+<td>
+<span class="multi_lang" id="lang_subnet_mask_title"></span>
+</td>
+<td>
+<input type="hidden" id="subnet_mask" name="subnet_mask" uisync="ip4;subnet_mask_0;subnet_mask_1;subnet_mask_2;subnet_mask_3" class="logger_bot">
+<input maxlength="3" value="" name="subnet_mask_0" id="subnet_mask_0" onblur="valid_range(this,0,255,'IP')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="subnet_mask_1" id="subnet_mask_1" onblur="valid_range(this,0,255,'IP')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="subnet_mask_2" id="subnet_mask_2" onblur="valid_range(this,0,255,'IP')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="subnet_mask_3" id="subnet_mask_3" onblur="valid_range(this,0,255,'IP')" size="3" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_gateway" >
+<td>
+<span class="multi_lang" id="lang_gateway_title"></span>
+</td>
+<td>
+<input type="hidden" id="gateway" name="gateway" uisync="ip4;gateway_0;gateway_1;gateway_2;gateway_3" class="logger_bot">
+<input maxlength="3" value="" name="gateway_0" id="gateway_0" onblur="valid_range(this,1,223,'IP')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="gateway_1" id="gateway_1" onblur="valid_range(this,0,255,'IP')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="gateway_2" id="gateway_2" onblur="valid_range(this,0,255,'IP')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="gateway_3" id="gateway_3" onblur="valid_range(this,0,254,'IP')" size="3" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_interface" >
+<td>
+<span class="multi_lang" id="lang_interface_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('interface', interface_str, interface_val,'interface_selected()', '');})();</script>
+<div id="select_div_interface"></div>
+</td>
+</tr>
+<tr id="tr_rt_table" >
+<td>
+<span >&nbsp;</span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_rt_table_button" onclick="displayPopout('route_table')"></button>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='connectivity_routing'
+$(document).ready(function(){
+$.lang_load("connectivity_routing");
+cur_index = 1;
+
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function set_rt_entries_init() {
+$('#rt_entries').empty();
+for (var i=1; i <= 20; ++i) {
+$('#rt_entries').append('<option value="'+i+'">'+i+' ( )</option>');
+}
+}
+
+function set_routing_init(obj) {
+var setObj = UI.obj.copy(obj);
+
+UI.obj.toForm(setObj, 'ui-form');
+
+set_rt_entries_init();
+
+if (cur_index >=1 && cur_index <= 20)
+$('#rt_entries').val(cur_index);
+else
+$('#rt_entries').val(1);
+
+for (var i=0; i < obj.staticRoute.StaticRouteT.length; ++i) {
+var index=parseInt(obj.staticRoute.StaticRouteT[i].name.replace(/StaticRouteT/,""));
+$('#rt_entries option[value="'+(index+1)+'"]').text((index+1)+' ('+obj.staticRoute.StaticRouteT[i].desc+')');
+}
+
+rt_entries_selected($('#rt_entries').val());
+
+nat_enable_checked();
+
+if (obj.wan.WanP.proto == '5') {	// bridgemode
+set_all_element_disable();
+}
+
+update_checked($('#route\\.RouteP\\[NAT\\]').attr('name'));
+update_checked($('#route\\.RouteP\\[RIP\\]').attr('name'));
+update_selected($('#rt_entries').attr('name'));
+update_selected($('#interface').attr('name'));
+}
+
+function set_all_element_enable() {
+$('#route\\.RouteP\\[NAT\\]').removeAttr('disabled');
+$('#route\\.RouteP\\[RIP\\]').removeAttr('disabled');
+$('#rt_entries').removeAttr('disabled');
+$('#lang_delete_entry_button').removeAttr('disabled');
+$('#rt_ename').removeAttr('disabled');
+$('[name^="dst_lan_ip_"]').removeAttr('disabled');
+$('[name^="subnet_mask_"]').removeAttr('disabled');
+$('[name^="gateway_"]').removeAttr('disabled');
+$('#interface').removeAttr('disabled');
+$('#lang_rt_table_button').removeAttr('disabled');
+}
+
+function set_all_element_disable() {
+$('#route\\.RouteP\\[NAT\\]').attr('disabled','true');
+$('#route\\.RouteP\\[RIP\\]').attr('disabled','true');
+$('#rt_entries').attr('disabled','true');
+$('#lang_delete_entry_button').attr('disabled','true');
+$('#rt_ename').attr('disabled','true');
+$('[name^="dst_lan_ip_"]').attr('disabled','true');
+$('[name^="subnet_mask_"]').attr('disabled','true');
+$('[name^="gateway_"]').attr('disabled','true');
+$('#interface').attr('disabled','true');
+$('#lang_rt_table_button').attr('disabled','true');
+}
+
+function nat_enable_checked() {
+if ($('#route\\.RouteP\\[NAT\\]').prop('checked')) {
+$('#route\\.RouteP\\[NAT\\]').attr('value','1');
+$('#route\\.RouteP\\[NAT\\]').attr('checked','checked');
+
+$('#route\\.RouteP\\[RIP\\]').attr('value','0');
+$('#route\\.RouteP\\[RIP\\]').removeAttr('checked');
+$('#route\\.RouteP\\[RIP\\]').attr("disabled", "true");
+}
+else {
+$('#route\\.RouteP\\[NAT\\]').attr('value','0');
+$('#route\\.RouteP\\[NAT\\]').removeAttr("checked");
+
+$('#route\\.RouteP\\[RIP\\]').removeAttr("disabled");
+}
+update_checked($('#route\\.RouteP\\[RIP\\]').attr('name'));
+}
+
+function dynamic_rt_enable_checked() {
+if ($('#route\\.RouteP\\[RIP\\]').prop('checked')) {
+$('#route\\.RouteP\\[RIP\\]').attr('value','1');
+$('#route\\.RouteP\\[RIP\\]').attr('checked','checked');
+}
+else {
+$('#route\\.RouteP\\[RIP\\]').attr('value','0');
+$('#route\\.RouteP\\[RIP\\]').removeAttr('checked');
+}
+}
+
+function find_index_by_ui_select(obj,sel_index) {
+var index=parseInt(sel_index)-1;
+var o_index;
+
+for (var i=0; i < obj.staticRoute.StaticRouteT.length; ++i) {
+o_index=parseInt(obj.staticRoute.StaticRouteT[i].name.replace(/StaticRouteT/,""));
+
+if (o_index == index)
+return i;
+}
+return -1;
+}
+
+function delete_entry_click() {
+var sel_value=$('#rt_entries').val();
+var o_index=find_index_by_ui_select(MODIFIED_OBJ_DATA,sel_value);
+
+if (o_index >= 0) {
+MODIFIED_OBJ_DATA.staticRoute.StaticRouteT.splice(o_index, 1);
+set_routing_init(MODIFIED_OBJ_DATA);
+$('#rt_entries').val(sel_value);
+rt_entries_selected(sel_value);
+}
+}
+
+function set_ip_address(ip_address, elm_name) {
+var ip_array=ip_address.split(".");
+
+if (ip_array.length == 4) {
+$('#'+elm_name+'_0').val(ip_array[0]);
+$('#'+elm_name+'_1').val(ip_array[1]);
+$('#'+elm_name+'_2').val(ip_array[2]);
+$('#'+elm_name+'_3').val(ip_array[3]);
+$('#'+elm_name+'_0').attr('value',ip_array[0]);
+$('#'+elm_name+'_1').attr('value',ip_array[1]);
+$('#'+elm_name+'_2').attr('value',ip_array[2]);
+$('#'+elm_name+'_3').attr('value',ip_array[3]);
+}
+else {
+$('[name^='+elm_name+']').attr('value','0');
+$('[name^='+elm_name+']').val('0');
+}
+}
+
+function rt_entries_selected(value) {
+var obj=MODIFIED_OBJ_DATA;
+var o_index;
+
+$('#rt_name').val('')
+set_ip_address('0.0.0.0','dst_lan_ip');
+set_ip_address('0.0.0.0','subnet_mask');
+set_ip_address('0.0.0.0','gateway');
+$('#interface').val('lan');
+
+o_index=find_index_by_ui_select(MODIFIED_OBJ_DATA,$('#rt_entries').val());
+
+if (o_index >= 0 && o_index < obj.staticRoute.StaticRouteT.length) {
+$('#rt_name').val(obj.staticRoute.StaticRouteT[o_index].desc);
+set_ip_address(obj.staticRoute.StaticRouteT[o_index].dstIp,'dst_lan_ip');
+set_ip_address(obj.staticRoute.StaticRouteT[o_index].dstNetmask,'subnet_mask');
+set_ip_address(obj.staticRoute.StaticRouteT[o_index].gateway,'gateway');
+$('#interface').val(obj.staticRoute.StaticRouteT[o_index].ifname);
+}
+
+update_selected($('#rt_entries').attr('name'));
+update_selected($('#interface').attr('name'));
+}
+
+function interface_selected() {
+}
+
+function valid_route_name(obj,name) {
+var i;
+var index=$('#rt_entries').find(":selected").index();
+
+for (i=0; i < obj.staticRoute.StaticRouteT.length; ++i) {
+if (name == obj.staticRoute.StaticRouteT[i] && index != i) {
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+}
+return true;
+}
+
+var ZERO_NO=1;
+var ZERO_OK=2;
+var MASK_NO=4;
+var MASK_OK=8;
+var BCST_NO=16;
+var BCST_OK=32
+function valid_ip(N,flag) {
+var m = new Array(4);
+
+for(i=0; i < 4; i++)
+m[i] = eval("$('#"+N+"_"+i+"')").val();
+
+if(m[0] == 127 || m[0] == 224) {
+alert(L.error_message.lang_error_message_err31);
+return false;
+}
+
+if(m[0] == "0" && m[1] == "0" && m[2] == "0" && m[3] == "0") {
+if(flag & ZERO_NO) {
+alert(L.error_message.lang_error_message_err31);
+return false;
+}
+}
+
+if((m[0] != "0" || m[1] != "0" || m[2] != "0") && m[3] == "0"){
+if(flag & MASK_NO) {
+alert(L.error_message.lang_error_message_err31);
+return false;
+}
+}
+return true;
+}
+
+function valid_mask(N,flag) {
+var match0 = -1;
+var match1 = -1;
+var m = new Array(4);
+
+for(i=0;i<4;i++)
+m[i] = eval("$('#"+N+"_"+i+"')").val();
+
+if(m[0] == "0" && m[1] == "0" && m[2] == "0" && m[3] == "0"){
+if(flag & ZERO_NO){
+alert(L.error_message.lang_error_message_err27);
+return false;
+}
+else if(flag & ZERO_OK){
+return true;
+}
+}
+
+if(m[0] == "255" && m[1] == "255" && m[2] == "255" && m[3] == "255"){
+if(flag & BCST_NO){
+alert(L.error_message.lang_error_message_err27);
+return false;
+}
+else if(flag & BCST_OK){
+return true;
+}
+}
+
+for(i=3;i>=0;i--){
+for(j=1;j<=8;j++){
+if((m[i] % 2) == 0)   match0 = (3-i)*8 + j;
+else if(((m[i] % 2) == 1) && match1 == -1)   match1 = (3-i)*8 + j;
+m[i] = Math.floor(m[i] / 2);
+}
+}
+
+if(match0 > match1){
+alert(L.error_message.lang_error_message_err27);
+return false;
+}
+return true;
+}
+
+function valid_gateway(dstip,dstmask,gw,iface) {
+var wanip=INFO_DATA.InternetConnection.IPv4.IP;
+var lanip=MODIFIED_OBJ_DATA.lan.LanP.ipaddr;
+var lanmask=MODIFIED_OBJ_DATA.lan.LanP.netmask;
+var wanmask=INFO_DATA.InternetConnection.IPv4.Netmask;
+var rtname=MODIFIED_OBJ_DATA.rt_name;
+var iface=MODIFIED_OBJ_DATA.interface;
+
+var lanipl=lanip.split(".");
+var wanipl=wanip.split(".");
+var lanmaskl=lanmask.split(".");
+var wanmaskl=wanmask.split(".");
+
+if (dstip == '0.0.0.0') {
+if (rtname == "" && dstmask == '0.0.0.0' && gw == '0.0.0.0' && iface == 'lan')
+return true;
+else {
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+}
+
+if (wanip == '0.0.0.0' && iface == 'wan') {
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+
+if (((lanipl[0] & lanmaskl[0]) == ($('#dst_lan_ip_0').val() & lanmaskl[0])) &&
+((lanipl[1] & lanmaskl[1]) == ($('#dst_lan_ip_1').val() & lanmaskl[1])) &&
+((lanipl[2] & lanmaskl[2]) == ($('#dst_lan_ip_2').val() & lanmaskl[2])) &&
+((lanipl[3] & lanmaskl[3]) == ($('#dst_lan_ip_3').val() & lanmaskl[3])))
+{
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+
+if (((lanipl[0] & $('#subnet_mask_0').val()) == ($('#dst_lan_ip_0').val() & $('#subnet_mask_0').val())) &&
+((lanipl[1] & $('#subnet_mask_1').val()) == ($('#dst_lan_ip_1').val() & $('#subnet_mask_1').val())) &&
+((lanipl[2] & $('#subnet_mask_2').val()) == ($('#dst_lan_ip_2').val() & $('#subnet_mask_2').val())) &&
+((lanipl[3] & $('#subnet_mask_3').val()) == ($('#dst_lan_ip_3').val() & $('#subnet_mask_3').val())))
+{
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+
+if (wanip != '0.0.0.0') {
+if (((wanipl[0] & wanmaskl[0]) == ($('#dst_lan_ip_0').val() & wanmaskl[0])) &&
+((wanipl[1] & wanmaskl[1]) == ($('#dst_lan_ip_1').val() & wanmaskl[1])) &&
+((wanipl[2] & wanmaskl[2]) == ($('#dst_lan_ip_2').val() & wanmaskl[2])) &&
+((wanipl[3] & wanmaskl[3]) == ($('#dst_lan_ip_3').val() & wanmaskl[3])))
+{
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+if (((wanipl[0] & $('#subnet_mask_0').val()) == ($('#dst_lan_ip_0').val() & $('#subnet_mask_0').val())) &&
+((wanipl[1] & $('#subnet_mask_1').val()) == ($('#dst_lan_ip_1').val() & $('#subnet_mask_1').val())) &&
+((wanipl[2] & $('#subnet_mask_2').val()) == ($('#dst_lan_ip_2').val() & $('#subnet_mask_2').val())) &&
+((wanipl[3] & $('#subnet_mask_3').val()) == ($('#dst_lan_ip_3').val() & $('#subnet_mask_3').val())))
+{
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+}
+
+if (iface == 'lan') {
+if (gw == lanip) {
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+if (((lanipl[0] & lanmaskl[0]) != ($('#gateway_0').val() & lanmaskl[0])) ||
+((lanipl[1] & lanmaskl[1]) != ($('#gateway_1').val() & lanmaskl[1])) ||
+((lanipl[2] & lanmaskl[2]) != ($('#gateway_2').val() & lanmaskl[2])) ||
+((lanipl[3] & lanmaskl[3]) != ($('#gateway_3').val() & lanmaskl[3])))
+{
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+}
+else {
+if (gw == lanip) {
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+if (((wanipl[0] & wanmaskl[0]) != ($('#gateway_0').val() & wanmaskl[0])) ||
+((wanipl[1] & wanmaskl[1]) != ($('#gateway_1').val() & wanmaskl[1])) ||
+((wanipl[2] & wanmaskl[2]) != ($('#gateway_2').val() & wanmaskl[2])) ||
+((wanipl[3] & wanmaskl[3]) != ($('#gateway_3').val() & wanmaskl[3])))
+{
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+}
+
+return true;
+}
+
+function check_static_entry(obj) {
+var i;
+var lanip=obj.lan.LanP.ipaddr;
+var wanip=INFO_DATA.InternetConnection.IPv4.IP;
+var lanmask=obj.lan.LanP.netmask;
+var wanmask=INFO_DATA.InternetConnection.IPv4.Netmask;
+var rtname,dstip,netmask,gw,iface;
+
+rtname=MODIFIED_OBJ_DATA.rt_name;
+dstip=$('#dst_lan_ip_0').val()+'.'+$('#dst_lan_ip_1').val()+'.'+$('#dst_lan_ip_2').val()+'.'+$('#dst_lan_ip_3').val();
+netmask=$('#subnet_mask_0').val()+'.'+$('#subnet_mask_1').val()+'.'+$('#subnet_mask_2').val()+'.'+$('#subnet_mask_3').val();
+gw=$('#gateway_0').val()+'.'+$('#gateway_1').val()+'.'+$('#gateway_2').val()+'.'+$('#gateway_3').val();
+iface=$('#interface').val();
+
+if (rtname == "" && dstip == '0.0.0.0' && netmask == '0.0.0.0' && gw == '0.0.0.0' && iface == "lan")
+return true;
+
+if ((iface == 'lan' && dstip == lanip) || (iface == 'wan' && dstip == wanip)) {
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+
+var index=$('#rt_entries').find(":selected").index();
+var st_index;
+for (i=0; i < obj.staticRoute.StaticRouteT.length; ++i) {
+st_index = obj.staticRoute.StaticRouteT[i].name.replace(/StaticRouteT/,"");
+if (st_index == index)
+continue;
+
+if (dstip == obj.staticRoute.StaticRouteT[i].dstIp &&
+netmask == obj.staticRoute.StaticRouteT[i].dstNetmask &&
+gw == obj.staticRoute.StaticRouteT[i].gateway)
+{
+alert(L.error_message.lang_error_message_err76);
+return false;
+}
+}
+
+return true;
+}
+
+function save_static_route(index,obj) {
+var srt_obj={};
+var i;
+var is_find=false;
+
+if ($('#rt_name').val() == "" &&
+($('#dst_lan_ip_0').val() == "0" && $('#dst_lan_ip_1').val() == "0" && $('#dst_lan_ip_2').val() == "0" && $('#dst_lan_ip_3').val() == "0") &&
+($('#subnet_mask_0').val() == "0" && $('#subnet_mask_1').val() == "0" && $('#subnet_mask_2').val() == "0" && $('#subnet_mask_3').val() == "0") &&
+($('#gateway_0').val() == "0" && $('#gateway_1').val() == "0" && $('#gateway_2').val() == "0" && $('#gateway_3').val() == "0"))
+{
+// empty setting
+return;
+}
+
+srt_obj.name='StaticRouteT'+index;
+srt_obj.desc=$('#rt_name').val();
+srt_obj.dstIp=obj.dst_lan_ip;
+srt_obj.dstNetmask=obj.subnet_mask;
+srt_obj.gateway=obj.gateway;
+srt_obj.ifname=$('#interface').val();
+
+for (i=0; i < obj.staticRoute.StaticRouteT.length; ++i) {
+if (srt_obj.name == obj.staticRoute.StaticRouteT[i].name) {
+is_find=true;
+srt_obj.gid=obj.staticRoute.StaticRouteT[i].gid;
+break;
+}
+}
+
+if (!is_find) {
+// new add
+srt_obj.gid='0';
+obj.staticRoute.StaticRouteT.push(srt_obj);
+}
+else {
+obj.staticRoute.StaticRouteT[i] = API.obj.copy(srt_obj);
+}
+}
+
+function open_routing_table() {
+displayPopout('route_table');
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+get_obj_data(OBJ_LIST);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+},SAVE_SR_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+var obj=UI.form.toObj('ui-form');
+var nat = MODIFIED_OBJ_DATA.route.RouteP.NAT;
+
+MODIFIED_OBJ_DATA = UI.obj.merge(MODIFIED_OBJ_DATA, obj);
+
+if (!valid_route_name(MODIFIED_OBJ_DATA,MODIFIED_OBJ_DATA.rt_name) ||
+!valid_ip("dst_lan_ip",0) ||
+!valid_mask("subnet_mask",ZERO_OK) ||
+!valid_ip("gateway",MASK_NO))
+return;
+
+if (!valid_gateway(MODIFIED_OBJ_DATA.dst_lan_ip,MODIFIED_OBJ_DATA.subnet_mask,MODIFIED_OBJ_DATA.gateway,MODIFIED_OBJ_DATA.interface))
+return;
+
+if (!check_static_entry(MODIFIED_OBJ_DATA))
+return;
+
+if (nat == "1" && $('#route\\.RouteP\\[NAT\\]').prop('checked') == false && !confirm(L.connectivity_routing.lang_alert_guest_not_availabed_title)) {
+page_cancel();
+return;
+}
+
+// adjust obj content
+cur_index = parseInt($('#rt_entries').val());;
+save_static_route(parseInt($('#rt_entries').val())-1,MODIFIED_OBJ_DATA);
+
+delete MODIFIED_OBJ_DATA.dst_lan_ip;
+delete MODIFIED_OBJ_DATA.gateway;
+delete MODIFIED_OBJ_DATA.interface;
+delete MODIFIED_OBJ_DATA.rt_entries;
+delete MODIFIED_OBJ_DATA.rt_name;
+delete MODIFIED_OBJ_DATA.subnet_mask;
+
+if (fake_action == true) return;
+
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+else {
+delete MODIFIED_OBJ_DATA.lan;
+delete MODIFIED_OBJ_DATA.wan;
+
+$("#loader").show();
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_routing_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_routing_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function get_info_success_cb(obj) {
+INFO_DATA = API.obj.copy(obj);
+get_obj_data(OBJ_LIST)
+}
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+function page_initial(){
+set_rt_entries_init();
+
+get_info_data(INFO_LIST)
+}
+
+</script>
+

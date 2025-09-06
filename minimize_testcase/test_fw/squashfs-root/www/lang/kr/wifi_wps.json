@@ -1,0 +1,20 @@
+{
+    "wifi_wps": {
+        "lang_wps_info_title": "Wi-Fi 보호 설정은 <br>WPA2 엔터프라이즈 보안 모드<br>SSID 송출 비활성화<br>2.4 GHz 또는 5 GHz 대역 비활성화<br>MAC 필터링<br> 기능과 함께 사용할 수 없습니다. WPS를 사용하려면 보안 모드, 네트워크 모드를 변경하고/하거나 MAC 필터링을 비활성화하십시오.",
+        "lang_wps_setup_title": "Wi-Fi 보호 설정",
+        "lang_wps_zone_push_btn_title": "버튼 누르기",
+        "lang_push_button_info_title": "클라이언트 장치에 Wi-Fi Protected Setup<sup>TM</sup> 버튼이 있는 경우, 해당 버튼을 클릭하거나 누른 후 오른쪽의 버튼을 클릭합니다.",
+        "lang_push_btn_state_success_title": "성공",
+        "lang_push_btn_state_fail_title": "실패",
+        "lang_push_btn_state_search_title": "검색 중...",
+        "lang_push_btn_state_Connect_title": "연결",
+        "lang_wps_zone_dev_pin_title": "장치 PIN",
+        "lang_dev_pin_info_title": "클라이언트 장치에 Wi-Fi Protected Setup<sup>TM</sup> PIN 번호가 있는 경우, 해당 번호를 입력한 후 등록을 클릭하십시오.",
+        "lang_dev_pin_register_button": "등록",
+        "lang_wps_zone_router_pin_title": "라우터 PIN",
+        "lang_router_pin_info_title": "클라이언트에서 라우터의 PIN 번호를 요구하는 경우, 클라이언트 장치에 이 번호 {number}를 입력합니다.",
+        "lang_dev_pin_alert_title": "PIN 오류입니다.",
+        "lang_macfilter_enable_alert_title": "무선 MAC 필터가 활성화되어 있으면 Wi-Fi 보호 설정을 활성화할 수 없습니다.",
+        "lang_wps_info_title2": "Wi-Fi 보호 설정은 <br>SSID 송출 비활성화<br>2.4 GHz 또는 5 GHz 대역 비활성화<br>MAC 필터링<br> 기능과 함께 사용할 수 없습니다. WPS를 사용하려면 보안 모드, 네트워크 모드를 변경하고/하거나 MAC 필터링을 비활성화하십시오."
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "idp_mesh_plug": {
+        "lang_idp_mesh_plug_title": "插入您的子節點",
+        "lang_idp_mesh_plug_content1": "請等待約3分鐘，路由器正在啟動",
+        "lang_idp_mesh_plug_content2": "如果要設定更多的子節點，請確保一次只進行一個，以免發生問題。",
+        "lang_idp_mesh_plug_content3": "我已等待3分鐘，下一步"
+    }
+}

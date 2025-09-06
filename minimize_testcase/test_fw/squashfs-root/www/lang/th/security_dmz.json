@@ -1,0 +1,12 @@
+{
+    "security_dmz": {
+        "lang_dmz_enable_title": "DMZ",
+        "lang_source_ip_addr_title": "ที่อยู่ IP ต้นทาง",
+        "lang_source_ip_any_title": "ที่อยู่ IP ใดๆ",
+        "lang_to": "ถึง",
+        "lang_dest_ip_addr_title": "ปลายทาง",
+        "lang_dest_ip_title": "ที่อยู่ IP",
+        "lang_dest_mac_addr": "ที่อยู่ MAC",
+        "lang_dest_dhcp_client_button": "ตารางข้อมูลไคลเอ็นต์ DHCP"
+    }
+}

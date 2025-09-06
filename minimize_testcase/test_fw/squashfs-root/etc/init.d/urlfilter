@@ -1,0 +1,56 @@
+#!/bin/sh /etc/rc.common
+
+. /usr/share/libubox/jshn.sh
+
+UF_INI_FILE="/tmp/uf.ini"
+UF_QUEUE_NUM=101
+
+setup_uf_ini() {
+    echo "" > $UF_INI_FILE
+    json_load "$(objReq pcPolicy json)"
+    json_select "PcPolicyT"
+    local Index="1"
+    while json_get_type Type $Index && [ "$Type" = object ]; do
+        json_select "$Index"
+        json_get_vars targetMac blockUrl1 blockUrl2 blockUrl3 blockUrl4 blockUrl5 blockUrl6 blockUrl7 blockUrl8
+
+        let uid=$Index
+        echo "[user${uid}]" >> $UF_INI_FILE
+        echo "macaddr=$targetMac" >> $UF_INI_FILE
+        echo "whitelist=linksys.com" >> $UF_INI_FILE
+
+        blacklist=""
+        [ "$blockUrl1" != "" ] && blacklist="$blockUrl1"
+        [ "$blockUrl2" != "" ] && blacklist="$blacklist,$blockUrl2"
+        [ "$blockUrl3" != "" ] && blacklist="$blacklist,$blockUrl3"
+        [ "$blockUrl4" != "" ] && blacklist="$blacklist,$blockUrl4"
+        [ "$blockUrl5" != "" ] && blacklist="$blacklist,$blockUrl5"
+        [ "$blockUrl6" != "" ] && blacklist="$blacklist,$blockUrl6"
+        [ "$blockUrl7" != "" ] && blacklist="$blacklist,$blockUrl7"
+        [ "$blockUrl8" != "" ] && blacklist="$blacklist,$blockUrl8"
+        
+        echo "blacklist=$blacklist" >> $UF_INI_FILE
+        echo "" >> $UF_INI_FILE
+
+        let Index=$Index+1
+        json_select ".."
+    done
+}
+
+start() {
+    doneWizard=$(objReq system json | jsonfilter -e '@[*]' | jsonfilter -e '@.doneWizard')
+    pcEnable=$(objReq pc json | jsonfilter -e '@[*].enable')
+
+    if [ "$pcEnable" = "1" -o "$doneWizard" = "0" ]; then
+        setup_uf_ini
+    else
+        exit 0
+    fi
+    
+    urlfilter -f $UF_INI_FILE -n $UF_QUEUE_NUM
+}
+
+stop() {
+    killall urlfilter
+}
+

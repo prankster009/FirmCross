@@ -1,0 +1,18 @@
+{
+    "wifi_security": {
+        "lang_security_zone_wifi_security_5g_title": "Bảo mật không dây 5 GHz",
+        "lang_security_mode_title": "Chế độ bảo mật",
+        "lang_passphrase_title": "Chuỗi mật khẩu",
+        "lang_security_zone_wifi_security_2_4g_title": "Bảo mật không dây 2.4 GHz",
+        "lang_security_wpa2_personal": "WPA2 Cá nhân",
+        "lang_security_wpa2_enterprise": "WPA2 Doanh nghiệp",
+        "lang_security_disabled": "Tắt",
+        "lang_radius_server_title": "Máy chủ RADIUS",
+        "lang_radius_port_title": "Cổng RADIUS",
+        "lang_radius_key_title": "Khoá dùng chung",
+        "lang_security_disable_warning": "Bảo mật không dây hiện đang bị tắt. Bạn có chắc chắn muốn tiếp tục không?",
+        "lang_wps_disable_title": "Cài đặt mới của bạn sẽ tắt Wi-Fi Protected Setup. Bạn có muốn tiếp tục không?",
+        "lang_security_wpa3_personal": "WPA3 Cá nhân",
+        "lang_security_wpa3_wpa2_personal": "WPA3/WPA2 Mixed"
+    }
+}

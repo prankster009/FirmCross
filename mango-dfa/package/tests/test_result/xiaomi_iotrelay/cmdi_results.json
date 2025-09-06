@@ -1,0 +1,141 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "sub_40cc88",
+                    "string": "sub_40cc88() @ 0x40cc88",
+                    "ins_addr": "0x40cc88"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xffffffffffffff00>)>) @ 0x40ccdc",
+                "ins_addr": "0x40ccdc"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_402988",
+                    "string": "sub_402988() @ 0x402988",
+                    "ins_addr": "0x402988"
+                },
+                {
+                    "function": "sub_40c2b0",
+                    "string": "sub_40c2b0(<MultiValues(<BV64 stack_base + 0xffffffffffffffd0>)>) @ 0x402e80",
+                    "ins_addr": "0x402e80"
+                },
+                {
+                    "function": "sub_407fa4",
+                    "string": "sub_407fa4(<MultiValues(<BV64 0x0>)>) @ 0x40c7d4",
+                    "ins_addr": "0x40c7d4"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffdd0>)>) @ 0x408050",
+                "ins_addr": "0x408050"
+            },
+            "depth": 3,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_405478",
+                    "string": "sub_405478() @ 0x405478",
+                    "ins_addr": "0x405478"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x458>)>, <MultiValues(<BV64 0x40e210>)>) @ 0x405770",
+                "ins_addr": "0x405770"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 40.78789663314819,
+    "vra_time": 11.801430463790894,
+    "path": "/home/iot_2204/xiaomi/Xiaomi_AX9000/squashfs-root/usr/sbin/iotrelay",
+    "name": "iotrelay",
+    "has_sinks": true,
+    "sha256": "4d1e72cefca001199018140877d32d495b90b5824ec8f8646f4c3e9303b53054",
+    "sink_times": {
+        "system": 2.182602643966675,
+        "popen": 1.0523769855499268
+    },
+    "error": null,
+    "mango_time": 15.703341484069824,
+    "sinks": {
+        "system": 1,
+        "popen": 1
+    },
+    "time_data": {
+        "0x40cc88 -> 0x402270": {
+            "taint_time": 0.32651281356811523,
+            "rda_time": 0.3415493965148926
+        },
+        "0x40ca88 -> 0x402270": {
+            "taint_time": 0.12704730033874512,
+            "rda_time": 0.15873241424560547
+        },
+        "0x407fa4 -> 0x40c2b0 -> 0x402988 -> 0x402270": {
+            "taint_time": 0.5840601921081543,
+            "rda_time": 0.5673325061798096
+        },
+        "0x405478 -> 0x4023d0": {
+            "taint_time": 0.724198579788208,
+            "rda_time": 0.328014612197876
+        },
+        "0x40b124 -> 0x40bbb0 -> 0x4023d0": {
+            "taint_time": 2.321093797683716,
+            "rda_time": 3.930217742919922
+        },
+        "0x4059ec -> 0x4066d4 -> 0x4023d0": {
+            "taint_time": 1.8546006679534912,
+            "rda_time": 1.211878776550293
+        },
+        "0x409e08 -> 0x40bbb0 -> 0x4023d0": {
+            "taint_time": 1.0156347751617432,
+            "rda_time": 1.8578038215637207
+        }
+    }
+}

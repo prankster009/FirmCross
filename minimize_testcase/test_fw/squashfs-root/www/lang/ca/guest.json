@@ -1,0 +1,12 @@
+{
+    "guest": {
+        "lang_document_title": "Accès d'invité",
+        "lang_content_title": "Accès d'invité",
+        "lang_content_info": "Saisissez le mot de passe d'accès invité pour accéder à Internet. Demandez au détenteur du réseau si vous ne connaissez pas le mot de passe. Vous trouverez le mot de passe au moyen de Linksys Connect.",
+        "lang_password_title": "Mot de passe",
+        "lang_login_button": "CONNEXION",
+        "lang_lang_error_msg": "Échec de la connexion",
+        "lang_desktop_view_title": "Vue bureau",
+        "lang_mobile_view_title": "Vue mobile"
+    }
+}

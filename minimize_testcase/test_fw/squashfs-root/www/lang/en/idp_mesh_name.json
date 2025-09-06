@@ -1,0 +1,12 @@
+{
+    "idp_mesh_name": {
+        "lang_idp_mesh_name_title": "Where is your node?",
+        "lang_idp_mesh_name_content1": "Giving your node a name will help you tell them apart when accessing settings.",
+        "lang_idp_mesh_name_content2": "Node Name",
+        "lang_idp_mesh_name_content3": "Example: Kitchen, Living room, Bedroom",
+        "lang_idp_mesh_name_content4": "Naming nodes helps you tell them apart when accessing settings.",
+        "lang_idp_mesh_name_error1": "The Node name cannot be blank!",
+        "lang_idp_mesh_name_error2": "The node name can only contain alphanumberic characters and dashes.",
+        "lang_idp_mesh_name_error3": "The node name must start with a letter."
+    }
+}

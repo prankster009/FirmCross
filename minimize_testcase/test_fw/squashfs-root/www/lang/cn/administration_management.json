@@ -1,0 +1,21 @@
+{
+    "administration_management": {
+        "lang_management_passwd_tips_prefix": "如果启用“远程管理”，为了安全起见，",
+        "lang_management_passwd_tips_link": "我们建议您",
+        "lang_management_passwd_tips_postfix": "更改管理员密码。",
+        "lang_management_zone_local_mg_title": "本地管理访问",
+        "lang_local_http_mode_title": "访问方式",
+        "lang_http_title": "HTTP",
+        "lang_https_title": "HTTPS",
+        "lang_local_wireless_title": "通过无线访问",
+        "lang_management_zone_remote_mg_title": "远程管理访问",
+        "lang_remote_enable_title": "远程管理",
+        "lang_remote_http_mode_title": "访问方式",
+        "lang_remote_upgrade_title": "远程升级",
+        "lang_remote_allow_ip_any_title": "允许的远程 IP 地址",
+        "lang_remote_allow_ip_any": "任意 IP 地址",
+        "lang_remote_port_title": "远程管理端口",
+        "lang_to": "到",
+        "lang_default_ps_warning": "路由器当前设置为其默认密码。作为安全措施，必须先更改密码，然后才能启用“远程管理”功能。单击“确定”按钮可更改密码。  单击“取消”按钮可禁用“远程管理”功能。"
+    }
+}

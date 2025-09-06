@@ -1,0 +1,20 @@
+{
+    "connectivity_routing": {
+        "lang_routing_zone_advanced_routing_title": "高级路由",
+        "lang_nat_enable_title": "NAT",
+        "lang_routing_zone_dynamic_routing_title": "动态路由 (RIP)",
+        "lang_dynamic_rt_enable_title": "启用",
+        "lang_routing_zone_static_routing_title": "静态路由",
+        "lang_rt_entries_title": "路由条目",
+        "lang_delete_entry_button": "删除此条目",
+        "lang_rt_name_title": "输入路由名称",
+        "lang_dst_lan_ip_title": "目标 LAN IP",
+        "lang_subnet_mask_title": "子网掩码",
+        "lang_gateway_title": "网关",
+        "lang_interface_title": "接口",
+        "lang_rt_table_button": "显示路由表",
+        "lang_interface_opt_lan_wifi": "LAN 和无线",
+        "lang_interface_opt_wan": "Internet (WAN)",
+        "lang_alert_guest_not_availabed_title": "如果禁用了 NAT，“来宾访问”将不可用。继续保存更改？"
+    }
+}

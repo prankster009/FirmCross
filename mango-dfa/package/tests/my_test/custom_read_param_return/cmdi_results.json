@@ -1,0 +1,105 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x4012aa",
+                    "ins_addr": "0x4012aa"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x40131b",
+                "ins_addr": "0x40131b"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x4012a9",
+                    "ins_addr": "0x4012a9"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x401316",
+                "ins_addr": "0x401316"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x4012a9",
+                    "ins_addr": "0x4012a9"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x401316",
+                "ins_addr": "0x401316"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 0.09769773483276367,
+    "vra_time": 0.22886037826538086,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/custom_read_param/program",
+    "name": "program",
+    "has_sinks": true,
+    "sha256": "459b76a839cb66da161395d1bf65ed449696b3f494cd07034c1af482f3c5dcdf",
+    "sink_times": {
+        "system": 1.8474230766296387
+    },
+    "error": null,
+    "mango_time": 6.884656667709351,
+    "sinks": {
+        "system": 2
+    },
+    "time_data": {
+        "0x4012a9 -> 0x4010a0": {
+            "taint_time": 0.8557171821594238,
+            "rda_time": 0.9913501739501953
+        }
+    }
+}

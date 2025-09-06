@@ -1,0 +1,21 @@
+{
+    "help_security_portfowarding": {
+        "lang_help_security_portfowarding_title": "Redirection d'un seul port",
+        "lang_hsp1": "La redirection de port unique vous permet de personnaliser les services de port pour différentes applications. Lorsque des utilisateurs envoient ce type de requête au réseau par Internet, le routeur les achemine aux ordinateurs (serveurs) appropriés.",
+        "lang_hsp2": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hsp3": "Redirection d'un seul port",
+        "lang_hsp4": "Nom de l'application",
+        "lang_hsp5": "Sélectionnez l'application prédéfinie ou entrez le nom de l'application personnalisée.",
+        "lang_hsp6": "Port externe",
+        "lang_hsp7": "Pour une application personnalisée, entrez le numéro de port externe qui accepte le trafic entrant.",
+        "lang_hsp8": "Port interne",
+        "lang_hsp9": "Pour une application personnalisée, entrez le numéro de port interne qui accepte le trafic acheminé par le routeur.",
+        "lang_hsp10": "Protocole",
+        "lang_hsp11": "Pour une application personnalisée, sélectionnez les protocoles utilisés.",
+        "lang_hsp12": "Adresse IP de destination",
+        "lang_hsp13": "Entrez l’adresse IP de l'ordinateur qui doit recevoir le trafic.",
+        "lang_hsp14": "Activé",
+        "lang_hsp15": "Sélectionnez <b>Activé</b> pour activer la redirection de port.",
+        "lang_hsp16": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

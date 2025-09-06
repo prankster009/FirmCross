@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.wanattack
+    set firewall.wanattack=include
+    set firewall.wanattack.type=script
+    set firewall.wanattack.path=/usr/share/security/wanattack.include
+    set firewall.wanattack.family=ipv4
+    set firewall.wanattack.reload=1
+EOT
+
+exit 0

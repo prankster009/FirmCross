@@ -1,0 +1,13 @@
+{
+    "administration_reset": {
+        "lang_reboot_title": "라우터 재시작",
+        "lang_reboot_button": "다시 시작",
+        "lang_reset_default_title": "출하시 기본 설정으로 재설정",
+        "lang_reset_default_button": "출하시 재설정",
+        "lang_reboot_confirm": "정말로 장치를 재부팅하시겠습니까?",
+        "lang_reset_default_confirm": "경고! 확인을 클릭하면 장치가 출하시 기본값으로 재설정되고 이전의 모든 설정이 지워집니다.",
+        "lang_rebooting": "재부팅 중...",
+        "lang_reboot_fail": "재부팅에 실패함",
+        "lang_reset_fail": "출하 시 재설정에 실패함"
+    }
+}

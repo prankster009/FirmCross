@@ -1,0 +1,982 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "sub_401c40",
+                    "string": "sub_401c40() @ 0x401c40",
+                    "ins_addr": "0x401c40"
+                },
+                {
+                    "function": "sub_4051c8",
+                    "string": "sub_4051c8(<MultiValues(<BV64 stack_base - 0x24c8>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>) @ 0x402214",
+                    "ins_addr": "0x402214"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x2638>)>) @ 0x405278",
+                "ins_addr": "0x405278"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "fread(",
+                    "socket(AF_INET, SOCK_DGRAM, 0)_3050_6",
+                    "socket(AF_INET, SOCK_DGRAM, 0)_3048_6"
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.6,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_403354",
+                    "string": "sub_403354() @ 0x403354",
+                    "ins_addr": "0x403354"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x248>)>) @ 0x403428",
+                "ins_addr": "0x403428"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_404f54",
+                    "string": "sub_404f54() @ 0x404f54",
+                    "ins_addr": "0x404f54"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x408>)>) @ 0x405180",
+                "ins_addr": "0x405180"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_404004",
+                    "string": "sub_404004() @ 0x404004",
+                    "ins_addr": "0x404004"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xffffffffffffff78>)>) @ 0x4040bc",
+                "ins_addr": "0x4040bc"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4064b8",
+                    "string": "sub_4064b8() @ 0x4064b8",
+                    "ins_addr": "0x4064b8"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x808>)>) @ 0x406a9c",
+                "ins_addr": "0x406a9c"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_401c40",
+                    "string": "sub_401c40() @ 0x401c40",
+                    "ins_addr": "0x401c40"
+                },
+                {
+                    "function": "sub_403e14",
+                    "string": "sub_403e14(<MultiValues(<BV64 stack_base - 0x24c8>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 0x4076e1>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>, <MultiValues(<BV64 TOP>)>) @ 0x401e14",
+                    "ins_addr": "0x401e14"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x26b8>)>) @ 0x403f24",
+                "ins_addr": "0x403f24"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x2c8>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405494",
+                "ins_addr": "0x405494"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x2c8>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405544",
+                "ins_addr": "0x405544"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x3d0>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405618",
+                "ins_addr": "0x405618"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x3d0>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x40574c",
+                "ins_addr": "0x40574c"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x3d0>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405824",
+                "ins_addr": "0x405824"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x3d0>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405910",
+                "ins_addr": "0x405910"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x3d0>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405990",
+                "ins_addr": "0x405990"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x3d0>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405a74",
+                "ins_addr": "0x405a74"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x3d0>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405b48",
+                "ins_addr": "0x405b48"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x3d0>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405c30",
+                "ins_addr": "0x405c30"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x3d0>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405cb0",
+                "ins_addr": "0x405cb0"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x2c8>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405ef4",
+                "ins_addr": "0x405ef4"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x2c8>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x405fac",
+                "ins_addr": "0x405fac"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x2c8>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x406078",
+                "ins_addr": "0x406078"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_4052a8",
+                    "string": "sub_4052a8(<MultiValues(<BV64 TOP>)>) @ 0x4052a8",
+                    "ins_addr": "0x4052a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base - 0x2c8>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x40613c",
+                "ins_addr": "0x40613c"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [
+                    "fread("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4216960,
+                    4217760,
+                    4218912,
+                    4216068,
+                    4217348,
+                    4218148,
+                    4215756,
+                    4215884,
+                    4219116,
+                    4218712,
+                    4216756,
+                    4216244,
+                    4218324,
+                    4218484,
+                    4217560
+                ]
+            },
+            "rank": 1.0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_404d4c",
+                    "string": "sub_404d4c() @ 0x404d4c",
+                    "ins_addr": "0x404d4c"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV64 stack_base + 0xffffffffffffff78>)>, <MultiValues(<BV64 0x40753d>)>) @ 0x404e68",
+                "ins_addr": "0x404e68"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4214308
+                ]
+            },
+            "rank": 0.5,
+            "reachable_from_main": false,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 15.33347487449646,
+    "vra_time": 7.840647220611572,
+    "path": "/home/iot_2204/xiaomi/Xiaomi_AX9000/squashfs-root/usr/sbin/meshd",
+    "name": "meshd",
+    "has_sinks": true,
+    "sha256": "06354100092c24d34024a5fbecf4c652f034abfe556a15fed8c9126c0d0f9c8c",
+    "sink_times": {
+        "system": 23.06934356689453,
+        "popen": 20.634491682052612
+    },
+    "error": null,
+    "mango_time": 48.67756271362305,
+    "sinks": {
+        "system": 1,
+        "popen": 1
+    },
+    "time_data": {
+        "0x40410c -> 0x401900": {
+            "taint_time": 0.07158231735229492,
+            "rda_time": 0.1360316276550293
+        },
+        "0x4051c8 -> 0x401c40 -> 0x401900": {
+            "taint_time": 2.9761459827423096,
+            "rda_time": 4.2308290004730225
+        },
+        "0x403354 -> 0x401900": {
+            "taint_time": 0.8509793281555176,
+            "rda_time": 1.3076720237731934
+        },
+        "0x404f54 -> 0x401900": {
+            "taint_time": 0.7323219776153564,
+            "rda_time": 1.3283452987670898
+        },
+        "0x404004 -> 0x401900": {
+            "taint_time": 0.4031062126159668,
+            "rda_time": 0.4534451961517334
+        },
+        "0x4064b8 -> 0x401900": {
+            "taint_time": 2.9927802085876465,
+            "rda_time": 2.7970993518829346
+        },
+        "0x403e14 -> 0x401c40 -> 0x401900": {
+            "taint_time": 1.1742732524871826,
+            "rda_time": 1.7180299758911133
+        },
+        "0x403f74 -> 0x401c40 -> 0x401900": {
+            "taint_time": 1.0635638236999512,
+            "rda_time": 0.9732077121734619
+        },
+        "0x401c40 -> 0x401810": {
+            "taint_time": 1.4270820617675781,
+            "rda_time": 1.7372665405273438
+        },
+        "0x4052a8 -> 0x401810": {
+            "taint_time": 2.3778131008148193,
+            "rda_time": 2.118149995803833
+        },
+        "0x404d4c -> 0x401810": {
+            "taint_time": 0.1851191520690918,
+            "rda_time": 0.6396300792694092
+        },
+        "0x402f6c -> 0x401c40 -> 0x401810": {
+            "taint_time": 0.9217391014099121,
+            "rda_time": 1.5796432495117188
+        }
+    }
+}

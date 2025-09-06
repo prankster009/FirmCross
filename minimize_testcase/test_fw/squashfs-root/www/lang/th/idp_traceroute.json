@@ -1,0 +1,10 @@
+{
+    "idp_traceroute": {
+        "lang_idp_traceroute_title": "Traceroute",
+        "lang_idp_traceroute_complete_title": "Trace เสร็จสมบูรณ์",
+        "lang_idp_traceroute_start_title": "Traceroute ไปยัง",
+        "lang_idp_traceroute_hop_max_title": "การข้ามสูงสุด",
+        "lang_idp_traceroute_data_unit_title": "แพคเก็ตไบต์",
+        "lang_idp_traceroute_unknow_host_title": "โฮสต์ที่ไม่รู้จัก"
+    }
+}

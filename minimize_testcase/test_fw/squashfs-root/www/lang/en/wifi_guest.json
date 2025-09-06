@@ -1,0 +1,13 @@
+{
+    "wifi_guest": {
+        "lang_guest_zone_guest_access_title": "Guest Access provides visitors to your home with Internet access without giving them access to your computer or personal data.",
+        "lang_guest_access_allow_title": "Allow Guest Access",
+        "lang_guest_net_name_title": "Guest Network Name",
+        "lang_guest_password_title": "Guest Password",
+        "lang_guest_change_pwd_button": "Change",
+        "lang_guest_allow_total_title": "Total Guests Allowed",
+        "lang_ssid_broadcast_title": "SSID Broadcast",
+        "lang_guest_info_title": "Your guests should connect to your wireless network listed above by opening a Web browser and entering the guest password.",
+        "lang_enable_warning": "If you want to enable Guest Access, you need to go to \"Basic Wireless Settings\" -> uncheck EasyMesh"
+    }
+}

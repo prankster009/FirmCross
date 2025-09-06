@@ -1,0 +1,19 @@
+{
+    "security_ipv6": {
+        "lang_ipv6_zone_firewall_title": "Cài đặt tường lửa IPv6",
+        "lang_ipv6_description_title": "Mô tả",
+        "lang_ipv6_address_title": "Địa chỉ IPv6",
+        "lang_ipv6_disable": "Tắt",
+        "lang_ipv6_tcp": "TCP",
+        "lang_ipv6_udp": "UDP",
+        "lang_ipv6_both": "Cả hai",
+        "lang_ipv6_allow_title": "Cho phép",
+        "lang_ipv6_to": "tới",
+        "lang_ipv6_optional": "(Tùy chọn)",
+        "lang_ipv6_allowing_ports": "Cổng cho phép",
+        "lang_ipv6_description": "Mô tả",
+        "lang_ipv6_address": "Địa chỉ",
+        "lang_ipv6_allow": "Cho phép",
+        "lang_ipv6_error_msg_1": "Bạn đã nhập một địa chỉ IPv6 không hợp lệ, vui lòng nhập lại địa chỉ IPv6 chính xác."
+    }
+}

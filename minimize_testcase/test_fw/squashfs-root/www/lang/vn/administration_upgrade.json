@@ -1,0 +1,20 @@
+{
+    "administration_upgrade": {
+        "lang_current_fw_title": "Phiên bản phần mềm điều khiển hiện tại",
+        "lang_check_fw_button": "Kiểm tra phần mềm điều khiển",
+        "lang_upload_fw_title": "Vui lòng chọn tệp để nâng cấp",
+        "lang_upgrade_fw_button": "Bắt đầu nâng cấp",
+        "lang_upgrade_fw_progress_warning": "Cảnh báo",
+        "lang_upgrade_fw_progress_warning_info": "Quá trình nâng cấp phần mềm điều khiển có thể kéo dài vài phút; vui lòng không tắt nguồn hoặc ấn nút reset (đặt lại).",
+        "lang_upgrade_fw_progress_warning_tip": "KHÔNG làm gián đoạn quá trình nâng cấp!!",
+        "lang_ota_last_version_title": "Phiên bản phần mềm điều khiển mới nhất",
+        "lang_ota_upgrade_button": "Nâng cấp",
+        "lang_file_empty_msg": "Vui lòng chọn tệp để nâng cấp",
+        "lang_file_format_msg": "Tệp hình ảnh không chính xác.",
+        "lang_upgrade_success": "Nâng cấp phần mềm điều khiển thành công",
+        "lang_upgrade_rebooting": "Đang khởi động lại......",
+        "lang_file_upgrade_fail_msg": "Nâng cấp phần mềm điều khiển không thành công!",
+        "lang_up_to_date_msg": "Mới nhất",
+        "lang_auto_upgrade_title": "nâng cấp Firmware tự động"
+    }
+}

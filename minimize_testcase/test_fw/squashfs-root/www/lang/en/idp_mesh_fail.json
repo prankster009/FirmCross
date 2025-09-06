@@ -1,0 +1,6 @@
+{
+    "idp_mesh_fail": {
+        "lang_idp_mesh_fail_title": "Connecting to your child node took longer than expected. Try again.",
+        "lang_idp_mesh_tryagain": "Try again"
+    }
+}

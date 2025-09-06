@@ -1,0 +1,6 @@
+{
+    "idp_mesh_fail": {
+        "lang_idp_mesh_fail_title": "La connexion à votre nœud enfant a pris plus longtemps que prévu. Essayez à nouveau.",
+        "lang_idp_mesh_tryagain": "Essayer à nouveau"
+    }
+}

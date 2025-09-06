@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="mesh_info" onsubmit="return false;">
+
+<div class="pop-modal">
+<div class="modal-header">
+<br><h3><span  style="font-weight:bold;" class="multi_lang" id="lang_idp_mesh_info_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<table class="table table-info-bg table-bordered" id = "parent_info">
+<div class="table-title" style="text-align:center"><span class="multi_lang" id="lang_idp_connected"></span></div>
+<thead>
+<tr>
+<th><span class="multi_lang" id="lang_idp_child_info_name"></span></th>
+<th><span class="multi_lang" id="lang_idp_device_type"></span></th>
+<th><span class="multi_lang" id="lang_idp_child_info_interface"></span></th>
+<th><span class="multi_lang" id="lang_idp_child_info_ip"></span></th>
+<th><span class="multi_lang" id="lang_idp_child_info_mac"></span></th>
+<th><span class="multi_lang" id="lang_idp_child_info_fw"></span></th>
+</tr>
+</thead>
+</table>
+
+<div id ="inn">
+
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="modal-footer">
+
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="refresh()" id="btnRefresh"></button>
+<button type="button" data-dismiss="modal" class="btncancel multi_lang logger_bot" onclick="closePopout()" id="btnClose"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+var info_data={};
+var L, L_parent;
+var sel_dev="";
+var dev_list=[];
+var INFO_LIST = ['easyMesh','easyMeshMsg']
+var p_list = new Array();
+var c_list = new Array();
+var count = new Set();
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+L_parent = window.parent.L.connectivity_mesh;
+$('#loader', window.parent.document).hide();
+//dev_list=window.parent.INFO_DATA.hosts;
+get_info_data(INFO_LIST);
+inject_log_bot_idp();
+resizePopout();
+},1000);
+
+}
+
+function get_info_success_cb(obj) {
+INFO_DATA = API.obj.copy(obj);
+MODIFIED_INFO_DATA = API.obj.copy(INFO_DATA);
+info_init(MODIFIED_INFO_DATA);
+resizePopout()
+}
+
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+function p_data(name, type, iface, ip, mac, fw, upstream){
+if(typeof(name)=="undefined")
+this.name = "N/A";
+else
+this.name = name;
+if(typeof(type)=="undefined")
+this.type = "N/A";
+else
+this.type = type;
+if(typeof(iface)=="undefined")
+this.iface = "N/A";
+else
+this.iface = iface;
+if(typeof(ip)=="undefined")
+this.ip = "N/A";
+else
+this.ip = ip;
+if(typeof(mac)=="undefined")
+this.mac = "N/A";
+else
+this.mac = mac;
+if(typeof(fw)=="undefined")
+this.fw = "N/A";
+else
+this.fw = fw;
+this.upstream = upstream;
+}
+
+function c_data(name, type,iface, ip, mac, fw, upstream, upstream_name){
+if(typeof(name)=="undefined")
+this.name = "N/A";
+else
+this.name = name;
+if(typeof(type)=="undefined")
+this.type = "N/A";
+else
+this.type = type;
+if(typeof(iface)=="undefined")
+this.iface = "N/A";
+else
+this.iface = iface;
+if(typeof(ip)=="undefined")
+this.ip = "N/A";
+else
+this.ip = ip;
+if(typeof(mac)=="undefined")
+this.mac = "N/A";
+else
+this.mac = mac;
+if(typeof(fw)=="undefined")
+this.fw = "N/A";
+else
+this.fw = fw;
+this.upstream = upstream;
+this.upstream_name = upstream_name;
+}
+
+function info_init(obj){
+var tab = document.getElementById('parent_info');
+var inn = document.getElementById('inn');
+var p_tmp;
+var c_tmp;
+if(typeof(obj.easyMeshMsg) != "undefined"){
+for(var i=0; i<obj.easyMesh.Devices.length;i++){
+for(var j=0; j<obj.easyMeshMsg.Devices.length;j++){
+if(obj.easyMesh.Devices[i].ALMAC == obj.easyMeshMsg.Devices[j].ALMAC){
+obj.easyMesh.Devices[i]['Name']=obj.easyMeshMsg.Devices[j].Name
+obj.easyMesh.Devices[i]['IP']=obj.easyMeshMsg.Devices[j].IP
+obj.easyMesh.Devices[i]['Model']=obj.easyMeshMsg.Devices[j].Model
+obj.easyMesh.Devices[i]['Version']=obj.easyMeshMsg.Devices[j].Version
+}
+}
+}
+for(var i=0; i<obj.easyMesh.Clients.length;i++){
+for(var j=0; j<obj.easyMeshMsg.Devices.length;j++){
+if(obj.easyMesh.Clients[i].MAC == obj.easyMeshMsg.Devices[j].ALMAC){
+obj.easyMesh.Clients[i]['Name']=obj.easyMeshMsg.Devices[j].Name
+obj.easyMesh.Clients[i]['IP']=obj.easyMeshMsg.Devices[j].IP
+obj.easyMesh.Clients[i]['Model']=obj.easyMeshMsg.Devices[j].Model
+obj.easyMesh.Clients[i]['Version']=obj.easyMeshMsg.Devices[j].Version
+}
+}
+}
+for(var i=0; i<obj.easyMesh.Devices.length;i++){
+for(var j=0; j<obj.easyMesh.Clients.length;j++){
+if(obj.easyMesh.Devices[i].ALMAC == obj.easyMesh.Clients[j].Upstream){
+if(obj.easyMesh.Devices[i].Role == '02'){
+c_tmp = new c_data(obj.easyMesh.Clients[j].Name,"station", obj.easyMesh.Clients[j].Interface, obj.easyMesh.Clients[j].IP, obj.easyMesh.Clients[j].MAC, obj.easyMesh.Clients[j].Version, obj.easyMesh.Clients[j].Upstream, obj.easyMesh.Devices[i].Name)
+c_list.push(c_tmp)
+count.add(obj.easyMesh.Clients[j].Upstream)
+}else{
+p_tmp = new p_data(obj.easyMesh.Clients[j].Name,"station", obj.easyMesh.Clients[j].Interface, obj.easyMesh.Clients[j].IP,  obj.easyMesh.Clients[j].MAC, obj.easyMesh.Clients[j].Version, obj.easyMesh.Clients[j].Upstream)
+p_list.push(p_tmp)
+}
+}
+}
+}
+}else{
+if(typeof(obj.Devices) != "undefined"){
+for(var i=0; i<obj.Devices.length;i++){
+for(var j=0; j<obj.Clients.length;j++){
+if(obj.Devices[i].ALMAC == obj.Clients[j].Upstream){
+if(obj.Devices[i].Role == '02'){
+c_tmp = new c_data(obj.Clients[j].Name,"station", obj.Clients[j].Interface, obj.Clients[j].IP, obj.Clients[j].MAC, obj.Clients[j].Version, obj.Clients[j].Upstream, obj.Devices[i].Name)
+c_list.push(c_tmp)
+count.add(obj.Clients[j].Upstream)
+}
+else{
+p_tmp = new p_data(obj.Clients[j].Name,"station", obj.Clients[j].Interface, obj.Clients[j].IP,  obj.Clients[j].MAC, obj.Clients[j].FW, obj.Clients[j].Upstream)
+p_list.push(p_tmp)
+}
+}
+}
+}
+}
+}
+for(var i=0; i<p_list.length;i++){
+for(var j=0; j<obj.easyMeshMsg.Devices.length;j++){
+if(p_list[i].mac == obj.easyMeshMsg.Devices[j].ALMAC){
+p_list[i].type = "mesh node"
+}
+}
+}
+for(var i=0; i<c_list.length;i++){
+for(var j=0; j<obj.easyMeshMsg.Devices.length;j++){
+if(c_list[i].mac == obj.easyMeshMsg.Devices[j].ALMAC)
+c_list[i].type = "mesh node"
+}
+}
+for(var i=0; i<p_list.length;i++){
+tab.innerHTML+='<tr><td style="white-space:pre;">'+p_list[i].name+'</td><td>'+p_list[i].type+'</td><td>'+p_list[i].iface+'</td><td>'+p_list[i].ip+'</td><td>'+p_list[i].mac+'</td><td>'+p_list[i].fw+'</td></tr>';
+}
+var child = Array.from(count)
+
+for(var i=0;i<child.length;i++){
+for(var j=0; j< c_list.length;j++){
+if(child[i] ==  c_list[j].upstream){
+var tmp_list;
+tmp_list = '<tr><td style="white-space:pre;">'+c_list[j].name+'</td><td>'+c_list[j].type+'</td><td>'+c_list[j].iface+'</td><td>'+c_list[j].ip+'</td><td>'+c_list[j].mac+'</td><td>'+c_list[j].fw+'</td></tr>'
+tab.innerHTML+=tmp_list
+}
+tab.innerHTML+='</table>'
+}
+}
+}
+
+function refresh(){
+closePopout();
+window.parent.switch_page("info2");
+}
+
+
+
+
+</script>
+
+</FORM></BODY></HTML>

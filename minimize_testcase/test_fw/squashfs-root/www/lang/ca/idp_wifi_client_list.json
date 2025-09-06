@@ -1,0 +1,21 @@
+{
+    "idp_wifi_client_list": {
+        "lang_idp_wifi_client_list_title": "Liste de périphériques clients sans fil",
+        "lang_idp_wifi_client_list_sortby_title": "Trier par",
+        "lang_idp_wifi_client_list_ipaddr": "Adresse IP",
+        "lang_idp_wifi_client_list_mac_addr": "Adresse MAC",
+        "lang_idp_wifi_client_list_status": "État",
+        "lang_idp_wifi_client_list_name": "Nom du client",
+        "lang_idp_wifi_client_list_name_title": "Nom du client",
+        "lang_idp_wifi_client_list_interface_title": "Interface",
+        "lang_idp_wifi_client_list_ipaddr_title": "Adresse IP",
+        "lang_idp_wifi_client_list_mac_addr_title": "Adresse MAC",
+        "lang_idp_wifi_client_list_status_title": "État",
+        "lang_idp_wifi_client_list_none_title": "Aucun",
+        "lang_idp_wifi_client_list_save_to_title": "Enregistrer dans la Liste de filtrage d'adresses MAC",
+        "lang_idp_wifi_client_list_connected_title": "Connecté",
+        "lang_idp_wifi_client_list_disconnected_title": "Déconnecté",
+        "lang_idp_wifi_client_list_wireless_title": "Sans-fil",
+        "lang_idp_wifi_client_list_lan_title": "Réseau local (LAN)"
+    }
+}

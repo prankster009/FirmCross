@@ -1,0 +1,16 @@
+{
+    "security_portrangefowarding": {
+        "lang_prf_app_name_title": "Tên ứng dụng",
+        "lang_prf_port_range_title": "Cổng Bắt đầu ~ Kết thúc",
+        "lang_prf_protocol_title": "Giao thức",
+        "lang_prf_to_ip_title": "Đến địa chỉ IP",
+        "lang_prf_enabled_title": "Bật",
+        "lang_prf_action_title": "Hành động",
+        "lang_prf_add_btn_title": "Thêm Chuyển tiếp dải cổng mới",
+        "lang_prf_disabled_title": "Tắt",
+        "lang_prf_remove_btn_title": "Xoá",
+        "lang_prf_protocol_both": "Cả hai",
+        "lang_prf_protocol_tcp": "TCP",
+        "lang_prf_protocol_udp": "UDP"
+    }
+}

@@ -1,0 +1,805 @@
+<script type="text/javascript">
+var OBJ_LIST = ['wlanBasic','wlanSecurity','wlanWps','wlanMacFilter','wlanGuest','wlanMpt','easyMeshBasic','easyMeshBss']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var network_mode_5g_str = ['network_mode_opt_5g_mixed','network_mode_opt_ac_mixed','network_mode_opt_a','network_mode_opt_n','network_mode_opt_disabled'];
+var network_mode_5g_val = ['14','15','2','11','disabled'];
+var network_mode_2_4g_str = ['network_mode_opt_mixed','network_mode_opt_b_g','network_mode_opt_b','network_mode_opt_g','network_mode_opt_n','network_mode_opt_disabled'];
+var network_mode_2_4g_val = ['9','0','1','4','6','disabled'];
+//var network_mode_5g_str = ['network_mode_opt_5g_mixed'];
+//var network_mode_5g_val = ['14'];
+//var network_mode_2_4g_str = ['network_mode_opt_mixed'];
+//var network_mode_2_4g_val = ['9'];
+var channel_width_5g_str = ['channel_width_opt_auto','channel_width_opt_20MHz','channel_width_opt_40MHz','channel_width_opt_80MHz'];
+var channel_width_5g_val = ['0','1','2','3'];
+var channel_width_2_4g_str = ['channel_width_opt_auto','channel_width_opt_20MHz','channel_width_opt_40MHz'];
+var channel_width_2_4g_val = ['0','1','2'];
+var channel_5g_val = ['0','36','40','44','48','149','153','157','161','165'];
+var channel_2_4g_val = ['0','1','2','3','4','5','6','7','8','9','10','11'];
+var country_val=['TWN'];
+var is_init = false;
+var SAVE_WIFI_WAITING_TIME = 15000;
+</script>
+
+<table class="table table-info set_zone"><tbody>
+<tr id="tr_node_type">
+<td>
+<span id="checkbox_div_easymesh">
+<div class="checker ">
+<span class=""><input class="logger_bot" type="checkbox" id="easymesh" name="easymesh" value="on" onclick="mesh_checked();update_checked(this.name)"></span>
+</div>
+<span class="checkstd multi_lang" id="lang_mesh_title">EasyMesh</span>
+</span>
+</td>
+</tr>
+<tr id="tr_add_node">
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_add_node_button" onclick="displayPopout('mesh_plug',550);">Add a new node</button>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_mesh_info_button" onclick="displayPopout('mesh_info',800);">Mesh information</button>
+</td>
+</tr>
+</tbody></table>
+
+<div class="table-title wifi_setting_5g_zone">
+<span class="multi_lang" id="lang_wifi_basic_zone_wifi_setting_5g_title"></span>
+</div>
+<hr class="table-title-underline wifi_setting_5g_zone">
+<table class="table table-info wifi_setting_5g_zone">
+<tbody>
+<tr id="tr_network_mode_5g" >
+<td>
+<span class="multi_lang" id="lang_network_mode_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('network_mode_5g', network_mode_5g_str, network_mode_5g_val,"wifi_mode_selected('5',this.value)", '');})();</script>
+<div id="select_div_network_mode_5g"></div>
+</td>
+</tr>
+<tr id="tr_network_name_5g" >
+<td>
+<span class="multi_lang" id="lang_network_name_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="network_name_5g" id="network_name_5g" onblur="valid_ssid('5',this.value)" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_channel_width_5g" >
+<td>
+<span class="multi_lang" id="lang_channel_width_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('channel_width_5g', channel_width_5g_str, channel_width_5g_val,"bandwidth_selected('5',this.value)", '');})();</script>
+<div id="select_div_channel_width_5g"></div>
+</td>
+</tr>
+<tr id="tr_channel_5g" >
+<td>
+<span class="multi_lang" id="lang_channel_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('channel_5g', channel_5g_val, channel_5g_val,"channel_selected('5',this.value)", '');})();</script>
+<div id="select_div_channel_5g"></div>
+</td>
+</tr>
+<tr id="tr_ssid_broadcast_5g" >
+<td><script>draw_checkbox('ssid_broadcast_5g', 'lang_ssid_broadcast_title', 'on', "ssid_broadcast_checked('5')");</script><span id="checkbox_div_ssid_broadcast_5g"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title wifi_setting_2_4g_zone">
+<span class="multi_lang" id="lang_wifi_basic_zone_wifi_setting_2_4g_title"></span>
+</div>
+<hr class="table-title-underline wifi_setting_2_4g_zone">
+<table class="table table-info wifi_setting_2_4g_zone">
+<tbody>
+<tr id="tr_network_mode_2_4g" >
+<td>
+<span class="multi_lang" id="lang_network_mode_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('network_mode_2_4g', network_mode_2_4g_str, network_mode_2_4g_val,"wifi_mode_selected('2_4',this.value)", '');})();</script>
+<div id="select_div_network_mode_2_4g"></div>
+</td>
+</tr>
+<tr id="tr_network_name_2_4g" >
+<td>
+<span class="multi_lang" id="lang_network_name_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="network_name_2_4g" id="network_name_2_4g" onblur="valid_ssid('2_4',this.value)" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_channel_width_2_4g" >
+<td>
+<span class="multi_lang" id="lang_channel_width_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('channel_width_2_4g', channel_width_2_4g_str, channel_width_2_4g_val,"bandwidth_selected('2_4',this.value)", '');})();</script>
+<div id="select_div_channel_width_2_4g"></div>
+</td>
+</tr>
+<tr id="tr_channel_2_4g" >
+<td>
+<span class="multi_lang" id="lang_channel_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('channel_2_4g', channel_2_4g_val, channel_2_4g_val,"channel_selected('2_4',this.value)", '');})();</script>
+<div id="select_div_channel_2_4g"></div>
+</td>
+</tr>
+<tr id="tr_ssid_broadcast_2_4g" >
+<td><script>draw_checkbox('ssid_broadcast_2_4g', 'lang_ssid_broadcast_title', 'on', "ssid_broadcast_checked('2_4')");</script><span id="checkbox_div_ssid_broadcast_2_4g"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div id='mpt_div' style="display:none">
+<div class="table-title wifi_setting_mpt_zone">
+<span class="multi_lang" id="lang_wifi_mpt_title"></span>
+</div>
+<hr class="table-title-underline wifi_setting_mpt_zone">
+<table class="table table-info wifi_setting_mpt_zone">
+<tbody>
+<tr>
+<td colspan="2">
+<span class="multi_lang" id="lang_wiz_mpt_info_1"></span>
+<br>
+<span class="multi_lang" id="lang_wiz_mpt_info_2"></span>
+</td>
+</tr>
+<tr>
+<td>
+<span style="color:#444444" class="multi_lang" id="lang_wifi_mpt_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('country', country_val, country_val,"country_selected(this.value)", '');})();</script>
+<div id="select_div_country"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='wifi_wifi_basic'
+$(document).ready(function(){
+$.lang_load("wifi_wifi_basic");
+$.lang_load("mpt");
+$.lang_load("connectivity_mesh");
+page_initial()
+inject_log_bot()
+//escape_detection();
+});
+
+function set_channel_options(wifi,ch_list) {
+var freq, opt_text;
+var i;
+
+$('#channel_'+wifi+'g').empty();
+$('#channel_'+wifi+'g').append('<option value="0">'+L.wifi_wifi_basic.lang_channel_opt_auto+'</option>');
+
+for (i=0; i < ch_list.length; ++i) {
+freq=parseInt(ch_list[i]);
+
+if (wifi == '2_4')
+opt_text=freq+' - '+(freq*0.005+2.407).toFixed(3)+' '+L.wifi_wifi_basic.lang_channel_unit;
+else if (wifi == '5')
+opt_text=freq+' - '+(freq*0.005+5).toFixed(3)+' '+L.wifi_wifi_basic.lang_channel_unit;
+else
+opt_text="";
+
+$('#channel_'+wifi+'g').append('<option value="'+ch_list[i]+'">'+opt_text+'</option>');
+}
+
+update_selected($('#channel_'+wifi+'g').attr('name'));
+}
+
+function set_channel_init(country) {
+var freq, opt_text;
+var region = MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.region;
+var dfs = MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.dfs_enable;
+var mptobj = JSON.parse(localStorage.mpt_data);
+var i;
+
+channel_2_4g_val = eval('mptobj.channel_list_2G.'+region+'_'+country);
+if (typeof(channel_2_4g_val) == 'undefined')
+channel_2_4g_val = [];
+else
+channel_2_4g_val = channel_2_4g_val.split(",");
+
+if (dfs == '1')
+channel_5g_val = eval('mptobj.channel_list_5G_dfs.'+region+'_'+country);
+else
+channel_5g_val = eval('mptobj.channel_list_5G.'+region+'_'+country);
+
+if (typeof(channel_5g_val) == 'undefined')
+channel_5g_val = [];
+else
+channel_5g_val = channel_5g_val.split(",");
+
+set_channel_options('2_4',channel_2_4g_val);
+set_channel_options('5',channel_5g_val);
+}
+
+function set_mpt_init(obj) {
+var country_list = localStorage.mpt_country_list.split(",");
+var region = obj.region;
+var country = obj.selectedCountry;
+var i;
+/*
+if (obj.support == '1' && obj.enable == '1') {
+$('#mpt_div').show();
+}
+else {
+$('#mpt_div').hide();
+}
+
+$('#country').empty();
+for (i=0; i < country_list.length; ++i) {
+$('#country').append('<option value="'+country_list[i]+'">'+eval('L.mpt.lang_mpt_country_'+country_list[i])+'</option>');
+}
+
+$('#country').val(country);
+*/
+set_channel_init(country);
+
+//		update_selected($('#country').attr('name'));
+}
+
+function set_channel_width(wifi,bw_list,sel_value) {
+var i;
+var bw_lang_list = [L.wifi_wifi_basic.lang_channel_width_opt_auto,
+L.wifi_wifi_basic.lang_channel_width_opt_20MHz,
+L.wifi_wifi_basic.lang_channel_width_opt_40MHz,
+L.wifi_wifi_basic.lang_channel_width_opt_80MHz];
+
+$('#channel_width_'+wifi+'g').empty();
+
+for (i=0; i < bw_list.length; ++i) {
+$('#channel_width_'+wifi+'g').append('<option value="'+bw_list[i]+'">'+bw_lang_list[bw_list[i]]+'</option>');
+}
+
+$('#channel_width_'+wifi+'g').val(sel_value);
+if ($('#channel_width_'+wifi+'g').val() === null)
+$('#channel_width_'+wifi+'g').val('0');
+
+update_selected($('#channel_width_'+wifi+'g').attr('name'));
+}
+
+function get_obj_from_ui(obj,wifi) {
+if ($('#network_mode_'+wifi+'g').val() == 'disabled') {
+obj.enable='0';
+}
+else {
+obj.enable='1';
+obj.wifimode=$('#network_mode_'+wifi+'g').val();
+}
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1" && wifi=="5")
+$('#network_name_5g').val(MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.ssid5G);
+else if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1" && wifi=="2_4")
+$('#network_name_2_4g').val(MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.ssid);
+else
+obj.ssid=$('#network_name_'+wifi+'g').val();
+obj.bw=$('#channel_width_'+wifi+'g').val();
+obj.channel=$('#channel_'+wifi+'g').val();
+obj.hiddenAP=$('#ssid_broadcast_'+wifi+'g').prop('checked') ? '0' : '1';
+}
+
+function set_ui_from_obj(obj,wifi) {
+if (obj.enable == '1') {
+$('#network_mode_'+wifi+'g').val(obj.wifimode);
+wifi_mode_selected(wifi,obj.wifimode);
+}
+else {
+$('#network_mode_'+wifi+'g').val('disabled'); // disabled
+wifi_mode_selected(wifi,'disabled');
+}
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1" && wifi=="5"){
+$('#network_name_5g').val(MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.ssid5G);
+}
+else if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1" && wifi=="2_4"){
+$('#network_name_2_4g').val(MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.ssid);
+}
+else
+$('#network_name_'+wifi+'g').val(obj.ssid);
+$('#network_name_'+wifi+'g').attr('value',obj.ssid);
+
+$('#channel_width_'+wifi+'g').val(obj.bw);
+bandwidth_selected(wifi,obj.bw);
+
+$('#channel_'+wifi+'g').val(obj.channel);
+channel_selected(wifi,obj.channel);
+
+if (obj.hiddenAP == '1')
+$('#ssid_broadcast_'+wifi+'g').prop('checked',false);
+else
+$('#ssid_broadcast_'+wifi+'g').prop('checked',true);
+}
+
+function set_wifi_basic_init(obj) {
+var i;
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+$("#tr_channel_width_5g").hide()
+$("#tr_channel_width_2_4g").hide()
+//$("#tr_network_mode_2_4g").hide()
+//$("#checkbox_div_ssid_broadcast_2_4g").hide()
+//$("#ssid_broadcast_5g").attr("disabled", "true");
+//$("#ssid_broadcast_2_4g").attr("disabled", "true");
+}
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+$("#tr_add_node").show()
+}else{
+$("#tr_add_node").hide()
+}
+is_init = true;
+var enable_status = MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable;
+if(enable_status == "1")
+$('#easymesh').prop('checked',true);
+else
+$('#easymesh').prop('checked',false);
+update_checked($('#easymesh').attr('name'));
+set_mpt_init(MODIFIED_OBJ_DATA.wlanMpt.WlanMptP);
+
+for (i=0; i < obj.wlanBasic.WlanBasicT.length; ++i) {
+if (obj.wlanBasic.WlanBasicT[i].type == "2") {
+set_ui_from_obj(obj.wlanBasic.WlanBasicT[i],'2_4');
+}
+else if (obj.wlanBasic.WlanBasicT[i].type == "5") {
+set_ui_from_obj(obj.wlanBasic.WlanBasicT[i],'5');
+}
+}
+
+is_init = false;
+
+update_selected($('#channel_width_5g').attr('name'));
+update_selected($('#channel_5g').attr('name'));
+update_checked($('#ssid_broadcast_5g').attr('name'));
+update_selected($('#channel_width_2_4g').attr('name'));
+update_selected($('#channel_2_4g').attr('name'));
+update_checked($('#ssid_broadcast_2_4g').attr('name'));
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+$("#network_mode_5g option[value='15']").remove();
+$("#network_mode_5g option[value='2']").remove();
+$("#network_mode_5g option[value='11']").remove();
+$("#network_mode_5g option[value='disabled']").remove();
+$("#network_mode_2_4g option[value='0']").remove();
+$("#network_mode_2_4g option[value='1']").remove();
+$("#network_mode_2_4g option[value='4']").remove();
+$("#network_mode_2_4g option[value='6']").remove();
+$("#network_mode_2_4g option[value='disabled']").remove();
+$("#network_mode_5g").val('14');
+$("#network_mode_2_4g").val('9');
+}
+update_selected($('#network_mode_5g').attr('name'));
+update_selected($('#network_mode_2_4g').attr('name'));
+}
+
+function set_all_element_enable(wifi) {
+$('#network_name_'+wifi+'g').removeAttr('disabled');
+$('#channel_width_'+wifi+'g').removeAttr('disabled');
+$('#channel_'+wifi+'g').removeAttr('disabled');
+$('#ssid_broadcast_'+wifi+'g').removeAttr('disabled');
+}
+
+function set_all_element_disable(wifi) {
+$('#network_name_'+wifi+'g').attr('disabled','true');
+$('#channel_width_'+wifi+'g').attr('disabled','true');
+$('#channel_'+wifi+'g').attr('disabled','true');
+$('#ssid_broadcast_'+wifi+'g').attr('disabled','true');
+}
+
+function get_obj_by_wifi(obj,wifi) {
+var i;
+
+if (wifi == '2_4') wifi = '2';
+else if (wifi == '5') wifi = '5';
+
+// wifi: 2 or 5
+for (i=0; i < obj.length; ++i) {
+if (obj[i].type == wifi) {
+return obj[i];
+}
+}
+return null;
+}
+
+function wifi_mode_selected(wifi,value) {
+var mixed;
+var old_value = get_obj_by_wifi(MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT,wifi);
+var security = get_obj_by_wifi(MODIFIED_OBJ_DATA.wlanSecurity.WlanSecurityT,wifi);
+var bw_value, bw_list, bw_list_new=[];
+
+if (wifi == '2_4')
+mixed = '9';	// bgn
+else if (wifi == '5')
+mixed = '14';	// an
+
+if (old_value === null)
+return;
+old_value = old_value.wifimode;
+
+if (security === null)
+return;
+security = security.authtype;
+
+// warn when switch to mixed if security is wep/wpa-personal/wpa-enterprise
+if (value == mixed && (security == 'WEP' || security == 'WPAPSK' || security == 'WPAENTERPRISE')) {
+if (confirm(eval('L.wifi_wifi_basic.lang_network_mode_alert_'+wifi+'g_mixed_title')) == false)
+$('#network_mode_'+wifi+'g').val(mixed);
+}
+
+// warn when switch ro n-only if security is not open/wps2-personal
+if ( (wifi == '2_4' && value == '6' && old_value != '6') || (wifi == '5' && value == '11' && old_value != '11'))   {
+if (security != 'disabled' && security != 'WPA2PSK' && security != 'WPA3PSK' && security != 'WPA2PSKWPA3PSK') {
+if (confirm(L.wifi_wifi_basic.lang_network_mode_alert_nonly_title) == false)
+$('#network_mode_'+wifi+'g').val(old_value);
+}
+}
+
+bw_value = $('#channel_width_'+wifi+'g').val();
+bw_list = eval('channel_width_'+wifi+'g_val');
+
+if (wifi == '2_4') {
+if ($('#network_mode_'+wifi+'g').val() == '6' || $('#network_mode_'+wifi+'g').val() == mixed)
+set_channel_width(wifi,bw_list,bw_value);
+else{
+if(bw_value == "2") {
+bw_value = "1";
+$('#channel_width_'+wifi+'g').val(bw_value);
+}
+
+for (var i in bw_list) {
+if (bw_list[i] != "2") bw_list_new.push(bw_list[i]);
+}
+set_channel_width(wifi,bw_list_new,bw_value);
+}
+}
+else if (wifi == '5') {
+// 14:Mixed(A/AN/AC) , 15:Wireless-AN/AC Only
+if ($('#network_mode_'+wifi+'g').val() == mixed || $('#network_mode_'+wifi+'g').val() == '15')
+set_channel_width(wifi,bw_list,bw_value);
+else{
+if(bw_value == "3") {
+bw_value = "2";
+$('#channel_width_'+wifi+'g').val(bw_value);
+}
+
+for (var i in bw_list) {
+if (bw_list[i] != "3") bw_list_new.push(bw_list[i]);
+}
+set_channel_width(wifi,bw_list_new,bw_value);
+}
+}
+
+if (value == 'disabled') {
+if (is_init == false && check_status_for_wps() == false &&
+confirm(L.wifi_wifi_basic.lang_wps_disable_title) == false)
+{
+$('#network_mode_'+wifi+'g').val(old_value);
+wifi_mode_selected(wifi,old_value);
+return;
+}
+else
+set_all_element_disable(wifi);
+}
+else
+set_all_element_enable(wifi);
+
+if (value == mixed || value == '6' || value == '11' || value == '15')
+$('#channel_width_'+wifi+'g').removeAttr('disabled');
+else {
+// a-only or diabled
+$('#channel_width_'+wifi+'g').attr('disabled','true');
+$('#channel_width_'+wifi+'g').val('1'); // 20MHz
+}
+bandwidth_selected(wifi,$('#channel_width_'+wifi+'g').val());
+
+update_selected($('#network_mode_'+wifi+'g').attr('name'));
+update_selected($('#channel_width_'+wifi+'g').attr('name'));
+update_selected($('#channel_'+wifi+'g').attr('name'));
+update_checked($('#ssid_broadcast_'+wifi+'g').attr('name'));
+//if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+//        $("#ssid_broadcast_5g").attr("disabled", "true");
+//        $("#ssid_broadcast_2_4g").attr("disabled", "true");
+//}
+}
+
+function bandwidth_selected(wifi,value) {
+var region = MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.region;
+var ch_list = [];
+
+if (wifi == '5' && (region == 'US' || region == 'AH' || region == 'AU' || region == 'CA' || region == 'CN' || region == 'KR')) {
+if (value == '1')
+set_channel_options(wifi,channel_5g_val);
+else {
+for (var i in channel_5g_val) {
+if (channel_5g_val[i] != "165") ch_list.push(channel_5g_val[i]);
+}
+set_channel_options(wifi,ch_list);
+}
+}
+}
+
+function ssid_broadcast_checked(wifi) {
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+alert(L.connectivity_mesh.lang_ssid_warning);
+$('#ssid_broadcast_'+wifi+'g').prop('checked',true);
+return;
+}else{
+var security = get_obj_by_wifi(MODIFIED_OBJ_DATA.wlanSecurity.WlanSecurityT,wifi);
+
+if (security === null)
+return;
+security = security.authtype;
+
+//		if (security == 'WPA2PSK' && $('#ssid_broadcast_'+wifi+'g').prop('checked') == false) {
+if (security == 'WPA2PSK' && check_status_for_wps() == false) {
+if (confirm(L.wifi_wifi_basic.lang_wps_disable_title) == false) {
+$('#ssid_broadcast_'+wifi+'g').prop('checked',true);
+return;
+}
+}
+}
+
+}
+
+function valid_ssid(wifi,ssid) {
+var tmp_ssid = ssid;
+var obj = get_obj_by_wifi(MODIFIED_OBJ_DATA.wlanGuest.WlanGuestT,wifi);
+var old_ssid = $('#network_name_'+wifi+'g').attr('value');
+
+ssid = tmp_ssid.trim();
+
+if (obj === null) {
+$('#network_name_'+wifi+'g').val(old_ssid);
+return false;
+}
+
+if (ssid == "") {
+alert(L.wifi_wifi_basic.lang_network_name_alert_ssid_empty_title);
+$('#network_name_'+wifi+'g').val(old_ssid);
+return false;
+}
+
+if (obj.enable == '1' && $('#network_name_'+wifi+'g').val() == obj.ssid) {
+alert(eval('L.wifi_wifi_basic.lang_network_name_alert_ssid_'+wifi+'g_same_gn_title'));
+$('#network_name_'+wifi+'g').val(old_ssid);
+return false;
+}
+
+if (!validation_ssid_ascii(ssid)) {
+alert(eval('L.wifi_wifi_basic.lang_network_name_alert_ssid_'+wifi+'g_title'));
+$('#network_name_'+wifi+'g').val(old_ssid);
+return false;
+}
+
+$('#network_name_'+wifi+'g').val(ssid);
+$('#network_name_'+wifi+'g').attr('value',ssid);
+return true;
+}
+
+function channel_selected(wifi,value) {
+var region = MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.region;
+var wifiobj = get_obj_by_wifi(MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT,wifi);
+var bw_list, bw_list_new=[];
+
+if (wifiobj === null)
+return;
+
+if (wifi == '5' && (region == 'US' || region == 'AH' || region == 'AU' || region == 'CA' || region == 'CN' || region == 'KR')) {
+if (value == '165') {
+bw_list = ["1"];
+set_channel_width(wifi,bw_list,"1");	// only show 20MHz
+}
+else {
+bw_list = eval('channel_width_'+wifi+'g_val');
+for (var i in bw_list) {
+if (bw_list[i] == "3" && wifiobj.wifimode != "14" && wifiobj.wifimode != "15")
+continue;
+bw_list_new.push(bw_list[i]);
+}
+set_channel_width(wifi,bw_list_new,$('#channel_width_'+wifi+'g').val());
+}
+}
+}
+
+function country_selected(value) {
+set_channel_init(value);
+
+bandwidth_selected('2_4',$('#channel_width_2_4g').val());
+bandwidth_selected('5',$('#channel_width_5g').val());
+channel_selected('2_4',$('#channel_2_4g').val());
+channel_selected('5',$('#channel_5g').val());
+
+update_selected($('#channel_width_2_4g').attr('name'));
+update_selected($('#channel_width_5g').attr('name'));
+update_selected($('#channel_2_4g').attr('name'));
+update_selected($('#channel_5g').attr('name'));
+}
+
+function check_status_for_wps() {
+var band_2G_mode = $('#network_mode_2_4g').val();
+var band_5G_mode = $('#network_mode_5g').val();
+var band_2G_hidden = $('#ssid_broadcast_2_4g').prop('checked') ? '0' : '1';
+var band_5G_hidden = $('#ssid_broadcast_5g').prop('checked') ? '0' : '1';
+var band_2G_st, band_5G_st;
+
+band_2G_st = (band_2G_mode != 'disabled') && (band_2G_hidden == '0');
+band_5G_st = (band_5G_mode != 'disabled') && (band_5G_hidden == '0');
+
+if (band_2G_st || band_5G_st)
+return true;	// wps enable
+else
+return false;	// wps disable
+}
+
+function escape_modified_check() {
+page_save(true);
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1"){
+ORIGINAL_OBJ_DATA.wlanBasic.WlanBasicT[0].wifimode = MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[0].wifimode
+ORIGINAL_OBJ_DATA.wlanBasic.WlanBasicT[1].wifimode = MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[1].wifimode
+}
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+if (UI.obj.cmp(MODIFIED_OBJ_DATA.easyMeshBasic,ORIGINAL_OBJ_DATA.easyMeshBasic))
+SAVE_WIFI_WAITING_TIME=15000
+else
+SAVE_WIFI_WAITING_TIME=80000
+get_obj_data(OBJ_LIST);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+//window.location.replace("setting.html");
+open_main_url(this, 'setting/wifi/setting-wifi-wifi_basic.html', 'lang_submenu_setting_wifi_wifi_basic')
+},SAVE_WIFI_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+var i;
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1"){
+MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole='1';
+MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=$('#easymesh').prop('checked') ? '1' : '0';
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.ssid5G=$('#network_name_5g').val();
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.ssid=$('#network_name_2_4g').val();
+}
+//}else{
+for (i=0; i < MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT.length; ++i) {
+if (MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[i].type == "2") {
+get_obj_from_ui(MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[i],'2_4');
+}
+else if (MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[i].type == "5") {
+get_obj_from_ui(MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[i],'5');
+}
+
+// disabled wps when disabled ssid broadcast
+//if (MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[i].hiddenAP == '1')
+//	MODIFIED_OBJ_DATA.wlanWps.WlanWpsT[0].enable='0';
+}
+//}
+if (check_status_for_wps() == false)
+MODIFIED_OBJ_DATA.wlanWps.WlanWpsT[0].enable='0';
+//if (MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.support == '1' && MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.enable == '1')
+//	MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.selectedCountry = $('#country').val();
+//else
+//	delete MODIFIED_OBJ_DATA.wlanMpt;
+
+if (fake_action == true) return;
+
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA)) {
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+}
+else {
+pf_scroll_to_top()
+$("#loader").show();
+//if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1"){
+//	delete MODIFIED_OBJ_DATA.wlanBasic
+//	delete MODIFIED_OBJ_DATA.wlanWps
+//}
+delete MODIFIED_OBJ_DATA.wlanSecurity;
+delete MODIFIED_OBJ_DATA.wlanGuest;
+delete MODIFIED_OBJ_DATA.wlanMpt;
+if($('#easymesh').prop('checked')=='0')
+delete MODIFIED_OBJ_DATA.easyMeshBss
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1')
+localStorage.mash_mode="1"
+else if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='2' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1')
+localStorage.mash_mode="2"
+else
+localStorage.mash_mode="0"
+//localStorage.rd=["setting", "wifi", "#submenu_setting_wifi_wifi_basic .submenu-link",'setting/wifi/setting-wifi-wifi_basic.html','lang_submenu_setting_wifi_wifi_basic']
+set_obj_data(MODIFIED_OBJ_DATA);
+
+}
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_wifi_basic_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_wifi_basic_init(MODIFIED_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+get_obj_data(OBJ_LIST);
+}
+function mesh_checked(){
+if($('#easymesh').prop('checked')=="1"){
+alert(L.connectivity_mesh.lang_mesh_enable_warning)
+MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable="1"
+MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].enable="0"
+MODIFIED_OBJ_DATA.wlanGuest.WlanGuestT[0].enable="0"
+MODIFIED_OBJ_DATA.wlanGuest.WlanGuestT[1].enable="0"
+}else{
+if(!confirm(L.connectivity_mesh.lang_mesh_warning)){
+$('#easymesh').prop('checked',true);
+return;
+}else{
+
+MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable="0"
+}
+}
+}
+function switch_page(name){
+if(name == "confirm")
+displayPopout('mesh_confirm');
+else if(name=="plug")
+displayPopout('mesh_plug');
+else if(name=="name")
+displayPopout('mesh_name');
+else if(name=="info2")
+displayPopout('mesh_info_v2');
+else if(name=="info")
+displayPopout('mesh_info');
+else if(name=="pass")
+displayPopout('mesh_pass');
+else if(name=="fail")
+displayPopout('mesh_fail');
+else if(name=="save")
+displayPopout('mesh_save');
+}
+
+</script>
+

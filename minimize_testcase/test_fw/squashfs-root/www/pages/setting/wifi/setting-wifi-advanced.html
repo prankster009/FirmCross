@@ -1,0 +1,182 @@
+<script type="text/javascript">
+var OBJ_LIST = ['wlanBasic','wlanMpt']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var SAVE_WIFI_ADVANCED_WAITING_TIME = 15000;
+</script>
+<div class="table-title beamforming_setting_zone">
+<span class="multi_lang" id="lang_advanced_param_title"></span>
+</div>
+<table class="table table-info beamforming_setting_zone">
+<tbody>
+<tr id="tr_beamforming" >
+<p>
+<td><script>draw_checkbox('beamforming', 'lang_advanced_beamforming_title', 'on', "beamforming_checked()");</script><span id="checkbox_div_beamforming"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</p>
+</tr>
+</tbody>
+</table>
+<div id='mpt_div' style="display:none">
+<div class="table-title mpt_setting_zone">
+<span class="multi_lang" id="lang_wifi_mpt_title"></span>
+</div>
+<hr class="table-title-underline mpt_setting_zone">
+<table class="table table-info mpt_setting_zone">
+<tbody>
+<tr>
+<td colspan="2">
+<span class="multi_lang" id="lang_wiz_mpt_info_1"></span>
+<br>
+<span class="multi_lang" id="lang_wiz_mpt_info_2"></span>
+</td>
+</tr>
+<tr id="tr_mpt_region" >
+<td>
+<span style="color:#444444" class="multi_lang" id="lang_wifi_mpt_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){var str = [1, 2],val = ['1', '2'];draw_select('country', str, val,'callback()', '');})();</script>
+<div id="select_div_country"></div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript" language="javascript">
+page_tag='wifi_advanced'
+$(document).ready(function(){
+$.lang_load("wifi_advanced");
+$.lang_load("mpt");
+
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function set_mpt_init(obj) {
+var country_list = localStorage.mpt_country_list.split(",");
+var region = obj.region;
+var country = obj.selectedCountry;
+var i;
+
+if (obj.support == '1' && obj.enable == '1')
+$('#mpt_div').show();
+else
+$('#mpt_div').hide();
+
+$('#country').empty();
+for (i=0; i < country_list.length; ++i) {
+$('#country').append('<option value="'+country_list[i]+'">'+eval('L.mpt.lang_mpt_country_'+country_list[i])+'</option>');
+}
+$('#country').val(country);
+
+update_selected($('#country').attr('name'));
+}
+
+function set_wifi_advanced_init(obj) {
+$('#beamforming').attr('checked','checked');
+for (var i=0; i < obj.wlanBasic.WlanBasicT.length; ++i) {
+if (obj.wlanBasic.WlanBasicT[i].ETxBfEnCond == '0') {
+$('#beamforming').removeAttr('checked');
+break;
+}
+}
+
+update_checked($('#beamforming').attr("name"));
+
+set_mpt_init(MODIFIED_OBJ_DATA.wlanMpt.WlanMptP);
+}
+
+function beamforming_checked(){
+if ($('#beamforming').prop('checked'))
+$('#beamforming').attr('checked','checked');
+else
+$('#beamforming').removeAttr('checked');
+}
+
+function callback(){
+
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+get_obj_data(OBJ_LIST);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+},SAVE_WIFI_ADVANCED_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+
+if (obj.api_return == 403)
+logout('sto')
+else
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action) {
+var is_beamforming=$('#beamforming').parent('span').hasClass('checked') ? '1' : '0';
+
+for (var i=0; i < MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT.length; ++i)
+MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[i].ETxBfEnCond=is_beamforming;
+
+if (MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.support == '1' && MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.enable == '1')
+MODIFIED_OBJ_DATA.wlanMpt.WlanMptP.selectedCountry = $('#country').val();
+//else
+//	delete MODIFIED_OBJ_DATA.wlanMpt;
+
+if (fake_action == true) return;
+
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+else {
+$("#loader").show();
+
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+}
+function page_cancel(){
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_wifi_advanced_init(MODIFIED_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_wifi_advanced_init(MODIFIED_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403)
+logout('sto')
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+</script>

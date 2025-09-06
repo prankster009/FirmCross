@@ -1,0 +1,14 @@
+{
+    "wifi_macfilter": {
+        "lang_wifi_mac_filter_enable_title": "ワイヤレス MAC フィルター",
+        "lang_access_state_prevent_title": "防止",
+        "lang_access_state_prevent_info": "以下にリストされている PC のワイヤレス ネットワークへのアクセス",
+        "lang_access_state_permit_title": "許可",
+        "lang_access_state_permit_info": "以下にリストされている PC のワイヤレス ネットワークへのアクセス",
+        "lang_mafilter_zone_mac_addr_filter_list_title": "MAC アドレス フィルター リスト",
+        "lang_client_list_button": "ワイヤレス クライアント リスト",
+        "lang_mac_address_title": "MAC",
+        "lang_wps_disable_title": "新しい設定が Wi-Fi 保護セットアップを無効にします。続行しますか？",
+        "lang_enable_warning": "If you want to enable Wireless MAC Filter, you need to go to \"Basic Wireless Settings\" -> uncheck EasyMesh"
+    }
+}

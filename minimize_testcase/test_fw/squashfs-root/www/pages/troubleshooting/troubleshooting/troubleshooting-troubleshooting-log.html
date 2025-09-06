@@ -1,0 +1,128 @@
+<script type="text/javascript">
+var OBJ_LIST = ['logEnable']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+</script>
+<table class="table table-info log_setting_zone">
+<tbody>
+<tr id="tr_log_enable" >
+<td><script>draw_checkbox('log_enable', 'lang_log_enable_title', 'on', "log_enable_checked()");</script><span id="checkbox_div_log_enable"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_view_log_button" onclick="view_log_clicked()"></button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='troubleshooting_log'
+$(document).ready(function(){
+$.lang_load("troubleshooting_log");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function set_log_init(obj) {
+if (obj.logEnable.LogEnableP.logEnable == '1')
+//$('#log_enable').attr('checked','checked');
+$('#log_enable').prop('checked',true);
+else
+//$('#log_enable').removeAttr('checked');
+$('#log_enable').prop('checked',false);
+
+log_enable_checked();
+update_checked($('#log_enable').attr("name"));
+}
+
+function log_enable_checked(){
+if ($('#log_enable').prop("checked")) {
+//$('#log_enable').attr('checked','checked');
+$('#lang_view_log_button').removeAttr('disabled');
+}
+else {
+//$('#log_enable').removeAttr('checked');
+$('#lang_view_log_button').attr('disabled', 'disabled');
+}
+}
+
+function view_log_clicked() {
+if (ORIGINAL_OBJ_DATA.logEnable.LogEnableP.logEnable != '1')
+alert(L.troubleshooting_log.lang_log_alert_msg);
+else
+displayPopout('log');
+}
+
+function open_log_table() {
+displayPopout('log');
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+get_obj_data(OBJ_LIST);
+show_alert(L.common.success_title, L.common.save_success);
+}
+function set_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+MODIFIED_OBJ_DATA.logEnable.LogEnableP.logEnable=$('#log_enable').prop("checked")?'1':'0';
+
+if (fake_action == true) return;
+
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA))
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+else
+set_obj_data(MODIFIED_OBJ_DATA)
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_log_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_log_init(MODIFIED_OBJ_DATA)
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST);
+}
+
+</script>
+

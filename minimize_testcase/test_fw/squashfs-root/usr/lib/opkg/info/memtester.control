@@ -1,0 +1,9 @@
+Package: memtester
+Version: 4.3.0-1
+Depends: libc
+Source: package/utils/memtester
+Section: utils
+Maintainer: GuoWei Lim <limguowei@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 6622
+Description:  A userspace utility for testing the memory subsystem for faults.

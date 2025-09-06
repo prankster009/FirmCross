@@ -1,0 +1,12 @@
+Package: iptables-mod-iprange
+Version: 1.4.21-1
+Depends: libc, iptables, kmod-ipt-iprange
+Source: package/network/utils/iptables
+Section: net
+Architecture: ramips_24kec
+Installed-Size: 2992
+Description:  iptables extensions for matching ip ranges.
+ 
+ Matches:
+ - iprange
+ 

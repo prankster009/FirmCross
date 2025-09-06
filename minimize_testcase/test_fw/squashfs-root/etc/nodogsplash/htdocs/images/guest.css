@@ -1,0 +1,139 @@
+/* This file is applied ot all pages. */
+a:link { color: white; }
+a:visited { color: white; } 
+a:hover { color: white; } 
+
+input
+{
+color: #535353;
+background: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #09344d url(../images/top_to_bottom_gradient.jpg)
+                top left repeat-x;
+}
+
+/* color and spacing for main display tile */
+div#content {
+    background: url(../images/Background.jpg)
+                top left no-repeat;
+    /* 749 - 40 = 709 */
+    padding-left: 40px;
+    width: 1000px;
+    /* 501 - 85 = 416 */
+    padding-top: 85px;
+    height: 416px;
+}
+
+/* Horizontally-center div#content */
+body {
+    text-align: center;
+}
+div#content {
+    margin: 0 auto;
+    text-align: left;
+}
+
+div#content h1 {
+    float:left;
+    width:220px;
+    font-family: Arial Bold, Arial, sans-serif;
+    font-size: 20pt;
+    color: #a5d5fd;
+    margin: 30px 22px 0 100px;
+    text-align: right;
+}
+
+div#content p {
+    margin: 0 0 0 0;
+}
+div#content div.divider {
+float:left;
+width:0px;
+    margin: 30px 0 0 0;
+}
+
+div#content div.info-text {
+    float:left;
+    width: 360px;
+    margin: 30px 0 0 22px;
+}
+div#content div.info-text p {
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    color: #ffffff;
+}
+
+div#content div.formwrapper {
+    margin: 50px 0 0 0;
+ }
+
+div#content form {
+    text-align: left;
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+}
+div#content form label {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    color: #ffffff;
+    margin: 10px 0 10px 0;
+}
+
+div#content form div.error p {
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    color: orange;
+    margin: 10px 0 10px 0;
+}
+
+div#content div.alt-view p {
+    font-family: Arial, sans-serif;
+    font-size: 8pt;
+    color: #ffffff;
+    text-align: left;
+    margin: 50px 0 50px 0;
+}
+
+/* Buttons */
+table.button {
+    cursor: pointer;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    margin: 0;
+    height: 23px;    /* HEIGHT 1 */
+    padding: 0;
+}
+table.button td {
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+table.button td.middle {
+    background: transparent url(../images/normal_middle.gif) repeat-x top right;
+}
+table.button td.left {
+    background: transparent url(../images/normal_left.gif) no-repeat top left;
+    padding-left: 11px; 
+}
+table.button td.right {
+    background: transparent url(../images/normal_right.gif) no-repeat top right;
+    padding-right: 11px; /* WIDTH 1 */
+}
+table.button td.middle a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    padding: 0 1em;
+    line-height: 23px;    /* HEIGHT 1 */
+}/*
+table.button:hover a {
+    color: #5CADE3;
+}*/
+

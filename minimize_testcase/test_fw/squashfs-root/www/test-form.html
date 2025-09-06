@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>Test FORM</title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/wapi-min.js"></script>
+<script type="text/javascript">
+var setObj = setObj || {};
+
+$(document).ready(function(){
+$("#test_button").click(function(){
+run_test();
+});
+
+$("#post_button").click(function(){
+run_post();
+});
+});
+
+function test_get_success_cb(obj) {
+setObj = UI.obj.copy(obj);
+
+$('#result').text(JSON.stringify(setObj, null, 4));
+
+UI.obj.toForm(setObj, 'ui-form');
+}
+
+function test_get_error_cb(obj) {
+$('#result').text(JSON.stringify(obj, null, 4));
+}
+
+function run_test()
+{
+var list = 'account,lan,wan,firewall,l2tp,pptp,dmz';
+
+API.obj.get(list, test_get_success_cb, test_get_error_cb);
+}
+
+function test_set_success_cb(obj) {
+$("#result").text(JSON.stringify(obj, null, 4));
+}
+
+function test_set_error_cb(obj) {
+$("#result").text(JSON.stringify(obj, null, 4));
+}
+
+function run_post()
+{
+var obj = UI.form.toObj('ui-form');
+
+setObj = UI.obj.merge(setObj, obj);
+
+$('#result').text(JSON.stringify(setObj, null, 4));
+
+API.obj.set(setObj, test_set_success_cb, test_set_error_cb);
+}
+</script>
+</head>
+<body>
+jQuery Version: <script type="text/javascript">document.write(jQuery.fn.jquery);</script><br>
+WAPI Version: <script type="text/javascript">document.write(WAPI.version());</script><br>
+<form id="ui-form">
+<br>
+User Name:
+<input type="text" name="account.AccountT[0].username">
+<br>
+Password:
+<input type="password" name="account.AccountT[0].password">
+<br>
+Internet Setup:
+<input type="radio" name="wan.WanP[proto]" value="1"> Automatic Configuration - DHCP
+<input type="radio" name="wan.WanP[proto]" value="2"> Static IP
+<input type="radio" name="wan.WanP[proto]" value="3"> PPPoE
+<input type="radio" name="wan.WanP[proto]" value="4"> PPTP
+<input type="radio" name="wan.WanP[proto]" value="5"> L2TP
+<input type="radio" name="wan.WanP[proto]" value="6"> Bridge Mode
+<input type="radio" name="wan.WanP[proto]" value="7"> Wireless
+<br>
+Firewall Enable: <input type="checkbox" name="firewall.FirewallP[enable]" value="1" uiunchk="0">
+<br>
+L2TP Client:<select name="l2tp.L2tpP[enable]">
+<option value=""> -- Select --</option>
+<option value="0">Disable</option>
+<option value="1">Enable</option>
+</select>
+<br>
+WAN IFNAME: <textarea name="wan.WanP[ifname]"></textarea>
+<br>
+LAN IP Address:
+<input type="text" name="lan.LanP[ipaddr]">
+<br>
+PPTP Server IP Address:
+<input type="hidden" name="pptp.PptpP[vpnServer]" uisync="ip4;pptp_ipaddr1;pptp_ipaddr2;pptp_ipaddr3;pptp_ipaddr4">
+<input type="text" name="pptp_ipaddr1" size="3">.
+<input type="text" name="pptp_ipaddr2" size="3">.
+<input type="text" name="pptp_ipaddr3" size="3">.
+<input type="text" name="pptp_ipaddr4" size="3">
+<br>
+WAN Clone MAC Address:
+<input type="text" name="wan.WanP[macClone]">
+<br>
+DMZ Destination MAC Address:
+<input type="hidden" name="dmz.DmzP[dstMac]" uisync="mac;dmz_macaddr1;dmz_macaddr2;dmz_macaddr3;dmz_macaddr4;dmz_macaddr5;dmz_macaddr6">
+<input type="text" name="dmz_macaddr1" size="2">:
+<input type="text" name="dmz_macaddr2" size="2">:
+<input type="text" name="dmz_macaddr3" size="2">:
+<input type="text" name="dmz_macaddr4" size="2">:
+<input type="text" name="dmz_macaddr5" size="2">:
+<input type="text" name="dmz_macaddr6" size="2">
+<br>
+</form>
+<input type="button" id="test_button" value="TEST">&nbsp;
+<input type="button" id="post_button" value="POST">
+<pre id="result"></pre>
+</body>
+</html>

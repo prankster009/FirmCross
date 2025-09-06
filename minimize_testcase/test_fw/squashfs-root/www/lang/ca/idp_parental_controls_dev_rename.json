@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_dev_rename": {
+        "lang_idp_parental_controls_dev_rename_title": "Contrôle parental",
+        "lang_idp_parental_controls_dev_rename_info1_title": "Veuillez renommer le périphérique :",
+        "lang_idp_parental_controls_dev_rename_info2_title": "Veuillez entrer un nouveau nom pour",
+        "lang_idp_parental_controls_dev_rename_alert_title": "Le nom de l’appareil ne doit pas être vide !"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "BridgeP": {
+        "mode": "0",
+        "ip": "",
+        "netmask": "",
+        "gateway": ""
+    }
+}

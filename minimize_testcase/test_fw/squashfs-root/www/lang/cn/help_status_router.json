@@ -1,0 +1,23 @@
+{
+    "help_status_router": {
+        "lang_help_status_router_title": "路由器",
+        "lang_hsr1": "路由器信息",
+        "lang_hsr2": "固件版本",
+        "lang_hsr3": "显示路由器当前固件的版本号。",
+        "lang_hsr4": "固件验证",
+        "lang_hsr5": "显示固件的唯一标识符。",
+        "lang_hsr6": "当前时间",
+        "lang_hsr7": "显示当地时间。",
+        "lang_hsr8": "Internet MAC 地址",
+        "lang_hsr9": "显示路由器的 MAC 地址，可从 Internet 中看到该地址。",
+        "lang_hsr10": "路由器名称",
+        "lang_hsr11": "设备名是路由器的 NetBIOS 名。",
+        "lang_hsr12": "主机名",
+        "lang_hsr13": "显示路由器的主机名。",
+        "lang_hsr14": "域名",
+        "lang_hsr15": "显示路由器的域名。",
+        "lang_hsr16": "Internet 连接",
+        "lang_hsr17": "此部分显示路由器中存储的当前网络信息。",
+        "lang_hsr18": "对于 DHCP 连接，请根据需要单击“发布 IP 地址”<b></b>或“续订 IP 地址”<b></b>以发布或续订 DHCP 租用。对于 PPPoE 或类似连接，请根据需要单击“连接”<b></b>或“断开连接”<b></b>，以连接到 Internet 或与其断开连接。"
+    }
+}

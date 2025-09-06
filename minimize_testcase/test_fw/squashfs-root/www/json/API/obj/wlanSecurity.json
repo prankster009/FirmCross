@@ -1,0 +1,28 @@
+{
+    "WlanSecurityT": [
+        {
+            "gid": "270139392",
+            "name": "WlanSecurityT0",
+            "type": "2",
+            "ifname": "ra0",
+            "authtype": "WPA2PSK",
+            "encrypType": "AES",
+            "wpaPsk": "12345678",
+            "rs_ip": "",
+            "rs_port": "1812",
+            "rs_password": ""
+        },
+        {
+            "gid": "270139393",
+            "name": "WlanSecurityT1",
+            "type": "5",
+            "ifname": "rai0",
+            "authtype": "WPA2PSK",
+            "encrypType": "AES",
+            "wpaPsk": "12345678",
+            "rs_ip": "",
+            "rs_port": "1812",
+            "rs_password": ""
+        }
+    ]
+}

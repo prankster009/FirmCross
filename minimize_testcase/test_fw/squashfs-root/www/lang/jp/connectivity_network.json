@@ -1,0 +1,30 @@
+{
+    "connectivity_network": {
+        "lang_network_zone_router_address_title": "ルーター アドレス",
+        "lang_ip_addr_title": "IP アドレス",
+        "lang_subnet_mask_title": "サブネット マスク",
+        "lang_router_name_title": "ルーター名",
+        "lang_network_zone_dhcp_server_setting_title": "DHCP サーバー設定",
+        "lang_dhcp_server_enable_title": "DHCP サーバー",
+        "lang_dhcp_reservation_button": "DHCP 予約",
+        "lang_start_ip_title": "開始 IP アドレス",
+        "lang_num_of_user_title": "ユーザーの最大数",
+        "lang_ip_range_title": "IP アドレスの範囲",
+        "lang_lease_time_title": "クライアント リース時間",
+        "lang_lease_time_unit": "分 (0 は 1 日を意味します)",
+        "lang_static_dns_1_title": "静的 DNS 1",
+        "lang_static_dns_2_title": "静的 DNS 2",
+        "lang_static_dns_3_title": "静的 DNS 3",
+        "lang_wins_title": "WINS",
+        "lang_ip_range_to_title": "～",
+        "lang_alert_out_range": "値が範囲外です。",
+        "lang_alert_change_setting": "値が範囲外です。開始 IP アドレスかユーザーの最大数を変更してください。",
+        "lang_alert_illegal_char": "不正な文字です (0～9にしてください)。",
+        "lang_alert_dev_name_blank": "ルーター名は空白にできません。",
+        "lang_alert_bridge_mode": "ルーターがブリッジ モードで作動している場合、これらの機能はサポートされません。",
+        "lang_alert_dev_name_illegal_char": "ルーター名に使用できるのは、英数字およびダッシュ記号のみです。",
+        "lang_alert_dev_name_start_letter": "ルーター名は文字から始めてください。",
+        "lang_alert_no_need_setup": "LAN 設定のセットアップは必要はありません。",
+        "lang_alert_gn_ip_range": "192.168.33.0/24 ネットワーク (IP アドレス 192.168.33.0 - 255) が、ワイヤレス ゲスト ネットワークに予約されています。別のネットワーク アドレスを使用してください。"
+    }
+}

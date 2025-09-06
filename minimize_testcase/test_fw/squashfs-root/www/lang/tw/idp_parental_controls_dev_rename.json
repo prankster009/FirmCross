@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_dev_rename": {
+        "lang_idp_parental_controls_dev_rename_title": "家長監護",
+        "lang_idp_parental_controls_dev_rename_info1_title": "請重新命名裝置：",
+        "lang_idp_parental_controls_dev_rename_info2_title": "請輸入一個新名稱給",
+        "lang_idp_parental_controls_dev_rename_alert_title": "裝置名稱不能是空白！"
+    }
+}

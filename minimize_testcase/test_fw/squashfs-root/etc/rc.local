@@ -1,0 +1,26 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+# Clear senv boot count
+echo "Clear senv boot count" > /dev/console
+gcontrol senv clear
+
+# Start rcConf control service
+#mkdir -p /var/rcConfd /var/rcConfd/log /var/run/rcConfd/
+echo "/dev/console" > /var/rcConfd/logout
+echo "3" > /var/rcConfd/loglevel
+touch /var/rcConfd/log/all
+/usr/bin/rcConfd
+
+
+# Setup busycat services
+mkdir -p /var/busycat /var/busycat/log
+echo "/dev/console" > /var/busycat/logout
+echo "3" > /var/busycat/loglevel
+touch /var/busycat/log/wan_port_monitor_main.c
+
+# IPv6 CE logo test
+if [ "$(objReq system show | grep ipv6logoEnable | awk -F " " '{print $NF}')" == "1" ]
+then
+	sleep 20; echo "IPv6 Ready" > /dev/console
+fi

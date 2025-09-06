@@ -1,0 +1,9 @@
+Package: kvcedit
+Version: 1.0-1
+Depends: libc, libkvcutil
+Source: package/mtk/applications/datconf
+Section: util
+Maintainer: Weijie Gao <weijie.gao@mediatek.com>
+Architecture: ramips_24kec
+Installed-Size: 3645
+Description:  Utility for editing key-value based config files

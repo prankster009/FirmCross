@@ -1,0 +1,17 @@
+{
+    "troubleshooting_diagnostics": {
+        "lang_diagnostics_zone_ping_test_title": "핑 테스트",
+        "lang_diagnostics_zone_traceroute_test_title": "경로 추적 테스트",
+        "lang_ping_ip_url_address_title": "IP 또는 Url 주소",
+        "lang_packet_size_title": "패킷 크기",
+        "lang_size_unit_title": "바이트(32 - 65500)",
+        "lang_num_to_ping_title": "핑 수",
+        "lang_start_to_ping_button": "핑 시작",
+        "lang_tr_ip_url_address_title": "IP 또는 Url 주소",
+        "lang_start_to_traceroute_button": "경로 추적으로 시작",
+        "lang_opt_unlimited": "무제한",
+        "lang_ping_alert_illegal_char": "잘못된 문자[0-9여야함]입니다.",
+        "lang_ping_alert_range": "값이 범위를 벗어났습니다.",
+        "lang_alert_ip_url_blank": "IP 주소 또는 도메인 이름을 입력해야 합니다."
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "idp_ping": {
+        "lang_idp_ping_title": "ping",
+        "lang_idp_resolve_url_title": "URL アドレスを解決中...",
+        "lang_idp_ping_result_trans_title": "パケットを送信済み",
+        "lang_idp_ping_result_recv_title": "パケットを受信済み",
+        "lang_idp_ping_result_loss_title": "パケット ロス",
+        "lang_idp_ping_data_title": "データの統計",
+        "lang_idp_ping_data_unit_title": "データ バイト",
+        "lang_idp_ping_round_trip_title": "往復最小/平均/最大",
+        "lang_idp_ping_data_from_title": "からのバイト",
+        "lang_idp_ping_seq_title": "seq",
+        "lang_idp_ping_ttl_title": "ttl",
+        "lang_idp_ping_time_title": "時間",
+        "lang_idp_ping_time_unit_title": "ms",
+        "lang_idp_ping_unknow_host_title": "不明なホスト",
+        "lang_idp_ping_processing_title": "処理中..."
+    }
+}

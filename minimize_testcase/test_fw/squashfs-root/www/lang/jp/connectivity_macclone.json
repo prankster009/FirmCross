@@ -1,0 +1,7 @@
+{
+    "connectivity_macclone": {
+        "lang_mac_addr_clone_enable_title": "MAC アドレスの複製",
+        "lang_mac_addr_input_title": "MAC アドレス",
+        "lang_mac_clone_button": "PC の MAC を複製"
+    }
+}

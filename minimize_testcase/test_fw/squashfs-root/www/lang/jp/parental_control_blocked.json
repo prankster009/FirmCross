@@ -1,0 +1,10 @@
+{
+    "parental_control_blocked": {
+        "lang_document_title": "インターネットが禁止されています。",
+        "lang_content_title": "インターネットが禁止されています。",
+        "lang_content_info": "インターネットへのアクセスはこの時点でブロックされます。  保護者による制限のパスワードを入力して、禁止された Web サイトやコンテンツを 1 時間アクセス可能にします。",
+        "lang_password_title": "パスワード:",
+        "lang_unblock_title": "ブロック解除",
+        "lang_password_incorrect": "パスワードが正しくありません。"
+    }
+}

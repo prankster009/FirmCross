@@ -1,0 +1,13 @@
+{
+    "L2tpP": {
+        "enable": "0",
+        "username": "",
+        "password": "",
+        "vpnServer": "",
+        "mode": "0",
+        "idleTime": "15",
+        "redialPeriod": "30",
+        "mtuMode": "0",
+        "mtu": "1460"
+    }
+}

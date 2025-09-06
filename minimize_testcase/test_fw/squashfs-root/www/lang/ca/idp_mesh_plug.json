@@ -1,0 +1,8 @@
+{
+    "idp_mesh_plug": {
+        "lang_idp_mesh_plug_title": "Branchez votre nœud enfant",
+        "lang_idp_mesh_plug_content1": "Attendez que votre appareil Easy Mesh soit complètement allumé. Donnez-lui 3 minutes.",
+        "lang_idp_mesh_plug_content2": "Si vous configurez d’autres nœuds enfants, assurez-vous de les configurer un à la fois pour éviter tout problème.",
+        "lang_idp_mesh_plug_content3": "j'ai attendu 3 minutes"
+    }
+}

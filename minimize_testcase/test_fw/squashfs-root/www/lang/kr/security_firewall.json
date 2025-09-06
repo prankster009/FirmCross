@@ -1,0 +1,17 @@
+{
+    "security_firewall": {
+        "lang_firewall_zone_firewall_title": "방화벽",
+        "lang_ipv6_spi_firewall_title": "IPv6 SPI 방화벽 보호",
+        "lang_ipv4_spi_firewall_title": "IPv4 SPI 방화벽 보호",
+        "lang_firewall_zone_net_filter_title": "인터넷 필터",
+        "lang_anonymous_filter_title": "익명의 인터넷 요청 필터링",
+        "lang_multicast_filter_title": "멀티캐스트 필터",
+        "lang_nat_redirection_filter_title": "IPv4 인터넷 전용 인터넷 NAT 리디렉션 필터링",
+        "lang_ident_title": "필터 IDENT(포트 113)",
+        "lang_firewall_zone_web_filter_title": "웹 필터",
+        "lang_proxy_filter_title": "프록시",
+        "lang_java_filter_title": "자바",
+        "lang_activex_filter_title": "액티브X",
+        "lang_cookies_filter_title": "쿠키"
+    }
+}

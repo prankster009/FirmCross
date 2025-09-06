@@ -1,0 +1,10 @@
+Package: tcpdump
+Version: 4.5.1-4
+Depends: libc, libpcap
+Source: package/network/utils/tcpdump
+License: BSD-3-Clause
+Section: net
+Maintainer: Felix Fietkau <nbd@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 293766
+Description:  Network monitoring and data acquisition tool

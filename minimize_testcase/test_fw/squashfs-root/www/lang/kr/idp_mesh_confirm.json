@@ -1,0 +1,6 @@
+{
+    "idp_mesh_confirm": {
+        "lang_idp_mesh_confirm_title": "하위 노드의 WPS 버튼을 3초간 길게 눌러주세요",
+        "lang_idp_mesh_confirm_content": "설정 계속 진행..."
+    }
+}

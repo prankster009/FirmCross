@@ -1,0 +1,7 @@
+{
+    "idp_parental_controls_forgot_pwd": {
+        "lang_idp_parental_controls_forgot_pwd_title": "Kiểm soát của cha mẹ",
+        "lang_idp_parental_controls_forgot_pwd_info_title": "Nhập mật khẩu kiểm soát của cha mẹ:",
+        "lang_idp_parental_controls_forgot_pwd_errmsg_title": "Câu trả lời không đúng"
+    }
+}

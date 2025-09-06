@@ -1,0 +1,13 @@
+{
+    "wifi_guest": {
+        "lang_guest_zone_guest_access_title": "“来宾访问”为您的访客提供访问 Internet 的权限，但不会向其提供访问您的计算机或个人数据的权限。",
+        "lang_guest_access_allow_title": "允许来宾访问",
+        "lang_guest_net_name_title": "来宾网络名称",
+        "lang_guest_password_title": "来宾密码",
+        "lang_guest_change_pwd_button": "更改",
+        "lang_guest_allow_total_title": "允许的来宾总数",
+        "lang_ssid_broadcast_title": "SSID 广播",
+        "lang_guest_info_title": "来宾应通过打开 Web 浏览器并输入来宾密码来连接到上面列出的无线网络。",
+        "lang_enable_warning": "如果需要开启【访客网络】，您必须先在【基本无线设置】中，关闭Easy Mesh功能。"
+    }
+}

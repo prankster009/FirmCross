@@ -1,0 +1,6 @@
+{
+    "idp_mesh_add_node_confirm": {
+        "lang_idp_add_node_title": "Add Node",
+        "lang_idp_add_node_content_info": "Please go to press the WPS button on the child node for 3 sec. You shall see the MESH LED start blanking blue."
+    }
+}

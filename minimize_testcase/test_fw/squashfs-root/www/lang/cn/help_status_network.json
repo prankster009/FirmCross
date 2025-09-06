@@ -1,0 +1,25 @@
+{
+    "help_status_network": {
+        "lang_help_status_network_title": "本地网络",
+        "lang_hsn1": "本地网络",
+        "lang_hsn2": "本地 MAC 地址",
+        "lang_hsn3": "显示路由器的本地有线接口的 MAC 地址。",
+        "lang_hsn4": "IPv4 地址",
+        "lang_hsn5": "显示路由器的本地 IPv4 地址。",
+        "lang_hsn6": "IPv4 子网掩码",
+        "lang_hsn7": "显示路由器的 IPv4 子网掩码。",
+        "lang_hsn8": "IPv6 本地链接地址",
+        "lang_hsn9": "显示路由器的 IPv6 链路本地地址。",
+        "lang_hsn10": "前缀地址",
+        "lang_hsn11": "显示路由器的 IPv6 前缀地址。",
+        "lang_hsn12": "DHCP 服务器",
+        "lang_hsn13": "DHCP 服务器",
+        "lang_hsn14": "显示路由器的 DHCP 服务器功能的状态。",
+        "lang_hsn15": "起始 IP 地址",
+        "lang_hsn16": "显示可用 IP 地址范围的起始 IP 地址。",
+        "lang_hsn17": "结束 IP 地址",
+        "lang_hsn18": "显示可用 IP 地址范围的结束 IP 地址。",
+        "lang_hsn19": "DHCP 客户端表",
+        "lang_hsn20": "单击此选项，可查看将路由器用作 DHCP 服务器的计算机或其他设备的列表。"
+    }
+}

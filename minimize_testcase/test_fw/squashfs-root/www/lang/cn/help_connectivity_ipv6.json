@@ -1,0 +1,25 @@
+{
+    "help_connectivity_ipv6": {
+        "lang_help_connectivity_ipv6_title": "IPv6 设置",
+        "lang_hci1": "IPv6 是一种新的 IP 协议，它使用简化的数据包标头并要求使用 IPSec 作为基本的互操作性要求。它还改进了对移动 IP 和计算设备的支持。",
+        "lang_hci2": "注意：完成更改后，请单击“保存设置”以应用更改。",
+        "lang_hci3": "Internet 设置",
+        "lang_hci4": "Internet 连接类型",
+        "lang_hci5": "IPv6 - 自动",
+        "lang_hci6": "选择“启用”<b></b>可将 IPv6 自动用于所有网络寻址。",
+        "lang_hci7": "DUID",
+        "lang_hci8": "这是路由器自动生成的 IPv6 DUID（用于 IPv6 唯一标识符的 DHCP）值。",
+        "lang_hci9": "网络设置",
+        "lang_hci10": "6rd 隧道",
+        "lang_hci11": "要使用 6rd 隧道，必须禁用“IPv6 - 自动”<b></b>。利用 6rd 隧道，路由器可以通过 IPv4 网络发送 IPv6 IP 地址。为路由器选择“自动配置”<b></b>，以自动处理这些设置（例如前缀和地址掩码）。选择“手动配置”<b></b>可手动更改这些设置。",
+        "lang_hci12": "前缀",
+        "lang_hci13": "输入用于隧道的前缀地址，由您的 ISP 提供。",
+        "lang_hci14": "前缀长度",
+        "lang_hci15": "输入用于隧道的前缀长度，由您的 ISP 提供。",
+        "lang_hci16": "边界中继",
+        "lang_hci17": "输入用于隧道的边界中继地址，由您的 ISP 提供。",
+        "lang_hci18": "IPv4 地址掩码",
+        "lang_hci19": "输入用于隧道的 IPv4 地址掩码长度，由您的 ISP 提供。",
+        "lang_hci20": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

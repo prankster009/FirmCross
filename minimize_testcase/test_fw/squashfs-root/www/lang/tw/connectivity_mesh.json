@@ -1,0 +1,22 @@
+{
+    "connectivity_mesh": {
+        "lang_mesh_title": "Mesh Setup",
+        "lang_ssid_title": "SSID",
+        "lang_auth_type_title": "認證類型",
+        "lang_encrypt_type_title": "Encryption Type",
+        "lang_psword_title": "複雜密碼",
+        "lang_parent_mode_title": "Mesh parent mode state",
+        "lang_apply_button": "Apply/Save",
+        "lang_add_node_button": "新增一個新節點",
+        "lang_parent_mode_state_enable": "啓用",
+        "lang_parent_mode_state_disable": "停用",
+        "lang_ssid_empty_info": "您必須輸入一個 SSID。",
+        "lang_ssid_format_info": "Invalid SSID name.",
+        "lang_mesh_zone_mseh5gsetting_title": "5 GHz 無線設定",
+        "lang_mesh_zone_mseh2gsetting_title": "2.4 GHz 無線設定",
+        "lang_mesh_info_button": "Mesh 資訊",
+        "lang_mesh_warning": "關閉EasyMesh後，你將無法再增加子節點或是將現有子節點斷開與網路的連接",
+        "lang_ssid_warning": "如果需要關閉WiFi SSID廣播，你必須先在\"基本無線設置\"中，關閉EasyMesh功能。",
+        "lang_mesh_enable_warning": "啟用EasyMesh後，訪客網路和無線MAC地址過濾功能將無法使用"
+    }
+}

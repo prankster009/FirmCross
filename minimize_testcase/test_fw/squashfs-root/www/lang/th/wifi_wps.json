@@ -1,0 +1,20 @@
+{
+    "wifi_wps": {
+        "lang_wps_info_title": "ไม่สามารถใช้การตั้งค่าที่ป้องกันด้วย Wi-Fi<br>โหมดความปลอดภัย WPA2 Enterprise<br>ปิดการออกอากาศ SSID<br>ปิดการใช้งานย่านความถี่ 2.4 GHz หรือ 5 GHz<br>การกรอง MAC<br>หากต้องการใช้ WPS ให้เปลี่ยนโหมดความปลอดภัยโหมดเครือข่ายและ/หรือปิดใช้งานการกรอง MAC",
+        "lang_wps_setup_title": "Wi-Fi Protected Setup",
+        "lang_wps_zone_push_btn_title": "ปุ่มกด",
+        "lang_push_button_info_title": "หากอุปกรณ์ไคลเอ็นต์ของคุณมีปุ่ม Wi-Fi Protected Setup<sup>TM</sup> ให้คลิกหรือกดปุ่มดังกล่าว แล้วคลิกที่ปุ่มทางด้านขวา",
+        "lang_push_btn_state_success_title": "สำเร็จ",
+        "lang_push_btn_state_fail_title": "ล้มเหลว",
+        "lang_push_btn_state_search_title": "กำลังค้นหา...",
+        "lang_push_btn_state_Connect_title": "เชื่อมต่อ",
+        "lang_wps_zone_dev_pin_title": "PIN ของอุปกรณ์",
+        "lang_dev_pin_info_title": "หากอุปกรณ์ไคลเอ็นต์ของคุณมีหมายเลข PIN ของ Wi-Fi Protected Setup<sup>TM</sup> ให้ป้อนหมายเลขนั้นที่นี่แล้วคลิก ลงทะเบียน",
+        "lang_dev_pin_register_button": "ลงทะเบียน",
+        "lang_wps_zone_router_pin_title": "PIN ของเราเตอร์",
+        "lang_router_pin_info_title": "หากไคลเอ็นต์ขอให้ป้อนหมายเลข PIN ของเราเตอร์ ให้ป้อนหมายเลขนี้ {number} ในอุปกรณ์ไคลเอ็นต์ของคุณ",
+        "lang_dev_pin_alert_title": "ข้อผิดพลาด PIN",
+        "lang_macfilter_enable_alert_title": "Wi-Fi Protected Setup ไม่สามารถเปิดใช้งานได้เมื่อเปิดใช้งาน Wireless MAC Filter",
+        "lang_wps_info_title2": "ไม่สามารถใช้การตั้งค่าที่ป้องกันด้วย Wi-Fi<br>ปิดการออกอากาศ SSID<br>ปิดการใช้งานย่านความถี่ 2.4 GHz หรือ 5 GHz<br>การกรอง MAC<br>หากต้องการใช้ WPS ให้เปลี่ยนโหมดความปลอดภัยโหมดเครือข่ายและ/หรือปิดใช้งานการกรอง MAC"
+    }
+}

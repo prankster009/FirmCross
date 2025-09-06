@@ -1,0 +1,21 @@
+{
+    "idp_wifi_client_list": {
+        "lang_idp_wifi_client_list_title": "無線用戶端清單",
+        "lang_idp_wifi_client_list_sortby_title": "排序方式",
+        "lang_idp_wifi_client_list_ipaddr": "IP 位址",
+        "lang_idp_wifi_client_list_mac_addr": "MAC 位址",
+        "lang_idp_wifi_client_list_status": "狀態",
+        "lang_idp_wifi_client_list_name": "用戶端名稱",
+        "lang_idp_wifi_client_list_name_title": "用戶端名稱",
+        "lang_idp_wifi_client_list_interface_title": "介面",
+        "lang_idp_wifi_client_list_ipaddr_title": "IP 位址",
+        "lang_idp_wifi_client_list_mac_addr_title": "MAC 位址",
+        "lang_idp_wifi_client_list_status_title": "狀態",
+        "lang_idp_wifi_client_list_none_title": "無",
+        "lang_idp_wifi_client_list_save_to_title": "儲存到 MAC 位址篩選器清單",
+        "lang_idp_wifi_client_list_connected_title": "已連線",
+        "lang_idp_wifi_client_list_disconnected_title": "已中斷連線",
+        "lang_idp_wifi_client_list_wireless_title": "無線",
+        "lang_idp_wifi_client_list_lan_title": "LAN"
+    }
+}

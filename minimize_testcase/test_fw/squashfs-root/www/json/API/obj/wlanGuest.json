@@ -1,0 +1,26 @@
+{
+    "WlanGuestT": [
+        {
+            "gid": "270073856",
+            "name": "WlanGuestT0",
+            "enable": "0",
+            "ssid": "Linksys_guest_2.4G",
+            "type": "2",
+            "ifname": "ra1",
+            "wpaPsk": "guest",
+            "hiddenAP": "0",
+            "maxStaNum": "5"
+        },
+        {
+            "gid": "270073857",
+            "name": "WlanGuestT1",
+            "enable": "0",
+            "ssid": "Linksys_guest_5G",
+            "type": "5",
+            "ifname": "rai1",
+            "wpaPsk": "guest",
+            "hiddenAP": "0",
+            "maxStaNum": "5"
+        }
+    ]
+}

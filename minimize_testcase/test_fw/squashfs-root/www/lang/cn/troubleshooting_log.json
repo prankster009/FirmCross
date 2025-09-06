@@ -1,0 +1,8 @@
+{
+    "troubleshooting_log": {
+        "lang_log_title": "日志",
+        "lang_log_enable_title": "日志",
+        "lang_view_log_button": "浏览日志",
+        "lang_log_alert_msg": "单击“保存”以创建日志。然后，可以单击“查看日志”以查看日志。"
+    }
+}

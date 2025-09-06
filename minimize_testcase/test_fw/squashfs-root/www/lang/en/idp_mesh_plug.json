@@ -1,0 +1,8 @@
+{
+    "idp_mesh_plug": {
+        "lang_idp_mesh_plug_title": "Plug in your child node",
+        "lang_idp_mesh_plug_content1": "Wait until your easy mesh device is fully powered on. A good rule of thumb is around 2 to 3 minutes.",
+        "lang_idp_mesh_plug_content2": "If you're setting up more child nodes, be sure to do them one at time to avoid problems.",
+        "lang_idp_mesh_plug_content3": "I've Waited 3 Minutes"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "connectivity_ipv6": {
+        "lang_ipv6_zone_internet_setup_title": "Configuration Internet",
+        "lang_ipv6_auto_title": "IPv6 – Automatique",
+        "lang_ipv6_duid_title": "DUID",
+        "lang_ipv6_zone_network_setup_title": "Configuration du réseau",
+        "lang_6rd_tunnel_title": "Tunnel 6rd",
+        "lang_6rd_tunnel_opt_disabled": "Désactivé",
+        "lang_6rd_tunnel_opt_auto_config": "Configuration automatique",
+        "lang_6rd_tunnel_opt_manual_config": "Configuration manuelle",
+        "lang_alert_invalid_ip_title": "Adresse IP non valide",
+        "lang_6rd_tunnel_ip6prefix_title": "Préfixe",
+        "lang_6rd_tunnel_ip6prefixlen_title": "Longueur du préfixe",
+        "lang_6rd_tunnel_peeraddr_title": "Relais frontière",
+        "lang_6rd_tunnel_ip4prefixlen_title": "Masque de l'adresse IPv4"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "help_security_portrangefowarding": {
+        "lang_help_security_portrangefowarding_title": "端口范围转发",
+        "lang_hspr1": "使用“端口范围转发”，可以在网络中设置公共服务，例如 Web 服务器、FTP 服务器、电子邮件服务器或其他专用的 Internet 应用程序。",
+        "lang_hspr2": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hspr3": "端口范围转发",
+        "lang_hspr4": "应用程序名称",
+        "lang_hspr5": "输入应用程序的名称。",
+        "lang_hspr6": "起始~结束端口",
+        "lang_hspr7": "输入入站流量使用的端口号或端口范围。",
+        "lang_hspr8": "协议",
+        "lang_hspr9": "选择用于此应用程序的协议。",
+        "lang_hspr10": "目标 IP 地址",
+        "lang_hspr11": "输入运行特定应用程序的服务器的 IP 地址。",
+        "lang_hspr12": "启用",
+        "lang_hspr13": "选择“启用”<b></b>可激活端口转发。",
+        "lang_hspr14": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

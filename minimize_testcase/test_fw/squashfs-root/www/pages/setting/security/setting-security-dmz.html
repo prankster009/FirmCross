@@ -1,0 +1,314 @@
+<script type="text/javascript">
+var OBJ_LIST = ['lan','dmz']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+</script>
+<table class="table table-info dmz_zone">
+<tbody>
+<tr id="tr_dmz_enable" >
+<td>
+<script>draw_checkbox('dmz_enable', 'lang_dmz_enable_title', 'on', "dmz_control()");</script><span id="checkbox_div_dmz_enable"></span>
+</td>
+</tr>
+<tr id="tr_hr" >
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id="tr_source_ip_any" >
+<td>
+<span class="multi_lang" id="lang_source_ip_addr_title"></span>
+</td>
+<td>
+<script>draw_radio('source_ip_any','source_ip_any_title', '0', 'source_ip_mode_control(\'0\')');</script><span id="radio_div_source_ip_any"></span>
+</td>
+</tr>
+<tr id="tr_source_ip_range" >
+<td>
+<span class="multi_lang" id="lang_source_ip_range_title"></span>
+</td>
+<td>
+<script>draw_radio('source_ip_range','', '0', 'source_ip_mode_control(\'1\')');</script><span id="radio_div_source_ip_range"></span>
+<input type="text" class="num logger_bot" maxlength="3" onblur="" style="width:40px" name="source_ip_range_input" id="source_ip_range_1"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="" style="width:40px" name="source_ip_range_input" id="source_ip_range_2"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="" style="width:40px" name="source_ip_range_input" id="source_ip_range_3"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="" style="width:40px" name="source_ip_range_input" id="source_ip_range_start">
+<span class="multi_lang" id="lang_to"></span>
+<input type="text" class="num logger_bot" maxlength="3" onblur="" style="width:40px" name="source_ip_range_input" id="source_ip_range_end">
+</td>
+</tr>
+<tr id="tr_hr" >
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id="tr_dest_ip" >
+<td>
+<span class="multi_lang" id="lang_dest_ip_addr_title"></span>
+</td>
+<td >
+<script>draw_radio('dest_ip','dest_ip_title', '0', 'dest_mode_control(\'0\')');</script><span id="radio_div_dest_ip"></span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="dest_ip_addr_prefix"></span>
+<input style="width:40px" value="" name="dest_ip_addr_postfix" id="dest_ip_addr_postfix" onblur="valid_range(this,1,254,'lang_err_range')" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_dest_mac_addr" >
+<td>
+<span class="multi_lang" id="lang_dest_mac_addr_title"></span>
+</td>
+<td >
+<script>draw_radio('dest_mac_addr_opt','dest_mac_addr', '0', 'dest_mode_control(\'1\')');</script><span id="radio_div_dest_mac_addr_opt"></span>
+<input maxlength="32" value="" name="dest_mac_addr" id="dest_mac_addr" onblur="valid_macs_all(this)" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_dest_dhcp_client" >
+<td>
+<span >&nbsp;</span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="dest_dhcp_client_button" id="lang_dest_dhcp_client_button" onclick="displayPopout('dhcp_client_info')"></button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script language="javascript" type="text/javascript">
+page_tag='security_dmz'
+$(document).ready(function(){
+$.lang_load("security_dmz");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function select_client_mac(client_mac){
+$("#dest_mac_addr").val(client_mac)
+}
+
+function dmz_control(enable){
+enable = checkbox_switch('dmz_enable', enable)
+if( 1 == enable){
+$("[name='source_ip_any']").attr('disabled', false);
+$("[name='source_ip_any']").parent().removeClass('disabled');
+$("[name='source_ip_range']").attr('disabled', false);
+$("[name='source_ip_range']").parent().removeClass('disabled');
+$("[name='dest_ip']").attr('disabled', false);
+$("[name='dest_ip']").parent().removeClass('disabled');
+$("[name='dest_mac_addr_opt']").attr('disabled', false);
+$("[name='dest_mac_addr_opt']").parent().removeClass('disabled');
+
+if($("#source_ip_any").val() == 1)
+source_ip_mode_control('0')
+else
+source_ip_mode_control('1')
+
+if($("#dest_ip").val() == 1)
+dest_mode_control('0')
+else
+dest_mode_control('1')
+
+}else{
+$("[name='source_ip_any']").attr('disabled', true);
+$("[name='source_ip_any']").parent().addClass('disabled');
+$("[name='source_ip_range']").attr('disabled', true);
+$("[name='source_ip_range']").parent().addClass('disabled');
+$("[name='dest_ip']").attr('disabled', true);
+$("[name='dest_ip']").parent().addClass('disabled');
+$("[name='dest_mac_addr_opt']").attr('disabled', true);
+$("[name='dest_mac_addr_opt']").parent().addClass('disabled');
+$("[name='source_ip_range_input']").attr('disabled', true);
+$("[name='dest_ip_addr_postfix']").attr('disabled', true);
+$("[name='dest_mac_addr']").attr('disabled', true);
+$("[name='dest_dhcp_client_button']").attr('disabled', true);
+}
+}
+
+function source_ip_mode_control(e){
+if(e == '0'){
+$("#source_ip_range").parent('span').removeClass('checked')
+$("#source_ip_range").val(0)
+$("#source_ip_any").parent('span').addClass('checked')
+$("#source_ip_any").val(1)
+$("[name='source_ip_range_input']").attr('disabled', true);
+MODIFIED_OBJ_DATA.dmz.DmzP.srcType = '0';
+}else if(e == '1'){
+$("#source_ip_any").parent('span').removeClass('checked')
+$("#source_ip_any").val(0)
+$("#source_ip_range").parent('span').addClass('checked')
+$("#source_ip_range").val(1)
+$("[name='source_ip_range_input']").attr('disabled', false);
+MODIFIED_OBJ_DATA.dmz.DmzP.srcType = '1';
+}else{
+$("[name='source_ip_range_input']").attr('disabled', true);
+}
+}
+
+function dest_mode_control(e){
+if(e == "0"){
+$("#dest_mac_addr_opt").parent('span').removeClass('checked')
+$("#dest_mac_addr_opt").val(0)
+$("#dest_ip").parent('span').addClass('checked')
+$("#dest_ip").val(1)
+$("[name='dest_ip_addr_postfix']").attr('disabled', false);
+$("[name='dest_mac_addr']").attr('disabled', true);
+$("[name='dest_dhcp_client_button']").attr('disabled', true);
+MODIFIED_OBJ_DATA.dmz.DmzP.dstType = '0';
+}else if(e == "1"){
+$("#dest_ip").parent('span').removeClass('checked')
+$("#dest_ip").val(0)
+$("#dest_mac_addr_opt").parent('span').addClass('checked')
+$("#dest_mac_addr_opt").val(1)
+$("[name='dest_ip_addr_postfix']").attr('disabled', true);
+$("[name='dest_mac_addr']").attr('disabled', false);
+$("[name='dest_dhcp_client_button']").attr('disabled', false);
+MODIFIED_OBJ_DATA.dmz.DmzP.dstType = '1';
+}else{
+$("[name='dest_ip_addr_postfix']").attr('disabled', true);
+$("[name='dest_mac_addr']").attr('disabled', true);
+$("[name='dest_dhcp_client_button']").attr('disabled', true);
+}
+}
+function valid_macs_all(I) {
+if (I.value == "") {
+I.value = MODIFIED_OBJ_DATA.dmz.DmzP.dstMac;
+return true;
+}
+else if (I.value.length == 17){
+if(valid_mac_17(I)==false){
+I.value = MODIFIED_OBJ_DATA.dmz.DmzP.dstMac;
+}
+}else {
+alert(L.error_message.lang_error_message_err5);
+I.value = MODIFIED_OBJ_DATA.dmz.DmzP.dstMac;
+}
+}
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+$("#loader").hide()
+show_alert(L.common.success_title, L.common.save_success)
+page_initial();
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide()
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+//Coding save function here
+
+$("#loader").show()
+MODIFIED_OBJ_DATA.dmz.DmzP.enable =  $("#dmz_enable").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.dmz.DmzP.dstMac = $("#dest_mac_addr").val();
+
+if(MODIFIED_OBJ_DATA.dmz.DmzP.srcType==1){
+MODIFIED_OBJ_DATA.dmz.DmzP.srcStartIp = $("#source_ip_range_1").val()+"."+$("#source_ip_range_2").val()+"."+$("#source_ip_range_3").val()+"."+$("#source_ip_range_start").val();
+MODIFIED_OBJ_DATA.dmz.DmzP.srcEndIp = $("#source_ip_range_1").val()+"."+$("#source_ip_range_2").val()+"."+$("#source_ip_range_3").val()+"."+$("#source_ip_range_end").val();
+}else{
+MODIFIED_OBJ_DATA.dmz.DmzP.srcStartIp = "";
+MODIFIED_OBJ_DATA.dmz.DmzP.srcEndIp = "";
+}
+
+if($("#dest_ip_addr_postfix").val() != ""){
+MODIFIED_OBJ_DATA.dmz.DmzP.dstIp = $("#dest_ip_addr_prefix").text()+$("#dest_ip_addr_postfix").val();
+
+}else{
+MODIFIED_OBJ_DATA.dmz.DmzP.dstIp = "";
+}
+if (fake_action == true){
+$("#loader").hide()
+return;
+}
+
+delete MODIFIED_OBJ_DATA.lan;
+
+set_obj_data(MODIFIED_OBJ_DATA)
+
+}
+function page_cancel(){
+page_initial();
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+//console.log(ORIGINAL_OBJ_DATA)
+
+if(MODIFIED_OBJ_DATA.dmz.DmzP.srcType=='0'){
+source_ip_mode_control('0')
+}else{
+source_ip_mode_control('1')
+}
+if(MODIFIED_OBJ_DATA.dmz.DmzP.dstType=='0'){
+dest_mode_control('0')
+}else{
+dest_mode_control('1')
+}
+$("#dest_mac_addr").val(MODIFIED_OBJ_DATA.dmz.DmzP.dstMac);
+dmz_control(MODIFIED_OBJ_DATA.dmz.DmzP.enable)
+
+if(MODIFIED_OBJ_DATA.dmz.DmzP.srcStartIp==""){
+$("#source_ip_range_1").val("");
+$("#source_ip_range_2").val("");
+$("#source_ip_range_3").val("");
+$("#source_ip_range_start").val("");
+}else{
+var src_ip_start = MODIFIED_OBJ_DATA.dmz.DmzP.srcStartIp.split(".")
+$("#source_ip_range_1").val(src_ip_start[0]);
+$("#source_ip_range_2").val(src_ip_start[1]);
+$("#source_ip_range_3").val(src_ip_start[2]);
+$("#source_ip_range_start").val(src_ip_start[3]);
+}
+if(MODIFIED_OBJ_DATA.dmz.DmzP.srcEndIp==""){
+$("#source_ip_range_end").val("");
+}else{
+var src_ip_end = MODIFIED_OBJ_DATA.dmz.DmzP.srcEndIp.split(".")
+$("#source_ip_range_end").val(src_ip_end[3]);
+}
+
+if(MODIFIED_OBJ_DATA.dmz.DmzP.dstIp==""){
+$("#dest_ip_addr_postfix").val("");
+}else{
+var dst_ip = MODIFIED_OBJ_DATA.dmz.DmzP.dstIp.split(".")
+$("#dest_ip_addr_postfix").val(dst_ip[3]);
+}
+
+var lan_ip = MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".");
+$("#dest_ip_addr_prefix").html(lan_ip[0]+"."+lan_ip[1]+"."+lan_ip[2]+".");
+
+}
+function get_obj_error_cb(obj) {
+//console.log(obj)
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function open_dhcp_client_table() {
+displayPopout('dhcp_client_info');
+}
+
+
+</script>

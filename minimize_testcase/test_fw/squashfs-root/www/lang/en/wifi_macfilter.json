@@ -1,0 +1,14 @@
+{
+    "wifi_macfilter": {
+        "lang_wifi_mac_filter_enable_title": "Wireless MAC Filter",
+        "lang_access_state_prevent_title": "Prevent",
+        "lang_access_state_prevent_info": "PCs listed below from accessing the wireless network",
+        "lang_access_state_permit_title": "Permit",
+        "lang_access_state_permit_info": "PCs listed below to access the wireless network",
+        "lang_mafilter_zone_mac_addr_filter_list_title": "MAC Address Filter List",
+        "lang_client_list_button": "Wireless Client List",
+        "lang_mac_address_title": "MAC",
+        "lang_wps_disable_title": "Your new setting will disable Wi-Fi Protected Setup. Do you want to continue?",
+        "lang_enable_warning": "If you want to enable Wireless MAC Filter, you need to go to \"Basic Wireless Settings\" -> uncheck EasyMesh"
+    }
+}

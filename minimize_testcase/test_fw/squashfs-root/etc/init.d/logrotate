@@ -1,0 +1,59 @@
+#!/bin/sh /etc/rc.common
+
+. /usr/share/libubox/jshn.sh
+
+START=90
+STOP=10
+
+CRONTAB_ROOT="/etc/crontabs/root"
+ROTATE_BACKUPPATH="/var/log/backup"
+
+remove_crontab_rules() {
+        sed -i '/#auto_log_rotate/d'  $CRONTAB_ROOT
+}
+
+
+start() {
+        mkdir -p $ROTATE_BACKUPPATH
+        remove_crontab_rules
+        echo "*/10 * * * * (/usr/sbin/logrotate /etc/logrotate.conf) #auto_log_rotate" >>$CRONTAB_ROOT
+        /etc/init.d/cron restart
+
+}
+
+stop() {
+        remove_crontab_rules
+        /etc/init.d/cron restart
+}
+
+~
+
+~
+
+~
+
+~
+
+~
+
+~
+
+~
+
+~
+
+~
+
+~
+
+~
+
+~
+
+~
+
+~
+
+- logrotate 1/25 4%
+
+

@@ -1,0 +1,17 @@
+{
+    "status_network": {
+        "lang_network_zone_local_network_title": "เครือข่ายภายใน",
+        "lang_local_mac_addr_title": "ที่อยู่ MAC ภายใน",
+        "lang_router_ip_addr_title": "Router IP Address (ที่อยู่ IP ของเราเตอร์)",
+        "lang_local_netmask_title": "ซับเน็ตมาส์ก",
+        "lang_ipv6_local_addr_title": "ที่อยู่ IPv6 Link-Local",
+        "lang_prefix_addr_title": "ที่อยู่พรีฟิกซ์",
+        "lang_network_zone_dhcp_server_title": "เซิร์ฟเวอร์ DHCP",
+        "lang_dhcp_server_enable_title": "เซิร์ฟเวอร์ DHCP",
+        "lang_dhcp_start_ip_addr_title": "ที่อยู่ IP เริ่มต้น",
+        "lang_dhcp_end_ip_addr_title": "ที่อยู่ IP สิ้นสุด",
+        "lang_dhcp_client_table_button": "ตารางข้อมูลไคลเอ็นต์ DHCP",
+        "lang_dhcp_server_enabled": "เปิดใช้งาน",
+        "lang_dhcp_server_disabled": "ปิดใช้งาน"
+    }
+}

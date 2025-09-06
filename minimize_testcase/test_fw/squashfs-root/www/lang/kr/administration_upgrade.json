@@ -1,0 +1,20 @@
+{
+    "administration_upgrade": {
+        "lang_current_fw_title": "현재 펌웨어 버전",
+        "lang_check_fw_button": "펌웨어 확인",
+        "lang_upload_fw_title": "업그레이드할 파일을 선택하십시오.",
+        "lang_upgrade_fw_button": "업그레이드 시작",
+        "lang_upgrade_fw_progress_warning": "경고",
+        "lang_upgrade_fw_progress_warning_info": "펌웨어 업그레이드에는 몇 분이 걸릴 수 있습니다.;전원을 끄거나 재설정 버튼을 누르지 마십시오.",
+        "lang_upgrade_fw_progress_warning_tip": "업그레이드를 중단해서는 안 됩니다!!",
+        "lang_ota_last_version_title": "최신 펌웨어 버전",
+        "lang_ota_upgrade_button": "업그레이드",
+        "lang_file_empty_msg": "업그레이드할 파일을 선택하십시오.",
+        "lang_file_format_msg": "이미지 파일이 잘못되었습니다.",
+        "lang_upgrade_success": "펌웨어 업그레이드에 성공했습니다.",
+        "lang_upgrade_rebooting": "재부팅 중...",
+        "lang_file_upgrade_fail_msg": "펌웨어 업그레이드에 실패했습니다!",
+        "lang_up_to_date_msg": "최신 상태",
+        "lang_auto_upgrade_title": "자동 펌웨어 업그레이드"
+    }
+}

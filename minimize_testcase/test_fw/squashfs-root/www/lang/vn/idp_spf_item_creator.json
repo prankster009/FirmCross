@@ -1,0 +1,28 @@
+{
+    "idp_spf_item_creator": {
+        "lang_spf_item_creator_title": "Thêm Chuyển tiếp cổng đơn mới",
+        "lang_spf_item_app_title": "Ứng dụng",
+        "lang_spf_item_app_name_title": "Tên ứng dụng",
+        "lang_spf_item_ext_port_title": "Cổng ngoài",
+        "lang_spf_item_int_port_title": "Cổng trong",
+        "lang_spf_item_protocol_title": "Giao thức",
+        "lang_spf_item_to_ip_title": "Đến địa chỉ IP",
+        "lang_spf_item_enable_title": "Bật",
+        "lang_app_manual": "Thủ công",
+        "lang_app_ftp": "FTP",
+        "lang_app_telnet": "Telnet",
+        "lang_app_smtp": "SMPT",
+        "lang_app_dns": "DNS",
+        "lang_app_tftp": "TFTP",
+        "lang_app_finger": "Finger",
+        "lang_app_http": "HTTP",
+        "lang_app_pop3": "POP3",
+        "lang_app_nntp": "NNTP",
+        "lang_app_snmp": "SNMP",
+        "lang_app_pptp": "PPTP",
+        "lang_protocol_both": "Cả hai",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "Bạn không thể sử dụng IP, mạng hoặc địa chỉ phát rộng của Bộ định tuyến."
+    }
+}

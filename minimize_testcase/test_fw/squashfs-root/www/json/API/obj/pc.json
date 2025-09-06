@@ -1,0 +1,8 @@
+{
+    "PcP": {
+        "enable": "0",
+        "setupPasswd": "",
+        "setupSecretQuestion": "",
+        "setupSecretAnswer": ""
+    }
+}

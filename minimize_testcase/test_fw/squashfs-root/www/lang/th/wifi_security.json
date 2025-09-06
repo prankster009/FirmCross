@@ -1,0 +1,18 @@
+{
+    "wifi_security": {
+        "lang_security_zone_wifi_security_5g_title": "ความปลอดภัยแบบไร้สาย 5 GHz",
+        "lang_security_mode_title": "โหมดความปลอดภัย",
+        "lang_passphrase_title": "วลีรหัสผ่าน",
+        "lang_security_zone_wifi_security_2_4g_title": "ความปลอดภัยแบบไร้สาย 2.4 GHz",
+        "lang_security_wpa2_personal": "WPA2 ส่วนบุคคล",
+        "lang_security_wpa2_enterprise": "WPA2 องค์กร",
+        "lang_security_disabled": "ปิดใช้งาน",
+        "lang_radius_server_title": "เซิร์ฟเวอร์ RADIUS",
+        "lang_radius_port_title": "พอร์ต RADIUS",
+        "lang_radius_key_title": "คีย์ที่ใช้ร่วมกัน",
+        "lang_security_disable_warning": "ความปลอดภัยไร้สายถูกปิดใช้งานในขณะนี้ คุณต้องการดำเนินการต่อหรือไม่",
+        "lang_wps_disable_title": "การตั้งค่าใหม่ของคุณจะปิดใช้งาน Wi-Fi Protected Setup ต้องการดำเนินการต่อหรือไม่",
+        "lang_security_wpa3_personal": "WPA3 ส่วนบุคคล",
+        "lang_security_wpa3_wpa2_personal": "WPA3/WPA2 Mixed"
+    }
+}

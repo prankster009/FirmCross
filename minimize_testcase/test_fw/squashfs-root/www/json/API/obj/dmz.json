@@ -1,0 +1,11 @@
+{
+    "DmzP": {
+        "enable": "0",
+        "srcType": "0",
+        "srcStartIp": "",
+        "srcEndIp": "",
+        "dstType": "0",
+        "dstIp": "",
+        "dstMac": "00:00:00:00:00:00"
+    }
+}

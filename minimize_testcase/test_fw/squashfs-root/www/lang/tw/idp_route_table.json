@@ -1,0 +1,12 @@
+{
+    "idp_route_table": {
+        "lang_idp_route_table_title": "路由資料表",
+        "lang_idp_route_table_dst_ip_title": "目的地 LAN IP",
+        "lang_idp_route_table_subnet_mask_title": "子網路遮罩",
+        "lang_idp_route_table_gateway_title": "閘道",
+        "lang_idp_route_table_hop_count_title": "跳數",
+        "lang_idp_route_table_interface_title": "介面",
+        "lang_idp_route_table_interface_lan_tilte": "LAN 和無線網路",
+        "lang_idp_route_table_interface_wan_tilte": "網際網路 (WAN)"
+    }
+}

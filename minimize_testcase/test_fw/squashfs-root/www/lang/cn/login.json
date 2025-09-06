@@ -1,0 +1,11 @@
+{
+    "login": {
+        "lang_auth_title": "需要进行身份验证",
+        "lang_acnt_username": "用户名",
+        "lang_acnt_passwd": "密码",
+        "lang_try_again": "请再次登录！",
+        "lang_login": "登录",
+        "lang_login_invalid": "用户名或密码无效。",
+        "lang_session_fail": "会话失败。"
+    }
+}

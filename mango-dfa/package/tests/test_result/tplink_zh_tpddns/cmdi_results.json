@@ -1,0 +1,21 @@
+{
+    "closures": [],
+    "cfg_time": 1.9129445552825928,
+    "vra_time": 1.358299970626831,
+    "path": "/home/iot_2204/TL_R470GP_vul_dis/squashfs-root/usr/sbin/tpddns",
+    "name": "tpddns",
+    "has_sinks": true,
+    "sha256": "234630930ce70455b73f93bd4cf0d81a4356d7780229e9e6864c57ddc3f023de",
+    "sink_times": {},
+    "error": null,
+    "mango_time": 5180.619524240494,
+    "sinks": {
+        "execvp": 1
+    },
+    "time_data": {
+        "0x404740 -> 0x401860 -> 0x400d30 -> 0x500004": {
+            "taint_time": 0.7043051719665527,
+            "rda_time": 5179.9081518650055
+        }
+    }
+}

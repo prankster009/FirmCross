@@ -1,0 +1,98 @@
+#!/bin/sh
+
+SERVICE="port trigger"
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+check_wan() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_is_up up
+
+    if [ "$wan_is_up" != "1" ]; then
+        echo "$SERVICE, wan is down" > /dev/console
+        echo "$SERVICE, exit!" > /dev/console
+        exit 0
+    fi
+}
+
+delete_port_trigger_chains() {
+    iptables -t nat -F prerouting_wan_port_trigger
+    iptables -t nat -D prerouting_wan_rule -j prerouting_wan_port_trigger
+    iptables -t nat -X prerouting_wan_port_trigger
+    iptables -t nat -F prerouting_lan_port_trigger
+    iptables -t nat -D prerouting_lan_rule -j prerouting_lan_port_trigger
+    iptables -t nat -X prerouting_lan_port_trigger
+
+    iptables -t filter -F forwarding_wan_port_trigger
+    iptables -t filter -D forwarding_wan_rule -j forwarding_wan_port_trigger
+    iptables -t filter -X forwarding_wan_port_trigger
+}
+
+add_port_trigger_chains() {
+    iptables -t nat -N prerouting_wan_port_trigger
+    iptables -t nat -A prerouting_wan_rule -j prerouting_wan_port_trigger
+    iptables -t nat -N prerouting_lan_port_trigger
+    iptables -t nat -A prerouting_lan_rule -j prerouting_lan_port_trigger
+
+    iptables -t filter -N forwarding_wan_port_trigger
+    iptables -t filter -A forwarding_wan_rule -j forwarding_wan_port_trigger
+}
+
+do_port_trigger() {
+    local wanIp lanSubnet lanIp
+    
+    network_get_ipaddr wanIp wan
+    network_get_subnet lanSubnet lan
+    network_get_ipaddr lanIp lan
+
+    json_load "$(objReq portTrigger json)"
+    json_select "PortTriggerT"
+    local Index="1"
+    while json_get_type Type $Index && [ "$Type" = object ]; do
+        local triggerPortStart triggerPortEnd forwardPortStart forwardPortEnd enable
+
+        json_select "$Index"
+        json_get_vars triggerPortStart triggerPortEnd forwardPortStart forwardPortEnd enable
+
+        if [ "$enable" = "0" ]; then
+            let Index=$Index+1
+            json_select ".."
+            continue
+        fi
+
+        iptables -t nat -A prerouting_wan_port_trigger -p tcp --dport $forwardPortStart:$forwardPortEnd -j TRIGGER --trigger-type dnat
+        iptables -t filter -A forwarding_wan_port_trigger -p tcp --dport $forwardPortStart:$forwardPortEnd -j TRIGGER --trigger-type in  
+        iptables -t nat -A prerouting_lan_port_trigger -p tcp --dport $triggerPortStart:$triggerPortEnd -j TRIGGER \
+            --trigger-type out \
+            --trigger-mproto tcp \
+            --trigger-match $triggerPortStart-$triggerPortEnd \
+            --trigger-relate $forwardPortStart-$forwardPortEnd
+
+        iptables -t nat -A prerouting_wan_port_trigger -p udp --dport $forwardPortStart:$forwardPortEnd -j TRIGGER --trigger-type dnat
+        iptables -t filter -A forwarding_wan_port_trigger -p udp --dport $forwardPortStart:$forwardPortEnd -j TRIGGER --trigger-type in  
+        iptables -t nat -A prerouting_lan_port_trigger -p udp --dport $triggerPortStart:$triggerPortEnd -j TRIGGER \
+            --trigger-type out \
+            --trigger-mproto udp \
+            --trigger-match $triggerPortStart-$triggerPortEnd \
+            --trigger-relate $forwardPortStart-$forwardPortEnd
+
+        let Index=$Index+1
+        json_select ".."
+    done
+}
+
+start() {
+    check_wan
+    add_port_trigger_chains >/dev/null 2>&1
+    do_port_trigger >/dev/null 2>&1
+}
+
+stop() {
+    delete_port_trigger_chains >/dev/null 2>&1
+}
+
+
+stop
+start

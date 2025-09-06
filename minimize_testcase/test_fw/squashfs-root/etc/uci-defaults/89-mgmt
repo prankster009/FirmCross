@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.mgmt
+    set firewall.mgmt=include
+    set firewall.mgmt.type=script
+    set firewall.mgmt.path=/usr/share/security/mgmt.include
+    set firewall.mgmt.family=ipv4
+    set firewall.mgmt.reload=1
+EOT
+
+exit 0

@@ -1,0 +1,17 @@
+{
+    "security_firewall": {
+        "lang_firewall_zone_firewall_title": "Tường lửa",
+        "lang_ipv6_spi_firewall_title": "Tường lửa SPI IPv6",
+        "lang_ipv4_spi_firewall_title": "Tường lửa SPI IPv4",
+        "lang_firewall_zone_net_filter_title": "Lọc Internet",
+        "lang_anonymous_filter_title": "Lọc các yêu cầu Internet ẩn danh",
+        "lang_multicast_filter_title": "Lọc Phát đa hướng",
+        "lang_nat_redirection_filter_title": "Lọc Chuyển hướng NAT Internet chỉ dành cho Internet IPv4",
+        "lang_ident_title": "Lọc IDENT (Cổng 113)",
+        "lang_firewall_zone_web_filter_title": "Lọc Web",
+        "lang_proxy_filter_title": "Proxy",
+        "lang_java_filter_title": "Java",
+        "lang_activex_filter_title": "ActiveX",
+        "lang_cookies_filter_title": "Cookie"
+    }
+}

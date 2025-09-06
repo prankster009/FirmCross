@@ -1,0 +1,1488 @@
+<script type="text/javascript">
+var OBJ_LIST = ['wan','lan','dhcpc','staticip','pppoe','pptp','l2tp','bridge','wlanBridge','easyMeshBasic']
+var INFO_LIST = [ 'InternetConnection' ]
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var INFO_DATA = {}
+var bg_mode_str_list = ['bg_mode_auto', 'bg_mode_manual']
+var bg_mode_val_list = ['a', 'm']
+var opt_mtu_mode_str_list = ['opt_mtu_mode_auto', 'opt_mtu_mode_manual']
+var opt_mtu_mode_val_list = ['a', 'm']
+var wbg_security_mode_str_list = ['wbg_smode_none', 'wbg_smode_wpa2', 'wbg_smode_wpa']
+var wbg_security_mode_val_list = ['none', 'wpa2', 'wpa']
+var wbg_bg_mode_str_list = ['wbg_bg_mode_auto', 'wbg_bg_mode_manual']
+var wbg_bg_mode_val_list = ['a', 'm']
+</script>
+<div class="table-title internet_setup_zone">
+<span class="multi_lang" id="lang_wan_zone_internet_setup_title"></span>
+</div>
+<hr class="table-title-underline internet_setup_zone">
+<span>
+<input type='hidden' id="wan_protocol_index" value=""></input>
+<div class="radio ">
+<span class="radio_dhcp">
+<input type="radio" name="wan_proto" value="dhcp" onclick="select_protocol('',this.value)" checked="checked" class="logger_bot">
+</span>
+</div>
+<span class="radiostd multi_lang" id="lang_dhcp_title"></span>
+<div class="radio ">
+<span class="radio_st">
+<input type="radio" name="wan_proto" value="st" onclick="select_protocol('',this.value)" class="logger_bot">
+</span>
+</div>
+<span class="radiostd multi_lang" id="lang_st_title"></span>
+<div class="radio ">
+<span class="radio_pppoe">
+<input type="radio" name="wan_proto" value="pppoe" onclick="select_protocol('',this.value)" class="logger_bot">
+</span>
+</div>
+<span class="radiostd multi_lang" id="lang_pppoe_title"></span>
+<div class="radio ">
+<span class="radio_pptp">
+<input type="radio" name="wan_proto" value="pptp" onclick="select_protocol('',this.value)" class="logger_bot">
+</span>
+</div>
+<span class="radiostd multi_lang" id="lang_pptp_title"></span>
+<div class="radio ">
+<span class="radio_l2tp">
+<input type="radio" name="wan_proto" value="l2tp" onclick="select_protocol('',this.value)" class="logger_bot">
+</span>
+</div>
+<span class="radiostd multi_lang" id="lang_l2tp_title"></span>
+<span id="hide">
+<div class="radio ">
+<span class="radio_bg">
+<input type="radio" name="wan_proto" value="bg" onclick="select_protocol('',this.value)" class="logger_bot">
+</span>
+</div>
+<span class="radiostd multi_lang" id="lang_bg_title"></span>
+<div class="radio ">
+<span class="radio_wbg">
+<input type="radio" name="wan_proto" value="wbg" onclick="select_protocol('',this.value)" class="logger_bot">
+</span>
+</div>
+<span class="radiostd multi_lang" id="lang_wbg_title"></span>
+</span>
+</span>
+<table class="table table-info internet_setup_zone">
+<tbody>
+<tr id="tr_st_ip_addr" class="tr_zone type_st">
+<td>
+<span class="multi_lang" id="lang_st_ip_addr_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,223,'lang_err_range')" style="width:40px" name="st_ip_addr" id="st_ip_addr_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_ip_addr" id="st_ip_addr_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_ip_addr" id="st_ip_addr_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'lang_err_range')" style="width:40px" name="st_ip_addr" id="st_ip_addr_4" value="0">
+</td>
+</tr>
+<tr id="tr_st_netmask" class="tr_zone type_st">
+<td>
+<span class="multi_lang" id="lang_st_netmask_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_netmask" id="st_netmask_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_netmask" id="st_netmask_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_netmask" id="st_netmask_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_netmask" id="st_netmask_4" value="0">
+</td>
+</tr>
+<tr id="tr_st_gateway" class="tr_zone type_st">
+<td>
+<span class="multi_lang" id="lang_st_gateway_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,223,'lang_err_range')" style="width:40px" name="st_gateway" id="st_gateway_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_gateway" id="st_gateway_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_gateway" id="st_gateway_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'lang_err_range')" style="width:40px" name="st_gateway" id="st_gateway_4" value="0">
+</td>
+</tr>
+<tr id="tr_st_dns1" class="tr_zone type_st">
+<td>
+<span class="multi_lang" id="lang_st_dns1_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,223,'lang_err_range')" style="width:40px" name="st_dns1" id="st_dns1_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_dns1" id="st_dns1_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_dns1" id="st_dns1_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,254,'lang_err_range')" style="width:40px" name="st_dns1" id="st_dns1_4" value="0">
+</td>
+</tr>
+<tr id="tr_st_dns2" class="tr_zone type_st">
+<td>
+<span class="multi_lang" id="lang_st_dns2_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,223,'lang_err_range')" style="width:40px" name="st_dns2" id="st_dns2_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_dns2" id="st_dns2_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_dns2" id="st_dns2_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,254,'lang_err_range')" style="width:40px" name="st_dns2" id="st_dns2_4" value="0">
+</td>
+</tr>
+<tr id="tr_st_dns3" class="tr_zone type_st">
+<td>
+<span class="multi_lang" id="lang_st_dns3_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,223,'lang_err_range')" style="width:40px" name="st_dns3" id="st_dns3_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_dns3" id="st_dns3_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="st_dns3" id="st_dns3_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,254,'lang_err_range')" style="width:40px" name="st_dns3" id="st_dns3_4" value="0">
+</td>
+</tr>
+<tr id="tr_pppoe_name" class="tr_zone type_pppoe">
+<td>
+<span class="multi_lang" id="lang_pppoe_name_title"></span>
+</td>
+<td>
+<input maxlength="63" value="" name="pppoe_name" id="pppoe_name" onblur="valid_name(this,'')" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_pppoe_pw" class="tr_zone type_pppoe">
+<td>
+<span class="multi_lang" id="lang_pppoe_pw_title"></span>
+</td>
+<td>
+<input maxlength="63" value="" type="password" name="pppoe_pw" id="pppoe_pw" onblur="valid_name(this,'')" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_pppoe_server_name" class="tr_zone type_pppoe">
+<td>
+<span class="multi_lang" id="lang_pppoe_server_name_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="pppoe_server_name" id="pppoe_server_name" onblur="valid_name(this,'')" size="17" class="logger_bot">
+</td>
+</tr>
+<input id="pppoe_time_mode" type="hidden" value=""></input>
+<tr id="tr_pppoe_idle" class="tr_zone type_pppoe">
+<td colspan="2">
+<script>draw_radio('pppoe_idle','pppoe_idle_title', '0', 'sel_pppoe_time_mode(this.id)' );</script><span id="radio_div_pppoe_idle"></span>
+<input type="text" class="num logger_bot" maxlength="4" style="width:45px; margin-left:-10px;" name="pppoe_idletime" id="pppoe_idletime" value="15" disabled="" onblur="valid_range(this,1,9999,'')">
+&nbsp;<span class="multi_lang" id="lang_unit_min"></span>
+</td>
+</tr>
+<tr id="tr_pppoe_alive" class="tr_zone type_pppoe">
+<td colspan="2">
+<script>draw_radio('pppoe_alive','pppoe_alive_title', '0', 'sel_pppoe_time_mode(this.id)' );</script><span id="radio_div_pppoe_alive"></span>
+<input type="text" class="num logger_bot" maxlength="4" style="width:45px; margin-left:-10px;" name="pppoe_alivetime" id="pppoe_alivetime" value="30" disabled="" onblur="valid_range(this,20,180,'')">
+&nbsp;<span class="multi_lang" id="lang_unit_sec"></span>
+</td>
+</tr>
+<input type="hidden" id="pptp_autoObtain" value="" />
+<tr id="tr_pptp_auto" class="tr_zone type_pptp">
+<td colspan="2">
+<script>draw_radio('pptp_auto','pptp_auto_title', '0', 'sel_pptp_ip_mode(this.id)' , 0);</script><span id="radio_div_pptp_auto"></span>
+</td>
+</tr>
+<tr id="tr_pptp_static" class="tr_zone type_pptp">
+<td colspan="2">
+<script>draw_radio('pptp_static','pptp_static_title', '0', 'sel_pptp_ip_mode(this.id)' , 0);</script><span id="radio_div_pptp_static"></span>
+</td>
+</tr>
+<tr id="tr_pptp_ip_addr" class="tr_zone type_pptp">
+<td>
+<span class="multi_lang" id="lang_pptp_ip_addr_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,223,'IP')" style="width:40px" name="pptp_ip_addr" id="pptp_ip_addr_1"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="pptp_ip_addr" id="pptp_ip_addr_2"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="pptp_ip_addr" id="pptp_ip_addr_3"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'IP')" style="width:40px" name="pptp_ip_addr" id="pptp_ip_addr_4">
+</td>
+</tr>
+<tr id="tr_pptp_netmask" class="tr_zone type_pptp">
+<td>
+<span class="multi_lang" id="lang_pptp_netmask_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="pptp_netmask" id="pptp_netmask_1"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="pptp_netmask" id="pptp_netmask_2"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="pptp_netmask" id="pptp_netmask_3"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="pptp_netmask" id="pptp_netmask_4">
+</td>
+</tr>
+<tr id="tr_pptp_gateway" class="tr_zone type_pptp">
+<td>
+<span class="multi_lang" id="lang_pptp_gateway_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,223,'IP')" style="width:40px" name="pptp_gateway" id="pptp_gateway_1"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="pptp_gateway" id="pptp_gateway_2"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="pptp_gateway" id="pptp_gateway_3"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'IP')" style="width:40px" name="pptp_gateway" id="pptp_gateway_4">
+</td>
+</tr>
+<tr id="tr_pptp_dns1" class="tr_zone type_pptp">
+<td>
+<span class="multi_lang" id="lang_pptp_dns1_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,223,'DNS')" style="width:40px" name="pptp_dns1" id="pptp_dns1_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'DNS')" style="width:40px" name="pptp_dns1" id="pptp_dns1_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'DNS')" style="width:40px" name="pptp_dns1" id="pptp_dns1_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,254,'DNS')" style="width:40px" name="pptp_dns1" id="pptp_dns1_4" value="0">
+</td>
+</tr>
+<tr id="tr_pptp_dns2" class="tr_zone type_pptp">
+<td>
+<span class="multi_lang" id="lang_pptp_dns2_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,223,'DNS')" style="width:40px" name="pptp_dns2" id="pptp_dns2_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'DNS')" style="width:40px" name="pptp_dns2" id="pptp_dns2_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'DNS')" style="width:40px" name="pptp_dns2" id="pptp_dns2_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,254,'DNS')" style="width:40px" name="pptp_dns2" id="pptp_dns2_4" value="0">
+</td>
+</tr>
+<tr id="tr_pptp_dns3" class="tr_zone type_pptp">
+<td>
+<span class="multi_lang" id="lang_pptp_dns3_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,223,'DNS')" style="width:40px" name="pptp_dns3" id="pptp_dns3_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'DNS')" style="width:40px" name="pptp_dns3" id="pptp_dns3_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'DNS')" style="width:40px" name="pptp_dns3" id="pptp_dns3_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,254,'DNS')" style="width:40px" name="pptp_dns3" id="pptp_dns3_4" value="0">
+</td>
+</tr>
+<tr id="tr_hr" class="tr_zone type_pptp">
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id="tr_pptp_server_ip" class="tr_zone type_pptp">
+<td>
+<span class="multi_lang" id="lang_pptp_server_ip_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,223,'IP')" style="width:40px" name="pptp_server_ip" id="pptp_server_ip_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="pptp_server_ip" id="pptp_server_ip_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="pptp_server_ip" id="pptp_server_ip_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'IP')" style="width:40px" name="pptp_server_ip" id="pptp_server_ip_4" value="0">
+</td>
+</tr>
+<tr id="tr_pptp_server_name" class="tr_zone type_pptp">
+<td>
+<span class="multi_lang" id="lang_pptp_server_name_title"></span>
+</td>
+<td>
+<input maxlength="63" value="" name="pptp_server_name" id="pptp_server_name" onblur="valid_name(this,'')" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_pptp_server_pw" class="tr_zone type_pptp">
+<td>
+<span class="multi_lang" id="lang_pptp_server_pw_title"></span>
+</td>
+<td>
+<input maxlength="63" type="password" value="" name="pptp_server_pw" id="pptp_server_pw" onblur="valid_name(this,'')" size="17" class="logger_bot">
+</td>
+</tr>
+<input id="pptp_time_mode" type="hidden" value="" />
+<tr id="tr_pptp_idle" class="tr_zone type_pptp">
+<td colspan="2">
+<script>draw_radio('pptp_idle','pptp_idle_title', '0', 'sel_pptp_time_mode(this.id)');</script><span id="radio_div_pptp_idle"></span>
+<input type="text" class="num logger_bot" maxlength="4" style="width:45px; margin-left:-10px;" name="pptp_idletime" id="pptp_idletime" value="15" disabled="" onblur="valid_range(this,1,9999,'')">
+&nbsp;<span class="multi_lang" id="lang_unit_min"></span>
+</td>
+</tr>
+<tr id="tr_pptp_alive" class="tr_zone type_pptp">
+<td colspan="2">
+<script>draw_radio('pptp_alive','pptp_alive_title', '0', 'sel_pptp_time_mode(this.id)');</script><span id="radio_div_pptp_alive"></span>
+<input type="text" class="num logger_bot" maxlength="4" style="width:45px; margin-left:-10px;" name="pptp_alivetime" id="pptp_alivetime" value="30" disabled="" onblur="valid_range(this,20,180,'')">
+&nbsp;<span class="multi_lang" id="lang_unit_sec"></span>
+</td>
+</tr>
+<tr id="tr_l2tp_server_ip" class="tr_zone type_l2tp">
+<td>
+<span class="multi_lang" id="lang_l2tp_server_ip_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,223,'IP')" style="width:40px" name="l2tp_server_ip" id="l2tp_server_ip_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="l2tp_server_ip" id="l2tp_server_ip_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="l2tp_server_ip" id="l2tp_server_ip_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,254,'IP')" style="width:40px" name="l2tp_server_ip" id="l2tp_server_ip_4" value="0">
+</td>
+</tr>
+<tr id="tr_l2tp_server_name" class="tr_zone type_l2tp">
+<td>
+<span class="multi_lang" id="lang_l2tp_server_name_title"></span>
+</td>
+<td>
+<input maxlength="63" value="" name="l2tp_server_name" id="l2tp_server_name" onblur="valid_name(this,'User%20Name')" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_l2tp_server_pw" class="tr_zone type_l2tp">
+<td>
+<span class="multi_lang" id="lang_l2tp_server_pw_title"></span>
+</td>
+<td>
+<input maxlength="63" type="password" value="" name="l2tp_server_pw" id="l2tp_server_pw" onblur="valid_name(this,'Password')" size="17" class="logger_bot">
+</td>
+</tr>
+<input id="l2tp_time_mode" type="hidden" value="" />
+<tr id="tr_l2tp_idle" class="tr_zone type_l2tp">
+<td colspan="2">
+<script>draw_radio('l2tp_idle','l2tp_idle_title', '0', 'sel_l2tp_time_mode(this.id)');</script><span id="radio_div_l2tp_idle"></span>
+<input type="text" class="num logger_bot" maxlength="4" style="width:45px; margin-left:-10px;" name="l2tp_idletime" id="l2tp_idletime" value="15" disabled="" onblur="valid_range(this,1,9999,'')" >
+&nbsp;<span class="multi_lang" id="lang_unit_min"></span>
+</td>
+</tr>
+<tr id="tr_l2tp_alive" class="tr_zone type_l2tp">
+<td colspan="2">
+<script>draw_radio('l2tp_alive','l2tp_alive_title', '0', 'sel_l2tp_time_mode(this.id)');</script><span id="radio_div_l2tp_alive"></span>
+<input type="text" class="num logger_bot" maxlength="4" style="width:45px; margin-left:-10px;" name="l2tp_alivetime" id="l2tp_alivetime" value="30" disabled="" onblur="valid_range(this,20,180,'')" >
+&nbsp;<span class="multi_lang" id="lang_unit_sec"></span>
+</td>
+</tr>
+<tr id="tr_bg_mode" class="tr_zone type_bg">
+<td>
+<span class="multi_lang" id="lang_bg_mode_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('bg_mode', bg_mode_str_list, bg_mode_val_list,'sel_bg_mode()', '');})();</script>
+<div id="select_div_bg_mode"></div>
+</td>
+</tr>
+<tr id="tr_bg_ip_addr" class="tr_zone type_bg">
+<td>
+<span class="multi_lang" id="lang_bg_ip_addr_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,223,'IP')" style="width:40px" name="bg_ip_addr" id="bg_ip_addr_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="bg_ip_addr" id="bg_ip_addr_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="bg_ip_addr" id="bg_ip_addr_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'IP')" style="width:40px" name="bg_ip_addr" id="bg_ip_addr_4" value="0">
+</td>
+</tr>
+<tr id="tr_bg_netmask" class="tr_zone type_bg">
+<td>
+<span class="multi_lang" id="lang_bg_netmask_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="bg_netmask" id="bg_netmask_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="bg_netmask" id="bg_netmask_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="bg_netmask" id="bg_netmask_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="bg_netmask" id="bg_netmask_4" value="0">
+</td>
+</tr>
+<tr id="tr_bg_gateway" class="tr_zone type_bg">
+<td>
+<span class="multi_lang" id="lang_bg_gateway_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,233,'netmask')" style="width:40px" name="bg_gateway" id="bg_gateway_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="bg_gateway" id="bg_gateway_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="bg_gateway" id="bg_gateway_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'IP')" style="width:40px" name="bg_gateway" id="bg_gateway_4" value="0">
+</td>
+</tr>
+<tr id="tr_bg_rt_name" class="tr_zone type_bg">
+<td>
+<span class="multi_lang" id="lang_bg_rt_name_title"></span>
+</td>
+<td>
+<input maxlength="20" value="" name="bg_rt_name" id="bg_rt_name" size="17" class="logger_bot" onblur="valid_device_name(this)">
+</td>
+</tr>
+<tr id="tr_wbg_ssid" class="tr_zone type_wbg">
+<td>
+<span class="multi_lang" id="lang_wbg_ssid_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="wbg_ssid" id="wbg_ssid" onblur="valid_name(this,'')" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_wbg_nand" class="tr_zone type_wbg">
+<td>
+<span class="multi_lang" id="lang_wbg_nand_title"></span>
+</td>
+<td id="">
+<input type='hidden' id="wbg_band_mode" value="">
+<script>draw_radio('wbg_nand_2g','wbg_nand_2g_title', '0', 'sel_wbg_band(this.id)' );</script><span id="radio_div_wbg_nand_2g"></span>
+<script>draw_radio('wbg_nand_5g','wbg_nand_5g_title', '0', 'sel_wbg_band(this.id)' );</script><span id="radio_div_wbg_nand_5g"></span>
+</td>
+</tr>
+<tr id="tr_wbg_security_mode" class="tr_zone type_wbg">
+<td>
+<span class="multi_lang" id="lang_wbg_security_mode_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('wbg_security_mode', wbg_security_mode_str_list, wbg_security_mode_val_list,'sel_wbg_smode()', '');})();</script>
+<div id="select_div_wbg_security_mode"></div>
+</td>
+</tr>
+<tr id="tr_wbg_passphease" class="tr_zone type_wbg">
+<td>
+<span class="multi_lang" id="lang_wbg_passphease_title"></span>
+</td>
+<td>
+<input maxlength="64" value="" name="wbg_passphease" id="wbg_passphease" onblur="" size="26" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_hr" class="tr_zone type_wbg">
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id="tr_wbg_bg_mode" class="tr_zone type_wbg">
+<td>
+<span class="multi_lang" id="lang_wbg_bg_mode_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('wbg_bg_mode', wbg_bg_mode_str_list, wbg_bg_mode_val_list,'sel_wbg_mode()', '');})();</script>
+<div id="select_div_wbg_bg_mode"></div>
+</td>
+</tr>
+<tr id="tr_wbg_ip_addr" class="tr_zone type_wbg">
+<td>
+<span class="multi_lang" id="lang_wbg_ip_addr_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,223,'IP')" style="width:40px" name="wbg_ip_addr" id="wbg_ip_addr_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="wbg_ip_addr" id="wbg_ip_addr_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'IP')" style="width:40px" name="wbg_ip_addr" id="wbg_ip_addr_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'IP')" style="width:40px" name="wbg_ip_addr" id="wbg_ip_addr_4" value="0">
+</td>
+</tr>
+<tr id="tr_wbg_netmask" class="tr_zone type_wbg">
+<td>
+<span class="multi_lang" id="lang_wbg_netmask_title"></span>
+</td>
+<td>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="wbg_netmask" id="wbg_netmask_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="wbg_netmask" id="wbg_netmask_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="wbg_netmask" id="wbg_netmask_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'netmask')" style="width:40px" name="wbg_netmask" id="wbg_netmask_4" value="0">
+</td>
+</tr>
+<tr id="tr_wbg_rt_name" class="tr_zone type_wbg">
+<td>
+<span class="multi_lang" id="lang_wbg_rt_name_title"></span>
+</td>
+<td>
+<input maxlength="15" value="" name="wbg_rt_name" id="wbg_rt_name" size="17" class="logger_bot" onblur="valid_device_name(this)">
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title optional_settings_zone">
+<span class="multi_lang" id="lang_wan_zone_optional_settings_title"></span>
+</div>
+<hr class="table-title-underline optional_settings_zone">
+<table class="table table-info optional_settings_zone">
+<tbody>
+<tr id="tr_opt_hostname" >
+<td>
+<span class="multi_lang" id="lang_opt_hostname_title"></span>
+</td>
+<td>
+<input maxlength="39" value="" name="opt_hostname" id="opt_hostname" onblur="valid_name(this,'')" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_opt_domain" >
+<td>
+<span class="multi_lang" id="lang_opt_domain_title"></span>
+</td>
+<td>
+<input maxlength="63" value="" name="opt_domain" id="opt_domain" onblur="valid_name(this,'',SPACE_NO)" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_opt_mtu_mode" >
+<td>
+<span class="multi_lang" id="lang_opt_mtu_mode_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('opt_mtu_mode', opt_mtu_mode_str_list, opt_mtu_mode_val_list,'sel_opt_mtu_mode()', '');})();</script>
+<div id="select_div_opt_mtu_mode"></div>
+</td>
+</tr>
+<tr id="tr_opt_mtu_size" >
+<td>
+<span class="multi_lang" id="lang_opt_mtu_size_title"></span>
+</td>
+<td>
+<input maxlength="32" value="1460" name="opt_mtu_size" id="opt_mtu_size" onblur="valid_mtu(this)" size="17" class="logger_bot">
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script language="javascript" type="text/javascript">
+page_tag='connectivity_wan'
+var PROTOCOL_INDEX = ['st','dhcp','pppoe','l2tp','pptp','bg','wbg']
+var PROTOCOL_OBJ_INDEX = ['staticip','dhcpc','pppoe','l2tp','pptp','bridge','wlanBridge']
+var MTU_MODE_INDEX = ['a', 'm']
+var BRIDGE_MODE_INDEX = ['a', 'm']
+var WLANBRIDGE_SECURITY_MAPPING = {"OPEN":"none","WPA2PSK":"wpa2","WPAPSK":"wpa"}
+var WLANBRIDGE_MODE_INDEX = ['a', 'm']
+var PPPOE_TIME_MODE = ['pppoe_alive', 'pppoe_idle' ]
+var ACCESS_IP_CHANGE = 0
+var MTU_DATA = {"st":{"min":576,"max":1500},"dhcp":{"min":576,"max":1500},"pppoe":{"min":576,"max":1492},"pptp":{"min":576,"max":1460},"l2tp":{"min":576,"max":1460}}
+var WBG_CONFIG_DATA = {}
+
+$(document).ready(function(){
+$.lang_load("connectivity_wan");
+$.lang_load("connectivity_network");
+$.lang_load("error_message");
+page_initial()
+inject_log_bot()
+escape_detection()
+});
+
+function getKeyByValue(object, value) {
+for (var i in object) {
+if(object[i] == value){
+return i
+break;
+}
+continue;
+}
+}
+
+function valid_mtu(I)
+{
+var min = 576;
+var max;
+var wanproto=PROTOCOL_INDEX[$("#wan_protocol_index").val()]
+
+eval('min=MTU_DATA.'+wanproto+'.min')
+eval('max=MTU_DATA.'+wanproto+'.max')
+
+var result = valid_range(I,min,max,"lang_err_range");
+if(!result){
+I.value = max;
+}
+return result
+}
+
+function sel_wan_proto(wanproto){
+$("[name='wan_proto']").parent('span').removeClass('checked')
+eval('var proto_class="radio_'+wanproto+'"')
+$("."+proto_class).addClass('checked')
+$(".tr_zone").hide()
+$(".type_"+wanproto).show()
+
+$(".optional_settings_zone").show();
+
+if('wbg' == wanproto || 'bg' == wanproto){
+$(".optional_settings_zone").hide();
+}
+}
+
+function sel_opt_mtu_mode(mode, mtu){
+if(typeof(mode) == "undefined")
+mode = $("#opt_mtu_mode").val()
+else
+$("#opt_mtu_mode").val(mode)
+
+if('a' == mode){
+$("[name='opt_mtu_size']").attr('disabled', true);
+}else{
+$("[name='opt_mtu_size']").attr('disabled', false);
+}
+
+if(typeof(mtu) != "undefined" && mtu != '0')
+$("#opt_mtu_size").val(mtu)
+else{
+wanproto=PROTOCOL_INDEX[$("#wan_protocol_index").val()]
+
+eval('var default_mtu=MTU_DATA.'+wanproto+'.max')
+$("#opt_mtu_size").val(default_mtu)
+}
+
+eval('var dy_id="L.connectivity_wan.'+$("#opt_mtu_mode option:selected").attr("id")+'"')
+$("#opt_mtu_mode").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+}
+
+function sel_bg_mode(mode){
+if(typeof(mode) == "undefined")
+mode = $("#bg_mode").val()
+else
+$("#bg_mode").val(mode)
+
+if('a' == mode){
+$("#bg_mode").val("a");
+$("#tr_bg_ip_addr").hide()
+$("#tr_bg_netmask").hide()
+$("#tr_bg_gateway").hide()
+$("[name='bg_ip_addr']").attr('disabled', true);
+$("[name='bg_netmask']").attr('disabled', true);
+$("[name='bg_gateway']").attr('disabled', true);
+}else{
+$("#bg_mode").val("m");
+$("#tr_bg_ip_addr").show()
+$("#tr_bg_netmask").show()
+$("#tr_bg_gateway").show()
+$("[name='bg_ip_addr']").attr('disabled', false);
+$("[name='bg_netmask']").attr('disabled', false);
+$("[name='bg_gateway']").attr('disabled', false);
+}
+
+eval('var dy_id="L.connectivity_wan.'+$("#bg_mode option:selected").attr("id")+'"')
+$("#bg_mode").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+}
+
+function sel_wbg_smode(mode){
+if(typeof(mode) == "undefined")
+mode = $("#wbg_security_mode").val()
+else
+$("#wbg_security_mode").val(mode)
+
+eval('var dy_id="L.connectivity_wan.'+$("#wbg_security_mode option:selected").attr("id")+'"')
+$("#wbg_security_mode").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+
+if(mode == 'none'){
+$("#wbg_passphease").attr('disabled', true);
+}else{
+$("#wbg_passphease").attr('disabled', false);
+}
+}
+
+function sel_wbg_mode(mode){
+if(typeof(mode) == "undefined")
+mode = $("#wbg_bg_mode").val()
+else
+$("#wbg_bg_mode").val(mode)
+
+eval('var dy_id="L.connectivity_wan.'+$("#wbg_bg_mode option:selected").attr("id")+'"')
+$("#wbg_bg_mode").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+
+if(mode == "a"){
+$("#tr_wbg_ip_addr").hide()
+$("#tr_wbg_netmask").hide()
+$("[name='wbg_ip_addr']").attr('disabled', true);
+$("[name='wbg_netmask']").attr('disabled', true);
+}else{
+$("#tr_wbg_ip_addr").show()
+$("#tr_wbg_netmask").show()
+$("[name='wbg_ip_addr']").attr('disabled', false);
+$("[name='wbg_netmask']").attr('disabled', false);
+}
+}
+
+function sel_pppoe_time_mode(e, time){
+if(e == "pppoe_idle"){
+$("#pppoe_time_mode").val(1)
+$("#pppoe_alive").parent('span').removeClass('checked')
+$("#pppoe_idle").parent('span').addClass('checked')
+$("#pppoe_idletime").attr('disabled', false);
+if( typeof(time) != 'undefined' )
+$("#pppoe_idletime").val(time);
+$("#pppoe_alivetime").attr('disabled', true);
+}else{
+$("#pppoe_time_mode").val(0)
+$("#pppoe_idle").parent('span').removeClass('checked')
+$("#pppoe_alive").parent('span').addClass('checked')
+$("#pppoe_idletime").attr('disabled', true);
+$("#pppoe_alivetime").attr('disabled', false);
+if( typeof(time) != 'undefined' )
+$("#pppoe_alivetime").val(time);
+}
+}
+
+function sel_pptp_time_mode(e, time){
+if(e == "pptp_idle"){
+$("#pptp_time_mode").val(1)
+$("#pptp_alive").parent('span').removeClass('checked')
+$("#pptp_idle").parent('span').addClass('checked')
+$("#pptp_idletime").attr('disabled', false);
+$("#pptp_alivetime").attr('disabled', true);
+if( typeof(time) != 'undefined' && time != '0' )
+$("#pptp_idletime").val(time);
+}else{
+$("#pptp_time_mode").val(0)
+$("#pptp_idle").parent('span').removeClass('checked')
+$("#pptp_alive").parent('span').addClass('checked')
+$("#pptp_idletime").attr('disabled', true);
+$("#pptp_alivetime").attr('disabled', false);
+if( typeof(time) != 'undefined' && time != '0' )
+$("#pptp_alivetime").val(time);
+}
+}
+
+function sel_l2tp_time_mode(e, time){
+if(e == "l2tp_idle"){
+$("#l2tp_time_mode").val(1)
+$("#l2tp_alive").parent('span').removeClass('checked')
+$("#l2tp_idle").parent('span').addClass('checked')
+$("#l2tp_idletime").attr('disabled', false);
+$("#l2tp_alivetime").attr('disabled', true);
+if( typeof(time) != 'undefined' && time != '0' )
+$("#l2tp_idletime").val(time);
+}else{
+$("#l2tp_time_mode").val(0)
+$("#l2tp_idle").parent('span').removeClass('checked')
+$("#l2tp_alive").parent('span').addClass('checked')
+$("#l2tp_idletime").attr('disabled', true);
+$("#l2tp_alivetime").attr('disabled', false);
+if( typeof(time) != 'undefined' && time != '0' )
+$("#l2tp_alivetime").val(time);
+}
+}
+
+function sel_wbg_band(e){
+if(e == "wbg_nand_2g"){
+$("#wbg_band_mode").val(2)
+$("#wbg_nand_5g").parent('span').removeClass('checked')
+$("#wbg_nand_2g").parent('span').addClass('checked')
+}else{
+$("#wbg_band_mode").val(5)
+$("#wbg_nand_2g").parent('span').removeClass('checked')
+$("#wbg_nand_5g").parent('span').addClass('checked')
+}
+}
+
+function sel_pptp_ip_mode(e){
+if(e == "pptp_auto"){
+$("#pptp_autoObtain").val(1)
+$("#pptp_static").parent('span').removeClass('checked')
+$("#pptp_auto").parent('span').addClass('checked')
+$("[name='pptp_ip_addr']").attr('disabled', true);
+$("[name='pptp_netmask']").attr('disabled', true);
+$("[name='pptp_gateway']").attr('disabled', true);
+$("[name='pptp_dns1']").attr('disabled', true);
+$("[name='pptp_dns2']").attr('disabled', true);
+$("[name='pptp_dns3']").attr('disabled', true);
+}else{
+$("#pptp_autoObtain").val(0)
+$("#pptp_auto").parent('span').removeClass('checked')
+$("#pptp_static").parent('span').addClass('checked')
+$("[name='pptp_ip_addr']").attr('disabled', false);
+$("[name='pptp_netmask']").attr('disabled', false);
+$("[name='pptp_gateway']").attr('disabled', false);
+$("[name='pptp_dns1']").attr('disabled', false);
+$("[name='pptp_dns2']").attr('disabled', false);
+$("[name='pptp_dns3']").attr('disabled', false);
+}
+}
+
+function get_obj_success_cb(obj) {
+if(obj.api_return != 0){
+get_obj_error_cb(obj)
+return;
+}
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+select_protocol(MODIFIED_OBJ_DATA)
+}
+
+function get_obj_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+
+function get_info_success_cb(obj) {
+if(obj.api_return != 0){
+get_info_error_cb(obj)
+return;
+}
+INFO_DATA = API.obj.copy(obj);
+
+get_obj_data(OBJ_LIST)
+}
+
+function get_info_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_info_data(info_list){
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+
+function proto_dhcp_layout(prot_data, wan_data){
+sel_wan_proto('dhcp')
+document.getElementById('opt_hostname').value = document.getElementById('opt_hostname').defaultValue = wan_data.hostname
+document.getElementById('opt_domain').value = document.getElementById('opt_domain').defaultValue = wan_data.domainName
+sel_opt_mtu_mode(MTU_MODE_INDEX[prot_data.mtuMode], prot_data.mtu)
+}
+
+function proto_staticip_layout(prot_data, wan_data){
+sel_wan_proto('st')
+
+if( typeof(prot_data.ip) != "undefined" && prot_data.ip != "" )
+ipaddr_s2e(prot_data.ip, "st_ip_addr")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.IP, "st_ip_addr")
+
+if( typeof(prot_data.netmask) != "undefined" && prot_data.netmask != "" )
+ipaddr_s2e(prot_data.netmask, "st_netmask")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.Netmask, "st_netmask")
+
+if( typeof(prot_data.gateway) != "undefined" && prot_data.gateway != "" )
+ipaddr_s2e(prot_data.gateway, "st_gateway")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.Gateway, "st_gateway")
+
+if( typeof(prot_data.dns1) != "undefined" && prot_data.dns1 != "" )
+ipaddr_s2e(prot_data.dns1, "st_dns1")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.DNS1, "st_dns1")
+
+if( typeof(prot_data.dns2) != "undefined" && prot_data.dns2 != "" )
+ipaddr_s2e(prot_data.dns2, "st_dns2")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.DNS2, "st_dns2")
+
+if( typeof(prot_data.dns3) != "undefined" && prot_data.dns3 != "" )
+ipaddr_s2e(prot_data.dns3, "st_dns3")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.DNS3, "st_dns3")
+
+document.getElementById('opt_hostname').value = document.getElementById('opt_hostname').defaultValue = wan_data.hostname
+document.getElementById('opt_domain').value = document.getElementById('opt_domain').defaultValue = wan_data.domainName
+sel_opt_mtu_mode(MTU_MODE_INDEX[prot_data.mtuMode], prot_data.mtu)
+}
+
+function proto_pppoe_layout(prot_data, wan_data){
+sel_wan_proto('pppoe')
+
+if( typeof(prot_data.username) != "undefined" && prot_data.username != "" )
+document.getElementById('pppoe_name').defaultValue = prot_data.username
+
+if( typeof(prot_data.password) != "undefined" && prot_data.password != "" )
+document.getElementById('pppoe_pw').defaultValue = prot_data.password
+
+if( typeof(prot_data.serviceName) != "undefined" && prot_data.serviceName != "" )
+document.getElementById('pppoe_server_name').defaultValue = prot_data.serviceName
+
+if(prot_data.ondemand == 0)
+sel_pppoe_time_mode('pppoe_alive', prot_data.redialPeriod)
+else if(prot_data.ondemand == 1)
+sel_pppoe_time_mode('pppoe_idle', prot_data.maxIdleTime)
+
+document.getElementById('opt_hostname').value = document.getElementById('opt_hostname').defaultValue = wan_data.hostname
+document.getElementById('opt_domain').value = document.getElementById('opt_domain').defaultValue = wan_data.domainName
+sel_opt_mtu_mode(MTU_MODE_INDEX[prot_data.mtuMode], prot_data.mtu)
+}
+
+function proto_pptp_layout(prot_data, wan_data){
+sel_wan_proto('pptp')
+
+if(prot_data.autoObtain == 0){
+sel_pptp_ip_mode('pptp_static')
+if( typeof(prot_data.ipaddr) != "undefined" && prot_data.ipaddr != "" )
+ipaddr_s2e(prot_data.ipaddr, "pptp_ip_addr")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.IP, "pptp_ip_addr")
+
+if( typeof(prot_data.netmask) != "undefined" && prot_data.netmask != "" )
+ipaddr_s2e(prot_data.netmask, "pptp_netmask")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.Netmask, "pptp_netmask")
+
+if( typeof(prot_data.gateway) != "undefined" && prot_data.gateway != "" )
+ipaddr_s2e(prot_data.gateway, "pptp_gateway")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.Gateway, "pptp_gateway")
+
+if( typeof(prot_data.dns1) != "undefined" && prot_data.dns1 != "" )
+ipaddr_s2e(prot_data.dns1, "pptp_dns1")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.DNS1, "pptp_dns1")
+
+if( typeof(prot_data.dns2) != "undefined" && prot_data.dns2 != "" )
+ipaddr_s2e(prot_data.dns2, "pptp_dns2")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.DNS2, "pptp_dns2")
+
+if( typeof(prot_data.dns3) != "undefined" && prot_data.dns3 != "" )
+ipaddr_s2e(prot_data.dns3, "pptp_dns3")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.DNS3, "pptp_dns3")
+}
+else if(prot_data.autoObtain == 1){
+sel_pptp_ip_mode('pptp_auto')
+}
+
+if( typeof(prot_data.vpnServer) != "undefined" && prot_data.vpnServer != "" )
+ipaddr_s2e(prot_data.vpnServer, "pptp_server_ip")
+if( typeof(prot_data.username) != "undefined" && prot_data.username != "" )
+document.getElementById('pptp_server_name').defaultValue = prot_data.username
+if( typeof(prot_data.password) != "undefined" && prot_data.password != "" )
+document.getElementById('pptp_server_pw').defaultValue = prot_data.password
+
+if(prot_data.ondemand == 0)
+sel_pptp_time_mode('pptp_alive', prot_data.redialPeriod)
+else if(prot_data.ondemand == 1)
+sel_pptp_time_mode('pptp_idle', prot_data.maxIdleTime)
+
+document.getElementById('opt_hostname').value = document.getElementById('opt_hostname').defaultValue = wan_data.hostname
+document.getElementById('opt_domain').value = document.getElementById('opt_domain').defaultValue = wan_data.domainName
+sel_opt_mtu_mode(MTU_MODE_INDEX[prot_data.mtuMode], prot_data.mtu)
+}
+
+function proto_l2tp_layout(prot_data, wan_data){
+sel_wan_proto('l2tp')
+
+if( typeof(prot_data.vpnServer) != "undefined" && prot_data.vpnServer != "" )
+ipaddr_s2e(prot_data.vpnServer, "l2tp_server_ip")
+if( typeof(prot_data.username) != "undefined" && prot_data.username != "" )
+document.getElementById('l2tp_server_name').defaultValue = prot_data.username
+if( typeof(prot_data.password) != "undefined" && prot_data.password != "" )
+document.getElementById('l2tp_server_pw').defaultValue = prot_data.password
+
+if(prot_data.mode == 0)
+sel_l2tp_time_mode('l2tp_alive', prot_data.redialPeriod)
+else if(prot_data.mode == 1)
+sel_l2tp_time_mode('l2tp_idle', prot_data.idleTime)
+
+document.getElementById('opt_hostname').value = document.getElementById('opt_hostname').defaultValue = wan_data.hostname
+document.getElementById('opt_domain').value = document.getElementById('opt_domain').defaultValue = wan_data.domainName
+sel_opt_mtu_mode(MTU_MODE_INDEX[prot_data.mtuMode], prot_data.mtu)
+}
+
+function proto_bg_layout(prot_data, wan_data, opt_data){
+sel_wan_proto('bg')
+
+if( typeof(prot_data.mode) != "undefined" && prot_data.mode != "" ){
+sel_bg_mode(BRIDGE_MODE_INDEX[prot_data.mode])
+
+if( typeof(prot_data.ip) != "undefined" && prot_data.ip != "" )
+ipaddr_s2e(prot_data.ip, "bg_ip_addr")
+else
+ipaddr_s2e('0.0.0.0', "bg_ip_addr")
+
+if( typeof(prot_data.netmask) != "undefined" && prot_data.netmask != "" )
+ipaddr_s2e(prot_data.netmask, "bg_netmask")
+else
+ipaddr_s2e('0.0.0.0', "bg_netmask")
+
+if( typeof(prot_data.gateway) != "undefined" && prot_data.gateway != "" )
+ipaddr_s2e(prot_data.gateway, "bg_gateway")
+else
+ipaddr_s2e('0.0.0.0', "bg_gateway")
+
+$("#bg_rt_name").val(opt_data.LanP.routername)
+}
+}
+
+function proto_wbg_layout(prot_data, wan_data, opt_data){
+sel_wan_proto('wbg')
+$("#wbg_ssid").val(prot_data[0].ssid)
+sel_wbg_band('wbg_nand_'+prot_data[0].type+'g')
+eval('var smode=WLANBRIDGE_SECURITY_MAPPING.'+prot_data[0].authtype)
+sel_wbg_smode(smode)
+$("#wbg_passphease").val(prot_data[0].wpaPsk)
+
+//Close bridge mode function
+$("#wbg_bg_mode").attr('disabled', true)
+//Fix bridge mode to dhcp
+sel_wbg_mode('a')
+ipaddr_s2e('0.0.0.0', "wbg_ip_addr")
+ipaddr_s2e('0.0.0.0', "wbg_netmask")
+
+$("#wbg_rt_name").val(opt_data.LanP.routername)
+
+/*
+if( typeof(opt_data.BridgeP.mode) != "undefined" && opt_data.BridgeP.mode != "" ){
+sel_wbg_mode(WLANBRIDGE_MODE_INDEX[opt_data.BridgeP.mode])
+
+if( typeof(opt_data.BridgeP.ip) != "undefined" && opt_data.BridgeP.ip != "" )
+ipaddr_s2e(opt_data.BridgeP.ip, "wbg_ip_addr")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.IP, "wbg_ip_addr")
+
+if( typeof(opt_data.BridgeP.netmask) != "undefined" && opt_data.BridgeP.netmask != "" )
+ipaddr_s2e(opt_data.BridgeP.netmask, "wbg_netmask")
+else
+ipaddr_s2e(INFO_DATA.InternetConnection.IPv4.Netmask, "wbg_netmask")
+}
+*/
+}
+
+function select_protocol(obj_src, protocol){
+if(typeof(obj) == 'undefined' || obj == "")
+var obj = $.extend(true, {}, MODIFIED_OBJ_DATA);
+else
+var obj = $.extend(true, {}, obj_src);
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+PROTOCOL_INDEX.splice(5, 2);
+PROTOCOL_OBJ_INDEX.splice(5, 2);
+$("#hide").hide()
+}
+var proto_data = {}
+var wan_data = obj.wan.WanP
+if ( typeof(protocol) == 'undefined' || protocol == "" ){
+var protocol_index=obj.wan.WanP.proto
+protocol = PROTOCOL_INDEX[protocol_index]
+}
+if( 'undefined' != typeof(obj.lan.LanP.ipaddr) && obj.lan.LanP.ipaddr != "" )
+LOCAL_LAN_URL = "http://" + obj.lan.LanP.ipaddr + "/"
+
+$("#wan_protocol_index").val(PROTOCOL_INDEX.indexOf(protocol))
+
+if( 'dhcp' == protocol ){
+proto_data = obj.dhcpc.DhcpcP
+proto_dhcp_layout(proto_data, wan_data)
+}else if( 'st' == protocol ){
+proto_data = obj.staticip.StaticipP
+proto_staticip_layout(proto_data, wan_data)
+}else if( 'pppoe' == protocol ){
+proto_data = obj.pppoe.PppoeP
+proto_pppoe_layout(proto_data, wan_data)
+}else if( 'pptp' == protocol ){
+proto_data = obj.pptp.PptpP
+proto_pptp_layout(proto_data, wan_data)
+}else if( 'l2tp' == protocol ){
+proto_data = obj.l2tp.L2tpP
+proto_l2tp_layout(proto_data, wan_data)
+}else if( 'bg' == protocol ){
+proto_data = obj.bridge.BridgeP
+var opt_data = {}
+opt_data = UI.obj.merge(obj.lan, opt_data);
+proto_bg_layout(proto_data, wan_data, opt_data)
+}else if( 'wbg' == protocol ){
+proto_data = obj.wlanBridge.WlanBridgeT
+var opt_data = obj.bridge
+opt_data = UI.obj.merge(obj.lan, opt_data);
+proto_wbg_layout(proto_data, wan_data, opt_data)
+}
+}
+
+function page_initial(){
+get_info_data(INFO_LIST)
+}
+
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+if(ACCESS_IP_CHANGE == 1){
+control_timer = setTimeout(function(){
+//network_back_checker(LOCAL_HIJACKING_URL);
+window.location.href = LOCAL_HIJACKING_URL+"pre_out.html";
+}, 80000);
+}else if(ACCESS_IP_CHANGE == 2){
+control_timer = setTimeout(function(){
+network_back_checker(LOCAL_LAN_URL);
+//window.location.href = LOCAL_LAN_URL+"pre_out.html";
+}, 30000);
+}else{
+setTimeout(function(){
+$("#loader").hide()
+}, 3000);
+}
+
+
+ORIGINAL_OBJ_DATA = UI.obj.merge(MODIFIED_OBJ_DATA, ORIGINAL_OBJ_DATA);
+
+show_alert(L.common.success_title, L.common.save_success)
+}
+
+function set_obj_error_cb(obj) {
+$("#loader").hide()
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+
+function valid_mtu_input(){
+if( $("#opt_mtu_mode").val() == 'm' && $("#opt_mtu_size").val() == "" ){
+valid_mtu(document.getElementById("opt_mtu_size"))
+return false;
+}
+return true;
+}
+
+function valid_pppoe_input(){
+if($("#pppoe_name").val() == ""){
+alert(L.error_message.lang_error_message_err0);
+return false
+}else if($("#pppoe_pw").val() == ""){
+alert(L.error_message.lang_error_message_err6);
+return false
+}else
+return true;
+}
+
+function valid_pptp_input(){
+if(!valid_ipaddr_empty('pptp_server_ip') || "0.0.0.0" == ipaddr_e2s("pptp_server_ip") ){
+alert(L.error_message.lang_error_message_err8);
+return false
+}else if($("#pptp_server_name").val() == ""){
+alert(L.error_message.lang_error_message_err0);
+return false
+}else if($("#pptp_server_pw").val() == ""){
+alert(L.error_message.lang_error_message_err6);
+return false
+}else
+return true;
+}
+
+function valid_l2tp_input(){
+if(!valid_ipaddr_empty('l2tp_server_ip') || "0.0.0.0" == ipaddr_e2s("l2tp_server_ip") ){
+alert(L.error_message.lang_error_message_err8);
+return false
+}else if($("#l2tp_server_name").val() == ""){
+alert(L.error_message.lang_error_message_err0);
+return false
+}else if($("#l2tp_server_pw").val() == ""){
+alert(L.error_message.lang_error_message_err6);
+return false
+}else
+return true;
+}
+
+function valid_router_name(rt_name){
+if( 'undefined' == typeof(rt_name) || rt_name == ""){
+alert(L.error_message.lang_error_message_err1);
+return false
+}else
+return true
+}
+
+function valid_bridge_input(){
+if(!valid_ipaddr_empty('bg_ip_addr') || "0.0.0.0" == ipaddr_e2s("bg_ip_addr") || !valid_ipaddr_empty('bg_netmask') || "0.0.0.0" == ipaddr_e2s("bg_netmask") || !valid_ipaddr_empty('bg_gateway') || "0.0.0.0" == ipaddr_e2s("bg_gateway") ){
+alert(L.error_message.lang_error_message_err8);
+return false
+}else if(!valid_router_name($("#bg_rt_name").val())){
+return false
+}else
+return true;
+}
+
+function valid_wlan_bridge_net_input(){
+if(!valid_ipaddr_empty('wbg_ip_addr') || "0.0.0.0" == ipaddr_e2s("wbg_ip_addr") || !valid_ipaddr_empty('wbg_netmask') || "0.0.0.0" == ipaddr_e2s("wbg_netmask") ){
+alert(L.error_message.lang_error_message_err8);
+return false
+}else if(!valid_router_name($("#wbg_rt_name").val())){
+return false
+}else
+return true;
+}
+
+function valid_wlan_bridge_input(){
+if("" == $("#wbg_ssid").val()){
+alert(L.connectivity_wan.lang_wbg_ssid_empty);
+return false
+}
+else if( !validation_ssid($("#wbg_ssid").val()) ){
+alert(L.connectivity_wan.lang_wbg_ssid_format);
+return false
+}else if($("#wbg_security_mode").val() != "none" && $("#wbg_passphease").val() == "" ) {
+alert(L.connectivity_wan.lang_wbg_pw_empty);
+return false
+}
+else
+return true;
+}
+
+function prepare_dhcp_obj(){
+if(valid_mtu_input()){
+MODIFIED_OBJ_DATA.dhcpc.DhcpcP.mtuMode = MTU_MODE_INDEX.indexOf($("#opt_mtu_mode").val()).toString()
+MODIFIED_OBJ_DATA.dhcpc.DhcpcP.mtu = $("#opt_mtu_size").val()
+return true
+}else
+return false
+}
+function valid_local_ip_rule(net1, net2){
+var net1 = net1.split('.')
+var net2 = net2.split('.')
+return (net1[0]==net2[0] && net1[1] == net2[1] && net1[2] == net2[2] && net1[3] == net2[3])
+}
+function get_network(ip,mask) {
+var ip_array = ip.split('.')
+var mask_array = mask.split('.')
+var network = ""
+
+for (var i = 0; i < 4; i++)
+network += (parseInt(ip_array[i]) & parseInt(mask_array[i])) + "."
+
+return network.substring(0, network.length-1);
+}
+function valid_st_input(){
+var lan = MODIFIED_OBJ_DATA.lan.LanP.ipaddr
+var wan = ipaddr_e2s("st_ip_addr")
+var gw = ipaddr_e2s("st_gateway")
+var lanmask = MODIFIED_OBJ_DATA.lan.LanP.netmask
+var wanmask = ipaddr_e2s("st_netmask")
+var lannetwork,wannetwork,gwnetwork
+
+lannetwork = get_network(lan, lanmask)
+wannetwork = get_network(wan, wanmask)
+gwnetwork = get_network(gw, wanmask)
+
+if(valid_local_ip_rule(wannetwork, lannetwork)!=false){
+alert(L.connectivity_wan.lang_st_error_msg1)
+return false;
+}
+if(valid_local_ip_rule(gwnetwork, wannetwork)!=true){
+alert(L.connectivity_wan.lang_st_error_msg2)
+return false;
+}
+return true
+}
+function prepare_st_obj(){
+if(valid_mtu_input()){
+if(!valid_st_input())
+return false;
+MODIFIED_OBJ_DATA.staticip.StaticipP.ip = ipaddr_e2s("st_ip_addr")
+MODIFIED_OBJ_DATA.staticip.StaticipP.netmask = ipaddr_e2s("st_netmask")
+MODIFIED_OBJ_DATA.staticip.StaticipP.gateway = ipaddr_e2s("st_gateway")
+MODIFIED_OBJ_DATA.staticip.StaticipP.dns1 = ipaddr_e2s("st_dns1")
+MODIFIED_OBJ_DATA.staticip.StaticipP.dns2 = ipaddr_e2s("st_dns2")
+MODIFIED_OBJ_DATA.staticip.StaticipP.dns3 = ipaddr_e2s("st_dns3")
+MODIFIED_OBJ_DATA.staticip.StaticipP.mtuMode = MTU_MODE_INDEX.indexOf($("#opt_mtu_mode").val()).toString()
+MODIFIED_OBJ_DATA.staticip.StaticipP.mtu = $("#opt_mtu_size").val()
+return true
+}else
+return false
+}
+
+function prepare_pppoe_obj(){
+if(valid_mtu_input() && valid_pppoe_input()){
+MODIFIED_OBJ_DATA.pppoe.PppoeP.username = $("#pppoe_name").val()
+MODIFIED_OBJ_DATA.pppoe.PppoeP.password = $("#pppoe_pw").val()
+MODIFIED_OBJ_DATA.pppoe.PppoeP.serviceName = $("#pppoe_server_name").val()
+MODIFIED_OBJ_DATA.pppoe.PppoeP.ondemand = $("#pppoe_time_mode").val()
+MODIFIED_OBJ_DATA.pppoe.PppoeP.maxIdleTime = $("#pppoe_idletime").val()
+MODIFIED_OBJ_DATA.pppoe.PppoeP.redialPeriod = $("#pppoe_alivetime").val()
+MODIFIED_OBJ_DATA.pppoe.PppoeP.mtuMode = MTU_MODE_INDEX.indexOf($("#opt_mtu_mode").val()).toString()
+MODIFIED_OBJ_DATA.pppoe.PppoeP.mtu = $("#opt_mtu_size").val()
+return true
+}else
+return false
+}
+
+function prepare_pptp_obj(){
+if(valid_mtu_input() && valid_pptp_input()){
+MODIFIED_OBJ_DATA.pptp.PptpP.autoObtain=$("#pptp_autoObtain").val()
+MODIFIED_OBJ_DATA.pptp.PptpP.ipaddr = ipaddr_e2s("pptp_ip_addr")
+MODIFIED_OBJ_DATA.pptp.PptpP.netmask = ipaddr_e2s("pptp_netmask")
+MODIFIED_OBJ_DATA.pptp.PptpP.gateway = ipaddr_e2s("pptp_gateway")
+MODIFIED_OBJ_DATA.pptp.PptpP.dns1 = ipaddr_e2s("pptp_dns1")
+MODIFIED_OBJ_DATA.pptp.PptpP.dns2 = ipaddr_e2s("pptp_dns2")
+MODIFIED_OBJ_DATA.pptp.PptpP.dns3 = ipaddr_e2s("pptp_dns3")
+MODIFIED_OBJ_DATA.pptp.PptpP.vpnServer = ipaddr_e2s("pptp_server_ip")
+MODIFIED_OBJ_DATA.pptp.PptpP.username = $("#pptp_server_name").val()
+MODIFIED_OBJ_DATA.pptp.PptpP.password = $("#pptp_server_pw").val()
+MODIFIED_OBJ_DATA.pptp.PptpP.ondemand = $("#pptp_time_mode").val()
+MODIFIED_OBJ_DATA.pptp.PptpP.maxIdleTime = $("#pptp_idletime").val()
+MODIFIED_OBJ_DATA.pptp.PptpP.redialPeriod = $("#pptp_alivetime").val()
+MODIFIED_OBJ_DATA.pptp.PptpP.mtuMode = MTU_MODE_INDEX.indexOf($("#opt_mtu_mode").val()).toString()
+MODIFIED_OBJ_DATA.pptp.PptpP.mtu = $("#opt_mtu_size").val()
+return true
+}else
+return false
+}
+
+function prepare_l2tp_obj(){
+if(valid_mtu_input() && valid_l2tp_input()){
+MODIFIED_OBJ_DATA.l2tp.L2tpP.vpnServer = ipaddr_e2s("l2tp_server_ip")
+MODIFIED_OBJ_DATA.l2tp.L2tpP.username = $("#l2tp_server_name").val()
+MODIFIED_OBJ_DATA.l2tp.L2tpP.password = $("#l2tp_server_pw").val()
+MODIFIED_OBJ_DATA.l2tp.L2tpP.mode = $("#l2tp_time_mode").val()
+MODIFIED_OBJ_DATA.l2tp.L2tpP.idleTime = $("#l2tp_idletime").val()
+MODIFIED_OBJ_DATA.l2tp.L2tpP.redialPeriod = $("#l2tp_alivetime").val()
+MODIFIED_OBJ_DATA.l2tp.L2tpP.mtuMode = MTU_MODE_INDEX.indexOf($("#opt_mtu_mode").val()).toString()
+MODIFIED_OBJ_DATA.l2tp.L2tpP.mtu = $("#opt_mtu_size").val()
+return true
+}else
+return false
+}
+
+function prepare_bg_obj(){
+MODIFIED_OBJ_DATA.bridge.BridgeP.mode = BRIDGE_MODE_INDEX.indexOf($("#bg_mode").val()).toString()
+if( "0" == MODIFIED_OBJ_DATA.bridge.BridgeP.mode ){
+if(!valid_router_name($("#bg_rt_name").val()))
+return false
+else{
+MODIFIED_OBJ_DATA.lan.LanP.routername = $("#bg_rt_name").val()
+MODIFIED_OBJ_DATA.bridge.BridgeP.ip = MODIFIED_OBJ_DATA.bridge.BridgeP.netmask = MODIFIED_OBJ_DATA.bridge.BridgeP.gateway = ""
+}
+}else{
+if(valid_bridge_input()){
+MODIFIED_OBJ_DATA.bridge.BridgeP.ip = ipaddr_e2s("bg_ip_addr")
+MODIFIED_OBJ_DATA.bridge.BridgeP.netmask = ipaddr_e2s("bg_netmask")
+MODIFIED_OBJ_DATA.bridge.BridgeP.gateway = ipaddr_e2s("bg_gateway")
+MODIFIED_OBJ_DATA.lan.LanP.routername = $("#bg_rt_name").val()
+}else
+return false
+}
+
+if( 'undefined' != typeof(MODIFIED_OBJ_DATA.lan.LanP.routername) && MODIFIED_OBJ_DATA.lan.LanP.routername != "" ){
+if( "windows" == get_browser_os() )
+LOCAL_HIJACKING_URL = "http://" + MODIFIED_OBJ_DATA.lan.LanP.routername + "/"
+else
+LOCAL_HIJACKING_URL = "http://" + MODIFIED_OBJ_DATA.lan.LanP.routername + ".local/"
+}
+
+
+return true
+}
+
+function prepare_wbg_obj(){
+MODIFIED_OBJ_DATA.bridge.BridgeP.mode = WLANBRIDGE_MODE_INDEX.indexOf($("#wbg_bg_mode").val()).toString()
+if( "0" == MODIFIED_OBJ_DATA.bridge.BridgeP.mode ){
+if(!valid_router_name($("#wbg_rt_name").val()))
+return false
+else{
+MODIFIED_OBJ_DATA.bridge.BridgeP.ip = MODIFIED_OBJ_DATA.bridge.BridgeP.netmask = MODIFIED_OBJ_DATA.bridge.BridgeP.gateway = ""
+MODIFIED_OBJ_DATA.lan.LanP.routername = $("#wbg_rt_name").val()
+}
+}else{
+if(valid_wlan_bridge_net_input()){
+MODIFIED_OBJ_DATA.bridge.BridgeP.ip = ipaddr_e2s("wbg_ip_addr")
+MODIFIED_OBJ_DATA.bridge.BridgeP.netmask = ipaddr_e2s("wbg_netmask")
+MODIFIED_OBJ_DATA.bridge.BridgeP.gateway = ""
+MODIFIED_OBJ_DATA.lan.LanP.routername = $("#wbg_rt_name").val()
+}else
+return false
+}
+
+if( 'undefined' != typeof(MODIFIED_OBJ_DATA.lan.LanP.routername) && MODIFIED_OBJ_DATA.lan.LanP.routername != "" ){
+if( "windows" == get_browser_os() )
+LOCAL_HIJACKING_URL = "http://" + MODIFIED_OBJ_DATA.lan.LanP.routername + "/"
+else
+LOCAL_HIJACKING_URL = "http://" + MODIFIED_OBJ_DATA.lan.LanP.routername + ".local/"
+}
+
+
+if(valid_wlan_bridge_input()){
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[0].ssid = $("#wbg_ssid").val()
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[1].ssid = $("#wbg_ssid").val()
+
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[0].type = $("#wbg_band_mode").val()
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[1].type = $("#wbg_band_mode").val()
+
+auth_type = getKeyByValue(WLANBRIDGE_SECURITY_MAPPING,$("#wbg_security_mode").val())
+
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[0].authtype = auth_type
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[1].authtype = auth_type
+
+if($("#wbg_security_mode").val() != "none"){
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[0].encrypType = "AES"
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[1].encrypType = "AES"
+}else{
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[0].encrypType = "NONE"
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[1].encrypType = "NONE"
+}
+
+
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[0].wpaPsk = $("#wbg_passphease").val()
+MODIFIED_OBJ_DATA.wlanBridge.WlanBridgeT[1].wpaPsk = $("#wbg_passphease").val()
+return true
+}
+return false
+}
+
+function set_site_check_success_cb(obj){
+if(obj.api_return != 0){
+set_site_check_error_cb(obj)
+return;
+}
+if( 'undefined' != typeof(obj.wlanbridgeTest.result) && obj.wlanbridgeTest.result == "PASS")
+set_obj_data(WBG_CONFIG_DATA)
+else{
+$("#loader").hide()
+show_alert(L.common.fail_title, L.connectivity_wan.lang_wbg_connect_fail_msg, 5000)
+}
+}
+
+function set_site_check_error_cb(obj) {
+$("#loader").hide()
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+
+function wbg_pre_check(obj){
+WBG_CONFIG_DATA = $.extend(true, {}, obj);
+
+if(obj.wlanBridge.WlanBridgeT[0].type == '5')
+ifname = "apclii0"
+else
+ifname = "apcli0"
+
+var site_data = {"wlanbridgeTest":{"ifname":ifname,"ssid":obj.wlanBridge.WlanBridgeT[0].ssid,"auth":obj.wlanBridge.WlanBridgeT[0].authtype,"enc":obj.wlanBridge.WlanBridgeT[0].encrypType,"wpapsk":obj.wlanBridge.WlanBridgeT[0].wpaPsk}}
+
+API.info.set(site_data, set_site_check_success_cb, set_site_check_error_cb, 20000);
+
+//API/info -d '{"wlanbridgeTest":{"ifname":"apclii0","ssid":"mt7610e-21D9","auth":"WPA2PSK","enc":"AES","wpapsk":"12345678"}}'
+//API/info -d '{"wlanbridgeTest":{"ifname":"apcli0","ssid":"mt7620-21D9","auth":"OPEN","enc":"NONE","wpapsk":""}}'
+}
+
+function page_save(fake_action){
+//Prepare the target saving obj
+var target_obj = {}
+var protocol = ""
+ACCESS_IP_CHANGE = 0
+pid = MODIFIED_OBJ_DATA.wan.WanP.proto = $("#wan_protocol_index").val()
+protocol = PROTOCOL_INDEX[MODIFIED_OBJ_DATA.wan.WanP.proto]
+
+if( (ORIGINAL_OBJ_DATA.wan.WanP.proto != "5" && pid == "5") || (ORIGINAL_OBJ_DATA.wan.WanP.proto != "6" && pid == "6") || (ORIGINAL_OBJ_DATA.wan.WanP.proto == "5" && pid == "5") || (ORIGINAL_OBJ_DATA.wan.WanP.proto == "6" && pid == "6")){
+ACCESS_IP_CHANGE = 1;
+}
+else if( (ORIGINAL_OBJ_DATA.wan.WanP.proto == "5" && pid != "5") || (ORIGINAL_OBJ_DATA.wan.WanP.proto == "6" && pid != "6") ){
+ACCESS_IP_CHANGE = 2;
+}
+
+if( 'undefined' == typeof(fake_action) || !fake_action){
+eval('var valid = prepare_'+protocol+'_obj()')
+if(valid == false)
+return;
+}
+
+eval('target_obj.'+PROTOCOL_OBJ_INDEX[pid]+' = $.extend(true, {}, MODIFIED_OBJ_DATA.'+PROTOCOL_OBJ_INDEX[pid]+');')
+
+if(protocol == 'dhcp' || protocol == 'st' || protocol == 'pppoe' || protocol == 'pptp' || protocol == 'l2tp'){
+MODIFIED_OBJ_DATA.wan.WanP.hostname = $("#opt_hostname").val()
+MODIFIED_OBJ_DATA.wan.WanP.domainName = $("#opt_domain").val()
+}else if( protocol == 'bg' ){
+target_obj.lan =  $.extend(true, {}, MODIFIED_OBJ_DATA.lan);
+}else if( protocol == 'wbg' ){
+target_obj.bridge =  $.extend(true, {}, MODIFIED_OBJ_DATA.bridge);
+target_obj.lan =  $.extend(true, {}, MODIFIED_OBJ_DATA.lan);
+}
+
+target_obj.wan = $.extend(true, {}, MODIFIED_OBJ_DATA.wan);
+
+if( 'undefined' == typeof(fake_action) || !fake_action){
+$("#loader").show()
+if( protocol == 'wbg' ){
+wbg_pre_check(target_obj)
+}else
+set_obj_data(target_obj)
+}
+}
+function page_cancel(){
+select_protocol(ORIGINAL_OBJ_DATA)
+}
+
+function escape_modified_check(){
+page_save(true)
+if(UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false
+else
+return true
+}
+
+</script>
+

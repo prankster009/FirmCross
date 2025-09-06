@@ -1,0 +1,20 @@
+{
+    "connectivity_routing": {
+        "lang_routing_zone_advanced_routing_title": "高度なルーティング",
+        "lang_nat_enable_title": "NAT",
+        "lang_routing_zone_dynamic_routing_title": "動的ルーティング (RIP)",
+        "lang_dynamic_rt_enable_title": "有効",
+        "lang_routing_zone_static_routing_title": "静的ルーティング",
+        "lang_rt_entries_title": "ルート エントリ",
+        "lang_delete_entry_button": "このエントリを削除",
+        "lang_rt_name_title": "ルート名を入力",
+        "lang_dst_lan_ip_title": "同期先の LAN IP",
+        "lang_subnet_mask_title": "サブネット マスク",
+        "lang_gateway_title": "ゲートウェイ",
+        "lang_interface_title": "インターフェイス",
+        "lang_rt_table_button": "ルーティング テーブルを表示",
+        "lang_interface_opt_lan_wifi": "LAN とワイヤレス",
+        "lang_interface_opt_wan": "インターネット (WAN)",
+        "lang_alert_guest_not_availabed_title": "NAT が無効の場合、ゲスト アクセスは使用可能になりません。変更内容の保存を続行しますか?"
+    }
+}

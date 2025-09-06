@@ -1,0 +1,12 @@
+{
+    "idp_wps_result": {
+        "lang_idp_wps_result_fail_title": "連線錯誤！",
+        "lang_idp_wps_result_success_title": "恭喜！",
+        "lang_idp_wps_result_fail_info1_title": "您的用戶端裝置無法連線至網路。",
+        "lang_idp_wps_result_success_info1_title": "您的用戶端裝置已連線至網路。",
+        "lang_idp_wps_result_info2_title": "請檢視您的用戶端裝置尋找進一步指示。",
+        "lang_idp_wps_result_info3_title": "按下 \"",
+        "lang_idp_wps_result_info4_title": "\" 以繼續。",
+        "lang_idp_wps_result_ok_button": "確定"
+    }
+}

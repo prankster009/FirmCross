@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.pr_forward
+    set firewall.pr_forward=include
+    set firewall.pr_forward.type=script
+    set firewall.pr_forward.path=/usr/share/security/pr_forward.include
+    set firewall.pr_forward.family=ipv4
+    set firewall.pr_forward.reload=1
+EOT
+
+exit 0

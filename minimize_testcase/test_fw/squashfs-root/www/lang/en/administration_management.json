@@ -1,0 +1,21 @@
+{
+    "administration_management": {
+        "lang_management_passwd_tips_prefix": "If you enable Remote Management, we recommend",
+        "lang_management_passwd_tips_link": "changing your admin password",
+        "lang_management_passwd_tips_postfix": "for security purposes.",
+        "lang_management_zone_local_mg_title": "Local Management Access",
+        "lang_local_http_mode_title": "Access via",
+        "lang_http_title": "HTTP",
+        "lang_https_title": "HTTPS",
+        "lang_local_wireless_title": "Access via Wireless",
+        "lang_management_zone_remote_mg_title": "Remote Management Access",
+        "lang_remote_enable_title": "Remote Management",
+        "lang_remote_http_mode_title": "Access via",
+        "lang_remote_upgrade_title": "Remote Upgrade",
+        "lang_remote_allow_ip_any_title": "Allowed Remote IP Address",
+        "lang_remote_allow_ip_any": "Any IP Address",
+        "lang_remote_port_title": "Remote Management Port",
+        "lang_to": "to",
+        "lang_default_ps_warning": "The Router is currently set to its default password. As a security measure, you must change the password before the Remote Management feature can be enabled. Click the OK button to change your password.  Click the Cancel button to leave the Remote Management feature disabled."
+    }
+}

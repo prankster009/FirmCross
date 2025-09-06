@@ -1,0 +1,32 @@
+# QoS configuration for Linksys Hummer
+
+# INTERFACES:
+config interface wan
+	option classgroup  "Default"
+	option enabled      0
+	option upload       512
+	option download     1024
+
+# RULES:
+config default
+	option target       "Normal"
+	option portrange    "1024-65535"
+
+
+
+config classgroup "Default"
+	option classes      "High Medium Normal Low"
+	option default      "Normal"
+
+
+config class "High"
+	option priority    8
+
+config class "Medium"
+	option priority    4
+
+config class "Normal"
+	option priority    2
+
+config class "Low"
+	option priority    1

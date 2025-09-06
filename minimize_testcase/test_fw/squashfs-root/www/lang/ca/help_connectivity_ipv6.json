@@ -1,0 +1,25 @@
+{
+    "help_connectivity_ipv6": {
+        "lang_help_connectivity_ipv6_title": "Configuration IPv6",
+        "lang_hci1": "IPv6 est un nouveau protocole IP qui utilise des en-têtes de paquet simplifiés et nécessite le protocole de sécurité pour IP (IPSec) comme exigence fondamentale d’interopérabilité. Il offre également une meilleure prise en charge des IP mobiles et des périphériques informatiques.",
+        "lang_hci2": "Remarque : une fois les modifications effectuées, cliquez sur Enregistrer les paramètres pour les appliquer.",
+        "lang_hci3": "Configuration Internet",
+        "lang_hci4": "Type de connexion Internet",
+        "lang_hci5": "IPv6 – Automatique",
+        "lang_hci6": "Sélectionnez l’option <b>Activé</b> pour utiliser automatiquement IPv6 pour tous les adressages de réseau.",
+        "lang_hci7": "DUID",
+        "lang_hci8": "Il s’agit de la valeur du DUID IPv6 (DHCP pour identifiant unique IPv6) que le routeur génère automatiquement.",
+        "lang_hci9": "Configuration du réseau",
+        "lang_hci10": "Tunnel 6rd",
+        "lang_hci11": "Pour utiliser le Tunnel 6rd, l’option <b>IPv6 – Automatique</b> doit être désactivée. Un Tunnel 6rd permet à votre routeur d’envoyer des adresses IP IPv6 sur des réseaux IPv4. Sélectionnez <b>Configuration automatique</b> pour laisser votre routeur gérer ces paramètres (tels que des préfixes et des masques d’adresses) automatiquement. Sélectionnez <b>Configuration manuelle</b> pour modifier ces paramètres manuellement.",
+        "lang_hci12": "Préfixe",
+        "lang_hci13": "Saisissez l’adresse du préfixe utilisé pour le tunnel fourni par votre fournisseur d’accès.",
+        "lang_hci14": "Longueur du préfixe",
+        "lang_hci15": "Saisissez la longueur du préfixe utilisé pour le tunnel fourni par votre fournisseur d’accès.",
+        "lang_hci16": "Relais frontière",
+        "lang_hci17": "Saisissez l’adresse du relais frontière utilisé pour le tunnel fourni par votre fournisseur d’accès.",
+        "lang_hci18": "Masque de l'adresse IPv4",
+        "lang_hci19": "Entrez la longueur du masque d’adresse IPv4 qui sera utilisé pour le tunnel fourni par votre FAI.",
+        "lang_hci20": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

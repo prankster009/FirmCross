@@ -1,0 +1,14 @@
+{
+    "administration_backup": {
+        "lang_backup_title": "สำรองข้อมูลการกำหนดค่า",
+        "lang_backup_config_button": "สำรองข้อมูล",
+        "lang_restore_title": "คืนค่าการกำหนดค่า",
+        "lang_restore_config_button": "เริ่มการคืนค่า",
+        "lang_file_empty_msg": "โปรดเลือกไฟล์ที่ต้องการคืนค่า",
+        "lang_file_format_msg": "ไฟล์แฟ้มกำหนดค่าไม่ถูกต้อง",
+        "lang_file_restore_fail_msg": "คืนค่าการกำหนดค่าล้มเหลว!",
+        "lang_restore_success": "การคืนค่าเสร็จสมบูรณ์",
+        "lang_restore_rebooting": "กำลังรีบูต......",
+        "lang_file_backup_fail_msg": "การกำหนดค่าการสำรองล้มเหลว"
+    }
+}

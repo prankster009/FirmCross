@@ -1,0 +1,15 @@
+{
+    "help_connectivity_macclone": {
+        "lang_help_connectivity_macclone_title": "MAC 地址克隆",
+        "lang_hcm1": "如果已向 ISP 注册计算机的 MAC 地址以进行 Internet 访问，并且不希望重新注册 MAC 地址，则可以将当前注册的 MAC 地址分配给路由器。",
+        "lang_hcm2": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hcm3": "MAC 地址克隆",
+        "lang_hcm4": "启用/禁用",
+        "lang_hcm5": "要让路由器克隆您在下面指定的 MAC 地址，请选择“启用”<b></b>。",
+        "lang_hcm6": "MAC 地址",
+        "lang_hcm7": "输入向 ISP 注册的 MAC 地址。",
+        "lang_hcm8": "克隆我个人电脑的 MAC 地址",
+        "lang_hcm9": "单击此选项可克隆您正在使用的计算机的 MAC 地址。",
+        "lang_hcm10": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

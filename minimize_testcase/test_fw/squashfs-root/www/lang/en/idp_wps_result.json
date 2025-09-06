@@ -1,0 +1,12 @@
+{
+    "idp_wps_result": {
+        "lang_idp_wps_result_fail_title": "Connection Failure!",
+        "lang_idp_wps_result_success_title": "Congratulations!",
+        "lang_idp_wps_result_fail_info1_title": "Your client device failed to connect to the network.",
+        "lang_idp_wps_result_success_info1_title": "Your client device is now securely connected to your network.",
+        "lang_idp_wps_result_info2_title": "Refer back to your client device for further instructions.",
+        "lang_idp_wps_result_info3_title": "Press \"",
+        "lang_idp_wps_result_info4_title": "\" to continue.",
+        "lang_idp_wps_result_ok_button": "OK"
+    }
+}

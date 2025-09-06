@@ -1,0 +1,6 @@
+{
+    "idp_mesh_fail": {
+        "lang_idp_mesh_fail_title": "連線到子節點花費的時間比預期的更長。請重試。",
+        "lang_idp_mesh_tryagain": "請重試"
+    }
+}

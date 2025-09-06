@@ -1,0 +1,12 @@
+{
+    "security_portrangetrigger": {
+        "lang_prt_app_name_title": "アプリケーション名",
+        "lang_prt_port_trigger_range_title": "トリガー範囲",
+        "lang_prt_port_forward_range_title": "転送の範囲",
+        "lang_prt_enabled_title": "有効",
+        "lang_prt_action_title": "アクション",
+        "lang_prt_add_btn_title": "新しいポート範囲のトリガーを追加",
+        "lang_prt_disabled_title": "無効",
+        "lang_prt_remove_btn_title": "削除"
+    }
+}

@@ -1,0 +1,150 @@
+#!/bin/sh /etc/rc.common
+
+START=20
+STOP=90
+
+USE_PROCD=1
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+. /lib/hummer/api.sh
+. /lib/hummer/state.sh
+. /lib/hummer/network.sh
+. /lib/hummer/ipv6.sh
+
+MFG_MODE=$(gcontrol uenv get ManufactureMode | awk -F"=" '{print $2}')
+[ -z $MFG_MODE ] && { MFG_MODE="0";  }
+
+## wan port monitor
+check_wan_monitor() {
+    killall -9 wan_port_monitor
+
+    json_load "$(objReq wan json)"
+    json_select "WanP"
+    json_get_var proto proto
+    json_select ".."
+
+    json_load "$(objReq easyMeshBasic json)"
+    json_select "EasyMeshBasicP"
+    json_get_var easymesh enable
+    json_get_var device_role deviceRole
+
+    [ $MFG_MODE != 1 -a $MFG_MODE != 2 -a "$proto" != "6" ] && {
+        ! [ "$easymesh" = "1" -a "$device_role" = "2" ] && {
+            log_info "network" "Start wan checking..."
+            wan_port_monitor
+        }
+    }
+}
+
+link_down_all_ports() {
+        log_info "network" "link down all ports"
+        link_down "4"
+        killall -9 wan_port_monitor
+        ifdown wan
+        ifdown wan6
+
+        for port in 0 1 2 3
+        do
+            link_down $port
+        done
+}
+
+link_up_all_ports() {
+    [ -f "/tmp/lanlock" ] || {
+        log_info "network" "link up all ports"
+        link_up "4"
+        ifup -w wan
+        ifup -w wan6
+
+        for port in 0 1 2 3
+        do
+            link_up $port
+        done
+    }
+}
+
+init_switch() {
+    setup_switch() { return 0; }
+
+    include /lib/network
+    setup_switch
+
+    #Setup VLAN
+    /usr/bin/vlan_setup.sh wan_priority_remove
+    /usr/bin/vlan_setup.sh vlan_config
+
+    #Setup EasyMesh
+    /usr/bin/easymesh.sh switch_reg
+}
+
+start_service() {
+    link_down_all_ports
+
+    network_obj2uci
+    ipv6_obj2uci
+
+    check_manufacture_mode
+
+    procd_open_instance
+    procd_set_param command /sbin/netifd
+    procd_set_param respawn
+    [ -e /proc/sys/kernel/core_pattern ] && {
+        procd_set_param limits core="unlimited"
+        echo '/tmp/%e.%p.%s.%t.core' > /proc/sys/kernel/core_pattern
+    }
+    procd_close_instance
+}
+
+reload_service() {
+    link_down_all_ports
+
+    network_obj2uci
+    ipv6_obj2uci
+
+    check_manufacture_mode
+
+    ubus call network reload
+    /bin/wireless.sh update_config
+    /usr/bin/easymesh.sh update_config
+    [ $MFG_MODE != 1 ] && { link_down_all_ports ; }
+    /sbin/wifi reload_legacy
+    sleep 3
+    init_switch
+
+    link_up_all_ports
+    check_wan_monitor
+}
+
+stop() {
+    /sbin/wifi down
+    procd_kill network ''
+}
+
+service_running() {
+    ubus -t 30 wait_for network.interface
+    /bin/wireless.sh update_config
+    /usr/bin/easymesh.sh update_config
+    [ $MFG_MODE != 1 ] && { link_down_all_ports ; }
+    /sbin/wifi reload_legacy
+    sleep 3
+    init_switch
+
+    link_up_all_ports
+    check_wan_monitor
+}
+
+restart() {
+    ifdown -a
+    sleep 1
+    trap '' TERM
+    stop "$@"
+    start "$@"
+}
+
+shutdown() {
+    /sbin/wifi down
+    ifdown -a
+    sleep 1
+}

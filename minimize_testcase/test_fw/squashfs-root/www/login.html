@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html dir="">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Router Access</title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<link rel="stylesheet" href="css/all.min.css">
+<script src="js/all.min.js"></script>
+<script language="JavaScript">
+document.title = "Router Access";
+</script>
+</head>
+
+<body id="blocked">
+<div class="login-container">
+<div class="login-content">
+<div class="login-header">
+<div class="logo-form">&nbsp;</div>
+<div class="logo-header">
+<h3><span class="multi_lang" id="lang_header_linsys_model_name"></span>&nbsp;<span class="multi_lang" id="lang_header_linsys_short_name"></span></h3>
+</div>
+<div class="login-box" >
+<form name="login" method="post" action="" autocomplete="off">
+<input type="hidden" name="submit_button" value="login">
+<input type="hidden" name="change_action">
+<input type="hidden" name="action" value="Apply">
+<input type="hidden" name="wait_time" value="19">
+<input type="hidden" name="submit_type">
+<div class="section-body">
+<span class="multi_lang" id="lang_auth_title"></span>
+</div>
+<div class="row-fluid login-form">
+<div style="display:none">
+<div class="loginFormTdl">
+<label for="acnt_username"><span class="multi_lang" id="lang_acnt_username"></span>:</label>
+</div>
+<div class="loginFormTdr">
+<input type="text" class="input-xlarge inputLogin touched dirty invalid" id="acnt_username" name="acnt_username" maxlength="32" onblur="" value="admin">
+</div>
+<div class="clear"></div>
+</div>
+<div>
+<div class="loginFormTdl">
+<label for="acnt_passwd"><span class="multi_lang" id="lang_acnt_passwd"></span>:</label>
+</div>
+<div class="loginFormTdr">
+<input type="password" class="input-xlarge inputLogin logger_bot" id="acnt_passwd" name="acnt_passwd" maxlength="64" onblur="">
+</div>
+<div class="clear"></div>
+</div>
+<div class="error loginError" >
+<p>
+<span class="error_msg" id="error_dmsg" style="display:none"></span>
+<br>
+<span class="error_msg multi_lang" style="display:none" id="lang_try_again"></span>
+</p>
+</div>
+</div>
+<div class="row-fluid">
+<div class="loginFormBtn">
+<a onClick="login_validation()" class="btn btn-primary loginBtn multi_lang logger_bot" id="lang_login"></a>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="footer" id="footer">
+<center>
+<p class="multi_lang" id="lang_copyright"></p>
+</center>
+</div>
+</div>
+<script language="javascript" type="text/javascript">
+var OBJ_LIST = ['wan','system','easyMeshBasic']
+
+$(document).ready(function(){
+$.lang_load("login");
+var query_string=queryString();
+if("undefined" != query_string.a && query_string.a == "sto"){
+$("#error_dmsg").html(L.login.lang_session_fail)
+$(".error_msg").show();
+}
+});
+
+function login_validation() {
+var isUser = true;
+var isPass = true;
+var pwd = $("#acnt_passwd").val();
+var username = $("#acnt_username").val();
+
+if (username == "" || pwd == "") {
+$("#error_dmsg").html(L.login.lang_login_invalid);
+$(".error_msg").show();
+isUser = false;
+isPass = false;
+} else {
+$("#error_msg").hide();
+isUser = true;
+isPass = true;
+}
+if(isUser && isPass){
+//redirect_main("?dlg=wz") //testing code
+normal_login(username, pwd);
+}
+}
+
+$("#acnt_passwd").keypress(function(e){
+code = (e.keyCode ? e.keyCode : e.which);
+if (code == 13)
+{
+$("#acnt_passwd").blur();
+login_validation()
+}
+});
+
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+
+redirect_main("?dlg=wz")
+}
+
+function set_obj_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function save_default_lang(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+
+/***** login *****/
+function get_obj_success_cb(obj) {
+if(obj.api_return != 0){
+get_wz_obj_error_cb(obj)
+return;
+}
+if(obj.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && obj.easyMeshBasic.EasyMeshBasicP.enable=='1')
+localStorage.mash_mode="1"
+else if(obj.easyMeshBasic.EasyMeshBasicP.deviceRole=='2' && obj.easyMeshBasic.EasyMeshBasicP.enable=='1')
+localStorage.mash_mode="2"
+else
+localStorage.mash_mode="0"
+var proto_index=obj.wan.WanP.proto
+if("5" == proto_index)
+localStorage.bridge_mode="1"
+else if("6" == proto_index )
+localStorage.bridge_mode="2"
+else
+localStorage.bridge_mode="0"
+
+//clean cache data
+localStorage.rd=""
+
+if(obj.system.SystemP.doneWizard == "0") {
+localStorage.setItem('setupStatus','');
+
+if( 'undefined' == typeof(localStorage.lang) || localStorage.lang == ""){
+var system_obj = {}
+system_obj.system = $.extend(true, {}, obj.system);
+localStorage.lang = system_obj.system.SystemP.language =  get_browser_lang()
+save_default_lang(system_obj)
+}else
+redirect_main("?dlg=wz")
+}else if(obj.system.SystemP.doneWizard == "1"){
+localStorage.setItem('setupStatus','Done');
+
+if( 'undefined' != typeof(obj.system.SystemP.language) && obj.system.SystemP.language != "")
+localStorage.lang=obj.system.SystemP.language
+
+redirect_main("")
+}
+
+}
+
+function get_obj_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function layout_data_prepare(){
+API.obj.get(OBJ_LIST, get_obj_success_cb, get_obj_error_cb);
+}
+
+function normal_login(username, password) {
+var username_base64 = encode64(username);
+var password_base64 = encode64(password);
+var senddata = {"username":username_base64,"password":password_base64,"token":"","source":"web","cn":"","action":"auth"};
+var estr = JSON.obj_to_string(senddata);
+
+$.ajax({
+type: "POST",
+url: "cgi-bin/login.cgi",
+data: estr,
+dataType : "text",
+cache: false,
+beforeSend: onSend,
+success: onSuccess,
+complete: onComplete,
+error: onError
+});
+function onSend(){};
+function onComplete(){};
+function onError(){};
+function onSuccess(data, status) {
+var obj = jQuery.parseJSON(data);
+if ( obj.result == "success" ) {
+layout_data_prepare()
+} else {
+$("#error_dmsg").html(L.login.lang_login_invalid);
+$(".error_msg").show();
+}
+};
+}
+
+/***** Page redirection *****/
+function redirect_main(query){
+window.location.href = "system-status.html"+query;
+}
+
+</script>
+</body>
+</html>

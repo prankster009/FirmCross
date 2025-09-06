@@ -1,0 +1,16 @@
+{
+    "closures": [],
+    "cfg_time": 0.6222555637359619,
+    "vra_time": 1.0710573196411133,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/lua_register2/libuflua.so",
+    "name": "libuflua.so",
+    "has_sinks": true,
+    "sha256": "02393a5a7104a7434a18e951302e47c956822711d2f10e2352cd34798bcf78a4",
+    "sink_times": {},
+    "error": null,
+    "mango_time": 9.919467687606812,
+    "sinks": {
+        "luaL_register": 0
+    },
+    "time_data": {}
+}

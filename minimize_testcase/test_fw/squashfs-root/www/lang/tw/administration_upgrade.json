@@ -1,0 +1,20 @@
+{
+    "administration_upgrade": {
+        "lang_current_fw_title": "目前韌體版本",
+        "lang_check_fw_button": "檢查韌體",
+        "lang_upload_fw_title": "請選擇要升級的檔案",
+        "lang_upgrade_fw_button": "開始升級",
+        "lang_upgrade_fw_progress_warning": "警告",
+        "lang_upgrade_fw_progress_warning_info": "升級韌體可能需要幾分鐘的時間;請不要關閉電源或按重設按鈕。",
+        "lang_upgrade_fw_progress_warning_tip": "請勿中斷升級過程！！",
+        "lang_ota_last_version_title": "最新韌體版本",
+        "lang_ota_upgrade_button": "升級",
+        "lang_file_empty_msg": "請選擇要升級的檔案",
+        "lang_file_format_msg": "圖像檔案不正確。",
+        "lang_upgrade_success": "韌體升級成功",
+        "lang_upgrade_rebooting": "正在重新開機......",
+        "lang_file_upgrade_fail_msg": "韌體升級失敗！",
+        "lang_up_to_date_msg": "最新",
+        "lang_auto_upgrade_title": "自動固件升級"
+    }
+}

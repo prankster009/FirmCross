@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_auth": {
+        "lang_idp_parental_controls_auth_title": "부모 통제",
+        "lang_idp_parental_controls_auth_info_title": "부모 통제 암호 입력:",
+        "lang_idp_parental_controls_auth_forgot_pwd_title": "암호를 잊었습니다.",
+        "lang_idp_parental_controls_auth_errmsg_title": "암호가 잘못되었습니다."
+    }
+}

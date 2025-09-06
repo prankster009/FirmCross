@@ -1,0 +1,35 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2014 Gemtek
+
+START=95
+STOP=20
+
+log() {
+	echo "[nbnsd] $@" > /dev/console
+}
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+json_load "$(objReq easyMeshBasic json)"
+json_select EasyMeshBasicP
+json_get_vars enable deviceRole
+[ $enable = "1" -a $deviceRole = "2" ] && {
+    log "Skip in easymesh child mode!!"
+	exit 0
+}
+
+start() {
+	json_load "$(objReq lan json)"
+	json_select LanP
+	json_get_vars routername
+
+	[ -n $routername ] && {
+		nbnsd -n $routername
+	}
+}
+
+stop() {
+	killall -9 nbnsd
+}

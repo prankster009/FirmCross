@@ -1,0 +1,46 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org
+
+START=95
+
+. /lib/hummer/api.sh
+link_up_all_ports() {
+    log_info "network" "link up all ports during system up"
+    link_up "4"
+    ifup -w wan
+    ifup -w wan6
+
+    for port in 0 1 2 3
+    do
+        link_up $port
+    done
+    rm -f /tmp/lanlock
+}
+
+boot() {
+	[ -d /tmp/root ] && {
+		cat /proc/cpuinfo | grep 7623
+		if [ "$?" == "0" ]; then
+		mount_root2 done;
+		else
+			mount_root done;
+		fi
+	}
+	block mount
+	rm -f /sysupgrade.tgz
+
+	# process user commands
+	[ -f /etc/rc.local ] && {
+		sh /etc/rc.local
+	}
+        MFG_MODE=$(gcontrol uenv get ManufactureMode | awk -F"=" '{print $2}')
+	[ -z $MFG_MODE ] && { MFG_MODE="0"; }
+        [ $MFG_MODE != "1" -a $MFG_MODE != "2" ] && {
+		/usr/bin/ledstatus.sh system_ready
+        /usr/bin/watchdog
+	}
+	link_up_all_ports
+	# set leds to normal state
+	#. /etc/diag.sh
+	#set_state done
+}

@@ -1,0 +1,12 @@
+{
+    "guest": {
+        "lang_document_title": "Guest access",
+        "lang_content_title": "Guest access",
+        "lang_content_info": "Enter the guest access password to access the Internet. Ask the owner if you don't know the password. The guest access password can be found using Linksys Connect.",
+        "lang_password_title": "Password",
+        "lang_login_button": "LOGIN",
+        "lang_lang_error_msg": "Login Failure",
+        "lang_desktop_view_title": "Desktop view",
+        "lang_mobile_view_title": "Mobile view"
+    }
+}

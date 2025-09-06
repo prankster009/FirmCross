@@ -1,0 +1,461 @@
+<script type="text/javascript">
+var OBJ_LIST = ['management','account']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var INFO_LIST = [ 'LocalNetwork' ]
+var INFO_DATA = {}
+</script>
+<table class="table table-info passwd_tips_zone">
+<tbody>
+<tr>
+<td style="width:50%"><span class="multi_lang" id="lang_management_passwd_tips_prefix"></span>&nbsp;<a onclick="goto_passwd_page()"><span class="multi_lang" id="lang_management_passwd_tips_link"></span></a>&nbsp;<span class="multi_lang" id="lang_management_passwd_tips_postfix"></span></td>
+<td style="text-align: center"><img src="img/attention.png"></td>
+</tr>
+</tbody>
+</table>
+
+<div class="table-title local_control_zone">
+<span class="multi_lang" id="lang_management_zone_local_mg_title"></span>
+</div>
+<hr class="table-title-underline local_control_zone">
+<table class="table table-info local_control_zone">
+<tbody>
+<tr id="tr_local_http_mode" >
+<td>
+<span class="multi_lang" id="lang_local_http_mode_title"></span>
+</td>
+<td id="">
+<script>draw_checkbox('local_http_mode_http','lang_http_title', '0', 'local_http_control(\'http\')');</script><span id="checkbox_div_local_http_mode_http"></span>
+<script>draw_checkbox('local_http_mode_https','lang_https_title', '0', 'local_http_control(\'https\')');</script><span id="checkbox_div_local_http_mode_https"></span>
+</td>
+</tr>
+<tr id="tr_local_wireless" >
+<td><script>draw_checkbox('local_wireless', 'lang_local_wireless_title', 'on', "local_wireless_control()");</script><span id="checkbox_div_local_wireless"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+</tbody>
+</table>
+
+<div class="table-title remote_control_zone">
+<span class="multi_lang" id="lang_management_zone_remote_mg_title"></span>
+</div>
+<hr class="table-title-underline remote_control_zone">
+<table class="table table-info remote_control_zone">
+<tbody>
+<tr id="tr_remote_enable" >
+<td><script>draw_checkbox('remote_enable', 'lang_remote_enable_title', 'on', "remote_control()");</script><span id="checkbox_div_remote_enable"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+<tr id="tr_remote_http_mode" >
+<td>
+<span class="multi_lang" id="lang_remote_http_mode_title"></span>
+</td>
+<td id="">
+<input type="hidden" id="remote_http_mode" value=""></input>
+<script>draw_radio('remote_http_mode_http','http_title', '0', 'remote_http_mote_control(this.name)');</script><span id="radio_div_remote_http_mode_http"></span>
+<script>draw_radio('remote_http_mode_https','https_title', '0', 'remote_http_mote_control(this.name)');</script><span id="radio_div_remote_http_mode_https"></span>
+</td>
+</tr>
+<tr id="tr_remote_upgrade" >
+<td><script>draw_checkbox('remote_upgrade', 'lang_remote_upgrade_title', 'on', "remote_upgrade_control()");</script><span id="checkbox_div_remote_upgrade"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+<tr id="tr_remote_allow_ip_any" >
+<input type='hidden' id="remote_allow_ip"></input>
+<td>
+<span class="multi_lang" id="lang_remote_allow_ip_any_title"></span>
+</td>
+<td >
+<script>draw_radio('remote_allow_ip_any','remote_allow_ip_any', '0', 'remote_ip_allow_control(this.name)');</script><span id="radio_div_remote_allow_ip_any"></span>
+</td>
+</tr>
+<tr id="tr_remote_allow_ip_range" >
+<td>
+<span class="multi_lang" id="lang_remote_allow_ip_range_title"></span>
+</td>
+<td>
+<script>draw_radio('remote_allow_ip_range','', '0', 'remote_ip_allow_control(this.name)');</script><span id="radio_div_remote_allow_ip_range"></span>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,223,'lang_err_range')" style="width:40px" name="remote_allow_ip_range_input" id="remote_allow_ip_range_1" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="remote_allow_ip_range_input" id="remote_allow_ip_range_2" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,0,255,'lang_err_range')" style="width:40px" name="remote_allow_ip_range_input" id="remote_allow_ip_range_3" value="0"> .
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'lang_err_range')" style="width:40px" name="remote_allow_ip_range_input" id="remote_allow_ip_range_start" value="0">
+<span class="multi_lang" id="lang_to"></span>
+<input type="text" class="num logger_bot" maxlength="3" onblur="valid_range(this,1,254,'lang_err_range')" style="width:40px" name="remote_allow_ip_range_input" id="remote_allow_ip_range_end" value="0">
+</td>
+</tr>
+<tr id="tr_remote_port" >
+<td>
+<span class="multi_lang" id="lang_remote_port_title"></span>
+</td>
+<td>
+<input maxlength="5" value="" name="remote_port" id="remote_port" onblur="valid_range(this,1,65535,'lang_err_range')" size="5" class="logger_bot">
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="saving_prepare()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script language="javascript" type="text/javascript">
+page_tag='administration_management'
+//test obj data
+//MODIFIED_OBJ_DATA = {}
+//MODIFIED_OBJ_DATA.management= {"ManagementP":{"localhttps":1,"localWIFI":1,"remoteEnable":1,"remoteUpgrade":1,"remoteHttps":0,"startIp":"10.0.0.2","endIp":"10.0.0.5","remotePort":"123"}}
+var REMOTE_FLAG=0
+var PW_IS_DEFAULT=0
+$(document).ready(function(){
+$.lang_load("administration_management");
+$.lang_load("error_message");
+page_initial()
+inject_log_bot()
+escape_detection()
+});
+
+function goto_passwd_page(){
+localStorage.rd=["setting", "administration", "#submenu_setting_administration_password .submenu-link",'setting/administration/setting-administration-password.html','lang_submenu_setting_administration_password']
+window.location.replace("setting.html");
+}
+
+function local_http_control(protocol, enable){
+eval("var ele='local_http_mode_"+protocol+"'")
+if(typeof(enable) == "undefined"){
+enable = $("#"+ele).val()
+if( 1 == enable )
+enable = 0
+else
+enable = 1
+}
+
+if(enable == 1){
+$("#"+ele).val(1)
+$("#"+ele).attr('checked',true)
+update_checked(ele);
+}else{
+$("#"+ele).attr('disabled', false);
+$("#"+ele).val(0)
+$("#"+ele).attr('checked',false)
+update_checked(ele);
+}
+
+if($("#local_http_mode_http").val() == 1 && $("#local_http_mode_https").val() == 0){
+MODIFIED_OBJ_DATA.management.ManagementP.localhttps = "0"
+}else if($("#local_http_mode_http").val() == 0 && $("#local_http_mode_https").val() == 1){
+MODIFIED_OBJ_DATA.management.ManagementP.localhttps = "1"
+}else if($("#local_http_mode_http").val() == 1 && $("#local_http_mode_https").val() == 1){
+MODIFIED_OBJ_DATA.management.ManagementP.localhttps = "2"
+}
+}
+
+function checkbox_switch(element_id, enable){
+if(typeof(enable) == "undefined"){
+enable = $("#"+element_id).val()
+if( 1 == enable )
+enable = 0
+else
+enable = 1
+}
+
+if( enable == 0 ){
+$("#"+element_id).val(0)
+$("#"+element_id).attr('checked',false)
+update_checked(element_id);
+}else{
+$("#"+element_id).val(1)
+$("#"+element_id).attr('checked',true)
+update_checked(element_id);
+}
+
+return enable;
+}
+
+function local_wireless_control(enable){
+enable = checkbox_switch('local_wireless', enable)
+MODIFIED_OBJ_DATA.management.ManagementP.localWIFI = enable.toString()
+}
+
+function disable_remote_zone_opt(){
+$("#remote_http_mode_http").attr('disabled', true);
+$("#remote_http_mode_http").parent().addClass('disabled')
+$("#remote_http_mode_https").attr('disabled', true);
+$("#remote_http_mode_https").parent().addClass('disabled')
+$("#remote_upgrade").attr('disabled', true);
+$("#remote_upgrade").parent().addClass('disabled')
+$("#remote_allow_ip_any").attr('disabled', true);
+$("#remote_allow_ip_any").parent().addClass('disabled')
+$("[name='remote_allow_ip_range']").attr('disabled', true);
+$("[name='remote_allow_ip_range']").parent().addClass('disabled')
+$("[name='remote_allow_ip_range_input']").attr('disabled', true);
+$("#remote_port").attr('disabled', true);
+}
+
+function remote_control(enable){
+if( 'undefined' == typeof(enable) && PW_IS_DEFAULT == 1 ){
+if(confirm(L.administration_management.lang_default_ps_warning)){
+open_main_url(this, 'setting/administration/setting-administration-password.html', 'lang_submenu_setting_administration_password')
+return;
+}else{
+enable = checkbox_switch('remote_enable', 0)
+}
+}else
+enable = checkbox_switch('remote_enable', enable)
+
+if(enable == 1){
+$("#remote_http_mode_http").attr('disabled', false);
+$("#remote_http_mode_http").parent().removeClass('disabled')
+$("#remote_http_mode_https").attr('disabled', false);
+$("#remote_http_mode_https").parent().removeClass('disabled')
+$("#remote_upgrade").attr('disabled', false);
+$("#remote_upgrade").parent().removeClass('disabled')
+$("#remote_allow_ip_any").attr('disabled', false);
+$("#remote_allow_ip_any").parent().removeClass('disabled')
+$("[name='remote_allow_ip_range']").attr('disabled', false);
+$("[name='remote_allow_ip_range']").parent().removeClass('disabled')
+if($("#remote_allow_ip").val() == 'range')
+$("[name='remote_allow_ip_range_input']").attr('disabled', false);
+$("#remote_port").attr('disabled', false);
+}else{
+disable_remote_zone_opt()
+}
+
+update_checked('remote_enable')
+
+MODIFIED_OBJ_DATA.management.ManagementP.remoteEnable = enable.toString()
+}
+
+function remote_http_mote_control(e){
+if(e == "remote_http_mode_http"){
+$("#remote_http_mode_https").parent('span').removeClass('checked')
+$("#remote_http_mode_http").parent('span').addClass('checked')
+MODIFIED_OBJ_DATA.management.ManagementP.remoteHttps = "0"
+}else{
+$("#remote_http_mode_http").parent('span').removeClass('checked')
+$("#remote_http_mode_https").parent('span').addClass('checked')
+MODIFIED_OBJ_DATA.management.ManagementP.remoteHttps = "1"
+}
+}
+
+function remote_upgrade_control(enable){
+enable = checkbox_switch('remote_upgrade', enable)
+MODIFIED_OBJ_DATA.management.ManagementP.remoteUpgrade = enable.toString()
+}
+
+function remote_ip_allow_control(e){
+if(e == "remote_allow_ip_any"){
+$("#remote_allow_ip").val('any')
+$("#remote_allow_ip_range").parent('span').removeClass('checked')
+$("#remote_allow_ip_any").parent('span').addClass('checked')
+$("[name='remote_allow_ip_range_input']").attr('disabled', true);
+}else{
+$("#remote_allow_ip").val('range')
+$("#remote_allow_ip_any").parent('span').removeClass('checked')
+$("#remote_allow_ip_range").parent('span').addClass('checked')
+$("[name='remote_allow_ip_range_input']").attr('disabled', false);
+}
+}
+
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+$("#loader").hide()
+show_alert(L.common.success_title, L.common.save_success)
+
+ORIGINAL_OBJ_DATA = UI.obj.merge(MODIFIED_OBJ_DATA, ORIGINAL_OBJ_DATA);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide()
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function update_layout(obj_data){
+if(obj_data.management != "NOK" && typeof(obj_data.management.ManagementP.localhttps) != 'undefined'){
+if(obj_data.management.ManagementP.localhttps == "0"){
+local_http_control("http", 1)
+local_http_control("https", 0)
+}else if(obj_data.management.ManagementP.localhttps == "1"){
+local_http_control("http", 0)
+local_http_control("https", 1)
+}else if(obj_data.management.ManagementP.localhttps == "2"){
+local_http_control("http", 1)
+local_http_control("https", 1)
+}
+}else
+local_http_control("http", 1)
+
+if(obj_data.management != "NOK" && typeof(obj_data.management.ManagementP.localWIFI) != 'undefined'){
+local_wireless_control(obj_data.management.ManagementP.localWIFI)
+}else
+local_wireless_control(1)
+
+if(obj_data.management != "NOK" && typeof(obj_data.management.ManagementP.remoteHttps) != 'undefined'){
+if(obj_data.management.ManagementP.remoteHttps == "0")
+remote_http_mote_control('remote_http_mode_http')
+else
+remote_http_mote_control('remote_http_mode_https')
+}
+
+if(obj_data.management != "NOK" && typeof(obj_data.management.ManagementP.remoteUpgrade) != 'undefined'){
+remote_upgrade_control(obj_data.management.ManagementP.remoteUpgrade)
+}else
+remote_upgrade_control(0)
+
+if(obj_data.management != "NOK" && typeof(obj_data.management.ManagementP.startIp) != 'undefined' && typeof(obj_data.management.ManagementP.endIp) != 'undefined'){
+if(obj_data.management.ManagementP.startIp == "0.0.0.0" || obj_data.management.ManagementP.endIp == "0.0.0.0" || obj_data.management.ManagementP.startIp == "" || obj_data.management.ManagementP.endIp == "" ){
+remote_ip_allow_control('remote_allow_ip_any')
+ipaddr_s2e('0.0.0.0', 'remote_allow_ip_range_input')
+ele_set_default(document.getElementById('remote_allow_ip_range_end'), 0)
+}else{
+remote_ip_allow_control('remote_allow_ip_range')
+ipaddr_s2e(obj_data.management.ManagementP.startIp, 'remote_allow_ip_range_input')
+var end_ip = obj_data.management.ManagementP.endIp
+var end_ip_array=end_ip.split(".");
+if(end_ip_array.length == 4)
+ele_set_default(document.getElementById('remote_allow_ip_range_end'), end_ip_array[3])
+else
+ele_set_default(document.getElementById('remote_allow_ip_range_end'), 253)
+}
+}else{
+remote_ip_allow_control('remote_allow_ip_any')
+ipaddr_s2e('0.0.0.0', 'remote_allow_ip_range_input')
+ele_set_default(document.getElementById('remote_allow_ip_range_end'), 0)
+}
+
+
+
+if(obj_data.management != "NOK" && typeof(obj_data.management.ManagementP.remotePort) != 'undefined'){
+ele_set_default(document.getElementById('remote_port'), obj_data.management.ManagementP.remotePort)
+}else{
+ele_set_default(document.getElementById('remote_port'), 0)
+}
+
+
+if(obj_data.management != "NOK" && typeof(obj_data.management.ManagementP.remoteEnable) != 'undefined'){
+remote_control(obj_data.management.ManagementP.remoteEnable)
+}else
+remote_control(0)
+
+if(REMOTE_FLAG == 1){
+disable_remote_zone_opt()
+$("#remote_enable").attr('disabled', true);
+$("#remote_enable").parent().addClass('disabled')
+}
+}
+
+function saving_prepare(){
+if($("#remote_allow_ip").val()=='any'){
+MODIFIED_OBJ_DATA.management.ManagementP.startIp="0.0.0.0"
+MODIFIED_OBJ_DATA.management.ManagementP.endIp="0.0.0.0"
+}else{
+var start_ip = parseInt($("#remote_allow_ip_range_start").val())
+var end_ip = parseInt($("#remote_allow_ip_range_end").val())
+if(start_ip > end_ip){
+$("#remote_allow_ip_range_start").val(document.getElementById('remote_allow_ip_range_start').defaultValue)
+$("#remote_allow_ip_range_end").val(document.getElementById('remote_allow_ip_range_end').defaultValue)
+alert(eval("L.error_message.lang_error_message_err51"));
+return;
+}else{
+ip_ele = document.getElementsByName('remote_allow_ip_range_input')
+MODIFIED_OBJ_DATA.management.ManagementP.startIp = ip_ele[0].value+"."+ip_ele[1].value+"."+ip_ele[2].value+"."+ip_ele[3].value
+MODIFIED_OBJ_DATA.management.ManagementP.endIp = ip_ele[0].value+"."+ip_ele[1].value+"."+ip_ele[2].value+"."+ip_ele[4].value
+}
+}
+MODIFIED_OBJ_DATA.management.ManagementP.remotePort = $("#remote_port").val()
+page_save()
+}
+
+function page_save(fake_action){
+if( 'undefined' == typeof(fake_action) || !fake_action){
+$("#loader").show()
+set_obj_data(MODIFIED_OBJ_DATA)
+}
+}
+function page_cancel(){
+update_layout(ORIGINAL_OBJ_DATA)
+}
+function get_obj_success_cb(obj) {
+if(obj.api_return != 0){
+get_obj_error_cb(obj)
+return;
+}
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+if( 'admin' == MODIFIED_OBJ_DATA.account.AccountT[0].password ){
+PW_IS_DEFAULT=1
+remote_control(0)
+}
+
+update_layout(MODIFIED_OBJ_DATA)
+}
+function get_obj_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+get_info_data(INFO_LIST)
+}
+
+function get_info_success_cb(obj) {
+if(obj.api_return != 0){
+get_info_error_cb(obj)
+return;
+}
+lanipT = obj.LocalNetwork.LocalNetwork.IP.split(".")
+loginipT = obj.LOGINIP.split(".")
+
+for(var i=0;i<3;i++){
+if( lanipT[i] != loginipT[i] )
+REMOTE_FLAG=1
+}
+
+//INFO_DATA = API.obj.copy(obj);
+get_obj_data(OBJ_LIST)
+}
+
+function get_info_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_info_data(info_list){
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+function escape_modified_check(){
+page_save(true)
+if(UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false
+else
+return true
+}
+
+
+</script>
+

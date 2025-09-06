@@ -1,0 +1,20 @@
+{
+    "administration_upgrade": {
+        "lang_current_fw_title": "เวอร์ชั่นปัจจุบันของเฟิร์มแวร์",
+        "lang_check_fw_button": "ตรวจสอบเฟิร์มแวร์",
+        "lang_upload_fw_title": "โปรดเลือกไฟล์ที่ต้องการอัปเกรด",
+        "lang_upgrade_fw_button": "เริ่มการอัปเกรด",
+        "lang_upgrade_fw_progress_warning": "คำเตือน",
+        "lang_upgrade_fw_progress_warning_info": "การอัปเกรดเฟิร์มแวร์อาจใช้เวลาสักครู่",
+        "lang_upgrade_fw_progress_warning_tip": "ห้ามขัดจังหวะการอัปเกรด!!",
+        "lang_ota_last_version_title": "เวอร์ชั่นเฟิร์มแวร์ล่าสุด",
+        "lang_ota_upgrade_button": "อัปเกรด",
+        "lang_file_empty_msg": "โปรดเลือกไฟล์ที่ต้องการอัปเกรด",
+        "lang_file_format_msg": "ไฟล์ภาพไม่ถูกต้อง",
+        "lang_upgrade_success": "การอัปเกรดเฟิร์มแวร์สำเร็จแล้ว",
+        "lang_upgrade_rebooting": "กำลังรีบูต......",
+        "lang_file_upgrade_fail_msg": "การอัปเกรดเฟิร์มแวร์ล้มเหลว!",
+        "lang_up_to_date_msg": "ทันสมัย",
+        "lang_auto_upgrade_title": "อัพเกรดเฟิร์มแวร์อัตโนมัติ"
+    }
+}

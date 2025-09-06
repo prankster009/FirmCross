@@ -1,0 +1,23 @@
+{
+    "idp_mesh_info": {
+        "lang_idp_mesh_confirm_title": "Nhấn và giữ 3 giây nút WPS trên nút con",
+        "lang_idp_mesh_fail_title": "Connecting to your child node took to longer than expected. Try again.",
+        "lang_idp_mesh_tryagain": "Thử lại",
+        "lang_idp_mesh_pass_title": "Điểm nút con đã tham gia Wi-Fi của bạn!",
+        "lang_idp_mesh_plug_title": "Cắm nguồn cho điểm nút con",
+        "lang_idp_mesh_plug_content1": "Chờ cho đến khi thiết bị easy mesh của bạn được bật nguồn hoàn toàn. Hãy chờ 3 phút.",
+        "lang_idp_mesh_plug_content2": "Nếu bạn thiết lập nhiều điểm nút con, hãy đảm bảo thực hiện chúng cùng một lúc để tránh sự cố.",
+        "lang_idp_mesh_process_title": "Nhấn và giữ 3 giây nút WPS trên nút con",
+        "lang_idp_mesh_info_title": "Thông tin Mesh",
+        "lang_idp_parent_info_title": "Các thiết bị kết nối",
+        "lang_idp_child_info_title": "Thông tin điểm nút con được kết nối:",
+        "lang_idp_child_info_name": "Tên thiết bị khách",
+        "lang_idp_child_info_interface": "Giao diện",
+        "lang_idp_child_info_mac": "Địa chỉ MAC",
+        "lang_idp_child_info_rssi": "RSSI",
+        "lang_idp_child_info_fw": "Phiên bản Phần mềm điều khiển",
+        "lang_idp_child_info_ip": "Địa chỉ IP",
+        "lang_idp_connected": "Các thiết bị đã được kết nối",
+        "lang_idp_device_type": "Loại thiết bị"
+    }
+}

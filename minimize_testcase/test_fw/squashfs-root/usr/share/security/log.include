@@ -1,0 +1,43 @@
+#!/bin/sh
+
+SERVICE="log"
+
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+
+delete_log_chains() {
+    iptables -t filter -F forwarding_wan_log
+    iptables -t filter -D forwarding_wan_rule -j forwarding_wan_log
+    iptables -t filter -X forwarding_wan_log
+    iptables -t filter -F forwarding_lan_log
+    iptables -t filter -D forwarding_lan_rule -j forwarding_lan_log
+    iptables -t filter -X forwarding_lan_log
+}
+
+add_log_chains() {
+    iptables -t filter -N forwarding_wan_log
+    iptables -t filter -A forwarding_wan_rule -j forwarding_wan_log
+    iptables -t filter -N forwarding_lan_log
+    iptables -t filter -A forwarding_lan_rule -j forwarding_lan_log
+}
+
+do_log() {
+    # setup rules
+    iptables -t filter -A forwarding_wan_log -m state --state NEW -m limit --limit 25/sec --limit-burst 50 -j LOG --log-level 5 --log-prefix "Inbound Connection: "
+    iptables -t filter -A forwarding_lan_log -m state --state NEW -m limit --limit 25/sec --limit-burst 50 -j LOG --log-level 5 --log-prefix "Outbound Connection: "
+}
+
+start() {
+    add_log_chains >/dev/null 2>&1
+    do_log >/dev/null 2>&1
+}
+
+stop() {
+    delete_log_chains >/dev/null 2>&1
+}
+
+
+stop
+start
+

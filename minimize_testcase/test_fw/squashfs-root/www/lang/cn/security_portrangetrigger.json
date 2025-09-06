@@ -1,0 +1,12 @@
+{
+    "security_portrangetrigger": {
+        "lang_prt_app_name_title": "应用程序名称",
+        "lang_prt_port_trigger_range_title": "触发范围",
+        "lang_prt_port_forward_range_title": "转发范围",
+        "lang_prt_enabled_title": "启用",
+        "lang_prt_action_title": "操作",
+        "lang_prt_add_btn_title": "添加新的触发端口范围",
+        "lang_prt_disabled_title": "已禁用",
+        "lang_prt_remove_btn_title": "删除"
+    }
+}

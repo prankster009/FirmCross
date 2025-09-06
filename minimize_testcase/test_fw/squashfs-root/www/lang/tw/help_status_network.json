@@ -1,0 +1,25 @@
+{
+    "help_status_network": {
+        "lang_help_status_network_title": "本機網路",
+        "lang_hsn1": "本機網路",
+        "lang_hsn2": "本機 MAC 位址",
+        "lang_hsn3": "顯示路由器的本機有線介面的 MAC 位址。",
+        "lang_hsn4": "IPv4 位址",
+        "lang_hsn5": "顯示路由器的本機 IPv4 位址。",
+        "lang_hsn6": "IPv4 子網路遮罩",
+        "lang_hsn7": "顯示路由器的 Ipv4 子網路遮罩。",
+        "lang_hsn8": "IPv6 連結－本機位址",
+        "lang_hsn9": "顯示路由器的IPv6 連結－本機位址。",
+        "lang_hsn10": "首碼位址",
+        "lang_hsn11": "顯示路由器的 IPv6 首碼位址。",
+        "lang_hsn12": "DHCP 伺服器",
+        "lang_hsn13": "DHCP 伺服器",
+        "lang_hsn14": "顯示路由器的 DHCP 伺服器功能的狀態。",
+        "lang_hsn15": "起始 IP 位址",
+        "lang_hsn16": "對於可用的 IP 位址範圍，將顯示起始 IP 地址。",
+        "lang_hsn17": "結束 IP 位址",
+        "lang_hsn18": "對於可用的 IP 位址範圍，將顯示結束 IP 地址。",
+        "lang_hsn19": "DHCP 用戶端資料表",
+        "lang_hsn20": "點選此選項以查看將路由器當作 DHCP 伺服器的電腦或其他裝置的清單。"
+    }
+}

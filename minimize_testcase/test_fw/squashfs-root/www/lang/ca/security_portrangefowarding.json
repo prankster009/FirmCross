@@ -1,0 +1,16 @@
+{
+    "security_portrangefowarding": {
+        "lang_prf_app_name_title": "Nom de l'application",
+        "lang_prf_port_range_title": "Port de début et de fin",
+        "lang_prf_protocol_title": "Protocole",
+        "lang_prf_to_ip_title": "Adresse IP de destination",
+        "lang_prf_enabled_title": "Activé",
+        "lang_prf_action_title": "Action",
+        "lang_prf_add_btn_title": "Ajouter un nouveau routage de plage de ports",
+        "lang_prf_disabled_title": "Désactivé",
+        "lang_prf_remove_btn_title": "Supprimer",
+        "lang_prf_protocol_both": "Les deux",
+        "lang_prf_protocol_tcp": "TCP",
+        "lang_prf_protocol_udp": "UDP"
+    }
+}

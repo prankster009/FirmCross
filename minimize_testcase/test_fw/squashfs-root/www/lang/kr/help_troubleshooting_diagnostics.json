@@ -1,0 +1,23 @@
+{
+    "help_troubleshooting_diagnostics": {
+        "lang_help_troubleshooting_diagnostics_title": "진단",
+        "lang_htd1": "진단",
+        "lang_htd2": "핑 테스트",
+        "lang_htd3": "핑은 IP 또는 URL 주소에 도달할 수 있는지 확인합니다.",
+        "lang_htd4": "IP 또는 URL 주소",
+        "lang_htd5": "테스트하고자 하는 IP 또는 URL 주소를 입력합니다.",
+        "lang_htd6": "패킷 크기",
+        "lang_htd7": "전송하고자 하는 패킷 크기를 입력합니다.",
+        "lang_htd8": "핑 수",
+        "lang_htd9": "연결을 테스트하고자 하는 횟수를 입력합니다.",
+        "lang_htd10": "핑 시작",
+        "lang_htd11": "테스트를 실행하려면, 이 옵션을 클릭하십시오. 핑 화면에 테스트 성공 여부가 표시됩니다.",
+        "lang_htd12": "경로 추적 테스트",
+        "lang_htd13": "경로 추적 기능은 컴퓨터와 IP 또는 URL 주소 사이에서 패킷이 이동하는 경로를 표시합니다.",
+        "lang_htd14": "IP 또는 URL 주소",
+        "lang_htd15": "테스트하고자 하는 IP 또는 URL 주소를 입력합니다.",
+        "lang_htd16": "경로 추적으로 시작",
+        "lang_htd17": "테스트를 실행하려면, 이 옵션을 클릭하십시오. 경로 추적 화면에 테스트 성공 여부가 표시됩니다.",
+        "lang_htd18": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

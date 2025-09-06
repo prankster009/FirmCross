@@ -1,0 +1,13 @@
+{
+    "help_status_ports": {
+        "lang_help_status_ports_title": "포트",
+        "lang_hsp1": "후면 포트 조명",
+        "lang_hsp2": "인터넷 포트 ​​링크",
+        "lang_hsp3": "10/100Mbps 또는 1Gbps",
+        "lang_hsp4": "인터넷 포트의 최대 속도가 표시됩니다.",
+        "lang_hsp5": "로컬 포트 ​​링크",
+        "lang_hsp6": "10/100Mbps 또는 1Gbps",
+        "lang_hsp7": "각 로컬 포트​​(포트 1-4)의 최대 속도가 표시됩니다.",
+        "lang_hsp8": "화면 상의 정보를 업데이트하려면 <b>새로 고침</b>을 클릭하십시오."
+    }
+}

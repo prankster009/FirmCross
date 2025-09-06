@@ -1,0 +1,7 @@
+{
+    "connectivity_macclone": {
+        "lang_mac_addr_clone_enable_title": "การโคลนที่อยู่ MAC",
+        "lang_mac_addr_input_title": "ที่อยู่ MAC",
+        "lang_mac_clone_button": "โคลน MAC ของคอมพิวเตอร์ของฉัน"
+    }
+}

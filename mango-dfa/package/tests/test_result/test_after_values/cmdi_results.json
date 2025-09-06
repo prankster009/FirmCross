@@ -1,0 +1,234 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4012c5",
+                    "ins_addr": "0x4012c5"
+                },
+                {
+                    "function": "a",
+                    "string": "a(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>) @ 0x4012f2",
+                    "ins_addr": "0x4012f2"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>) @ 0x4011de",
+                "ins_addr": "0x4011de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4012c5",
+                    "ins_addr": "0x4012c5"
+                },
+                {
+                    "function": "a",
+                    "string": "a(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>) @ 0x4012f2",
+                    "ins_addr": "0x4012f2"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>) @ 0x4011fb",
+                "ins_addr": "0x4011fb"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4012c5",
+                    "ins_addr": "0x4012c5"
+                },
+                {
+                    "function": "a",
+                    "string": "a(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>) @ 0x4012f2",
+                    "ins_addr": "0x4012f2"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>) @ 0x401218",
+                "ins_addr": "0x401218"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4012c5",
+                    "ins_addr": "0x4012c5"
+                },
+                {
+                    "function": "b",
+                    "string": "b(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>) @ 0x401311",
+                    "ins_addr": "0x401311"
+                }
+            ],
+            "sink": {
+                "function": "execve",
+                "string": "execve(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x0>)>, <MultiValues(<BV64 0x0>)>) @ 0x40125e",
+                "ins_addr": "0x40125e"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4012c5",
+                    "ins_addr": "0x4012c5"
+                },
+                {
+                    "function": "b",
+                    "string": "b(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>) @ 0x401311",
+                    "ins_addr": "0x401311"
+                }
+            ],
+            "sink": {
+                "function": "execve",
+                "string": "execve(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x0>)>, <MultiValues(<BV64 0x0>)>) @ 0x401285",
+                "ins_addr": "0x401285"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4012c5",
+                    "ins_addr": "0x4012c5"
+                },
+                {
+                    "function": "b",
+                    "string": "b(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>) @ 0x401311",
+                    "ins_addr": "0x401311"
+                }
+            ],
+            "sink": {
+                "function": "execve",
+                "string": "execve(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x0>)>, <MultiValues(<BV64 0x0>)>) @ 0x4012ac",
+                "ins_addr": "0x4012ac"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 0.4035189151763916,
+    "vra_time": 0.20106863975524902,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/binaries/after_values/program",
+    "name": "program",
+    "has_sinks": true,
+    "sha256": "5e41628e5e1ec7a4a681dc90f01db87525b2a3c459d51c96b8f1692190330194",
+    "sink_times": {
+        "system": 0.19062042236328125,
+        "execve": 0.4086308479309082
+    },
+    "error": null,
+    "mango_time": 1.1427497863769531,
+    "sinks": {
+        "system": 1,
+        "execve": 1
+    },
+    "time_data": {
+        "0x4011bb -> 0x4012c5 -> 0x401090": {
+            "taint_time": 0.10060811042785645,
+            "rda_time": 0.08972764015197754
+        },
+        "0x401231 -> 0x4012c5 -> 0x4010b0": {
+            "taint_time": 0.24364185333251953,
+            "rda_time": 0.16469120979309082
+        }
+    }
+}

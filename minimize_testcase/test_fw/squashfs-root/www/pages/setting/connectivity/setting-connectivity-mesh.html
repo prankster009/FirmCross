@@ -1,0 +1,274 @@
+<script type="text/javascript">
+var OBJ_LIST = ['easyMeshBasic','easyMeshBss']
+var INFO_LIST = ['easyMesh']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var node_type_str = ['parent_mode_state_enable','parent_mode_state_disable'];
+var node_type_val = ['1','0'];
+</script>
+
+<table class="table table-info set_zone">
+<tbody>
+<tr id="tr_node_type" >
+<td>
+<span class="multi_lang" id="lang_mesh_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('node_type', node_type_str, node_type_val,'select_node_type()', '');})();</script>
+<div id="select_div_node_type"></div>
+</td>
+</tr>
+</tbody>
+</table>
+
+<div class="table-title 5g_zone">
+<span class="multi_lang" id="lang_mesh_zone_mseh5gsetting_title"></span>
+</div>
+<hr class="table-title-underline 5g_zone">
+<table class="table table-info 5g_zone">
+<tbody>
+<tr id="tr_ssid_5" >
+<td>
+<span class="multi_lang" id="lang_ssid_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="ssid_5" id="ssid_5" onblur="valid_ssid_5(this.value)" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_psword_5" >
+<td>
+<span class="multi_lang" id="lang_psword_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="psword_5" id="psword_5" onblur="valid_wpa_psk(this.value)" size="17" class="logger_bot">
+</td>
+</tr>
+</tbody>
+</table>
+
+<div class="table-title 2g_zone">
+<span class="multi_lang" id="lang_mesh_zone_mseh2gsetting_title"></span>
+</div>
+<hr class="table-title-underline 2g_zone">
+<table class="table table-info 2g_zone">
+<tbody>
+<tr id="tr_ssid_2" >
+<td>
+<span class="multi_lang" id="lang_ssid_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="ssid_2" id="ssid_2" onblur="valid_ssid_2(this.value)" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_psword_2" >
+<td>
+<span class="multi_lang" id="lang_psword_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="psword_2" id="psword_2" onblur="valid_wpa_psk(this.value)" size="17" class="logger_bot">
+</td>
+</tr>
+<td>&nbsp;</td>
+<tr id="tr_add_node" >
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_add_node_button" onclick="displayPopout('mesh_plug');"></button>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_mesh_info_button" onclick="displayPopout('mesh_info');"></button>
+</td>
+</tr>
+
+
+</tbody>
+</table>
+
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+</tbody>
+</table>
+
+
+<script type="text/javascript" language="javascript">
+page_tag='connectivity_mesh'
+$(document).ready(function(){
+$.lang_load("connectivity_mesh");
+page_initial()
+inject_log_bot()
+escape_detection()
+});
+function callback(){
+
+}
+function set_obj_success_cb(obj) {
+show_alert(L.common.success_title, L.common.save_success);
+ORIGINAL_OBJ_DATA = API.obj.copy(MODIFIED_OBJ_DATA);
+}
+function set_obj_error_cb(obj) {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+get_mesh_init(MODIFIED_OBJ_DATA);
+select_node_type(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable)
+console.log(MODIFIED_OBJ_DATA)
+}
+function get_mesh_init(obj){
+var enable_status = obj.easyMeshBasic.EasyMeshBasicP.enable;
+var role_status = obj.easyMeshBasic.EasyMeshBasicP.deviceRole;
+if(enable_status == 1){
+$('#node_type').val('1');
+}else{
+$('#node_type').val('0');
+}
+$('#ssid_5').val(obj.easyMeshBss.EasyMeshBssP.ssid5G);
+$('#psword_5').val(obj.easyMeshBss.EasyMeshBssP.wpaPsk5G);
+ele_set_default(document.getElementById("ssid_5"),obj.easyMeshBss.EasyMeshBssP.ssid5G);
+ele_set_default(document.getElementById("psword_5"),obj.easyMeshBss.EasyMeshBssP.wpaPsk5G);
+$('#ssid_2').val(obj.easyMeshBss.EasyMeshBssP.ssid);
+$('#psword_2').val(obj.easyMeshBss.EasyMeshBssP.wpaPsk);
+ele_set_default(document.getElementById("ssid_2"),obj.easyMeshBss.EasyMeshBssP.ssid);
+ele_set_default(document.getElementById("psword_2"),obj.easyMeshBss.EasyMeshBssP.wpaPsk);
+update_selected($('#node_type').attr('name'));
+update_selected($('#ssid_5').attr('name'));
+update_selected($('#psword_5').attr('name'));
+update_selected($('#ssid_2').attr('name'));
+update_selected($('#psword_2').attr('name'));
+}
+function get_obj_error_cb(obj) {
+console.log(obj)
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+function page_save(fake_action){
+//Coding save function here
+if($('#node_type').val()==0){
+MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable='0';
+}
+else if($('#node_type').val()==1){
+MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable='1';
+
+}
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.ssid5G=$('#ssid_5').val();
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.wpaPsk5G=$('#psword_5').val();
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.ssid=$('#ssid_2').val();
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.wpaPsk=$('#psword_2').val();
+if(fake_action == true) return;
+else{
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA)){
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+return;
+}
+if($('#node_type').val()==1)
+MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole='1';
+set_obj_data(MODIFIED_OBJ_DATA)
+}
+}
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+function select_node_type(obj){
+if ( 'undefined' == typeof(L.connectivity_mesh) ){
+setTimeout(function(){
+eval('var dy_id="L.connectivity_mesh.'+$("#node_type option:selected").attr("id")+'"')
+$("#node_type").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+},1500)
+}else{
+eval('var dy_id="L.connectivity_mesh.'+$("#node_type option:selected").attr("id")+'"')
+$("#node_type").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+}
+update_selected($('#node_type').attr('name'));
+}
+
+function valid_ssid_5(ssid) {
+var tmp_ssid = ssid;
+var old_ssid = $('#ssid_5').attr('value');
+
+ssid = tmp_ssid.trim();
+
+if (ssid == "") {
+alert(L.connectivity_mesh.lang_ssid_empty_info);
+$('#ssid_5').val(old_ssid);
+return false;
+}
+
+if (!validation_ssid_ascii(ssid)) {
+alert(L.connectivity_mesh.lang_ssid_format_info);
+$('#ssid_5').val(old_ssid);
+return false;
+}
+
+$('#ssid_5').val(ssid);
+$('#ssid_5').attr('value',ssid);
+return true;
+}
+function valid_ssid_2(ssid) {
+var tmp_ssid = ssid;
+var old_ssid = $('#ssid_2').attr('value');
+
+ssid = tmp_ssid.trim();
+
+if (ssid == "") {
+alert(L.connectivity_mesh.lang_ssid_empty_info);
+$('#ssid_2').val(old_ssid);
+return false;
+}
+
+if (!validation_ssid_ascii(ssid)) {
+alert(L.connectivity_mesh.lang_ssid_format_info);
+$('#ssid_2').val(old_ssid);
+return false;
+}
+
+$('#ssid_2').val(ssid);
+$('#ssid_2').attr('value',ssid);
+return true;
+}
+
+
+function valid_wpa_psk(key) {
+if (!validation_key(key)) {
+alert(L.error_message.lang_error_message2_err5);
+return false;
+}
+return true;
+}
+function switch_page_con() {
+displayPopout('mesh_confirm');
+}
+function switch_page_plug() {
+displayPopout('mesh_plug');
+}
+function switch_page_wps() {
+displayPopout('mesh_process');
+}
+function open_mesh_info(){
+displayPopout('mesh_info')
+}
+function show_wps_pass(){
+displayPopout('mesh_pass')
+}
+function show_wps_fail(){
+displayPopout('mesh_fail')
+}
+
+</script>
+

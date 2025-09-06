@@ -1,0 +1,12 @@
+{
+    "idp_route_table": {
+        "lang_idp_route_table_title": "Routing Table",
+        "lang_idp_route_table_dst_ip_title": "Destination LAN IP",
+        "lang_idp_route_table_subnet_mask_title": "Subnet Mask",
+        "lang_idp_route_table_gateway_title": "Gateway",
+        "lang_idp_route_table_hop_count_title": "Hop Count",
+        "lang_idp_route_table_interface_title": "Interface",
+        "lang_idp_route_table_interface_lan_tilte": "LAN & Wireless",
+        "lang_idp_route_table_interface_wan_tilte": "Internet (WAN)"
+    }
+}

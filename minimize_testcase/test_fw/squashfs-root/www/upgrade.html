@@ -1,0 +1,96 @@
+
+
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/wapi-min.js"></script>
+<script src="js/ajaxfileupload.js"></script>
+
+<body>
+<div class="container" id="fw_upgrade">
+<div class="row">
+<div>&nbsp;</div>
+<div>
+<div style="font-size:32px;text-align:center">
+<h4><small style="color:#787878;"><span id="fw_upgrade_title">Firmware Upgrade</span></small></h4>
+</div>
+<form onsubmit="return false">
+<center>
+<input style="font-size:20px" type="file" name="file_path" id="file_path"><br><br>
+<button style="font-size:20px" id="fw_upgrade_submit">upgrade</button>
+</center><br>
+<div style="font-size:20px;color:red;text-align:center;display:none" id="fw_upgrade_alert" role="alert">
+<span id="fw_upgrade_error_msg"></span>
+</div>
+</form>
+</div>
+<div>&nbsp;</div>
+</div>
+</div> 
+</body>
+</html>
+<script type="text/javascript">
+$(document).ready(function() {
+$("#fw_upgrade_submit").click(function() {
+var file_name = $("#file_path").val();
+
+if (typeof(file_name) == "undefined" || file_name == "") {
+$("#fw_upgrade_error_msg").html("file name error !");
+$("#fw_upgrade_alert").show();
+} else {
+if(validation_file_name(file_name) != true) {
+$("#fw_upgrade_error_msg").html("file format error !");
+$("#fw_upgrade_alert").show();
+} else {
+$("#fw_upgrade_error_msg").html("");
+$("#fw_upgrade_alert").hide();
+upload_fw();
+}
+}
+});
+});
+
+function validation_file_name(f_name) {
+var file_type = f_name.substr(f_name.length - 4 , f_name.length).toLowerCase();
+
+if(file_type == '.bin') {
+return true;
+} else {
+return false;
+}
+}
+
+function upload_success_cb(obj) {
+if (obj.api_return == 0) {
+$("#fw_upgrade_error_msg").html("");
+$("#fw_upgrade_alert").hide();
+fw_upgrade_start();
+} else {
+$("#fw_upgrade_error_msg").html("upload file error !");
+$("#fw_upgrade_alert").show();
+}
+}
+
+function upload_fw() {
+API.cgi.upload("upload_fw", "file_path", upload_success_cb);
+}
+
+function fw_upgrade_start() {
+var obj = {};
+API.cgi.set("upgrade_fw", obj, function(obj) {
+if (obj.api_return == 0) {
+$("#fw_upgrade_error_msg").html("Firmware Upgrading...<br>DO NOT turn off the power of device<br>The device will auto reboot after upgrade completely<br>please wait with patience !!");
+$("#fw_upgrade_alert").show();
+} else {
+$("#fw_upgrade_error_msg").html("Invalid Firmware, please choose a correct firmware and try again !!");
+$("#fw_upgrade_alert").hide();
+
+}
+});
+}
+
+</script>
+

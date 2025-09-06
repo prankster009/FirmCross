@@ -1,0 +1,13 @@
+{
+    "help_status_ports": {
+        "lang_help_status_ports_title": "Ports",
+        "lang_hsp1": "Voyants du port arrière",
+        "lang_hsp2": "Liaison port Internet",
+        "lang_hsp3": "10/100 Mbit/s ou 1 Gbit/s",
+        "lang_hsp4": "La vitesse maximale du port Internet s'affiche.",
+        "lang_hsp5": "Liaison port local",
+        "lang_hsp6": "10/100 Mbit/s ou 1 Gbit/s",
+        "lang_hsp7": "La vitesse maximale de chaque port local (ports 1 à 4) s'affiche.",
+        "lang_hsp8": "Pour mettre à jour les renseignements de l’écran, cliquez sur <b>Actualiser</b>."
+    }
+}

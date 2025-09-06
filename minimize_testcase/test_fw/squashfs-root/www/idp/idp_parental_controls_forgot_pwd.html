@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="parental_controls_forgot_pwd">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close logger_bot" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_idp_parental_controls_forgot_pwd_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<tr>
+<td><span class="multi_lang" id="lang_idp_parental_controls_forgot_pwd_info_title"></span></td>
+</tr>
+<tr>
+<td><span id="pc_quest"></span></td>
+</tr>
+<tr>
+<td><input class="logger_bot" maxlength="32" style="width:240px" name="pc_ans" id="pc_ans" onblur=""></td>
+</tr>
+<tr>
+<td><span class="error" id="errmsg"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="Okbtn_click()" id="btnOk"></button>
+<button type="button" data-dismiss="modal" class="btncancel multi_lang logger_bot" onclick="closePopout()" id="btnCancel"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var L;
+var modify_obj;
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+$('#loader', window.parent.document).hide();
+
+modify_obj=window.parent.MODIFIED_OBJ_DATA.pc.PcP;
+
+$('#pc_quest').text(modify_obj.setupSecretQuestion);
+resizePopout();
+inject_log_bot_idp();
+},1000);
+}
+
+function check_ans(ans1,ans2) {
+if (ans1 != ans2) {
+$('#errmsg').text(L.lang_idp_parental_controls_forgot_pwd_errmsg_title);
+resizePopout();
+return -1;
+}
+
+$('#errmsg').text("");
+resizePopout();
+return 0;
+}
+
+function Okbtn_click() {
+if (check_ans($('#pc_ans').val(),modify_obj.setupSecretAnswer) != 0)
+return;
+
+window.parent.reset_pc_password();
+closePopout();
+}
+
+</script>
+
+</FORM></BODY></HTML>

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.pc2
+    set firewall.pc2=include
+    set firewall.pc2.type=script
+    set firewall.pc2.path=/usr/share/security/pc2.include
+    set firewall.pc2.family=ipv4
+    set firewall.pc2.reload=1
+EOT
+
+exit 0

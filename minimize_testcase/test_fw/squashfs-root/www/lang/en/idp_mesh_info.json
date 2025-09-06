@@ -1,0 +1,23 @@
+{
+    "idp_mesh_info": {
+        "lang_idp_mesh_confirm_title": "Press and hold 3 seconds the WPS button on the child node",
+        "lang_idp_mesh_fail_title": "Connecting to your child node took to longer than expected. Try again.",
+        "lang_idp_mesh_tryagain": "Try again",
+        "lang_idp_mesh_pass_title": "The child node has joined your Wi-Fi!",
+        "lang_idp_mesh_plug_title": "Plug in your child node",
+        "lang_idp_mesh_plug_content1": "Once it's got power, wait about 100 seconds for the node to be ready. You'll know it's ready when the light starts blinking blue.",
+        "lang_idp_mesh_plug_content2": "If you're setting up more child nodes, be sure to do them one at time to avoid problems.",
+        "lang_idp_mesh_process_title": "Press and hold 3 seconds the WPS button on the child node",
+        "lang_idp_mesh_info_title": "Mesh information",
+        "lang_idp_parent_info_title": "Connected parent node information:",
+        "lang_idp_child_info_title": "Connected child node information:",
+        "lang_idp_child_info_name": "Client Name",
+        "lang_idp_child_info_interface": "Interface",
+        "lang_idp_child_info_mac": "MAC Address",
+        "lang_idp_child_info_rssi": "RSSI",
+        "lang_idp_child_info_fw": "Firmware Version",
+        "lang_idp_child_info_ip": "IP Address",
+        "lang_idp_connected": "Connected Devices",
+        "lang_idp_device_type": "Device type"
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "administration_reset": {
+        "lang_reboot_title": "重新啟動路由器",
+        "lang_reboot_button": "重新開機",
+        "lang_reset_default_title": "重設為原廠預設設定",
+        "lang_reset_default_button": "原廠預設",
+        "lang_reboot_confirm": "您真的要重新啟動裝置嗎？",
+        "lang_reset_default_confirm": "警告！如果點選「確定」，裝置將重設為原廠預設值，所有之前的設定都將被清除。",
+        "lang_rebooting": "正在重新開機......",
+        "lang_reboot_fail": "重新啟動失敗",
+        "lang_reset_fail": "恢復為原廠預設失敗"
+    }
+}

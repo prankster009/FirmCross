@@ -1,0 +1,8 @@
+{
+    "idp_mesh_plug": {
+        "lang_idp_mesh_plug_title": "하위 노드를 연결합니다.",
+        "lang_idp_mesh_plug_content1": "이지메시 장치의 전원이 완전히 켜질 때까지 기다립니다. 3분 정도 소요됩니다.",
+        "lang_idp_mesh_plug_content2": "더 많은 하위 노드를 설정하는 경우, 문제를 방지하기 위해 한 번에 하나씩 수행해야 합니다.",
+        "lang_idp_mesh_plug_content3": "3분이 지났습니다"
+    }
+}

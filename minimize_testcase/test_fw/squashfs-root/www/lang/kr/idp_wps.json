@@ -1,0 +1,7 @@
+{
+    "idp_wps": {
+        "lang_idp_wps_info_title": "클라이언트 장치를 검색합니다.",
+        "lang_idp_wps_wait_title": "기다려 주십시오...",
+        "lang_idp_wps_cancel_button": "취소"
+    }
+}

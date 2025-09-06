@@ -1,0 +1,19 @@
+{
+    "security_ipv6": {
+        "lang_ipv6_zone_firewall_title": "IPv6 防火墙设置",
+        "lang_ipv6_description_title": "描述",
+        "lang_ipv6_address_title": "IPv6 地址",
+        "lang_ipv6_disable": "禁用",
+        "lang_ipv6_tcp": "TCP",
+        "lang_ipv6_udp": "UDP",
+        "lang_ipv6_both": "两者",
+        "lang_ipv6_allow_title": "允许",
+        "lang_ipv6_to": "到",
+        "lang_ipv6_optional": "（可选）",
+        "lang_ipv6_allowing_ports": "允许端口",
+        "lang_ipv6_description": "描述",
+        "lang_ipv6_address": "地址",
+        "lang_ipv6_allow": "允许",
+        "lang_ipv6_error_msg_1": "您输入的 IPv6 地址无效，请重新输入正确的 IPv6 地址。"
+    }
+}

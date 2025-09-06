@@ -1,0 +1,132 @@
+#!/bin/sh
+
+SERVICE="single port forward"
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+. /lib/hummer/state.sh
+
+check_wan() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_is_up up
+
+    if [ "$wan_is_up" != "1" ]; then
+        echo "$SERVICE, wan is down" > /dev/console
+        echo "$SERVICE, exit!" > /dev/console
+        exit 0
+    fi
+}
+
+delete_sp_forward_chains() {
+    iptables -t nat -F prerouting_wan_sp_forward
+    iptables -t nat -D prerouting_wan_rule -j prerouting_wan_sp_forward
+    iptables -t nat -X prerouting_wan_sp_forward
+    iptables -t nat -F prerouting_lan_sp_forward
+    iptables -t nat -D prerouting_lan_rule -j prerouting_lan_sp_forward
+    iptables -t nat -X prerouting_lan_sp_forward
+    iptables -t nat -F postrouting_lan_sp_forward
+    iptables -t nat -D postrouting_lan_rule -j postrouting_lan_sp_forward
+    iptables -t nat -X postrouting_lan_sp_forward
+
+    iptables -t filter -F forwarding_wan_sp_forward
+    iptables -t filter -D forwarding_wan_rule -j forwarding_wan_sp_forward
+    iptables -t filter -X forwarding_wan_sp_forward
+}
+
+add_sp_forward_chains() {
+    iptables -t nat -N prerouting_wan_sp_forward
+    iptables -t nat -A prerouting_wan_rule -j prerouting_wan_sp_forward
+    iptables -t nat -N prerouting_lan_sp_forward
+    iptables -t nat -A prerouting_lan_rule -j prerouting_lan_sp_forward
+    iptables -t nat -N postrouting_lan_sp_forward
+    iptables -t nat -A postrouting_lan_rule -j postrouting_lan_sp_forward
+
+    iptables -t filter -N forwarding_wan_sp_forward
+    iptables -t filter -A forwarding_wan_rule -j forwarding_wan_sp_forward
+}
+
+do_sp_forward() {
+    local blockNatRedirection
+    local wanIp lanSubnet lanIp
+
+    json_load "$(objReq wan json)"
+    json_select "WanP"
+    json_get_var wanmode proto
+
+    if [ "$wanmode" = "$WAN_PROTO_L2TP" -o "$wanmode" = "$WAN_PROTO_PPTP" ]; then
+        network_get_ipaddr wanIp vpn
+    else
+        network_get_ipaddr wanIp wan
+    fi
+    network_get_subnet lanSubnet lan
+    network_get_ipaddr lanIp lan
+
+
+    json_load "$(objReq firewall json)"
+    json_select "FirewallP"
+    json_get_vars blockNatRedirection
+    json_select ".."
+
+    json_load "$(objReq portForward json)"
+    json_select "PortForwardT"
+    local Index="1"
+    while json_get_type Type $Index && [ "$Type" = object ]; do
+        local externalPort internalPort proto deviceIp enable
+
+        json_select "$Index"
+        json_get_vars externalPort internalPort proto deviceIp enable
+
+        if [ "$enable" = "0" ]; then
+            let Index=$Index+1
+            json_select ".."
+            continue
+        fi
+
+        echo "$SERVICE, add #${Index} rule (enable:$enable proto:$proto from $wanIp:$externalPort to $deviceIp:$internalPort)" > /dev/console
+
+        if [ "$proto" == "tcp" -o "$proto" == "both" ]; then
+            iptables -t nat -A prerouting_wan_sp_forward -d $wanIp -p tcp --dport $externalPort -j DNAT --to-destination $deviceIp:$internalPort
+            iptables -t filter -A forwarding_wan_sp_forward -d $deviceIp -p tcp --dport $internalPort -j ACCEPT
+
+            if [ "$blockNatRedirection" != "1" ]; then
+                local lanNetwork lanNetmask
+                lanNetwork=$(ipcalc.sh $lanSubnet | grep NETWORK | cut -d"=" -f2)
+                lanNetmask=$(ipcalc.sh $lanSubnet | grep PREFIX | cut -d"=" -f2)
+                iptables -t nat -A prerouting_lan_sp_forward -p tcp --dport $externalPort -s $lanNetwork/$lanNetmask -d $wanIp -j DNAT --to-destination $deviceIp:$internalPort
+#               iptables -t nat -A prerouting_lan_sp_forward -p tcp --dport $externalPort -s $lanNetwork/$lanNetmask -d $lanIp -j DNAT --to-destination $deviceIp:$internalPort
+                iptables -t nat -A postrouting_lan_sp_forward -p tcp --dport $internalPort -s $lanNetwork/$lanNetmask -d $deviceIp -j SNAT --to-source $lanIp
+            fi
+        fi
+        if [ "$proto" == "udp" -o "$proto" == "both" ]; then
+            iptables -t nat -A prerouting_wan_sp_forward -d $wanIp -p udp --dport $externalPort -j DNAT --to-destination $deviceIp:$internalPort
+            iptables -t filter -A forwarding_wan_sp_forward -d $deviceIp -p udp --dport $internalPort -j ACCEPT
+
+            if [ "$blockNatRedirection" != "1" ]; then
+                local lanNetwork lanNetmask
+                lanNetwork=$(ipcalc.sh $lanSubnet | grep NETWORK | cut -d"=" -f2)
+                lanNetmask=$(ipcalc.sh $lanSubnet | grep PREFIX | cut -d"=" -f2)
+                iptables -t nat -A prerouting_lan_sp_forward -p udp --dport $externalPort -s $lanNetwork/$lanNetmask -d $wanIp -j DNAT --to-destination $deviceIp:$internalPort
+#               iptables -t nat -A prerouting_lan_sp_forward -p udp --dport $externalPort -s $lanNetwork/$lanNetmask -d $lanIp -j DNAT --to-destination $deviceIp:$internalPort
+                iptables -t nat -A postrouting_lan_sp_forward -p udp --dport $internalPort -s $lanNetwork/$lanNetmask -d $deviceIp -j SNAT --to-source $lanIp
+            fi
+        fi
+
+        let Index=$Index+1
+        json_select ".."
+    done
+}
+
+start() {
+    check_wan
+    add_sp_forward_chains >/dev/null 2>&1
+    do_sp_forward >/dev/null 2>&1
+}
+
+stop() {
+    delete_sp_forward_chains >/dev/null 2>&1
+}
+
+
+stop
+start

@@ -1,0 +1,13 @@
+{
+    "administration_reset": {
+        "lang_reboot_title": "ルーターを再起動",
+        "lang_reboot_button": "再起動",
+        "lang_reset_default_title": "ファクトリ出荷時の既定値の設定にリセット",
+        "lang_reset_default_button": "ファクトリ リセット",
+        "lang_reboot_confirm": "デバイスを再起動してもよろしいですか？",
+        "lang_reset_default_confirm": "警告OK をクリックすると、デバイスがファクトリ出荷時の既定値にリセットされ、すべての前の設定は消去されます。",
+        "lang_rebooting": "再起動中......",
+        "lang_reboot_fail": "再起動に失敗しました",
+        "lang_reset_fail": "ファクトリ リセットに失敗しました"
+    }
+}

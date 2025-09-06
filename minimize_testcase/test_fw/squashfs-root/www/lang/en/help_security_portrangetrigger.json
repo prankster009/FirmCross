@@ -1,0 +1,17 @@
+{
+    "help_security_portrangetrigger": {
+        "lang_help_security_portrangetrigger_title": "Port Range Triggering",
+        "lang_hsprt1": "Port Range Triggering allows the Router to watch outgoing data for specific port numbers. The IP address of the computer that sends the matching data is remembered by the Router, so that when the requested data returns through the Router, the data is pulled back to the proper computer by way of IP address and port mapping rules.",
+        "lang_hsprt2": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hsprt3": "Port Range Triggering",
+        "lang_hsprt4": "Application Name",
+        "lang_hsprt5": "Enter the name of the application.",
+        "lang_hsprt6": "Triggered Range",
+        "lang_hsprt7": "Enter the starting and ending port numbers of the outgoing traffic.",
+        "lang_hsprt8": "Forwarded Range",
+        "lang_hsprt9": "Enter the starting and ending port numbers of the incoming traffic.",
+        "lang_hsprt10": "Enabled",
+        "lang_hsprt11": "Select <b>Enabled</b> to activate port triggering.",
+        "lang_hsprt12": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

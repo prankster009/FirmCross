@@ -1,0 +1,28 @@
+{
+    "idp_spf_item_creator": {
+        "lang_spf_item_creator_title": "새로운 단일 포트 전달 추가",
+        "lang_spf_item_app_title": "응용 프로그램",
+        "lang_spf_item_app_name_title": "응용 프로그램 이름",
+        "lang_spf_item_ext_port_title": "외부 포트",
+        "lang_spf_item_int_port_title": "내부 포트",
+        "lang_spf_item_protocol_title": "프로토콜",
+        "lang_spf_item_to_ip_title": "대상 IP 주소",
+        "lang_spf_item_enable_title": "활성화됨",
+        "lang_app_manual": "설명서",
+        "lang_app_ftp": "FTP",
+        "lang_app_telnet": "텔넷",
+        "lang_app_smtp": "SMPT",
+        "lang_app_dns": "DNS",
+        "lang_app_tftp": "TFTP",
+        "lang_app_finger": "Finger",
+        "lang_app_http": "HTTP",
+        "lang_app_pop3": "POP3",
+        "lang_app_nntp": "NNTP",
+        "lang_app_snmp": "SNMP",
+        "lang_app_pptp": "PPTP",
+        "lang_protocol_both": "둘 다",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "라우터의 IP, 네트워크 또는 브로드캐스트 주소를 사용할 수 없습니다."
+    }
+}

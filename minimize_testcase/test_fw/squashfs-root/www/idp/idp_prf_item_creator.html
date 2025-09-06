@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+<script type="text/javascript">
+var IDP_INFO_LIST = [ 'lan' ]
+var MODIFIED_OBJ_DATA = {}
+var prf_pro_str_list = ['protocol_both', 'protocol_tcp', 'protocol_udp']
+var prf_pro_val_list = ['both', 'tcp', 'udp']
+
+</script>
+</HEAD>
+<BODY onload="init()">
+<form method="post" action="" name="dhcp">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close logger_bot" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_prf_item_creator_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<tr>
+<td>
+<span class="multi_lang" id="lang_prf_item_app_name_title"></span>
+<td>
+<input type="text" class="num logger_bot" maxlength="20" size="19" id="desc" name="desc" onblur="">
+</td>
+</tr>
+<tr>
+<td>
+<span class="multi_lang" id="lang_prf_item_port_range_title"></span>
+<td>
+<input type="text" class="num logger_bot" maxlength="5" style="width:50px" id="externalPortStart" name="externalPortStart" onblur="">
+&nbsp;<span class="multi_lang" id="lang_prf_item_to_title"></span>&nbsp;
+<input type="text" class="num logger_bot" maxlength="5" style="width:50px" id="externalPortEnd" name="externalPortEnd" onblur="">
+</td>
+</tr>
+<tr>
+<td>
+<span class="multi_lang" id="lang_prf_item_protocol_title"></span>
+</td>
+<td>
+<div id="select_div_proto"></div>
+<script>(function(){draw_select('proto', prf_pro_str_list, prf_pro_val_list,'sel_protocol()', '');})();</script>
+</td>
+</tr>
+<tr>
+<td>
+<span class="multi_lang" id="lang_prf_item_to_ip_title"></span>
+<td class="text-left" dir="ltr">
+<span id="lan_ipaddr"></span>
+<input type="text" class="num logger_bot" maxlength="3" style="width:40px" id="app_ip_to" name="app_ip_to" onblur="">
+</td>
+</tr>
+<tr>
+<td>
+<span id="checkbox_div_prf_item_enable"></span>
+<script>draw_checkbox('prf_item_enable', 'lang_prf_item_enable_title', '1', "prf_item_enable_control()");</script>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="prf_add_item()" id="btnApply"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="closePopout()" id="btnClose"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var lang_idp = eval('window.parent.L.'+localStorage.iframe_idp_name)
+var lang_common = window.parent.L.common
+var L_err = window.parent.L;
+var EDIT_FLAG=0
+var EDIT_INDEX_ID=null
+//resizePopout()
+function check_port(i_startport, i_endport, o_startport, o_endport)
+{
+var tmp_port;
+if(i_startport > i_endport)
+{
+tmp_port = i_startport;
+i_startport = i_endport;
+i_endport = tmp_port;
+}
+if(o_startport > o_endport)
+{
+tmp_port = o_startport;
+o_startport = o_endport;
+o_endport = tmp_port;
+}
+if((i_startport <= o_startport) && (i_endport >= o_endport)) return false;
+else if((i_startport >= o_startport) && (i_startport <= o_endport) && (i_endport >= o_endport)) return false;
+else if((i_endport >= o_startport) && (i_endport <= o_endport)) return false;
+else if((i_startport >= o_startport) && (i_endport <= o_endport)) return false;
+else if((i_startport == o_endport) || (i_endport == o_startport) || (i_endport == o_endport)) return false;
+return true;
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+//alert(MODIFIED_OBJ_DATA.lan.LanP.ipaddr);
+$("#lan_ipaddr").html(MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[0]+'.'+MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[1]+'.'+MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[2]+'.');
+//console.log(MODIFIED_OBJ_DATA)
+}
+function get_obj_error_cb(obj) {
+console.log(obj)
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function init()
+{
+
+setTimeout(function(){
+get_obj_data(IDP_INFO_LIST)
+if(typeof(localStorage.iframe_item_data) != "undefined" && localStorage.iframe_item_data != ""){
+var item_data = JSON.parse(localStorage.iframe_item_data)
+
+$("#desc").val(item_data.desc)
+$("#externalPortStart").val(item_data.externalPortStart)
+$("#externalPortEnd").val(item_data.externalPortEnd)
+$("#app_ip_to").val(item_data.deviceIp.split(".")[3])
+sel_protocol(item_data.proto)
+prf_item_enable_control(item_data.enable)
+EDIT_INDEX_ID = item_data.index
+EDIT_FLAG = 1
+localStorage.iframe_item_data=""
+localStorage.removeItem('iframe_item_data');
+}else{
+EDIT_FLAG = 0
+sel_protocol('both')
+prf_item_enable_control('0')
+}
+$('#loader', window.parent.document).hide();
+inject_log_bot_idp()
+},1000);
+}
+
+function sel_protocol(proto){
+if(typeof(proto) == "undefined")
+proto = $("#proto").val()
+else
+$("#proto").val(proto)
+
+eval('var dy_id="lang_idp.'+$("#proto option:selected").attr("id")+'"')
+$("#proto").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+}
+
+function prf_item_enable_control(enable){
+enable = checkbox_switch('prf_item_enable', enable)
+}
+
+function prf_add_item(){
+var item={}
+var error_count=0;
+var id=0;
+var F = document.forms[0];
+
+
+if( "" == $("#desc").val()){
+alert(L_err.error_message.lang_error_message_err64);
+return false
+}
+
+if(valid_range(F.externalPortStart, 1, 65535, "Port") == false) return false;
+if(valid_range(F.externalPortEnd, 1, 65535, "Port") == false) return false;
+if(valid_range(F.app_ip_to, 1, 254, "IP") == false) return false;
+if(F.externalPortStart.value>F.externalPortEnd.value){
+alert(L_err.error_message.lang_error_message_err31);
+return false;
+}
+
+//Need to add function to check the LAN IP and port overlap issue.
+if($("#app_ip_to").val()==MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[3] || $("#app_ip_to").val()==255 || $("#app_ip_to").val()==0){
+//alert("You can't use the Router's IP, network or broadcase address.");
+alert(lang_idp.lang_msg_ip_fail);
+return;
+}
+
+parent.PRF_DATA.forEach(function(element) {
+if(error_count != 0){
+return;
+}
+if(EDIT_INDEX_ID!=id || EDIT_FLAG==0) {
+if(element.desc == $("#desc").val())
+{
+alert(L_err.error_message.lang_error_message_err110);
+error_count++;
+return;
+}
+if(!check_port(element.externalPortStart, element.externalPortEnd, parseInt($("#externalPortStart").val()), parseInt($("#externalPortEnd").val())))
+{
+if(element.proto == $("#proto").val() || element.proto == 'both' || $("#proto").val() == 'both')
+{
+//alert("Port overlap occurred! Please change your entry!");
+alert(lang_idp.lang_msg_port_overloap);
+error_count++;
+return;
+}
+}
+}
+id++;
+});
+if(error_count > 0){
+return;
+}
+item.desc=$("#desc").val()
+item.externalPortStart=$("#externalPortStart").val()
+item.externalPortEnd=$("#externalPortEnd").val()
+item.proto=$("#proto").val()
+item.deviceIp=MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[0]+'.'+MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[1]+'.'+MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[2]+'.'+$("#app_ip_to").val()
+item.enable=$("#prf_item_enable").val()
+
+if(EDIT_FLAG == 1){
+parent.insert_prf_item(item, EDIT_INDEX_ID)
+}else
+parent.insert_prf_item(item)
+closePopout()
+}
+</script>
+
+</FORM></BODY></HTML>

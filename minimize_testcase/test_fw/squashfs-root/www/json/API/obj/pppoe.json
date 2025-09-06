@@ -1,0 +1,14 @@
+{
+    "PppoeP": {
+        "enable": "0",
+        "username": "",
+        "password": "",
+        "autoType": "0",
+        "ondemand": "0",
+        "maxIdleTime": "15",
+        "mtuMode": "0",
+        "mtu": "1492",
+        "serviceName": "",
+        "redialPeriod": "30"
+    }
+}

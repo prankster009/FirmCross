@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="ping">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close logger_bot" type="button" onclick="close_ping()">&#215;</button>
+<h3><span class="multi_lang" id="lang_idp_ping_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info" id="ping_info">
+<tbody>
+</tbody>
+</table>
+<textarea rows="15" style="width:100%;resize:none;" id="ping_text"></textarea>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="stopPing()" id="btnStop"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="close_ping()" id="btnClose"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var INFO_LIST = ['pingTest'];
+var INFO_DATA = {"pingTest":{}};
+var L;
+var stop_timer=true;
+var ping_timer;
+var SHORT_INTERVAL=10;
+var INTERVAL=1000;
+var LONG_INTERVAL=10000;
+var timer_interval=INTERVAL;
+
+var empty_data_count=0;
+var is_summary=false;
+
+var PKT_SZ_MIN = 32;
+
+function close_ping() {
+stopPing();
+stop_timer=true;
+clearTimeout(ping_timer);
+closePopout();
+}
+
+function stopPing() {
+var stop_data = {"pingTest":""};
+
+set_info_data(stop_data);
+}
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+$('#loader', window.parent.document).hide();
+$("#ping_text").attr('readonly','readonly');
+
+INFO_DATA.pingTest.ipurl=window.parent.document.forms['ui-form'].ping_ip_url_address.value;
+INFO_DATA.pingTest.pkgsize=window.parent.document.forms['ui-form'].packet_size.value;
+INFO_DATA.pingTest.count=window.parent.document.forms['ui-form'].num_to_ping.value;
+
+if (INFO_DATA.pingTest.pkgsize == "")
+INFO_DATA.pingTest.pkgsize = PKT_SZ_MIN;	// set to min packet size
+
+stop_timer=false;
+$("#ping_text").val(L.lang_idp_ping_processing_title);
+
+set_info_data(INFO_DATA);
+inject_log_bot_idp()
+},1000);
+}
+
+function refresh_layout(obj) {
+var i;
+var text_tmp="";
+
+for (i=0; i < obj.pingTest.length; ++i) {
+if (obj.pingTest[i] == "-1") {
+++empty_data_count;
+if (empty_data_count >= 5) {
+empty_data_count = 5;
+timer_interval=LONG_INTERVAL;
+}
+break;
+}
+else if (obj.pingTest[i].indexOf("bad address") != -1) {
+// ping unknow host
+stop_timer=true;
+$("#ping_text").val(L.lang_idp_ping_unknow_host_title);
+break;
+}
+else if (obj.pingTest[i].indexOf("ping statistics") != -1) {
+is_summary = true;
+timer_interval=SHORT_INTERVAL;
+}
+else if (is_summary == false)
+timer_interval=INTERVAL;
+
+empty_data_count=0;
+
+text_tmp=$("#ping_text").val();
+if (text_tmp == L.lang_idp_ping_processing_title) text_tmp="";
+$("#ping_text").val(text_tmp+obj.pingTest[i]+'\r\n');
+}
+
+clearTimeout(ping_timer);
+$("#ping_text").scrollTop($("#ping_text")[0].scrollHeight);
+resizePopout();
+}
+
+function set_info_success_cb(obj) {
+if (!stop_timer)
+get_info_data(INFO_LIST);
+}
+function set_info_error_cb(obj) {
+stop_timer=true;
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function set_info_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.info.set(JSON.parse(obj_content), set_info_success_cb, set_info_error_cb);
+else if(typeof(obj_content) == 'object')
+API.info.set(obj_content, set_info_success_cb, set_info_error_cb);
+}
+function get_info_success_cb(obj) {
+INFO_DATA = API.obj.copy(obj);
+
+refresh_layout(obj);
+if (!stop_timer)
+ping_timer = setTimeout(get_info_data, timer_interval, INFO_LIST);
+}
+function get_info_error_cb(obj) {
+stop_timer=true;
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+</script>
+
+</FORM></BODY></HTML>

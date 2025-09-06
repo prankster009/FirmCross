@@ -1,0 +1,17 @@
+{
+    "help_security_portrangetrigger": {
+        "lang_help_security_portrangetrigger_title": "Déclenchement d'une plage de ports",
+        "lang_hsprt1": "Le déclenchement d'une plage de ports permet au routeur de surveiller le trafic sortant sur des numéros de ports spécifiques. L'adresse IP de l'ordinateur qui transmet les données est mémorisée par le routeur de façon que lorsque les données demandées repassent par le routeur, elles sont acheminées à l'ordinateur approprié au moyen de l'adresse IP et de règles de mappage de ports.",
+        "lang_hsprt2": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hsprt3": "Déclenchement d'une plage de ports",
+        "lang_hsprt4": "Nom de l'application",
+        "lang_hsprt5": "Entrez le nom de l'application.",
+        "lang_hsprt6": "Ports déclenchés",
+        "lang_hsprt7": "Entrez les numéros de ports de début et de fin du trafic sortant.",
+        "lang_hsprt8": "Ports transférés",
+        "lang_hsprt9": "Entrez les numéros de ports de début et de fin du trafic entrant.",
+        "lang_hsprt10": "Activé",
+        "lang_hsprt11": "Sélectionnez <b>Activé</b> pour activer le déclenchement de port.",
+        "lang_hsprt12": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

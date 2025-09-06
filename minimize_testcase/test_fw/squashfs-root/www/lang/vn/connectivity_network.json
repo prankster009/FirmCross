@@ -1,0 +1,30 @@
+{
+    "connectivity_network": {
+        "lang_network_zone_router_address_title": "Địa chỉ Bộ định tuyến",
+        "lang_ip_addr_title": "Địa chỉ IP",
+        "lang_subnet_mask_title": "Mặt nạ mạng con",
+        "lang_router_name_title": "Tên bộ định tuyến",
+        "lang_network_zone_dhcp_server_setting_title": "Cài đặt máy chủ DHCP",
+        "lang_dhcp_server_enable_title": "Máy chủ DHCP",
+        "lang_dhcp_reservation_button": "Giữ chỗ DHCP",
+        "lang_start_ip_title": "Địa chỉ IP bắt đầu",
+        "lang_num_of_user_title": "Số lượng người dùng tối đa",
+        "lang_ip_range_title": "Dải địa chỉ IP",
+        "lang_lease_time_title": "Thời gian cho thiết bị khách thuê",
+        "lang_lease_time_unit": "phút (0 có nghĩa là một ngày)",
+        "lang_static_dns_1_title": "DNS tĩnh 1",
+        "lang_static_dns_2_title": "DNS tĩnh 2",
+        "lang_static_dns_3_title": "DNS tĩnh 3",
+        "lang_wins_title": "WINS",
+        "lang_ip_range_to_title": "tới",
+        "lang_alert_out_range": "Giá trị nằm ngoài phạm vi",
+        "lang_alert_change_setting": "Một giá trị nằm ngoài phạm vi. Thay đổi Địa chỉ IP bắt đầu hoặc Số lượng người dùng tối đa.",
+        "lang_alert_illegal_char": "Các ký tự không hợp lệ [phải là 0 - 9].",
+        "lang_alert_dev_name_blank": "Tên bộ định tuyến không được để trống!",
+        "lang_alert_bridge_mode": "Các tính năng này không được hỗ trợ khi bộ định tuyến hoạt động ở chế độ Cầu nối.",
+        "lang_alert_dev_name_illegal_char": "Tên bộ định tuyến chỉ được chứa các ký tự chữ và số và dấu gạch ngang.",
+        "lang_alert_dev_name_start_letter": "Tên bộ định tuyến phải bắt đầu bằng chữ cái.",
+        "lang_alert_no_need_setup": "Không cần thiết lập cài đặt mạng LAN.",
+        "lang_alert_gn_ip_range": "Mạng 192.168.33.0/24 (các địa chỉ IP 192.168.33.0 - 255) được dành riêng cho Mạng khách không dây. Vui lòng sử dụng một địa chỉ mạng khác."
+    }
+}

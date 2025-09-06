@@ -1,0 +1,12 @@
+{
+    "idp_route_table": {
+        "lang_idp_route_table_title": "라우팅 테이블",
+        "lang_idp_route_table_dst_ip_title": "대상 LAN IP",
+        "lang_idp_route_table_subnet_mask_title": "서브넷 마스크",
+        "lang_idp_route_table_gateway_title": "게이트웨이",
+        "lang_idp_route_table_hop_count_title": "홉 카운트",
+        "lang_idp_route_table_interface_title": "인터페이스",
+        "lang_idp_route_table_interface_lan_tilte": "LAN 및 무선",
+        "lang_idp_route_table_interface_wan_tilte": "인터넷(WAN)"
+    }
+}

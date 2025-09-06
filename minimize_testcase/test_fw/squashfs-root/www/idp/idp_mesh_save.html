@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="mesh_save" onsubmit="return false;">
+
+<div class="pop-modal">
+
+<div class="modal-header"></div>
+<div class="modal-body">
+
+<div class="wiz-content">
+<div class="wiz-content-title"><span class="multi_lang" id="lang_idp_mesh_save_title"></span></div>
+<br><br><br><br>
+<div id="count" class="row mb-3 mt-5">
+<div class="col" id="wpsCountdown">
+<div class="progress-wps2">
+<div class="progress-wps2 blue-wps2">
+<span class="progress-left-wps2">
+<span class="progress-bar-wps2"></span>
+</span>
+<span class="progress-right-wps2">
+<span class="progress-bar-wps2"></span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+</div>
+<br><br><br><br>
+
+</div>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+var info_data={};
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+L_parent = window.parent.L.connectivity_mesh;
+$('#loader', window.parent.document).hide();
+//dev_list=window.parent.INFO_DATA.hosts;
+inject_log_bot_idp();
+resizePopout();
+setTimeout(function(){
+closePopout();
+},4000);
+resizePopout();
+},1000);
+
+}
+
+function set_info_success_cb(obj) {
+//displayPopout('wps');
+console.log("pass")
+}
+function set_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function set_info_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.info.set(JSON.parse(obj_content), set_info_success_cb, set_info_error_cb);
+else if(typeof(obj_content) == 'object')
+API.info.set(obj_content, set_info_success_cb, set_info_error_cb);
+}
+</script>
+
+</FORM></BODY></HTML>

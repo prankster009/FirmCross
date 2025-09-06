@@ -1,0 +1,10 @@
+Package: kmod-crypto-sha1
+Version: 3.10.108-1
+Depends: kernel (=3.10.108-1-41b2331d49b4ca2b30f8dd2717544b31), kmod-crypto-hash, kmod-crypto-core
+Source: package/kernel/linux
+License: GPLv2
+Section: kernel
+Status: unknown hold not-installed
+Architecture: ramips_24kec
+Installed-Size: 1723
+Description:  SHA1 digest CryptoAPI module

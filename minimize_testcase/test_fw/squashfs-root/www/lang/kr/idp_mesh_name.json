@@ -1,0 +1,12 @@
+{
+    "idp_mesh_name": {
+        "lang_idp_mesh_name_title": "노드가 어디에 있습니까?",
+        "lang_idp_mesh_name_content1": "노드 이름을 지정하면 설정에 액세스할 때 이를 구분하는 데 도움이 됩니다.",
+        "lang_idp_mesh_name_content2": "노드 이름",
+        "lang_idp_mesh_name_content3": "예: 주방, 거실, 침실",
+        "lang_idp_mesh_name_content4": "노드 이름을 지정하면 설정시 노드를 구분할 수 있습니다.",
+        "lang_idp_mesh_name_error1": "The Node name cannot be blank!",
+        "lang_idp_mesh_name_error2": "The node name can only contain alphanumberic characters and dashes.",
+        "lang_idp_mesh_name_error3": "The node name must start with a letter."
+    }
+}

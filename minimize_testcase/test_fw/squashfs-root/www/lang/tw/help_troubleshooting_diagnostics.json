@@ -1,0 +1,23 @@
+{
+    "help_troubleshooting_diagnostics": {
+        "lang_help_troubleshooting_diagnostics_title": "診斷",
+        "lang_htd1": "診斷",
+        "lang_htd2": "偵測測試",
+        "lang_htd3": "使用偵測檢查是否可連線到 IP 或 URL 位址。",
+        "lang_htd4": "IP 或 URL 位址",
+        "lang_htd5": "輸入您想測試的 IP 或 URL 位址。",
+        "lang_htd6": "封包大小",
+        "lang_htd7": "輸入您要發送的封包大小。",
+        "lang_htd8": "偵測數量",
+        "lang_htd9": "輸入您想要測試連線的次數。",
+        "lang_htd10": "開始偵測",
+        "lang_htd11": "若要執行測試，請點選此選項。若測試成功，會在偵測螢幕顯示。",
+        "lang_htd12": "traceroute 測試",
+        "lang_htd13": "traceroute 會顯示在您的電腦與 IP 或 URL 位址之間傳送的封包路徑。",
+        "lang_htd14": "IP 或 URL 位址",
+        "lang_htd15": "輸入您想測試的 IP 或 URL 位址。",
+        "lang_htd16": "開始 traceroute",
+        "lang_htd17": "若要執行測試，請點選此選項。若測試成功，會在 traceroute 螢幕顯示。",
+        "lang_htd18": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

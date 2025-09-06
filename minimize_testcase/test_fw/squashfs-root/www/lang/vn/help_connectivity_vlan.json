@@ -1,0 +1,6 @@
+{
+    "help_connectivity_vlan": {
+        "lang_help_connectivity_vlan_title": "Thiết lập VLAN",
+        "lang_hcv1": "VLAN (mạng cục bộ ảo) cho phép bạn nhóm các thiết bị lại với nhau trên một mạng con. Các thiết bị này có thể liên lạc với nhau nhưng không thể liên lạc với các thiết bị trên các mạng con khác."
+    }
+}

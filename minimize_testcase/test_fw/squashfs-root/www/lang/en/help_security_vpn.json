@@ -1,0 +1,14 @@
+{
+    "help_security_vpn": {
+        "lang_help_security_vpn_title": "VPN Passthrough",
+        "lang_hsv1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hsv2": "VPN Passthrough",
+        "lang_hsv3": "IPSec Passthrough",
+        "lang_hsv4": "The VPN client(s) on the local network can establish an IPSec VPN tunnel through the Router.",
+        "lang_hsv5": "PPTP Passthrough",
+        "lang_hsv6": "The VPN client(s) on the local network can establish a PPTP VPN tunnel through the Router.",
+        "lang_hsv7": "L2TP Passthrough",
+        "lang_hsv8": "The VPN client(s) on the local network can establish an L2TP VPN tunnel through the Router.",
+        "lang_hsv9": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "wifi_guest": {
+        "lang_guest_zone_guest_access_title": "การเข้าถึงของบัญชี Guest จะให้ผู้ที่มาบ้านของคุณเข้าถึงอินเทอร์เน็ตโดยไม่สามารถเข้าถึงข้อมูลในคอมพิวเตอร์หรือข้อมูลส่วนตัวของคุณ",
+        "lang_guest_access_allow_title": "อนุญาตการเข้าถึงของบัญชี Guest",
+        "lang_guest_net_name_title": "ชื่อเครือข่ายบัญชี Guest",
+        "lang_guest_password_title": "รหัสผ่านของบัญชี Guest",
+        "lang_guest_change_pwd_button": "เปลี่ยน",
+        "lang_guest_allow_total_title": "จำนวนบัญชี Guest ที่อนุญาต",
+        "lang_ssid_broadcast_title": "การเผยแพร่ SSID",
+        "lang_guest_info_title": "ผู้ที่มาบ้านของคุณจะต้องเชื่อมต่อเครือข่ายบัญชี Guest ไร้สายที่อยู่ในรายการด้านบน โดยการเปิดเว็บเบราว์เซอร์ แล้วป้อนรหัสผ่านบัญชี Guest",
+        "lang_enable_warning": "หากคุณต้องการเปิดใช้งาน Guest Access คุณต้องไปที่ \"การตั้งค่าเครือข่ายไร้สายพื้นฐาน\" (ปิดการใช้งาน Easymesh)"
+    }
+}

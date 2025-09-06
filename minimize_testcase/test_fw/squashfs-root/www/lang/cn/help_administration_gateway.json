@@ -1,0 +1,16 @@
+{
+    "help_administration_gateway": {
+        "lang_help_administration_gateway_title": "网关功能",
+        "lang_hag1": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hag2": "SIP ALG",
+        "lang_hag3": "使用 SIP ALG 选项可让 SIP 数据包遍历 NAT 防火墙。要将 SIP ALG 用于 VoIP 服务，请选择“启用”。如果 VoIP 服务提供商使用其他 NAT 遍历解决方案（例如 STUN、TURN 或 ICE），则保留默认设置“禁用”。",
+        "lang_hag4": "UPnP",
+        "lang_hag5": "UPnP",
+        "lang_hag6": "UPnP 可让相应操作系统为各种应用程序（例如在线游戏和 VoIP 呼叫）自动配置路由器。",
+        "lang_hag7": "允许用户进行配置",
+        "lang_hag8": "如果希望在使用 UPnP 功能时能够对路由器进行手动更改，请保留默认设置“启用”。",
+        "lang_hag9": "允许用户禁用 Internet 访问",
+        "lang_hag10": "为防止本地网络用户通过 UPnP 功能禁用您的 Internet 连接，请保留默认设置“禁用”<b></b>。",
+        "lang_hag11": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

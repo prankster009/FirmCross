@@ -1,0 +1,30 @@
+{
+    "WlanBasicT": [
+        {
+            "gid": "270008320",
+            "name": "WlanBasicT0",
+            "enable": "1",
+            "wifimode": "9",
+            "ssid": "Linksys_2.4G",
+            "ifname": "ra0",
+            "channel": "0",
+            "type": "2",
+            "bw": "0",
+            "hiddenAP": "0",
+            "ETxBfEnCond": "1"
+        },
+        {
+            "gid": "270008321",
+            "name": "WlanBasicT1",
+            "enable": "1",
+            "wifimode": "14",
+            "ssid": "Linksys_5G",
+            "ifname": "rai0",
+            "channel": "0",
+            "type": "5",
+            "bw": "0",
+            "hiddenAP": "0",
+            "ETxBfEnCond": "1"
+        }
+    ]
+}

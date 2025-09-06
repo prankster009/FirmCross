@@ -1,0 +1,20 @@
+{
+    "wifi_wps": {
+        "lang_wps_info_title": "Wi-Fi 保護設定不能與下列功能一起使用：<br>WPA2 Enterprise 安全模式<br>廣播 SSID 已停用<br>2.4 GHz 或 5 GHz 頻段已停用<br>MAC 篩選<br>要使用 WPS，請更改您的安全模式、網路模式和/或停用 MAC 篩選。",
+        "lang_wps_setup_title": "Wi-Fi 保護設定",
+        "lang_wps_zone_push_btn_title": "按鈕",
+        "lang_push_button_info_title": "若您的用戶端裝置具有 Wi-Fi 保護設定 按鈕，則請點選或按下該按鈕並點選右邊按鈕。",
+        "lang_push_btn_state_success_title": "成功",
+        "lang_push_btn_state_fail_title": "失敗",
+        "lang_push_btn_state_search_title": "正在搜尋...",
+        "lang_push_btn_state_Connect_title": "連線",
+        "lang_wps_zone_dev_pin_title": "裝置 PIN",
+        "lang_dev_pin_info_title": "若您的用戶端裝置具有 Wi-Fi 保護設定 PIN 號碼，請在此輸入該號碼，接著點選「註冊」。",
+        "lang_dev_pin_register_button": "註冊",
+        "lang_wps_zone_router_pin_title": "路由器 PIN",
+        "lang_router_pin_info_title": "若您的用戶端要求輸入路由器 PIN 碼，請在用戶端裝置上輸入此號碼 {number}",
+        "lang_dev_pin_alert_title": "PIN 碼錯誤。",
+        "lang_macfilter_enable_alert_title": "啟用無線 MAC 篩選器後，無法啟用 Wi-Fi 保護設定。",
+        "lang_wps_info_title2": "Wi-Fi 保護設定不能與下列功能一起使用：<br>廣播 SSID 已停用<br>2.4 GHz 或 5 GHz 頻段已停用<br>MAC 篩選<br>要使用 WPS，請更改您的安全模式、網路模式和/或停用 MAC 篩選。"
+    }
+}

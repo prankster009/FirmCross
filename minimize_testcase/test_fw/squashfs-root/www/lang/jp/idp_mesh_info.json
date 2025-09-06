@@ -1,0 +1,23 @@
+{
+    "idp_mesh_info": {
+        "lang_idp_mesh_confirm_title": "Press and hold 3 seconds the WPS button on the child node",
+        "lang_idp_mesh_fail_title": "Connecting to your child node took to longer than expected. Try again.",
+        "lang_idp_mesh_tryagain": "もう一度試す",
+        "lang_idp_mesh_pass_title": "子ノードが Wi-Fi に参加しました。",
+        "lang_idp_mesh_plug_title": "子ノードをコンセントに挿します",
+        "lang_idp_mesh_plug_content1": "EasyMesh デバイスの電源が完全にオンになるまでお待ちください。3 分ほどかかります。",
+        "lang_idp_mesh_plug_content2": "子ノードをさらにセットアップする場合は、問題を回避するために、一度に 1 つずつ行ってください。",
+        "lang_idp_mesh_process_title": "Press and hold 3 seconds the WPS button on the child node",
+        "lang_idp_mesh_info_title": "メッシュ情報",
+        "lang_idp_parent_info_title": "接続しているデバイス",
+        "lang_idp_child_info_title": "接続している子ノード情報",
+        "lang_idp_child_info_name": "クライアント名",
+        "lang_idp_child_info_interface": "インターフェイス",
+        "lang_idp_child_info_mac": "MAC アドレス",
+        "lang_idp_child_info_rssi": "RSSI",
+        "lang_idp_child_info_fw": "ファームウェアのバージョン",
+        "lang_idp_child_info_ip": "IP アドレス",
+        "lang_idp_connected": "Connected Devices",
+        "lang_idp_device_type": "Device typeccc"
+    }
+}

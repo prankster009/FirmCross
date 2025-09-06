@@ -1,0 +1,87 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+
+SERVICE_USE_PID=1
+
+START=50
+
+SPAWN_FCGI_PID=/var/run/spawn-fcgi.pid
+SESSION_FILE=/tmp/httpd_session
+CRONTAB_ROOT="/etc/crontabs/root"
+CACHE_DIR="/var/cache/lighttpd"
+
+_set_lighttpd_conf() {
+        local role=$1
+        local LIGHTTPD_CONF="/etc/lighttpd/lighttpd.conf"
+	local LIGHTTPD_MESH_CONF="/etc/lighttpd/conf.d/meshnode.conf"
+	local CONTROLLER_IP="$(cat /tmp/controller_ip)"
+
+	## set controller ip address
+	[ -z "$CONTROLLER_IP" ] && CONTROLLER_IP="192.168.1.1"
+	sed -i '/var.controlor_host = /s/=.*/= \"'"${CONTROLLER_IP}"'\"/' $LIGHTTPD_MESH_CONF
+
+        ## add/remove meshnode.conf
+        if [ "$role" == "agent" ]; then
+		sed -i '/meshnode.conf/ s/#*//' $LIGHTTPD_CONF
+        else
+		sed -i '/meshnode.conf/ s/^include/#&/' $LIGHTTPD_CONF
+        fi
+}
+
+_setlogrotate() {
+        local log=/var/log/lighttpd/*.log
+        local rule=/etc/logrotate.d/lighttpd_log
+
+        [ ! -f $rule ] && {
+        cat << EOF > $rule
+$log {
+        copytruncate
+        rotate 2
+        size 100K
+}
+EOF
+        chmod 644 $rule
+	}
+}
+
+boot() {
+	random1=$(tr -dc 1-9 </dev/urandom | head -c 3)
+	random2=$(tr -dc 1-9 </dev/urandom | head -c 3)
+	minute=$(((random1+1) % 60))
+	hour=$(((random2+1) % 24))
+
+	sed -i '/del_lighttpd_cache/d' $CRONTAB_ROOT
+	sed -i '/del_expired_logs/d' $CRONTAB_ROOT
+	echo "$minute */12 * * * /usr/sbin/delete_lighttpd_cache #del_lighttpd_cache" >> $CRONTAB_ROOT
+	echo "$minute */12 * * * /usr/sbin/delete_expired_logs #del_expired_logs" >> $CRONTAB_ROOT
+
+	start
+}
+
+start() {
+	local fcgi_pid
+
+	mkdir -m 0755 -p /var/run
+	mkdir -m 0755 -p /var/log/lighttpd
+	mkdir -m 0755 -p $CACHE_DIR
+
+	rm -f $SESSION_FILE
+
+	_set_lighttpd_conf $1
+	_setlogrotate
+
+	service_start /usr/sbin/lighttpd -f /etc/lighttpd/lighttpd.conf
+	
+	[ -x `which spawn-fcgi` ] && {
+		fcgi_pid=$(spawn-fcgi -a 127.0.0.1 -p 9999 -f /usr/share/lua/fcgi_control.lua | awk -F ": " '{printf $NF}')
+		echo "$fcgi_pid" > ${SPAWN_FCGI_PID}
+	}
+}
+
+stop() {
+	service_stop /usr/sbin/lighttpd
+	
+	[ -x `which spawn-fcgi` ] && {
+		kill -9 $(cat $SPAWN_FCGI_PID)
+	}
+}

@@ -1,0 +1,8 @@
+Package: luci-app-mtk
+Version: git-21.330.85840-0c27aaa-1
+Depends: libc, libmapd, datconf-lua
+Source: package/mtk/ui/luci-mtk/luci-app-mtk
+Section: luci
+Architecture: ramips_24kec
+Installed-Size: 441444
+Description:  MediaTek Proprietary Configuration.

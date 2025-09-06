@@ -1,0 +1,9 @@
+{
+    "status_ports": {
+        "lang_ports_zone_internet_port_title": "인터넷 포트 ​​링크",
+        "lang_ports_zone_local_ports_title": "로컬 포트 ​​링크",
+        "lang_unit_mbps": "Mbps",
+        "lang_internet_title": "인터넷",
+        "lang_port": "포트"
+    }
+}

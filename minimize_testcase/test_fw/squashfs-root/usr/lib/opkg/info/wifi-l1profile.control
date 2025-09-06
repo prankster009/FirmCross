@@ -1,0 +1,9 @@
+Package: wifi-l1profile
+Version: 1-unknown
+Depends: libc, wifi-kconfig-hack
+Source: package/mtk/misc/wifi-scripts
+License: GPL-2.0
+Section: MTK Properties
+Architecture: ramips_24kec
+Installed-Size: 463
+Description:  This package helps to build l1profile on demand.

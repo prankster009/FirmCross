@@ -1,0 +1,23 @@
+{
+    "help_status_router": {
+        "lang_help_status_router_title": "Router",
+        "lang_hsr1": "Router Information",
+        "lang_hsr2": "Firmware Version",
+        "lang_hsr3": "The version number of the Router's current firmware is displayed.",
+        "lang_hsr4": "Firmware Verification",
+        "lang_hsr5": "The unique identifier of the firmware is displayed.",
+        "lang_hsr6": "Current Time",
+        "lang_hsr7": "The local time is displayed.",
+        "lang_hsr8": "Internet MAC Address",
+        "lang_hsr9": "The Router's MAC address, as seen from the Internet, is displayed.",
+        "lang_hsr10": "Router Name",
+        "lang_hsr11": "The Device Name is the NetBIOS name of the Router.",
+        "lang_hsr12": "Host Name",
+        "lang_hsr13": "The Host Name of the Router is displayed.",
+        "lang_hsr14": "Domain Name",
+        "lang_hsr15": "The Domain Name of the Router is displayed.",
+        "lang_hsr16": "Internet Connection",
+        "lang_hsr17": "This section shows the current network information stored in the Router.",
+        "lang_hsr18": "For a DHCP connection, click <b>Release IP Address</b> or <b>Renew IP Address</b> as appropriate to release or renew a DHCP lease. For a PPPoE or similar connection, click <b>Connect</b> or <b>Disconnect</b> as appropriate to connect to or disconnect from the Internet."
+    }
+}

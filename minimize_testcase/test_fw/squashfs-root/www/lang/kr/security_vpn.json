@@ -1,0 +1,7 @@
+{
+    "security_vpn": {
+        "lang_ipsec_title": "IPSec 패스스루",
+        "lang_pptp_title": "PPTP 패스스루",
+        "lang_l2tp_title": "L2TP 패스스루"
+    }
+}

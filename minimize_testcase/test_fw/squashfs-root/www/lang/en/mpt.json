@@ -1,0 +1,29 @@
+{
+    "mpt": {
+        "lang_wifi_mpt_title": "Transmit Region",
+        "lang_wifi_mpt_info": "Wi-Fi transmission power is set by regional limits. You could be subject to fines and penalties if you choose a region other than where you will use the router.",
+        "lang_wiz_mpt_title": "Choose a region",
+        "lang_wiz_mpt_info_1": "Maximum allowed Wi-Fi transmission power varies by region. Choosing a region sets that limit.",
+        "lang_wiz_mpt_info_2": "You could be subject to fines and penalties if you choose a region other than where you will use the router.",
+        "lang_wiz_mpt_option_initial": "Country or region",
+        "lang_mpt_country_CHN": "Asia - China",
+        "lang_mpt_country_HKG": "Asia - Hong Kong",
+        "lang_mpt_country_IND": "Asia - India",
+        "lang_mpt_country_SGP": "Asia - Singapore",
+        "lang_mpt_country_TWN": "Asia - Taiwan",
+        "lang_mpt_country_THA": "Asia - Thailand",
+        "lang_mpt_country_XAH": "Asia - Rest of Asia",
+        "lang_mpt_country_CAN": "Canada",
+        "lang_mpt_country_EEE": "Europe",
+        "lang_mpt_country_SAU": "Middle East - Saudi Arabia",
+        "lang_mpt_country_XME": "Middle East",
+        "lang_mpt_country_USA": "United States",
+        "lang_mpt_country_PHI": "Asia - Philippines",
+        "lang_mpt_country_KOR": "Asia - South Korea",
+        "lang_mpt_country_MAC": "Asia - Macau",
+        "lang_mpt_country_MYS": "Asia - Malaysia",
+        "lang_mpt_country_VNM": "Asia - Vietnam",
+        "lang_mpt_country_AUS": "Australia",
+        "lang_mpt_country_NZL": "New Zealand"
+    }
+}

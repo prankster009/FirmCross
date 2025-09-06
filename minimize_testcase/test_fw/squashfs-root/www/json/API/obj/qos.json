@@ -1,0 +1,11 @@
+{
+    "QosP": {
+        "enable": "0",
+        "wmmEnable": "1",
+        "wmmNoAckEnable": "0",
+        "wanRateMode": "0",
+        "wanRateUnitType": "0",
+        "wanRateKbps": "0",
+        "wanRateMbps": "0"
+    }
+}

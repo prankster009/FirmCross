@@ -1,0 +1,19 @@
+{
+    "help_security_portrangefowarding": {
+        "lang_help_security_portrangefowarding_title": "Port Range Forwarding",
+        "lang_hspr1": "Port Range Forwarding allows you to set up public services on your network, such as web servers, FTP servers, email servers, or other specialized Internet applications.",
+        "lang_hspr2": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hspr3": "Port Range Forwarding",
+        "lang_hspr4": "Application Name",
+        "lang_hspr5": "Enter the name of the application.",
+        "lang_hspr6": "Start~End Port",
+        "lang_hspr7": "Enter the number or range of port(s) used by incoming traffic.",
+        "lang_hspr8": "Protocol",
+        "lang_hspr9": "Select the protocol(s) used for this application.",
+        "lang_hspr10": "To IP Address",
+        "lang_hspr11": "Enter the IP address of the server running the specific application.",
+        "lang_hspr12": "Enabled",
+        "lang_hspr13": "Select <b>Enabled</b> to activate port forwarding.",
+        "lang_hspr14": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

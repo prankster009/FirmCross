@@ -1,0 +1,7 @@
+{
+    "idp_parental_controls_forgot_pwd": {
+        "lang_idp_parental_controls_forgot_pwd_title": "保護者による制限",
+        "lang_idp_parental_controls_forgot_pwd_info_title": "保護者による制限のパスワードを入力してください:",
+        "lang_idp_parental_controls_forgot_pwd_errmsg_title": "答えが正しくありません。"
+    }
+}

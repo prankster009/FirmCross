@@ -1,0 +1,12 @@
+{
+    "security_dmz": {
+        "lang_dmz_enable_title": "DMZ",
+        "lang_source_ip_addr_title": "ソース IP アドレス",
+        "lang_source_ip_any_title": "任意の IP アドレス",
+        "lang_to": "～",
+        "lang_dest_ip_addr_title": "同期先",
+        "lang_dest_ip_title": "IP アドレス",
+        "lang_dest_mac_addr": "MAC アドレス",
+        "lang_dest_dhcp_client_button": "DHCP クライアント テーブル"
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "connectivity_mesh": {
+        "lang_mesh_title": "Mesh Setup",
+        "lang_ssid_title": "SSID",
+        "lang_auth_type_title": "Type d'authentification",
+        "lang_encrypt_type_title": "Encryption Type",
+        "lang_psword_title": "Phrase de passe",
+        "lang_parent_mode_title": "Mesh parent mode state",
+        "lang_apply_button": "Apply/Save",
+        "lang_add_node_button": "Ajouter un nouveau nœud",
+        "lang_parent_mode_state_enable": "Activer",
+        "lang_parent_mode_state_disable": "Désactiver",
+        "lang_ssid_empty_info": "Vous devez entrer un SSID.",
+        "lang_ssid_format_info": "Invalid SSID name.",
+        "lang_mesh_zone_mseh5gsetting_title": "Paramètres sans fil 5 GHz",
+        "lang_mesh_zone_mseh2gsetting_title": "Paramètres sans fil 2,4 GHz",
+        "lang_mesh_info_button": "Informations sur le réseau maillé",
+        "lang_mesh_warning": "Si vous désactivez EasyMesh, vous ne pourrez plus ajouter de nœuds enfants et/ou les nœuds enfants existants se déconnecteront du ré",
+        "lang_ssid_warning": "Si vous souhaitez désactiver la diffusion SSID, vous devez décocher EasyMesh",
+        "lang_mesh_enable_warning": "Cet appareil désactivera automatiquement les fonctionnalités d'accès invité et de filtre MAC sans fil lorsque Easymesh est act"
+    }
+}

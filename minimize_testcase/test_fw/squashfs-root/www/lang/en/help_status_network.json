@@ -1,0 +1,25 @@
+{
+    "help_status_network": {
+        "lang_help_status_network_title": "Local Network",
+        "lang_hsn1": "Local Network",
+        "lang_hsn2": "Local MAC Address",
+        "lang_hsn3": "The MAC address of the Router's local, wired interface is displayed.",
+        "lang_hsn4": "IPv4 Address",
+        "lang_hsn5": "The Router's local IPv4 address is displayed.",
+        "lang_hsn6": "IPv4 Subnet Mask",
+        "lang_hsn7": "The IPv4 subnet mask of the Router is displayed.",
+        "lang_hsn8": "IPv6 Link-Local Address",
+        "lang_hsn9": "The Router's IPv6 Link-local address is displayed.",
+        "lang_hsn10": "Prefix Address",
+        "lang_hsn11": "The Router's IPv6 prefix address is displayed.",
+        "lang_hsn12": "DHCP Server",
+        "lang_hsn13": "DHCP Server",
+        "lang_hsn14": "The status of the Router's DHCP server function is displayed.",
+        "lang_hsn15": "Start IP Address",
+        "lang_hsn16": "For the range of available IP addresses, the starting IP address is displayed.",
+        "lang_hsn17": "End IP Address",
+        "lang_hsn18": "For the range of available IP addresses, the ending IP address is displayed.",
+        "lang_hsn19": "DHCP Client Table",
+        "lang_hsn20": "Click this option to view a list of computers or other devices that are using the Router as a DHCP server."
+    }
+}

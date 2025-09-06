@@ -1,0 +1,23 @@
+{
+    "idp_mesh_info_v2": {
+        "lang_idp_mesh_confirm_title": "Appuyez et maintenez enfoncé pendant 3 secondes le bouton WPS sur le nœud enfa",
+        "lang_idp_mesh_fail_title": "Connecting to your child node took to longer than expected. Try again.",
+        "lang_idp_mesh_tryagain": "Essayer à nouveau",
+        "lang_idp_mesh_pass_title": "Le nœud enfant a rejoint votre sans-fil!",
+        "lang_idp_mesh_plug_title": "Branchez votre nœud enfant",
+        "lang_idp_mesh_plug_content1": "Attendez que votre appareil Easy Mesh soit en marche et opérationnel. Patientez environ 3 minutes.",
+        "lang_idp_mesh_plug_content2": "Si vous configurez d’autres nœuds enfants, assurez-vous de les configurer un à la fois pour éviter tout problème.",
+        "lang_idp_mesh_process_title": "Appuyez et maintenez enfoncé pendant 3 secondes le bouton WPS sur le nœud enfa",
+        "lang_idp_mesh_info_title": "Informations sur le réseau maillé",
+        "lang_idp_parent_info_title": "Appareils connectés",
+        "lang_idp_child_info_title": "Informations sur le nœud enfant connecté :",
+        "lang_idp_child_info_name": "Nom du client",
+        "lang_idp_child_info_interface": "Interface",
+        "lang_idp_child_info_mac": "Adresse MAC",
+        "lang_idp_child_info_rssi": "RSSI",
+        "lang_idp_child_info_fw": "Version du micrologiciel",
+        "lang_idp_child_info_ip": "Adresse IP",
+        "lang_idp_connected": "Des appareils connectés",
+        "lang_idp_device_type": "Type d'appareil"
+    }
+}

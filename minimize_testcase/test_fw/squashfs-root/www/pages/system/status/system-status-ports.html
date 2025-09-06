@@ -1,0 +1,116 @@
+<script type="text/javascript">
+var INFO_LIST = [ 'portStatus' ]
+var INFO_DATA = {}
+</script>
+<div class="table-title internet_port_zone">
+<span class="multi_lang" id="lang_ports_zone_internet_port_title"></span>
+</div>
+<hr class="table-title-underline internet_port_zone">
+<div class="table-box-warpper table-responsive">
+<table style="border: 1px solid rgb(41,113,185)" border="1" width="60%">
+<tbody>
+<tr>
+<td style="border: 1px solid rgb(41,113,185)" align="center" width="25%" height="20"></td>
+<td style="border: 1px solid rgb(41,113,185)" align="center" width="25%" height="20"><b><span id="internet_speed">10/100/1000</span> <span class="multi_lang" id="lang_unit_mbps"></span></b></td>
+</tr>
+<tr id="portStatus.WAN.WanPort0" style="display:none">
+<td style="border: 1px solid rgb(41,113,185)" align="center" width="25%" height="20"><b><span class="multi_lang" id="lang_internet_title"></span></b></td>
+<td style="border: 1px solid rgb(41,113,185)" align="center" width="25%" height="20" id="internet_port_1"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<br/>
+<div class="table-title local_ports_zone">
+<span class="multi_lang" id="lang_ports_zone_local_ports_title"></span>
+</div>
+<hr class="table-title-underline local_ports_zone">
+<div class="table-box-warpper table-responsive">
+<table style="border: 1px solid rgb(41,113,185)" border="1" width="60%">
+<tbody>
+<tr>
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20"></td>
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20"><b><span id="lan_speed">10/100/1000</span> <span class="multi_lang" id="lang_unit_mbps"></span></b></td>
+</tr>
+<tr id="portStatus.LAN.LanPort0" style="display:none">
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20"><b><span class="multi_lang" id="lang_port"></span> 1</b></td>
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20" id="local_port_1"></td>
+</tr>
+<tr id="portStatus.LAN.LanPort1" style="display:none">
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20"><b><span class="multi_lang" id="lang_port"></span> 2</b></td>
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20" id="local_port_2"></td>
+</tr>
+<tr id="portStatus.LAN.LanPort2" style="display:none">
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20"><b><span class="multi_lang" id="lang_port"></span> 3</b></td>
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20" id="local_port_3"></td>
+</tr>
+<tr id="portStatus.LAN.LanPort3" style="display:none">
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20"><b><span class="multi_lang" id="lang_port"></span> 4</b></td>
+<td style="border: solid 1px #2971b9" align="center" width="25%" height="20" id="local_port_4"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="form-actions">
+<button class="btn multi_lang logger_bot" id="btnRefresh" type="button" name="" onclick="page_refresh()"></button>
+</div>
+<script language="javascript" type="text/javascript">
+
+//var INFO_DATA={"portStatus":{"WAN":{"WanPort0":"1"},"LAN":{"LanPort0":"0","LanPort1":"0","LanPort2":"0","LanPort3":"0"}}}
+var INFO_DATA_MAPPING = [{"info":"portStatus.WAN.WanPort0","eid":"internet_port_1"},{"info":"portStatus.LAN.LanPort0","eid":"local_port_1"},{"info":"portStatus.LAN.LanPort1","eid":"local_port_2"},{"info":"portStatus.LAN.LanPort2","eid":"local_port_3"},{"info":"portStatus.LAN.LanPort3","eid":"local_port_4"}]
+
+page_tag='status_ports'
+$(document).ready(function(){
+$.lang_load("status_ports");
+page_initial()
+//Add log mechanism
+inject_log_bot()
+});
+
+function status_layout(){
+INFO_DATA_MAPPING.forEach(function(item, index){
+$("tr[id='"+item.info+"']").show()
+eval('var info_data=INFO_DATA.'+item.info)
+if(info_data == "1")
+light_on(item.eid, 1)
+else
+light_on(item.eid, 0)
+});
+}
+function light_on(port, on){
+if(on == 1)
+$("#"+port).html('<img border="0" src="/img/green.gif" width="12" height="8">')
+else
+$("#"+port).html('')
+
+}
+function get_info_success_cb(obj) {
+if(obj.api_return != 0){
+get_info_error_cb(obj)
+return;
+}
+INFO_DATA = API.obj.copy(obj);
+status_layout()
+}
+
+function get_info_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_info_data(info_list){
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+function page_initial(){
+get_info_data(INFO_LIST)
+}
+
+function page_refresh(){
+get_info_data(INFO_LIST)
+}
+
+</script>
+

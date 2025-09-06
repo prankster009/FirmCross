@@ -1,0 +1,7 @@
+{
+    "security_vpn": {
+        "lang_ipsec_title": "IPsec 通過",
+        "lang_pptp_title": "PPTP 通過",
+        "lang_l2tp_title": "L2TP 通過"
+    }
+}

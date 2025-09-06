@@ -1,0 +1,10 @@
+{
+    "help_wifi_advanced": {
+        "lang_help_wifi_advanced_title": "การตั้งค่าขั้นสูง",
+        "lang_advanced_hwb1": "หมายเหตุ: หลังจากคุณทำการเปลี่ยนแปลงข้อมูลแล้ว ให้คลิก <b>Save Settings (บันทึกการตั้งค่า)</b> เพื่อนำการเปลี่ยนแปลงของคุณไปใช้",
+        "lang_advanced_hwb2": "แบบไร้สาย - Beamforming",
+        "lang_advanced_hwb3": "เปิดใช้งาน/ปิดใช้งาน",
+        "lang_advanced_hwb4": "เทคโนโลยี Beamforming โฟกัสสัญญาณ Wi-Fi ไปยังอุปกรณ์แต่ละชิ้นบนเครือข่ายของคุณ เพื่อให้ได้ประโยชน์จากเทคโนโลยี beamforming ให้คงค่าดีฟอลต์ <b>Enabled (เปิดใช้งาน)</b>",
+        "lang_advanced_hwb5": "หมายเหตุ: หากต้องการข้อมูลเพิ่มเติม โปรดดูในคู่มือผู้ใช้ออนไลน์ที่ <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>"
+    }
+}

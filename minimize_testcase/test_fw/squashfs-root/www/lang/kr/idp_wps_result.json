@@ -1,0 +1,12 @@
+{
+    "idp_wps_result": {
+        "lang_idp_wps_result_fail_title": "연결 실패!",
+        "lang_idp_wps_result_success_title": "축하합니다!",
+        "lang_idp_wps_result_fail_info1_title": "클라이언트 장치가 네트워크 연결에 실패했습니다.",
+        "lang_idp_wps_result_success_info1_title": "이제 클라이언트 장치가 안전하게 네트워크에 연결됩니다.",
+        "lang_idp_wps_result_info2_title": "클라이언트 장치에서 추가 지침을 참조하십시오.",
+        "lang_idp_wps_result_info3_title": "누르기 \"",
+        "lang_idp_wps_result_info4_title": "\" 계속 진행.",
+        "lang_idp_wps_result_ok_button": "확인"
+    }
+}

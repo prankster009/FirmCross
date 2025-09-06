@@ -1,0 +1,13 @@
+{
+    "administration_reset": {
+        "lang_reboot_title": "重启路由器",
+        "lang_reboot_button": "重启",
+        "lang_reset_default_title": "恢复为出厂默认设置",
+        "lang_reset_default_button": "恢复出厂设置",
+        "lang_reboot_confirm": "确定要重启设备？",
+        "lang_reset_default_confirm": "警告！如果单击“确定”，设备将恢复为出厂默认设置，所有以前的设置都将被清除。",
+        "lang_rebooting": "正在重启……",
+        "lang_reboot_fail": "重启失败",
+        "lang_reset_fail": "恢复出厂设置失败"
+    }
+}

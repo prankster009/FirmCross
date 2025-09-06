@@ -1,0 +1,3 @@
+/usr/share/lua/runtime.lua
+/usr/share/lua/parse.lua
+/usr/share/lua/fcgi_control.lua

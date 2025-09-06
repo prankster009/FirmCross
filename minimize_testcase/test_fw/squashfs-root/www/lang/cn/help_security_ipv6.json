@@ -1,0 +1,18 @@
+{
+    "help_security_ipv6": {
+        "lang_help_security_ipv6_title": "IPv6 防火墙",
+        "lang_hsi1": "使用“IPv6 防火墙”可为各种应用程序自定义端口服务。当用户通过 Internet 将此类请求发送到您的网络时，路由器可将这些请求转发到相应的计算机（也称为服务器<em></em>）。",
+        "lang_hsi2": "注意：完成更改后，请单击“保存设置”以应用更改。",
+        "lang_hsi3": "IPv6 防火墙设置",
+        "lang_hsi4": "描述",
+        "lang_hsi5": "输入用于描述此设置的关键字。",
+        "lang_hsi6": "IPv6 地址",
+        "lang_hsi7": "输入应接收流量的计算机的 IPv6 地址。",
+        "lang_hsi8": "允许",
+        "lang_hsi9": "选择入站流量使用的协议和端口范围。",
+        "lang_hsi10": "应用",
+        "lang_hsi11": "允许端口",
+        "lang_hsi12": "此处列出了您为 IPv6 防火墙创建的条目。",
+        "lang_hsi13": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

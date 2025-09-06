@@ -1,0 +1,8 @@
+{
+    "idp_guest_pwd": {
+        "lang_idp_guest_pwd_title": "ゲストのパスワードを変更する",
+        "lang_idp_guest_pwd_info1_title": "新しいゲストのネットワーク パスワードを入力してください。",
+        "lang_idp_guest_pwd_info2_title": "4～32 文字",
+        "lang_idp_guest_pwd_alert_title": "有効なパスワードを入力してください。有効な文字は、A～Z、a～z、0～9 です。"
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "administration_management": {
+        "lang_management_passwd_tips_prefix": "リモート管理を有効にするには、",
+        "lang_management_passwd_tips_link": "セキュリティ用に管理者パスワードの変更をお勧めします",
+        "lang_management_passwd_tips_postfix": "。",
+        "lang_management_zone_local_mg_title": "ローカル管理アクセス",
+        "lang_local_http_mode_title": "以下を経由してアクセス",
+        "lang_http_title": "HTTP",
+        "lang_https_title": "HTTPS",
+        "lang_local_wireless_title": "ワイヤレス経由でアクセス",
+        "lang_management_zone_remote_mg_title": "リモート管理アクセス",
+        "lang_remote_enable_title": "リモート管理",
+        "lang_remote_http_mode_title": "以下を経由してアクセス",
+        "lang_remote_upgrade_title": "リモート アップグレード",
+        "lang_remote_allow_ip_any_title": "リモート IP アドレスを許可",
+        "lang_remote_allow_ip_any": "任意の IP アドレス",
+        "lang_remote_port_title": "リモート管理ポート",
+        "lang_to": "～",
+        "lang_default_ps_warning": "現在、ルーターが既定値のパスワードにセットされています。セキュリティの措置として、リモート管理機能を有効にする前に、パスワードを変更する必要があります。OK ボタンをクリックして、パスワードを変更してください。  キャンセル ボタンをクリックして、リモート管理機能を無効のままにしてください。"
+    }
+}

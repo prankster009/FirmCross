@@ -1,0 +1,24 @@
+{
+    "help_wifi_macfilter": {
+        "lang_help_wifi_macfilter_title": "無線 MAC 篩選器",
+        "lang_hwm1": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hwm2": "無線 MAC 篩選器",
+        "lang_hwm3": "已啟用/已停用",
+        "lang_hwm4": "若要以電腦或裝置的 MAC 位址篩選無線使用者，請選擇<b>已啟用</b>。",
+        "lang_hwm5": "存取限制",
+        "lang_hwm6": "避免下面列出的電腦存取無線網路",
+        "lang_hwm7": "MAC 位址篩選器清單上的電腦將無法存取無線網路。",
+        "lang_hwm8": "允許下面列出的電腦存取無線網路",
+        "lang_hwm9": "僅 MAC 位址篩選器清單上的電腦可以存取無線網路。",
+        "lang_hwm10": "MAC 位址篩選器清單",
+        "lang_hwm11": "無線用戶端清單",
+        "lang_hwm12": "點選此選項以開啟<i>無線用戶端清單</i>畫面。",
+        "lang_hwm13": "無線用戶端清單",
+        "lang_hwm14": "此畫面顯示目前位於無線網路上的電腦與其他裝置。",
+        "lang_hwm15": "對於要新增到「MAC 位址篩選器清單」的任何裝置，選擇<b>儲存到 MAC 位址篩選器清單</b>。然後點選<b>新增</b>。",
+        "lang_hwm16": "要更新螢幕上的資訊，請點選<b>重新整理</b>。要離開此螢幕，請點選<b>關閉</b>。",
+        "lang_hwm17": "MAC 01-32",
+        "lang_hwm18": "輸入您要控制其無線存取的裝置之 MAC 位址。",
+        "lang_hwm19": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "status_network": {
+        "lang_network_zone_local_network_title": "Mạng cục bộ",
+        "lang_local_mac_addr_title": "Địa chỉ MAC cục bộ",
+        "lang_router_ip_addr_title": "Địa chỉ IP bộ định tuyến",
+        "lang_local_netmask_title": "Mặt nạ mạng con",
+        "lang_ipv6_local_addr_title": "Địa chỉ Liên kết-cục bộ IPv6",
+        "lang_prefix_addr_title": "Địa chỉ tiền tố",
+        "lang_network_zone_dhcp_server_title": "Máy chủ DHCP",
+        "lang_dhcp_server_enable_title": "Máy chủ DHCP",
+        "lang_dhcp_start_ip_addr_title": "Địa chỉ IP bắt đầu",
+        "lang_dhcp_end_ip_addr_title": "Địa chỉ IP kết thúc",
+        "lang_dhcp_client_table_button": "Bảng thiết bị khách DHCP",
+        "lang_dhcp_server_enabled": "Bật",
+        "lang_dhcp_server_disabled": "Tắt"
+    }
+}

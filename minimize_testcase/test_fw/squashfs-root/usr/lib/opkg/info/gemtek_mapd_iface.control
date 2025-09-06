@@ -1,0 +1,9 @@
+Package: gemtek_mapd_iface
+Version: 2020-12-2
+Depends: libc, gnvram, liblua, libmapd, libobj
+Source: package/gemtek/gemtek_mapd_iface
+Section: utils
+Maintainer: Michelle Chung <michelle_chung@gemteks.com>
+Architecture: ramips_24kec
+Installed-Size: 9253
+Description:  mesh communication interface

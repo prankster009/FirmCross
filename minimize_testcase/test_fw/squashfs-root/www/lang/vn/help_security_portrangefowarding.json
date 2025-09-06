@@ -1,0 +1,19 @@
+{
+    "help_security_portrangefowarding": {
+        "lang_help_security_portrangefowarding_title": "Chuyển tiếp dải cổng",
+        "lang_hspr1": "Chuyển tiếp dải cổng cho phép bạn thiết lập các dịch vụ công cộng trên mạng của mình, ví dụ: máy chủ web, máy chủ FTP, máy chủ email hoặc các ứng dụng Internet chuyên biệt khác.",
+        "lang_hspr2": "Lưu ý: Sau khi thực hiện thay đổi, hãy bấm <b>Lưu cài đặt</b> để áp dụng các thay đổi.",
+        "lang_hspr3": "Chuyển tiếp dải cổng",
+        "lang_hspr4": "Tên ứng dụng",
+        "lang_hspr5": "Nhập tên của ứng dụng.",
+        "lang_hspr6": "Cổng Bắt đầu~Kết thúc",
+        "lang_hspr7": "Nhập số hoặc dải (các) cổng được sử dụng bởi lưu lượng đến.",
+        "lang_hspr8": "Giao thức",
+        "lang_hspr9": "Chọn (các) giao thức được sử dụng bởi ứng dụng này.",
+        "lang_hspr10": "Đến địa chỉ IP",
+        "lang_hspr11": "Nhập địa chỉ IP của máy chủ chạy ứng dụng này.",
+        "lang_hspr12": "Bật",
+        "lang_hspr13": "Chọn <b>Bật</b> để kích hoạt chuyển tiếp cổng.",
+        "lang_hspr14": "Lưu ý: Để biết thêm thông tin, vui lòng tham khảo Hướng dẫn sử dụng trực tuyến tại <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

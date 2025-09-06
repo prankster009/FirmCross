@@ -1,0 +1,8 @@
+Package: luafcgi
+Version: 1
+Depends: libc, lua, fcgi
+Source: package/gemtek/luafcgi
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 2452
+Description:  lua c function for spawn-fcgi

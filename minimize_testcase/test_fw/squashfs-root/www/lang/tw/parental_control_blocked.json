@@ -1,0 +1,10 @@
+{
+    "parental_control_blocked": {
+        "lang_document_title": "網際網路已封鎖",
+        "lang_content_title": "網際網路已封鎖",
+        "lang_content_info": "目前已封鎖網際網路存取。  輸入家長監護密碼，以使所有被封鎖的網站和內容可使用一小時。",
+        "lang_password_title": "密碼：",
+        "lang_unblock_title": "解除封鎖",
+        "lang_password_incorrect": "密碼錯誤。"
+    }
+}

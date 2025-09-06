@@ -1,0 +1,28 @@
+{
+    "idp_spf_item_creator": {
+        "lang_spf_item_creator_title": "เพิ่มการส่งต่อพอร์ตเดียวใหม่",
+        "lang_spf_item_app_title": "แอปพลิเคชัน",
+        "lang_spf_item_app_name_title": "ชื่อแอปพลิเคชัน",
+        "lang_spf_item_ext_port_title": "พอร์ตภายนอก",
+        "lang_spf_item_int_port_title": "พอร์ตภายใน",
+        "lang_spf_item_protocol_title": "โพรโทคอล",
+        "lang_spf_item_to_ip_title": "ถึงที่อยู่ IP",
+        "lang_spf_item_enable_title": "เปิดใช้งาน",
+        "lang_app_manual": "กำหนดเอง",
+        "lang_app_ftp": "FTP",
+        "lang_app_telnet": "Telnet",
+        "lang_app_smtp": "SMPT",
+        "lang_app_dns": "DNS",
+        "lang_app_tftp": "TFTP",
+        "lang_app_finger": "Finger",
+        "lang_app_http": "HTTP",
+        "lang_app_pop3": "POP3",
+        "lang_app_nntp": "NNTP",
+        "lang_app_snmp": "SNMP",
+        "lang_app_pptp": "PPTP",
+        "lang_protocol_both": "ทั้งสองอย่าง",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "คุณไม่สามารถใช้ ที่อยู่ IP, ที่อยู่เครือข่าย หรือที่อยู่ในการเผยแพร่ของเราเตอร์ได้"
+    }
+}

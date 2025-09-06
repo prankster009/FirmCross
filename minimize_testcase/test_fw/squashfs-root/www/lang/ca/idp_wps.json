@@ -1,0 +1,7 @@
+{
+    "idp_wps": {
+        "lang_idp_wps_info_title": "Recherche de votre périphérique client...",
+        "lang_idp_wps_wait_title": "Veuillez patienter...",
+        "lang_idp_wps_cancel_button": "Annuler"
+    }
+}

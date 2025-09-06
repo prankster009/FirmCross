@@ -1,0 +1,21 @@
+{
+    "administration_management": {
+        "lang_management_passwd_tips_prefix": "Nếu bạn bật Quản lý từ xa, chúng tôi khuyên bạn nên",
+        "lang_management_passwd_tips_link": "thay đổi mật khẩu quản trị",
+        "lang_management_passwd_tips_postfix": "vì mục đích bảo mật.",
+        "lang_management_zone_local_mg_title": "Truy nhập Quản lý cục bộ",
+        "lang_local_http_mode_title": "Truy nhập qua",
+        "lang_http_title": "HTTP",
+        "lang_https_title": "HTTPS",
+        "lang_local_wireless_title": "Truy nhập qua Không dây",
+        "lang_management_zone_remote_mg_title": "Truy nhập Quản lý từ xa",
+        "lang_remote_enable_title": "Quản lý từ xa",
+        "lang_remote_http_mode_title": "Truy nhập qua",
+        "lang_remote_upgrade_title": "Nâng cấp từ xa",
+        "lang_remote_allow_ip_any_title": "Địa chỉ IP từ xa được cho phép",
+        "lang_remote_allow_ip_any": "Địa chỉ IP bất kỳ",
+        "lang_remote_port_title": "Cổng quản lý từ xa",
+        "lang_to": "tới",
+        "lang_default_ps_warning": "Bộ định tuyến hiện đang được đặt mật khẩu mặc định. Để bảo đảm bảo mật, bạn phải đổi mật khẩu trước khi có thể bật được tính năng Quản lý từ xa. Bấm nút OK để thay đổi mật khẩu của bạn.  Bấm nút Hủy để tiếp tục tắt tính năng Quản lý từ xa."
+    }
+}

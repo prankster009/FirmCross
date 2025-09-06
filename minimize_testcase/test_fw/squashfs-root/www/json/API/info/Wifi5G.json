@@ -1,0 +1,11 @@
+{
+    "Wifi5G": {
+        "MAC": "00:0C:43:26:60:20",
+        "ChannelWidth": "1",
+        "Channel": "0",
+        "SSIDHiden": "0",
+        "Mode": "9",
+        "SSID": "Linksys_2.4G",
+        "Security": "AES"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_lease": {
+        "lang_idp_dhcp_lease_title": "DHCP 클라이언트 테이블",
+        "lang_idp_dhcp_lease_sortby_title": "정렬 기준:",
+        "lang_idp_dhcp_lease_ipaddr": "IP 주소",
+        "lang_idp_dhcp_lease_mac_addr": "MAC 주소",
+        "lang_idp_dhcp_lease_interface": "인터페이스",
+        "lang_idp_dhcp_lease_name": "클라이언트 이름",
+        "lang_idp_dhcp_lease_name_title": "클라이언트 이름",
+        "lang_idp_dhcp_lease_interface_title": "인터페이스",
+        "lang_idp_dhcp_lease_ipaddr_title": "IP 주소",
+        "lang_idp_dhcp_lease_mac_addr_title": "MAC 주소",
+        "lang_idp_dhcp_lease_expire_title": "종료 시간",
+        "lang_idp_dhcp_lease_delete_abbreviation": "삭제",
+        "lang_idp_dhcp_lease_interface_wifi": "무선"
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "help_security_portfowarding": {
+        "lang_help_security_portfowarding_title": "单端口转发",
+        "lang_hsp1": "使用“单端口转发”，可以为各种应用程序自定义端口服务。当用户通过 Internet 将此类请求发送到您的网络时，路由器会将这些请求转发到相应的计算机（也称为服务器）。",
+        "lang_hsp2": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hsp3": "单端口转发",
+        "lang_hsp4": "应用程序名称",
+        "lang_hsp5": "选择预设的应用程序，或输入自定义应用程序的名称。",
+        "lang_hsp6": "外部端口",
+        "lang_hsp7": "对于自定义应用程序，请输入接受入站流量的外部端口号。",
+        "lang_hsp8": "内部端口",
+        "lang_hsp9": "对于自定义应用程序，请输入接收路由器转发的流量的内部端口号。",
+        "lang_hsp10": "协议",
+        "lang_hsp11": "对于自定义应用程序，请选择使用的协议。",
+        "lang_hsp12": "目标 IP 地址",
+        "lang_hsp13": "输入应接收流量的计算机的 IP 地址。",
+        "lang_hsp14": "启用",
+        "lang_hsp15": "选择“启用”<b></b>可激活端口转发。",
+        "lang_hsp16": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

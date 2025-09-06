@@ -1,0 +1,13 @@
+{
+    "administration_reset": {
+        "lang_reboot_title": "Redémarrer le Routeur",
+        "lang_reboot_button": "Redémarrer",
+        "lang_reset_default_title": "Réinitialisation aux réglages d'usine par défaut",
+        "lang_reset_default_button": "Réinitialisation aux paramètres par défaut",
+        "lang_reboot_confirm": "Voudrez-vous vraiment redémarrer le périphérique ?",
+        "lang_reset_default_confirm": "Avertissement ! Si vous cliquez sur OK, les paramètres par défaut du périphérique seront rétablis et tous les paramètres précédents seront effacés.",
+        "lang_rebooting": "Redémarrage en cours",
+        "lang_reboot_fail": "Le redémarrage a échoué",
+        "lang_reset_fail": "Le réinitialisation aux paramètres par défaut a échoué"
+    }
+}

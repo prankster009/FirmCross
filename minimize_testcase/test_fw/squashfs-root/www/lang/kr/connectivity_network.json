@@ -1,0 +1,30 @@
+{
+    "connectivity_network": {
+        "lang_network_zone_router_address_title": "라우터 주소",
+        "lang_ip_addr_title": "IP 주소",
+        "lang_subnet_mask_title": "서브넷 마스크",
+        "lang_router_name_title": "라우터 이름",
+        "lang_network_zone_dhcp_server_setting_title": "DHCP 서버 설정",
+        "lang_dhcp_server_enable_title": "DHCP 서버",
+        "lang_dhcp_reservation_button": "DHCP 예약",
+        "lang_start_ip_title": "시작 IP 주소",
+        "lang_num_of_user_title": "최대 사용자 수",
+        "lang_ip_range_title": "IP 주소 범위",
+        "lang_lease_time_title": "클라이언트 리스 시간",
+        "lang_lease_time_unit": "분(0은 하루를 의미함)",
+        "lang_static_dns_1_title": "고정 DNS 1",
+        "lang_static_dns_2_title": "고정 DNS 2",
+        "lang_static_dns_3_title": "고정 DNS 3",
+        "lang_wins_title": "WINS",
+        "lang_ip_range_to_title": "-",
+        "lang_alert_out_range": "값이 범위를 벗어났습니다.",
+        "lang_alert_change_setting": "값이 범위를 벗어났습니다. 시작 IP 주소 또는 최대 사용자 수를 변경하십시오.",
+        "lang_alert_illegal_char": "잘못된 문자[0-9여야함]입니다.",
+        "lang_alert_dev_name_blank": "라우터 이름은 비워둘 수 없습니다!",
+        "lang_alert_bridge_mode": "라우터가 브릿지 모드에서 작동할 때는 이러한 기능이 지원되지 않습니다.",
+        "lang_alert_dev_name_illegal_char": "라우터 이름은 영숫자 및 대시만 포함할 수 있습니다.",
+        "lang_alert_dev_name_start_letter": "라우터 이름은 문자로 시작해야 합니다.",
+        "lang_alert_no_need_setup": "LAN 설정을 할 필요가 없습니다.",
+        "lang_alert_gn_ip_range": "192.168.33.0/24 네트워크(IP 주소 192.168.33.0 - 255)는 무선 게스트 네트워크에 대해 예약되어 있습니다. 다른 네트워크 주소를 사용하십시오."
+    }
+}

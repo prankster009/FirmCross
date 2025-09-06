@@ -1,0 +1,19 @@
+{
+    "idp_ping": {
+        "lang_idp_ping_title": "Ping",
+        "lang_idp_resolve_url_title": "Resolving URL Address ...",
+        "lang_idp_ping_result_trans_title": "Packets transmitted",
+        "lang_idp_ping_result_recv_title": "Packets received",
+        "lang_idp_ping_result_loss_title": "Packet loss",
+        "lang_idp_ping_data_title": "data statistics",
+        "lang_idp_ping_data_unit_title": "data bytes",
+        "lang_idp_ping_round_trip_title": "round-trip min/avg/max",
+        "lang_idp_ping_data_from_title": "bytes from",
+        "lang_idp_ping_seq_title": "seq",
+        "lang_idp_ping_ttl_title": "ttl",
+        "lang_idp_ping_time_title": "Time",
+        "lang_idp_ping_time_unit_title": "ms",
+        "lang_idp_ping_unknow_host_title": "Unknown host",
+        "lang_idp_ping_processing_title": "Processing ..."
+    }
+}

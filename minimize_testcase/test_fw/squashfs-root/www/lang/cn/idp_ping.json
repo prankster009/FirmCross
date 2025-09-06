@@ -1,0 +1,19 @@
+{
+    "idp_ping": {
+        "lang_idp_ping_title": "Ping",
+        "lang_idp_resolve_url_title": "正在解析 URL 地址...",
+        "lang_idp_ping_result_trans_title": "传输的数据包",
+        "lang_idp_ping_result_recv_title": "收到的数据包",
+        "lang_idp_ping_result_loss_title": "数据包丢失",
+        "lang_idp_ping_data_title": "数据统计",
+        "lang_idp_ping_data_unit_title": "数据字节",
+        "lang_idp_ping_round_trip_title": "往返最小值/平均值/最大值",
+        "lang_idp_ping_data_from_title": "字节来源",
+        "lang_idp_ping_seq_title": "seq",
+        "lang_idp_ping_ttl_title": "ttl",
+        "lang_idp_ping_time_title": "时间",
+        "lang_idp_ping_time_unit_title": "ms",
+        "lang_idp_ping_unknow_host_title": "未知主机",
+        "lang_idp_ping_processing_title": "正在处理..."
+    }
+}

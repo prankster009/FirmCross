@@ -1,0 +1,19 @@
+{
+    "security_ipv6": {
+        "lang_ipv6_zone_firewall_title": "Paramètres du pare-feu IPv6",
+        "lang_ipv6_description_title": "Description",
+        "lang_ipv6_address_title": "Adresse IPv6",
+        "lang_ipv6_disable": "Désactiver",
+        "lang_ipv6_tcp": "TCP",
+        "lang_ipv6_udp": "UDP",
+        "lang_ipv6_both": "Les deux",
+        "lang_ipv6_allow_title": "Autoriser",
+        "lang_ipv6_to": "à",
+        "lang_ipv6_optional": "(Facultatif)",
+        "lang_ipv6_allowing_ports": "Autoriser les ports",
+        "lang_ipv6_description": "Description",
+        "lang_ipv6_address": "Adresse",
+        "lang_ipv6_allow": "Autoriser",
+        "lang_ipv6_error_msg_1": "Vous avez saisi une adresse IPv6 non valide, veuillez entrer la bonne adresse IPv6."
+    }
+}

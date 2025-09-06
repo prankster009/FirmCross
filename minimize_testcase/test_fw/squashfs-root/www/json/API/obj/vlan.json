@@ -1,0 +1,108 @@
+{
+    "VlanT": [
+        {
+            "gid": "270532608",
+            "name": "VlanT0",
+            "descName": "manual",
+            "enable": "1",
+            "portVID": ";;;;;",
+            "portTag": ";;;;;",
+            "wlanTag": ";;;;",
+            "portPriotity": ";;;;;",
+            "wlanPriotity": ";;;;",
+            "portService": ";;;;;",
+            "wlanService": ";;;;"
+        },
+        {
+            "gid": "270532609",
+            "name": "VlanT1",
+            "descName": "M1",
+            "enable": "0",
+            "portVID": "1103;;;1107;;",
+            "portTag": "1;;;0;;",
+            "wlanTag": ";;;;",
+            "portPriotity": "1;;;1;;",
+            "wlanPriotity": ";;;;",
+            "portService": "dhcp;;;voip;;",
+            "wlanService": ";;;;"
+        },
+        {
+            "gid": "270532610",
+            "name": "VlanT2",
+            "descName": "Maxis_special",
+            "enable": "0",
+            "portVID": "11;;;14;;",
+            "portTag": "1;;;0;;",
+            "wlanTag": ";;;;",
+            "portPriotity": "0;;;0;;",
+            "wlanPriotity": ";;;;",
+            "portService": "pppoe;;;voip;;",
+            "wlanService": ";;;;"
+        },
+        {
+            "gid": "270532611",
+            "name": "VlanT3",
+            "descName": "Maxis",
+            "enable": "0",
+            "portVID": "621;;;821;823;",
+            "portTag": "1;;;0;0;",
+            "wlanTag": ";;;;",
+            "portPriotity": "0;;;0;0;",
+            "wlanPriotity": ";;;;",
+            "portService": "pppoe;;;voip;iptv;",
+            "wlanService": ";;;;"
+        },
+        {
+            "gid": "270532612",
+            "name": "VlanT4",
+            "descName": "Singtel_TV",
+            "enable": "0",
+            "portVID": "10;;;30;20;",
+            "portTag": "1;;;1;0;",
+            "wlanTag": ";;;;",
+            "portPriotity": "0;;;4;4;",
+            "wlanPriotity": ";;;;",
+            "portService": "dhcp;;;voip;iptv;",
+            "wlanService": ";;;;"
+        },
+        {
+            "gid": "270532613",
+            "name": "VlanT5",
+            "descName": "Singtel_other",
+            "enable": "0",
+            "portVID": "10;;;;20;",
+            "portTag": "1;;;;0;",
+            "wlanTag": ";;;;",
+            "portPriotity": "0;;;;4;",
+            "wlanPriotity": ";;;;",
+            "portService": "dhcp;;;;iptv;",
+            "wlanService": ";;;;"
+        },
+        {
+            "gid": "270532614",
+            "name": "VlanT6",
+            "descName": "Unifi_Business",
+            "enable": "0",
+            "portVID": "500;;;;;",
+            "portTag": "1;;;;;",
+            "wlanTag": ";;;;",
+            "portPriotity": "0;;;;;",
+            "wlanPriotity": ";;;;",
+            "portService": "pppoe;;;;;",
+            "wlanService": ";;;;"
+        },
+        {
+            "gid": "270532615",
+            "name": "VlanT7",
+            "descName": "Unifi_Home",
+            "enable": "0",
+            "portVID": "500;;;;600;",
+            "portTag": "1;;;;0;",
+            "wlanTag": ";;;;",
+            "portPriotity": "0;;;;0;",
+            "wlanPriotity": ";;;;",
+            "portService": "pppoe;;;;iptv;",
+            "wlanService": ";;;;"
+        }
+    ]
+}

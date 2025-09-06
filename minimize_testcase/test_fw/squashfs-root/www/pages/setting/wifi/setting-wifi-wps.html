@@ -1,0 +1,340 @@
+<script type="text/javascript">
+var OBJ_LIST = ['wlanWps','wlanMacFilter','wlanBasic','wlanSecurity']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var WPS_SET_PBC = {"wpsProcess":{"Mode":"PBC"}};
+var WPS_SET_PIN = {"wpsProcess":{"Mode":"PIN","PinCode":"12345678"}};
+var WPS_ST = "";	// 34: connected, 2:failed
+var SAVE_WPS_WAITING_TIME = 20000;
+</script>
+<table rules="none" style="width:65%;height:150px;border-spacing:15px;padding:100%" border="1">
+<tbody>
+<tr id="tr_info_block">
+<td>&nbsp;</td>
+<td style="vertical-align:top;">
+<img src="img/attention.png" style="margin-top:10px">
+</td>
+<td>&nbsp;</td>
+<td style="width:90%">
+<span class="multi_lang" id="lang_wps_info_title2"></span>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-info">
+<tbody>
+<br>
+<tr id="tr_wps_setup" >
+<td>
+<script>draw_checkbox('wps_setup', 'lang_wps_setup_title', 'on', "wps_setup_checked()");</script><span id="checkbox_div_wps_setup"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<span class="multi_lang" id="lang_wps_zone_push_btn_title"></span>
+</div>
+<br>
+<table class="table table-info push_btn_zone">
+<tbody>
+<tr id="tr_push_btn_info" >
+<td style="width:50%">
+<span class="multi_lang" id="lang_push_button_info_title" ></span>
+</td>
+<td style="text-align:center">
+<img src="img/WFA_WPS_Mark_Solo.gif" onmouseover="this.src='img/WFA_WPS_Mark_Solo1.gif'" onmouseout="this.src='img/WFA_WPS_Mark_Solo.gif'" style="cursor:pointer;visibility:visible;" border="0" id="push_button" onclick="push_button_click()">
+</td>
+<td>
+<span name="push_btn_state" id="push_btn_state" >Success</span>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<span class="multi_lang" id="lang_wps_zone_dev_pin_title"></span>
+</div>
+<br>
+<table class="table table-info dev_pin_zone">
+<tbody>
+<tr id="tr_dev_pin_info" >
+<td style="width:50%">
+<span class="multi_lang" id="lang_dev_pin_info_title" ></span>
+</td>
+<td style="text-align:center">
+<input maxlength="32" value="" name="dev_pin_input" id="dev_pin_input" onblur="" size="11" class="logger_bot">
+<span >&nbsp;</span>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_dev_pin_register_button" onclick="dev_pin_register_click()"></button>
+</td>
+</tr>
+</tbody>
+</table>
+<div>
+<span class="multi_lang" id="lang_wps_zone_router_pin_title"></span>
+</div>
+<br>
+<table class="table table-info router_pin_zone">
+<tbody>
+<tr id="tr_router_pin_info" >
+<td style="width:50%">
+<span class="multi_lang" id="lang_router_pin_info_title"></span>
+</td>
+<td style="text-align:center">
+<span name="router_pin_info" id="router_pin_info" ></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='wifi_wps'
+$(document).ready(function(){
+$.lang_load("wifi_wps");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function set_wifi_basic_init(obj) {
+var router_pin_text;
+
+//		if (obj.wlanBasic.WlanBasicT[0].hiddenAP == '1' ||
+//		    obj.wlanBasic.WlanBasicT[1].hiddenAP == '1' ||
+if (check_status_for_wps(obj) == false ||
+obj.wlanSecurity.WlanSecurityT[0].authtype == 'WPA2ENTERPRISE' ||
+obj.wlanSecurity.WlanSecurityT[1].authtype == 'WPA2ENTERPRISE' ||
+obj.wlanSecurity.WlanSecurityT[0].authtype == 'WPA3PSK' ||
+obj.wlanSecurity.WlanSecurityT[1].authtype == 'WPA3PSK')
+$('#wps_setup').attr('disabled','true');
+else
+$('#wps_setup').removeAttr('disabled');
+
+if (obj.wlanWps.WlanWpsT[0].enable == '1') {
+$('#wps_setup').attr('checked', 'checked');
+set_all_element_enable();
+}
+else {
+$('#wps_setup').removeAttr('checked');
+set_all_element_disable();
+}
+
+$('#push_btn_state').text("");
+$('#router_pin_info').text(obj.wlanWps.WlanWpsT[0].routerPIN);
+
+$('#dev_pin_input').val("");
+
+router_pin_text=$('#lang_router_pin_info_title').text().replace(/{.*}/,'<b>'+obj.wlanWps.WlanWpsT[0].routerPIN+'</b>');
+$('#lang_router_pin_info_title').html(router_pin_text);
+
+update_checked($('#wps_setup').attr('name'));
+}
+
+function set_all_element_enable() {
+$('#push_button').attr("style", "cursor:pointer;visibility:visible;");
+$('#push_button').attr("onmouseover", "this.src='img/WFA_WPS_Mark_Solo1.gif'");
+$('#push_button').attr("onclick", "push_button_click()");
+
+$('#dev_pin_input').removeAttr("disabled");
+$('#lang_dev_pin_register_button').removeAttr("disabled");
+}
+
+function set_all_element_disable() {
+$('#push_button').attr("style", "visibility:visible;");
+$('#push_button').removeAttr("onmouseover");
+$('#push_button').removeAttr("onclick");
+
+$('#dev_pin_input').attr("disabled", "true");
+$('#lang_dev_pin_register_button').attr("disabled", "true");
+}
+
+function check_status_for_wps(obj) {
+var band_2G_mode = obj.wlanBasic.WlanBasicT[0].enable;
+var band_5G_mode = obj.wlanBasic.WlanBasicT[1].enable;
+var band_2G_hidden = obj.wlanBasic.WlanBasicT[0].hiddenAP;
+var band_5G_hidden = obj.wlanBasic.WlanBasicT[1].hiddenAP;
+var band_2G_st, band_5G_st;
+
+band_2G_st = (band_2G_mode == '1') && (band_2G_hidden == '0');
+band_5G_st = (band_5G_mode == '1') && (band_5G_hidden == '0');
+
+if (band_2G_st || band_5G_st)
+return true;    // wps enable
+else
+return false;   // wps disable
+}
+
+function validChecksum(pin) {
+var accum=0;
+
+accum += 3 * (parseInt(pin / 10000000) % 10);
+accum += 1 * (parseInt(pin / 1000000) % 10);
+accum += 3 * (parseInt(pin / 100000) % 10);
+accum += 1 * (parseInt(pin / 10000) % 10);
+accum += 3 * (parseInt(pin / 1000) % 10);
+accum += 1 * (parseInt(pin / 100) % 10);
+accum += 3 * (parseInt(pin / 10) % 10);
+accum += 1 * (parseInt(pin / 1) % 10);
+
+return (0 == (accum % 10));
+}
+
+function valid_pin(I) {
+var pin = I.value;
+var ch = pin.charAt(4);
+
+if ((ch == '-' || ch == ' ') && pin.length == 9) {
+pin = pin.substring(0,4) + pin.substring(5);
+I.value = pin;
+}
+
+if (!isascii(I,pin)) {
+return false;
+}
+
+if (!check_space(I,'PIN value')) {
+return false;
+}
+
+if (I.value.length != 4) {
+if (!validChecksum(I.value) || I.value.length < 8 || I.value.length > 8) {
+alert(L.wifi_wps.lang_dev_pin_alert_title);
+return false;
+}
+}
+return true;
+}
+
+function dev_pin_register_click() {
+if (!$('#wps_setup').prop('checked'))
+return;
+
+if (!valid_pin($('#dev_pin_input')[0]))
+return;
+
+WPS_SET_PIN.wpsProcess.PinCode = $('#dev_pin_input').val();
+
+$('#push_btn_state').text(L.wifi_wps.lang_push_btn_state_search_title);
+set_info_data(WPS_SET_PIN);
+}
+
+function push_button_click() {
+if (!$('#wps_setup').prop('checked'))
+return;
+
+$('#push_btn_state').text(L.wifi_wps.lang_push_btn_state_search_title);
+set_info_data(WPS_SET_PBC);
+}
+
+function wps_setup_checked(){
+if (MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].enable == '1') {
+$('#wps_setup').removeAttr('checked');
+alert(L.wifi_wps.lang_macfilter_enable_alert_title);
+return;
+}
+
+if ($('#wps_setup').prop('checked')) {
+$('#wps_setup').attr('checked','checked');
+}
+else {
+$('#wps_setup').removeAttr('checked');
+}
+}
+
+function show_wps_result() {
+if (WPS_ST == '34')
+$('#push_btn_state').text(L.wifi_wps.lang_push_btn_state_success_title);
+else
+$('#push_btn_state').text(L.wifi_wps.lang_push_btn_state_fail_title);
+
+displayPopout('wps_result');
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+get_obj_data(OBJ_LIST);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+},SAVE_WPS_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+MODIFIED_OBJ_DATA.wlanWps.WlanWpsT[0].enable=$('#wps_setup').prop('checked') ? '1' : '0';
+
+if (fake_action == true) return;
+
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA))
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+else {
+$("#loader").show();
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_wifi_basic_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_wifi_basic_init(MODIFIED_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function set_info_success_cb(obj) {
+displayPopout('wps');
+}
+function set_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function set_info_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.info.set(JSON.parse(obj_content), set_info_success_cb, set_info_error_cb);
+else if(typeof(obj_content) == 'object')
+API.info.set(obj_content, set_info_success_cb, set_info_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+</script>
+

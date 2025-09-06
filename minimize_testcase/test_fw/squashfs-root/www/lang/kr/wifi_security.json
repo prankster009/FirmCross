@@ -1,0 +1,18 @@
+{
+    "wifi_security": {
+        "lang_security_zone_wifi_security_5g_title": "5GHz 무선 보안",
+        "lang_security_mode_title": "보안 모드",
+        "lang_passphrase_title": "패스프레이즈",
+        "lang_security_zone_wifi_security_2_4g_title": "2.4GHz 무선 보안",
+        "lang_security_wpa2_personal": "WPA2 개인",
+        "lang_security_wpa2_enterprise": "WPA2 엔터프라이즈",
+        "lang_security_disabled": "비활성화됨",
+        "lang_radius_server_title": "RADIUS 서버",
+        "lang_radius_port_title": "RADIUS 포트",
+        "lang_radius_key_title": "공유된 키",
+        "lang_security_disable_warning": "무선 보안 기능이 현재 비활성화되어 있습니다. 계속 진행하시겠습니까?",
+        "lang_wps_disable_title": "새로운 설정은 Wi-Fi 보호 설정을 비활성화합니다. 계속 진행하시겠습니까?",
+        "lang_security_wpa3_personal": "WPA3 개인",
+        "lang_security_wpa3_wpa2_personal": "WPA3/WPA2 Mixed"
+    }
+}

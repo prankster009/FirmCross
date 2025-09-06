@@ -1,0 +1,30 @@
+{
+    "connectivity_vlan": {
+        "lang_vlan_enable_title": "VLAN",
+        "lang_select_profile_title": "프로필 선택:",
+        "lang_internet_trunk_title": "인터넷(트렁크)",
+        "lang_internet_title": "인터넷",
+        "lang_ethernet_title": "이더넷",
+        "lang_port_title": "포트",
+        "lang_vlan_id_title": "VLAN ID",
+        "lang_id_head": "ID",
+        "lang_tag_head": "태그",
+        "lang_priority_head": "우선순위",
+        "lang_vlan_state_opt_untagged": "태그 없음",
+        "lang_vlan_state_opt_tagged": "태그가 지정됨",
+        "lang_vlan_state_opt_excluded": "제외됨",
+        "lang_vlan_alert_range": "다음 범위에서 VLAN ID 값을 설정하십시오.",
+        "lang_vlan_alert_illegal_char": "잘못된 문자[0-9여야함]입니다.",
+        "lang_profile_opt_manual": "설명서",
+        "lang_profile_opt_M1": "M1(Fibre)",
+        "lang_profile_opt_Maxis_special": "Maxis(Fibre special)",
+        "lang_profile_opt_Maxis": "Maxis (Maxis Infra)",
+        "lang_profile_opt_Singtel_TV": "Singtel (mio TV)",
+        "lang_profile_opt_Singtel_other": "Singtel(기타)",
+        "lang_profile_opt_starhub": "StarHub",
+        "lang_profile_opt_Unifi_Business": "Unifi(@ Business)",
+        "lang_profile_opt_Unifi_Home": "Unifi(@ Home)",
+        "lang_profile_opt_Maxis_Fibre": "Maxis(Fibre)",
+        "lang_profile_opt_Maxis_TM": "Maxis (TM Infra)"
+    }
+}

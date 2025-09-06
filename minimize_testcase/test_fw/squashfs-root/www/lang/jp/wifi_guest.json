@@ -1,0 +1,13 @@
+{
+    "wifi_guest": {
+        "lang_guest_zone_guest_access_title": "ゲスト アクセスでご自宅の訪問者にインターネット アクセスを提供すれば、自宅のコンピューターや個人データにアクセスされる心配がありません。",
+        "lang_guest_access_allow_title": "ゲスト アクセスを許可",
+        "lang_guest_net_name_title": "ゲスト ネットワーク名",
+        "lang_guest_password_title": "ゲスト パスワード",
+        "lang_guest_change_pwd_button": "変更する",
+        "lang_guest_allow_total_title": "許可するゲストの合計",
+        "lang_ssid_broadcast_title": "SSID ブロードキャスト",
+        "lang_guest_info_title": "ゲストは Web ブラウザーを開いてゲスト パスワードを入力し、上記一覧にあるワイヤレス ネットワークに接続する必要があります。",
+        "lang_enable_warning": "If you want to enable Guest Access, you need to go to \"Basic Wireless Settings\" -> uncheck EasyMesh"
+    }
+}

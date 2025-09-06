@@ -1,0 +1,210 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x400000",
+                    "ins_addr": "0x400000"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 heap_base>)>) @ 0x40002d",
+                "ins_addr": "0x40002d"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "command1"
+                ],
+                "possibly": [
+                    "command2"
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4194333
+                ]
+            },
+            "rank": 1.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x400000",
+                    "ins_addr": "0x400000"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 heap_base + 0x20>)>) @ 0x40004c",
+                "ins_addr": "0x40004c"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "command2"
+                ],
+                "possibly": [
+                    "command1"
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4194364
+                ]
+            },
+            "rank": 1.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x400000",
+                    "ins_addr": "0x400000"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 heap_base>)>) @ 0x40002d",
+                "ins_addr": "0x40002d"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "command1"
+                ],
+                "possibly": [
+                    "command2"
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4194333
+                ]
+            },
+            "rank": 1.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x400000",
+                    "ins_addr": "0x400000"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 heap_base + 0x20>)>) @ 0x40004c",
+                "ins_addr": "0x40004c"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "command2"
+                ],
+                "possibly": [
+                    "command1"
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4194364
+                ]
+            },
+            "rank": 1.4,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x400000",
+                    "ins_addr": "0x400000"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 TOP>)>) @ 0x40002d",
+                "ins_addr": "0x40002d"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x400000",
+                    "ins_addr": "0x400000"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 TOP>)>) @ 0x40004c",
+                "ins_addr": "0x40004c"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 0.014319181442260742,
+    "vra_time": 0.09054327011108398,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/binaries/nvram/program",
+    "name": "program",
+    "has_sinks": true,
+    "sha256": "c4f8020ea00bb993b22ebbfd87b65b479182bfa701f961a70f7ec8584fc438c1",
+    "sink_times": {
+        "system": 0.745643138885498
+    },
+    "error": null,
+    "mango_time": 10.573439598083496,
+    "sinks": {
+        "system": 2
+    },
+    "time_data": {
+        "0x400000 -> 0x500008": {
+            "taint_time": 0.7023720741271973,
+            "rda_time": 0.0424504280090332
+        }
+    }
+}

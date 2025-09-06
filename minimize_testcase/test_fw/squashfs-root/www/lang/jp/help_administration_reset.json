@@ -1,0 +1,10 @@
+{
+    "help_administration_reset": {
+        "lang_help_administration_reset_title": "デバイス リセット",
+        "lang_har1": "ルーターを再起動",
+        "lang_har2": "ルーターを再起動するには、このオプションをクリックしてください。",
+        "lang_har3": "ファクトリ出荷時の既定値の設定にリセット",
+        "lang_har4": "この機能を利用すると、ルーターのコンフィギュレーション設定のすべてが既定値にリセットできます。",
+        "lang_har5": "メモ: 詳細な情報については、<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b> のオンライン ユーザー ガイドを参照してください。"
+    }
+}

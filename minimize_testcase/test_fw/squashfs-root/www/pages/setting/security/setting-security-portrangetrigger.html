@@ -1,0 +1,152 @@
+<script type="text/javascript">
+var OBJ_LIST = ['portTrigger']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+</script>
+<table class="table table-info-bg">
+<thead>
+<tr>
+<th><span class="multi_lang" id="lang_prt_app_name_title"></span></th>
+<th><span class="multi_lang" id="lang_prt_port_trigger_range_title"></span></th>
+<th><span class="multi_lang" id="lang_prt_port_forward_range_title"></span></th>
+<th><span class="multi_lang" id="lang_prt_enabled_title"></span></th>
+<td><span class="multi_lang" id="lang_prt_action_title"></span></td>
+</tr>
+</thead>
+<tbody id="list_tbody">
+</tbody>
+<tfoot>
+<tr>
+<td colspan="7">
+<button class="btn logger_bot" type="button" name="add_new" onclick="displayPopout('prt_item_creator')"><span class="multi_lang" id="lang_prt_add_btn_title"></span></button>
+</td>
+</tr>
+</tfoot>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script language="javascript" type="text/javascript">
+page_tag='security_portrangetrigger'
+var prt_DATA=[]
+$(document).ready(function(){
+$.lang_load("security_portrangetrigger");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+function page_cancel(){
+page_initial();
+//Coding cancel function here
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+//console.log(MODIFIED_OBJ_DATA);
+prt_DATA=[];
+for(i=0;i<MODIFIED_OBJ_DATA.portTrigger.PortTriggerT.length;i++){
+insert_prt_item(MODIFIED_OBJ_DATA.portTrigger.PortTriggerT[i]);
+}
+prt_table_layout()
+
+
+}
+function get_obj_error_cb(obj) {
+//console.log(obj)
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+function insert_prt_item(item, origin_id){
+if(typeof(origin_id) != "undefined"){
+prt_DATA[origin_id]=item
+}else{
+prt_DATA.push(item)
+}
+prt_table_layout()
+}
+
+function update_prt_item(item_id){
+prt_DATA[item_id].index = item_id
+localStorage.iframe_item_data = JSON.stringify(prt_DATA[item_id])
+displayPopout('prt_item_creator')
+}
+
+function remove_prt_item(item_id){
+prt_DATA.splice(item_id, 1);
+prt_table_layout()
+}
+
+function prt_table_layout(){
+var prt_table_content=""
+var id = 0
+prt_DATA.forEach(function(element) {
+element.name = "prt"+id;
+prt_table_content = prt_table_content + '<tr class="blue-bg">'
+prt_table_content = prt_table_content + '<td onclick="update_prt_item('+id+')">'+element.desc+'</td>'
+prt_table_content = prt_table_content + '<td onclick="update_prt_item('+id+')">'+element.triggerPortStart+' ~ '+element.triggerPortEnd+'</td>'
+prt_table_content = prt_table_content + '<td onclick="update_prt_item('+id+')">'+element.forwardPortStart+' ~ '+element.forwardPortEnd+'</td>'
+
+if("1" == element.enable)
+prt_table_content = prt_table_content + '<td onclick="update_prt_item('+id+')"><div class="btn-group"><span class="label label-success  multi_lang" id="lang_prt_enabled_title">'+L.security_portrangetrigger.lang_prt_enabled_title+'</span></div></td>'
+else
+prt_table_content = prt_table_content + '<td onclick="update_prt_item('+id+')"><div class="btn-group"><span class="label label-default multi_lang" id="lang_prt_disabled_title">'+L.security_portrangetrigger.lang_prt_disabled_title+'</span></div></td>'
+
+prt_table_content = prt_table_content + '<td><button class="btn btn-danger" type="button" onclick="remove_prt_item('+id+')"><span class="multi_lang" id="lang_prt_remove_btn_title">'+L.security_portrangetrigger.lang_prt_remove_btn_title+'</span></button> </td>'
+prt_table_content = prt_table_content + '</tr>'
+
+id++
+});
+
+$("#list_tbody").html(prt_table_content)
+}
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+$("#loader").hide()
+show_alert(L.common.success_title, L.common.save_success)
+page_initial();
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide()
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+//Coding save function here
+$("#loader").show()
+MODIFIED_OBJ_DATA.portTrigger.PortTriggerT=prt_DATA
+if (fake_action == true){
+$("#loader").hide()
+return;
+}
+//console.log(MODIFIED_OBJ_DATA)
+set_obj_data(MODIFIED_OBJ_DATA)
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+</script>

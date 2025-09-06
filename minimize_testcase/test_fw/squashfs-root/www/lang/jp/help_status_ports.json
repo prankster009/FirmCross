@@ -1,0 +1,13 @@
+{
+    "help_status_ports": {
+        "lang_help_status_ports_title": "ポート",
+        "lang_hsp1": "背部ポート ライト",
+        "lang_hsp2": "インターネット ポート リンク",
+        "lang_hsp3": "10/100 Mbps または 1 Gbps",
+        "lang_hsp4": "インターネット ポートの最大速度が表示されます。",
+        "lang_hsp5": "ローカル ポート リンク",
+        "lang_hsp6": "10/100 Mbps または 1 Gbps",
+        "lang_hsp7": "各ローカル ポート (ポート1～4) の最大速度が表示されます。",
+        "lang_hsp8": "画面上の情報を更新するには、<b>最新の情報に更新</b>をクリックしてください。"
+    }
+}

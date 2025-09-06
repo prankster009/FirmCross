@@ -1,0 +1,10 @@
+{
+    "idp_traceroute": {
+        "lang_idp_traceroute_title": "Traceroute",
+        "lang_idp_traceroute_complete_title": "Trace complete",
+        "lang_idp_traceroute_start_title": "traceroute to",
+        "lang_idp_traceroute_hop_max_title": "hops max",
+        "lang_idp_traceroute_data_unit_title": "bytes packets",
+        "lang_idp_traceroute_unknow_host_title": "Unknown host"
+    }
+}

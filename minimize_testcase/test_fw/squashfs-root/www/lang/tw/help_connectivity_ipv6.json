@@ -1,0 +1,25 @@
+{
+    "help_connectivity_ipv6": {
+        "lang_help_connectivity_ipv6_title": "IPv6 設定",
+        "lang_hci1": "IPv6 是一種新的 IP 通訊協定，它使用簡化的封包表頭資料並使用 IPSec 作為基本的互通性需求。它還對行動 IP 和計算裝置的支援進行了改善。",
+        "lang_hci2": "備註：完成變更後，請按一下「儲存設定」套用您的變更。",
+        "lang_hci3": "網際網路設定",
+        "lang_hci4": "網際網路連線類型",
+        "lang_hci5": "IPv6－自動",
+        "lang_hci6": "選擇<b>已啟用</b> 來為所有網路定址自動使用 IPv6。",
+        "lang_hci7": "DUID",
+        "lang_hci8": "這是路由器自動生成的 IPv6 DUID（用於 IPv6 唯一識別碼的 DHCP）值。",
+        "lang_hci9": "網路設定",
+        "lang_hci10": "6rd 通道",
+        "lang_hci11": "要使用 6rd 通道，必須停用 <b>IPv6 - 自動</b>。6rd 通道可讓您的路由器透過 IPv4 網路發送 IPv6 IP 位址。為路由器選擇<b>自動設定</b>以自動處理這些設定（例如首碼和位址遮罩）。選擇<b>手動設定</b>以手動更改這些設定。",
+        "lang_hci12": "首碼",
+        "lang_hci13": "輸入用於通道的首碼位址，由 ISP 提供。",
+        "lang_hci14": "首碼長度",
+        "lang_hci15": "輸入用於通道的首碼長度，由 ISP 提供。",
+        "lang_hci16": "邊緣繼電器",
+        "lang_hci17": "輸入用於通道的邊緣繼電器位址，由 ISP 提供。",
+        "lang_hci18": "Ipv4 位址遮罩",
+        "lang_hci19": "輸入用於通道的 IPv4 位址遮罩長度，由 ISP 提供。",
+        "lang_hci20": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

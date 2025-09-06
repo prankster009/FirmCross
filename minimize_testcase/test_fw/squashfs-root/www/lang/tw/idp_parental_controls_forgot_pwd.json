@@ -1,0 +1,7 @@
+{
+    "idp_parental_controls_forgot_pwd": {
+        "lang_idp_parental_controls_forgot_pwd_title": "家長監護",
+        "lang_idp_parental_controls_forgot_pwd_info_title": "輸入家長監護密碼：",
+        "lang_idp_parental_controls_forgot_pwd_errmsg_title": "答案不正確"
+    }
+}

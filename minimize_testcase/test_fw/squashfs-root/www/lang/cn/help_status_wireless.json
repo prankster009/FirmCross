@@ -1,0 +1,20 @@
+{
+    "help_status_wireless": {
+        "lang_help_status_wireless_title": "无线网络",
+        "lang_hsw1": "5 GHz/2.4 Ghz 无线网络",
+        "lang_hsw2": "MAC 地址",
+        "lang_hsw3": "显示路由器无线接口的 MAC 地址。",
+        "lang_hsw4": "模式",
+        "lang_hsw5": "显示网络使用的无线模式。",
+        "lang_hsw6": "网络名称 (SSID)",
+        "lang_hsw7": "显示无线网络的名称，也称为 SSID。",
+        "lang_hsw8": "信道宽度",
+        "lang_hsw9": "显示 Wireless-N 设备使用的无线信道宽度。",
+        "lang_hsw10": "信道",
+        "lang_hsw11": "显示路由器的工作无线信道。",
+        "lang_hsw12": "安全",
+        "lang_hsw13": "显示无线网络使用的无线安全方法。",
+        "lang_hsw14": "SSID 广播",
+        "lang_hsw15": "显示“SSID 广播”选项的状态。"
+    }
+}

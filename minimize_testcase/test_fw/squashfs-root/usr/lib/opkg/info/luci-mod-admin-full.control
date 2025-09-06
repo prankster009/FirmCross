@@ -1,0 +1,8 @@
+Package: luci-mod-admin-full
+Version: git-21.330.85840-0c27aaa-1
+Depends: libc, luci-base
+Source: package/mtk/ui/luci-mtk/luci-mod-admin-full
+Section: luci
+Architecture: ramips_24kec
+Installed-Size: 73641
+Description:  LuCI Administration - full-featured for full control

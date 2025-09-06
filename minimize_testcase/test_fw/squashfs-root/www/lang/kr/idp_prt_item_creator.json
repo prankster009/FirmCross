@@ -1,0 +1,10 @@
+{
+    "idp_prt_item_creator": {
+        "lang_prt_item_creator_title": "새로운 포트 범위 트리거링 추가",
+        "lang_prt_item_app_name_title": "응용 프로그램 이름",
+        "lang_prt_item_trigger_range_title": "트리거된 범위",
+        "lang_prt_item_forward_range_title": "전달된 범위",
+        "lang_prt_item_to_title": "-",
+        "lang_prt_item_enable_title": "활성화됨"
+    }
+}

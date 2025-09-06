@@ -1,0 +1,17 @@
+{
+    "idp_log": {
+        "lang_idp_log_title": "Journal",
+        "lang_idp_log_type_title": "Type",
+        "lang_idp_log_incoming": "Journal des entrées",
+        "lang_idp_log_outgoing": "Journal des sorties",
+        "lang_idp_log_security": "Journal de sécurité",
+        "lang_idp_log_dhcp_client": "Journal des clients DHCP",
+        "lang_idp_log_save_button": "Enregistrer le journal",
+        "lang_idp_log_clear_button": "Effacer",
+        "lang_idp_log_incoming_src_ip_title": "Adresse IP source",
+        "lang_idp_log_incoming_dst_port_title": "Numéro de port de destination",
+        "lang_idp_log_outgoing_lan_ip_title": "Adresse IP du réseau local",
+        "lang_idp_log_outgoing_dst_ip_url_title": "URL ou adresse IP de destination",
+        "lang_idp_log_outgoing_port_title": "Numéro de port (Service)"
+    }
+}

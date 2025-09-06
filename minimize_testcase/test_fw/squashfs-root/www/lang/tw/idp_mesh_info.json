@@ -1,0 +1,23 @@
+{
+    "idp_mesh_info": {
+        "lang_idp_mesh_confirm_title": "請按住子節點的WPS按鈕3秒鐘",
+        "lang_idp_mesh_fail_title": "Connecting to your child node took to longer than expected. Try again.",
+        "lang_idp_mesh_tryagain": "請重試",
+        "lang_idp_mesh_pass_title": "子節點已加入您的 Wi-Fi！",
+        "lang_idp_mesh_plug_title": "插入您的子節點",
+        "lang_idp_mesh_plug_content1": "請等候直到您的 Easy Mesh 裝置完全啟動。請等候 3 分鐘。",
+        "lang_idp_mesh_plug_content2": "如果要設定更多的子節點，請確保一次只進行一個，以免發生問題。",
+        "lang_idp_mesh_process_title": "請按住子節點的WPS按鈕3秒鐘",
+        "lang_idp_mesh_info_title": "Mesh 資訊",
+        "lang_idp_parent_info_title": "連線的裝置",
+        "lang_idp_child_info_title": "連接的子節點資訊：",
+        "lang_idp_child_info_name": "用戶端名稱",
+        "lang_idp_child_info_interface": "介面",
+        "lang_idp_child_info_mac": "MAC 位址",
+        "lang_idp_child_info_rssi": "RSSI",
+        "lang_idp_child_info_fw": "韌體版本",
+        "lang_idp_child_info_ip": "IP 位址",
+        "lang_idp_connected": "已連接設備",
+        "lang_idp_device_type": "設備類型"
+    }
+}

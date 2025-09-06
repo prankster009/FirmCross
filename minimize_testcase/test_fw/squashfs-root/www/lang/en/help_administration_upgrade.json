@@ -1,0 +1,6 @@
+{
+    "help_administration_upgrade": {
+        "lang_help_administration_upgrade_title": "Firmware Upgrade",
+        "lang_hau1": "Download the Router's firmware upgrade file from the website at <b><u><a target=\"_blank\" href=\"http://www.linksys.com\">www.linksys.com</a></u></b>. Click <b>Browse/Choose File</b> and select the firmware upgrade file. Then click <b>Start Upgrade</b>."
+    }
+}

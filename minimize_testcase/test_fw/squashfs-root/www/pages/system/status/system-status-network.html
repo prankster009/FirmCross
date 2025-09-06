@@ -1,0 +1,159 @@
+<script type="text/javascript">
+var INFO_LIST = [ 'LocalNetwork' ]
+var INFO_DATA = {}
+</script>
+<div class="table-title local_network_zone">
+<span class="multi_lang" id="lang_network_zone_local_network_title"></span>
+</div>
+<hr class="table-title-underline local_network_zone">
+<table class="table table-info local_network_zone">
+<tbody>
+<tr id="tr_local_mac_addr" >
+<td>
+<span class="multi_lang" id="lang_local_mac_addr_title"></span>
+</td>
+<td>
+<span name="local_mac_addr" id="local_mac_addr" ></span>
+</td>
+</tr>
+<tr id="tr_router_ip_addr" >
+<td>
+<span class="multi_lang" id="lang_router_ip_addr_title"></span>
+</td>
+<td>
+<span name="router_ip_addr" id="router_ip_addr" ></span>
+</td>
+</tr>
+<tr id="tr_local_netmask" >
+<td>
+<span class="multi_lang" id="lang_local_netmask_title"></span>
+</td>
+<td>
+<span name="local_netmask" id="local_netmask" ></span>
+</td>
+</tr>
+<tr id="tr_ipv6_local_addr" >
+<td>
+<span class="multi_lang" id="lang_ipv6_local_addr_title"></span>
+</td>
+<td>
+<span name="ipv6_local_addr" id="ipv6_local_addr" ></span>
+</td>
+</tr>
+<tr id="tr_prefix_addr" >
+<td>
+<span class="multi_lang" id="lang_prefix_addr_title"></span>
+</td>
+<td>
+<span name="prefix_addr" id="prefix_addr" ></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title dhcp_server_zone">
+<span class="multi_lang" id="lang_network_zone_dhcp_server_title"></span>
+</div>
+<hr class="table-title-underline dhcp_server_zone">
+<table class="table table-info dhcp_server_zone">
+<tbody>
+<tr id="tr_dhcp_server_enable" >
+<td>
+<span class="multi_lang" id="lang_dhcp_server_enable_title"></span>
+</td>
+<td>
+<span name="dhcp_server_enable" id="dhcp_server_enable" ></span>
+</td>
+</tr>
+<tr id="tr_dhcp_start_ip_addr" >
+<td>
+<span class="multi_lang" id="lang_dhcp_start_ip_addr_title"></span>
+</td>
+<td>
+<span name="dhcp_start_ip_addr" id="dhcp_start_ip_addr" ></span>
+</td>
+</tr>
+<tr id="tr_dhcp_end_ip_addr" >
+<td>
+<span class="multi_lang" id="lang_dhcp_end_ip_addr_title"></span>
+</td>
+<td>
+<span name="dhcp_end_ip_addr" id="dhcp_end_ip_addr" ></span>
+</td>
+</tr>
+<tr id="tr_dhcp_client_table" >
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_dhcp_client_table_button" onclick="displayPopout('dhcp_lease')"></button>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+</tbody>
+</table>
+<script language="javascript" type="text/javascript">
+
+//test info data
+//INFO_DATA = {"LocalNetwork":{"LocalNetwork":{"LocalMAC":"11:11:11:11:11:11","IP":"192.168.2.2","Netmask":"255.255.255.0","Gateway":"192.168.2.1","IPv6LinkLocalAddress":"fe80::6686:a87c:95af","Prefix":"64"},"DHCP":{"Server":"192.168.2.2","StartIP":"192.168.2.0","EndIP":"192.168.2.254"}}}
+
+
+var INFO_DATA_MAPPING = [{"info":"LocalNetwork.LocalNetwork.LocalMAC","eid":"local_mac_addr"},{"info":"LocalNetwork.LocalNetwork.IP","eid":"router_ip_addr"},{"info":"LocalNetwork.LocalNetwork.Netmask","eid":"local_netmask"},{"info":"LocalNetwork.LocalNetwork.IPv6LinkLocalAddress","eid":"ipv6_local_addr"},{"info":"LocalNetwork.LocalNetwork.Prefix","eid":"prefix_addr"},{"info":"LocalNetwork.DHCP.Server","eid":"dhcp_server_enable"},{"info":"LocalNetwork.DHCP.StartIP","eid":"dhcp_start_ip_addr"},{"info":"LocalNetwork.DHCP.EndIP","eid":"dhcp_end_ip_addr"}]
+
+page_tag='status_network'
+$(document).ready(function(){
+$.lang_load("status_network");
+page_initial()
+//Add log mechanism
+inject_log_bot()
+});
+
+function page_refresh(){
+get_info_data(INFO_LIST)
+}
+
+function status_layout(){
+INFO_DATA_MAPPING.forEach(function(item, index){
+eval('var info_data=INFO_DATA.'+item.info)
+
+if( "LocalNetwork.LocalNetwork.LocalMAC" == item.info || "LocalNetwork.LocalNetwork.IPv6LinkLocalAddress" == item.info || "LocalNetwork.LocalNetwork.Prefix" == item.info )
+info_data = info_data.toUpperCase()
+else if( "LocalNetwork.DHCP.Server" == item.info ){
+if(info_data == 'Enabled')
+info_data = L.status_network.lang_dhcp_server_enabled
+else
+info_data = L.status_network.lang_dhcp_server_disabled
+}
+
+$("#"+item.eid).html(info_data)
+});
+}
+
+function open_dhcp_lease_table() {
+displayPopout('dhcp_lease');
+}
+
+function get_info_success_cb(obj) {
+if(obj.api_return != 0){
+get_info_error_cb(obj)
+return;
+}
+INFO_DATA = API.obj.copy(obj);
+status_layout()
+}
+
+function get_info_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_info_data(info_list){
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+function page_initial(){
+get_info_data(INFO_LIST)
+}
+
+</script>
+

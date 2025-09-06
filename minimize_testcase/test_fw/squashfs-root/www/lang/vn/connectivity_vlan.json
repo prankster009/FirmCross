@@ -1,0 +1,30 @@
+{
+    "connectivity_vlan": {
+        "lang_vlan_enable_title": "VLAN",
+        "lang_select_profile_title": "Chọn cấu hình:",
+        "lang_internet_trunk_title": "Internet (Thân)",
+        "lang_internet_title": "Internet",
+        "lang_ethernet_title": "Ethernet",
+        "lang_port_title": "Cổng",
+        "lang_vlan_id_title": "VLAN ID",
+        "lang_id_head": "ID",
+        "lang_tag_head": "Thẻ",
+        "lang_priority_head": "Ưu tiên",
+        "lang_vlan_state_opt_untagged": "Bỏ gắn thẻ",
+        "lang_vlan_state_opt_tagged": "Đã gắn thẻ",
+        "lang_vlan_state_opt_excluded": "Không bao gồm",
+        "lang_vlan_alert_range": "Vui lòng đặt giá trị VLAN ID trong phạm vi",
+        "lang_vlan_alert_illegal_char": "Các ký tự không hợp lệ [phải là 0 - 9].",
+        "lang_profile_opt_manual": "Thủ công",
+        "lang_profile_opt_M1": "M1 (Cáp quang)",
+        "lang_profile_opt_Maxis_special": "Maxis (Cáp quang đặc biệt)",
+        "lang_profile_opt_Maxis": "Maxis (Maxis Infra)",
+        "lang_profile_opt_Singtel_TV": "Singtel (mio TV)",
+        "lang_profile_opt_Singtel_other": "Singtel (khác)",
+        "lang_profile_opt_starhub": "StarHub",
+        "lang_profile_opt_Unifi_Business": "Unifi (@ Doanh nghiệp)",
+        "lang_profile_opt_Unifi_Home": "Unifi (@ Gia đình)",
+        "lang_profile_opt_Maxis_Fibre": "Maxis (Cáp quang)",
+        "lang_profile_opt_Maxis_TM": "Maxis (TM Infra)"
+    }
+}

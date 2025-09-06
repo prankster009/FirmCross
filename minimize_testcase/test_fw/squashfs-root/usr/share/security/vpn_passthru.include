@@ -1,0 +1,73 @@
+#!/bin/sh
+
+SERVICE="vpn passthrough"
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+check_wan() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_is_up up
+
+    if [ "$wan_is_up" != "1" ]; then
+        echo "$SERVICE, wan is down" > /dev/console
+        echo "$SERVICE, exit!" > /dev/console
+        exit 0
+    fi
+}
+
+delete_vpn_passthru_chains() {
+    iptables -t filter -F vpn_passthru
+    iptables -t filter -D forwarding_rule -j vpn_passthru
+    iptables -t filter -X vpn_passthru
+}
+
+add_vpn_passthru_chains() {
+    iptables -t filter -N vpn_passthru
+    iptables -t filter -A forwarding_rule -j vpn_passthru
+}
+
+do_vpn_passthru() {
+    local l2tpPassthrough pptpPassthrough ipsecPassthrough
+    json_load "$(objReq firewall json)"
+    json_select "FirewallP"
+    json_get_vars l2tpPassthrough pptpPassthrough ipsecPassthrough
+
+    #echo "$SERVICE, l2tpPassthrough:$l2tpPassthrough" > /dev/console
+    #echo "$SERVICE, pptpPassthrough:$pptpPassthrough" > /dev/console
+    #echo "$SERVICE, ipsecPassthrough:$ipsecPassthrough" > /dev/console
+
+    # setup rules
+    if [ "$l2tpPassthrough" = "1" ]; then
+        iptables -t filter -A vpn_passthru -p udp --dport 1701 -j ACCEPT
+    else
+        iptables -t filter -A vpn_passthru -p udp --dport 1701 -j DROP
+    fi
+
+    if [ "$pptpPassthrough" = "1" ]; then
+        iptables -t filter -A vpn_passthru -p tcp --dport 1723 -j ACCEPT
+    else
+        iptables -t filter -A vpn_passthru -p tcp --dport 1723 -j DROP
+    fi
+
+    if [ "$ipsecPassthrough" = "1" ]; then
+        iptables -t filter -A vpn_passthru -p udp --dport 500 -j ACCEPT
+    else
+        iptables -t filter -A vpn_passthru -p udp --dport 500 -j DROP
+    fi
+}
+
+start() {
+    check_wan
+    add_vpn_passthru_chains >/dev/null 2>&1
+    do_vpn_passthru >/dev/null 2>&1
+}
+
+stop() {
+    delete_vpn_passthru_chains >/dev/null 2>&1
+}
+
+
+stop
+start

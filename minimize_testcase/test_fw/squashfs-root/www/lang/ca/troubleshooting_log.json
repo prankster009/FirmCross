@@ -1,0 +1,8 @@
+{
+    "troubleshooting_log": {
+        "lang_log_title": "Journal",
+        "lang_log_enable_title": "Journal",
+        "lang_view_log_button": "Afficher journal",
+        "lang_log_alert_msg": "Cliquez sur Enregistrer pour créer le journal. Vous pouvez ensuite cliquer sur Voir le Journal pour lire le journal."
+    }
+}

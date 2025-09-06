@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.vpn_passthru
+    set firewall.vpn_passthru=include
+    set firewall.vpn_passthru.type=script
+    set firewall.vpn_passthru.path=/usr/share/security/vpn_passthru.include
+    set firewall.vpn_passthru.family=ipv4
+    set firewall.vpn_passthru.reload=1
+EOT
+
+exit 0

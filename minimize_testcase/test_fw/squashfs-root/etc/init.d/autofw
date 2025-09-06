@@ -1,0 +1,35 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2014 Gemtek
+
+START=95
+STOP=10
+
+log() {
+	echo "[Auto firmware check] $@" > /dev/console
+}
+
+. /usr/share/libubox/jshn.sh
+
+CRONTAB_ROOT="/etc/crontabs/root"
+
+start() {
+	json_load "$(objReq autofw json)"
+	json_select "AutofwP"
+	json_get_var enable_var enable
+
+	if [ "$enable_var" = 1 ]; then
+		random1=$(tr -dc 1-9 </dev/urandom | head -c 3)
+		hour=$(((random1+1) % 5))
+		random2=$(tr -dc 1-9 </dev/urandom | head -c 3)
+		min=$(((random2+1) % 60))
+		sed -i '/checkFW/d' $CRONTAB_ROOT
+		echo "$min $hour * * * /usr/bin/checkFW.sh upgrade #auto firmware upgrade" >> $CRONTAB_ROOT
+
+		log "Start check at $hour:$min"
+	fi
+}
+
+stop() {
+	sed -i '/checkFW/d' $CRONTAB_ROOT
+	log "Stop check"
+}

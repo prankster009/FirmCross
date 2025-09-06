@@ -1,0 +1,24 @@
+{
+    "help_wifi_macfilter": {
+        "lang_help_wifi_macfilter_title": "无线 MAC 过滤",
+        "lang_hwm1": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hwm2": "无线 MAC 过滤",
+        "lang_hwm3": "启用/禁用",
+        "lang_hwm4": "要通过计算机或设备的 MAC 地址筛选无线用户，则选择“启用”<b></b>。",
+        "lang_hwm5": "访问限制",
+        "lang_hwm6": "阻止下列个人电脑访问无线网络",
+        "lang_hwm7": "MAC 地址过滤列表中的计算机无权访问无线网络。",
+        "lang_hwm8": "允许下列个人电脑访问无线网络",
+        "lang_hwm9": "只有 MAC 地址过滤列表中的计算机才有权访问无线网络。",
+        "lang_hwm10": "MAC 地址过滤列表",
+        "lang_hwm11": "无线客户端列表",
+        "lang_hwm12": "单击此选项可打开“无线客户端列表”<i></i>屏幕。",
+        "lang_hwm13": "无线客户端列表",
+        "lang_hwm14": "此屏幕显示当前位于无线网络中的计算机和其他设备。",
+        "lang_hwm15": "对于您想要添加到 MAC 地址筛选列表的任何设备，选择“保存到 MAC 地址筛选列表”<b></b>。然后单击“添加”<b></b>。",
+        "lang_hwm16": "要更新屏幕上的信息，请单击“刷新”<b></b>。要退出此屏幕，请单击“关闭”<b></b>。",
+        "lang_hwm17": "MAC 01-32",
+        "lang_hwm18": "输入要控制其无线访问权限的设备的 MAC 地址。",
+        "lang_hwm19": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

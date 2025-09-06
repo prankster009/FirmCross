@@ -1,0 +1,6 @@
+{
+    "help_connectivity_vlan": {
+        "lang_help_connectivity_vlan_title": "VLAN 设置",
+        "lang_hcv1": "VLAN（虚拟局域网）可用于对子网中的设备集合分组。这些设备可以相互通信，但不能与其他子网中的设备通信。"
+    }
+}

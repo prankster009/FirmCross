@@ -1,0 +1,17 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org
+
+START=55
+USE_PROCD=1
+
+. /lib/hummer/qos.sh
+
+start_service() {
+    qos_obj2uci
+    qos-start
+}
+
+reload_service() {
+    qos_obj2uci
+    qos-start
+}

@@ -1,0 +1,29 @@
+{
+    "help_parental_control_parental_control": {
+        "lang_help_parental_control_parental_control_title": "Contrôle parental",
+        "lang_hpcpc1": "Dans le cadre de Linksys Connect, le contrôle parental peut limiter l'accès Internet de jusqu'à cinq ordinateurs ou périphériques. Vous pouvez bloquer l'accès Internet ou le limiter à des horaires particuliers, et vous pouvez également bloquer des sites Web spécifiques.",
+        "lang_hpcpc2": "Remarque : une fois les modifications effectuées, cliquez sur Enregistrer les paramètres pour les appliquer.",
+        "lang_hpcpc3": "Contrôle parental",
+        "lang_hpcpc4": "Activé/Désactivé",
+        "lang_hpcpc5": "Pour restreindre l’accès d’ordinateurs ou de périphériques à votre réseau local, sélectionnez <b>Activé</b>.",
+        "lang_hpcpc6": "Périphériques cibles",
+        "lang_hpcpc7": "Restreindre l'accès à Internet sur",
+        "lang_hpcpc8": "La liste affiche les ordinateurs visés par le contrôle parental.",
+        "lang_hpcpc9": "Ajouter",
+        "lang_hpcpc10": "Si vous désirez appliquer le contrôle parental à d’autres ordinateurs, cliquez sur <b>Ajouter</b>.",
+        "lang_hpcpc11": "Supprimer",
+        "lang_hpcpc12": "Si vous ne voulez plus appliquer le contrôle parental à un appareil, sélectionnez-le et cliquez sur <b>Supprimer</b>.",
+        "lang_hpcpc13": "Renommer",
+        "lang_hpcpc14": "Pour modifier le nom d’un appareil, sélectionnez-le et cliquez sur <b>Renommer</b>.",
+        "lang_hpcpc15": "Programme horaire",
+        "lang_hpcpc16": "Précisez à quel moment l'accès Internet est bloqué.",
+        "lang_hpcpc17": "Jamais/Toujours/Périodes spécifiques",
+        "lang_hpcpc18": "Pour ne jamais bloquer l’accès Internet, sélectionnez <b>Jamais</b>.",
+        "lang_hpcpc19": "Pour toujours bloquer l’accès Internet, sélectionnez <b>Toujours</b>.",
+        "lang_hpcpc20": "Pour préciser les jours et les horaires pendant lesquels l’accès Internet est bloqué, sélectionnez <b>Périodes spécifiques</b>.",
+        "lang_hpcpc21": "Bloquer des sites spécifiques",
+        "lang_hpcpc22": "URL 1-8",
+        "lang_hpcpc23": "Dans chaque champ, entrez une adresse de site Web que vous désirez bloquer.",
+        "lang_hpcpc24": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

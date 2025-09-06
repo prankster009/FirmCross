@@ -1,0 +1,10 @@
+{
+    "parental_control_blocked": {
+        "lang_document_title": "Internet bị chặn",
+        "lang_content_title": "Internet bị chặn",
+        "lang_content_info": "Truy nhập Internet bị chặn tại thời điểm này.  Nhập mật khẩu kiểm soát của cha mẹ để có thể sử dụng được các nội dung và trang web bị chặn trong một giờ.",
+        "lang_password_title": "Mật khẩu:",
+        "lang_unblock_title": "Bỏ chặn",
+        "lang_password_incorrect": "Mật khẩu không chính xác."
+    }
+}

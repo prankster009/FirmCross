@@ -1,0 +1,8 @@
+{
+    "idp_guest_pwd": {
+        "lang_idp_guest_pwd_title": "更改来宾密码",
+        "lang_idp_guest_pwd_info1_title": "输入新的来宾网络密码：",
+        "lang_idp_guest_pwd_info2_title": "4 - 32 个字符",
+        "lang_idp_guest_pwd_alert_title": "请输入有效密码。有效字符为 A-Z、a-z、0-9"
+    }
+}

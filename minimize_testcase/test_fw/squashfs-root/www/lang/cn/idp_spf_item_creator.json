@@ -1,0 +1,28 @@
+{
+    "idp_spf_item_creator": {
+        "lang_spf_item_creator_title": "添加新的单端口转发",
+        "lang_spf_item_app_title": "应用程序",
+        "lang_spf_item_app_name_title": "应用程序名称",
+        "lang_spf_item_ext_port_title": "外部端口",
+        "lang_spf_item_int_port_title": "内部端口",
+        "lang_spf_item_protocol_title": "协议",
+        "lang_spf_item_to_ip_title": "目标 IP 地址",
+        "lang_spf_item_enable_title": "启用",
+        "lang_app_manual": "手动",
+        "lang_app_ftp": "FTP",
+        "lang_app_telnet": "Telnet",
+        "lang_app_smtp": "SMPT",
+        "lang_app_dns": "DNS",
+        "lang_app_tftp": "TFTP",
+        "lang_app_finger": "接头程序",
+        "lang_app_http": "HTTP",
+        "lang_app_pop3": "POP3",
+        "lang_app_nntp": "NNTP",
+        "lang_app_snmp": "SNMP",
+        "lang_app_pptp": "PPTP",
+        "lang_protocol_both": "两者",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "无法使用路由器的 IP、网络或广播地址。"
+    }
+}

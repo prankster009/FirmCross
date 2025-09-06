@@ -1,0 +1,58 @@
+#!/bin/sh
+
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+WAN_PROTO=$(gnvram show | grep WanP_proto | cut -d'=' -f 2)
+CRONTAB_ROOT="/etc/crontabs/root"
+NTP_SERVER=$(uci -q get system.ntp.server)
+
+PING_IF=""
+case "$WAN_PROTO" in
+        2)
+                PING_IF="pppoe-wan";;
+        3)
+                PING_IF="l2tp-vpn";;
+        4)
+                PING_IF="pptp-vpn";;
+esac
+
+runping() {
+    killall -9 check_internet
+    if [ -n "$1" ]; then
+        /usr/bin/check_internet -i$1
+    else
+        /usr/bin/check_internet
+    fi
+}
+
+[ "$ACTION" = "ifup" -a "$WAN_PROTO" = "0" ] && {
+        if [ "$(ethstt | grep 4 | cut -d ' ' -f 3)" = "down" ]; then
+                exit 0
+        fi
+}
+
+[ "$ACTION" = "ifup" -a "$INTERFACE" = "wan" ] && {
+        if [ ! "$WAN_PROTO" = "5" -o "$WAN_PROTO" = "6" ]; then
+            runping $PING_IF
+            [ "$WAN_PROTO" = "1" -o "$WAN_PROTO" = "0" ] && { /usr/bin/checklanoverlay.sh; }
+            /usr/bin/miniupnpd.sh wanchange
+            /etc/init.d/igmpproxy restart
+            /usr/bin/vlan_setup.sh wan_priority_add
+        fi
+        /usr/sbin/ntpd -q -p $NTP_SERVER
+}
+
+[ "$ACTION" = "ifup" -a "$INTERFACE" = "vpn" ] && {
+    runping $PING_IF
+    /usr/sbin/ntpd -q -p $NTP_SERVER
+}
+
+[ "$ACTION" = "ifup" -a "$INTERFACE" = "lan" ] && {
+        if [ "$WAN_PROTO" = "5" -o "$WAN_PROTO" = "6" ]; then
+		runping
+		/usr/bin/miniupnpd.sh restart
+        /etc/init.d/mdnsd restart
+        fi
+}
+

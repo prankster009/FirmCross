@@ -1,0 +1,28 @@
+{
+    "help_security_firewall": {
+        "lang_help_security_firewall_title": "防火墙",
+        "lang_hsf1": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hsf2": "防火墙",
+        "lang_hsf3": "SPI 防火墙保护",
+        "lang_hsf4": "SPI 防火墙保护有助于保护本地网络免遭来自于 Internet 的攻击。",
+        "lang_hsf5": "Internet 过滤器",
+        "lang_hsf6": "过滤匿名 Internet 请求",
+        "lang_hsf7": "此过滤器可阻止来自未知来源的 Internet 请求，例如 ping 请求。",
+        "lang_hsf8": "过滤多播",
+        "lang_hsf9": "此过滤器可阻止多播（允许单个传输同时到达本地网络中的多个特定收件人）。",
+        "lang_hsf10": "过滤 Internet NAT 重定向",
+        "lang_hsf11": "此过滤器可阻止本地计算机使用 URL 或 Internet IP 地址访问本地服务器。",
+        "lang_hsf12": "过滤 IDENT（端口 113）",
+        "lang_hsf13": "此过滤器可阻止 Internet 上的设备扫描端口 113。",
+        "lang_hsf14": "Web 过滤器",
+        "lang_hsf15": "代理",
+        "lang_hsf16": "此过滤器可阻止使用 Internet 代理服务器。",
+        "lang_hsf17": "Java",
+        "lang_hsf18": "此过滤器可阻止 Java，因此您可能无法访问网站上的 Java 内容。",
+        "lang_hsf19": "ActiveX",
+        "lang_hsf20": "此过滤器可阻止 ActiveX，因此您可能无法访问网站上的 ActiveX 内容。",
+        "lang_hsf21": "Cookie",
+        "lang_hsf22": "此过滤器可阻止 Cookie，Cookie 是存储在计算机上的数据，在您与网站进行交互时，网站会使用 Cookie。",
+        "lang_hsf23": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

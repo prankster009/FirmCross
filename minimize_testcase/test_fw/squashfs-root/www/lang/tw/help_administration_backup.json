@@ -1,0 +1,12 @@
+{
+    "help_administration_backup": {
+        "lang_help_administration_backup_title": "備份",
+        "lang_hab1": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hab2": "備份和還原",
+        "lang_hab3": "備份配置",
+        "lang_hab4": "要備份路由器的配置設定，請按一下此選項並按照螢幕上的說明操作。",
+        "lang_hab5": "還原配置",
+        "lang_hab6": "要恢復路由器的配置設定，請按一下此選項並按照螢幕上的說明操作。（您必須事先備份路由器的配置設定。）",
+        "lang_hab7": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

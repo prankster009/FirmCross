@@ -1,0 +1,10 @@
+{
+    "idp_prt_item_creator": {
+        "lang_prt_item_creator_title": "新しいポート範囲のトリガーを追加",
+        "lang_prt_item_app_name_title": "アプリケーション名",
+        "lang_prt_item_trigger_range_title": "トリガー範囲",
+        "lang_prt_item_forward_range_title": "転送の範囲",
+        "lang_prt_item_to_title": "～",
+        "lang_prt_item_enable_title": "有効"
+    }
+}

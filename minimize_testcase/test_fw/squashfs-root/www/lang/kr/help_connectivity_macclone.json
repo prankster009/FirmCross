@@ -1,0 +1,15 @@
+{
+    "help_connectivity_macclone": {
+        "lang_help_connectivity_macclone_title": "MAC 주소 복제",
+        "lang_hcm1": "인터넷 액세스를 위해 컴퓨터의 MAC 주소가 ISP로 등록되어 있고 MAC 주소를 다시 등록하지 않고자 하는 경우, 현재 등록된 MAC 주소를 라우터에 할당할 수 있습니다.",
+        "lang_hcm2": "참고: 변경한 후 <b>설정 저장</b>을 클릭하여 변경 사항을 적용하십시오.",
+        "lang_hcm3": "MAC 주소 복제",
+        "lang_hcm4": "활성화/비활성화",
+        "lang_hcm5": "라우터가 아래에 지정한 MAC 주소를 복제하게 하려면, <b>활성화</b>를 선택하십시오.",
+        "lang_hcm6": "MAC 주소",
+        "lang_hcm7": "ISP로 등록된 MAC 주소를 입력합니다.",
+        "lang_hcm8": "내 PC의 MAC 복제",
+        "lang_hcm9": "사용 중인 컴퓨터의 MAC 주소를 복제하려면 이 옵션을 클릭하십시오.",
+        "lang_hcm10": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

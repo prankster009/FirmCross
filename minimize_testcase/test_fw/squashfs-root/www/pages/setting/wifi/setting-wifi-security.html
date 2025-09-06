@@ -1,0 +1,403 @@
+<script type="text/javascript">
+var OBJ_LIST = ['wlanSecurity','easyMeshBasic','easyMeshBss','wlanWps']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var secuiry_mode_str = ['security_wpa3_wpa2_personal', 'security_wpa2_personal', 'security_wpa3_personal', /*'security_wpa2_enterprise',*/ 'security_disabled'];
+var secuiry_mode_val = ['WPA2PSKWPA3PSK', 'WPA2PSK', 'WPA3PSK', /*'WPA2',*/ 'OPEN'];
+var SAVE_WIFI_SEC_WAITING_TIME = 15000;
+</script>
+<div class="table-title wifi_security_5g_zone">
+<span class="multi_lang" id="lang_security_zone_wifi_security_5g_title"></span>
+</div>
+<hr class="table-title-underline wifi_security_5g_zone">
+<table class="table table-info wifi_security_5g_zone">
+<tbody>
+<tr id="tr_security_mode_5g" >
+<td>
+<span class="multi_lang" id="lang_security_mode_title"></span>
+</td>
+<td id="select_td">
+<input type="hidden" id="last_security_5g"></input>
+<script>(function(){draw_select('security_mode_5g', secuiry_mode_str, secuiry_mode_val,"security_mode_selected('5',this.value)", '');})();</script>
+<div id="select_div_security_mode_5g"></div>
+</td>
+</tr>
+<tr id="tr_passphrase_5g" >
+<td>
+<span class="multi_lang" id="lang_passphrase_title"></span>
+</td>
+<td>
+<input maxlength="64" value="" name="passphrase_5g" id="passphrase_5g" onblur="" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_server_5g" >
+<td>
+<span class="multi_lang" id="lang_radius_server_title"></span>
+</td>
+<td>
+<input maxlength="3" value="0" name="radius_server_5g_0" id="radius_server_5g_0" onblur="valid_range(this,1,223,'IP')" style="width:40px" class="logger_bot">.
+<input maxlength="3" value="0" name="radius_server_5g_1" id="radius_server_5g_1" onblur="valid_range(this,0,255,'IP')" style="width:40px" class="logger_bot">.
+<input maxlength="3" value="0" name="radius_server_5g_2" id="radius_server_5g_2" onblur="valid_range(this,0,255,'IP')" style="width:40px" class="logger_bot">.
+<input maxlength="3" value="0" name="radius_server_5g_3" id="radius_server_5g_3" onblur="valid_range(this,1,254,'IP')" style="width:40px" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_port_5g" >
+<td>
+<span class="multi_lang" id="lang_radius_port_title"></span>
+</td>
+<td>
+<input maxlength="5" value="1812" name="radius_port_5g" id="radius_port_5g" onblur="valid_range(this,1,65535,'Port')" style="width:50px" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_key_5g" >
+<td>
+<span class="multi_lang" id="lang_radius_key_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="radius_key_5g" id="radius_key_5g" onblur="" size="26" class="logger_bot">
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title wifi_security_2_4g_zone">
+<span class="multi_lang" id="lang_security_zone_wifi_security_2_4g_title"></span>
+</div>
+<hr class="table-title-underline wifi_security_2_4g_zone">
+<table class="table table-info wifi_security_2_4g_zone">
+<tbody>
+<tr id="tr_security_mode_2_4g" >
+<td>
+<span class="multi_lang" id="lang_security_mode_title"></span>
+</td>
+<td id="select_td">
+<input type="hidden" id="last_security_2_4g"></input>
+<script>(function(){draw_select('security_mode_2_4g', secuiry_mode_str, secuiry_mode_val,"security_mode_selected('2_4',this.value)", '');})();</script>
+<div id="select_div_security_mode_2_4g"></div>
+</td>
+</tr>
+<tr id="tr_passphrase_2_4g" >
+<td>
+<span class="multi_lang" id="lang_passphrase_title"></span>
+</td>
+<td>
+<input maxlength="64" value="" name="passphrase_2_4g" id="passphrase_2_4g" onblur="" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_server_2_4g" >
+<td>
+<span class="multi_lang" id="lang_radius_server_title"></span>
+</td>
+<td>
+<input maxlength="3" value="0" name="radius_server_2_4g_0" id="radius_server_2_4g_0" onblur="valid_range(this,1,223,'IP')" style="width:40px" class="logger_bot">.
+<input maxlength="3" value="0" name="radius_server_2_4g_1" id="radius_server_2_4g_1" onblur="valid_range(this,0,255,'IP')" style="width:40px" class="logger_bot">.
+<input maxlength="3" value="0" name="radius_server_2_4g_2" id="radius_server_2_4g_2" onblur="valid_range(this,0,255,'IP')" style="width:40px" class="logger_bot">.
+<input maxlength="3" value="0" name="radius_server_2_4g_3" id="radius_server_2_4g_3" onblur="valid_range(this,1,254,'IP')" style="width:40px" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_port_2_4g" >
+<td>
+<span class="multi_lang" id="lang_radius_port_title"></span>
+</td>
+<td>
+<input maxlength="5" value="1812" name="radius_port_2_4g" id="radius_port_2_4g" onblur="valid_range(this,1,65535,'Port')" style="width:50px" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_key_2_4g" >
+<td>
+<span class="multi_lang" id="lang_radius_key_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="radius_key_2_4g" id="radius_key_2_4g" onblur="" size="26" class="logger_bot">
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='wifi_security'
+$(document).ready(function(){
+$.lang_load("wifi_security");
+$.lang_load("error_message");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function set_wifi_security_init(obj) {
+var i;
+
+for (i=0; i < obj.wlanSecurity.WlanSecurityT.length; ++i) {
+if (obj.wlanSecurity.WlanSecurityT[i].type == "2") {
+set_ui_from_obj(obj.wlanSecurity.WlanSecurityT[i],'2_4');
+}
+else if (obj.wlanSecurity.WlanSecurityT[i].type == "5") {
+set_ui_from_obj(obj.wlanSecurity.WlanSecurityT[i],'5');
+}
+}
+
+update_selected($('#security_mode_5g').attr('name'));
+update_selected($('#security_mode_2_4g').attr('name'));
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+$("#security_mode_5g option[value='WPA2PSKWPA3PSK']").remove();
+$("#security_mode_5g option[value='WPA3PSK']").remove();
+$("#security_mode_5g option[value='OPEN']").remove();
+$("#security_mode_2_4g option[value='WPA2PSKWPA3PSK']").remove();
+$("#security_mode_2_4g option[value='WPA3PSK']").remove();
+$("#security_mode_2_4g option[value='OPEN']").remove();
+}
+}
+
+function set_ui_from_obj(obj,wifi) {
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1" && wifi=="5"){
+$('#security_mode_5g').val(MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.authType5G);
+$('#passphrase_5g').val(MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.wpaPsk5G);
+security_mode_selected('5',MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.authType5G);
+}
+else if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1" && wifi=="2_4"){
+$('#security_mode_2_4g').val(MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.authType);
+$('#passphrase_2_4g').val(MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.wpaPsk);
+security_mode_selected('2_4',MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.authType);
+}
+else{
+$('#security_mode_'+wifi+'g').val(obj.authtype);
+security_mode_selected(wifi,obj.authtype);
+if (obj.authtype == 'WPA2PSKWPA3PSK' || obj.authtype == 'WPA2PSK' || obj.authtype == 'WPA3PSK') {
+$('#passphrase_'+wifi+'g').val(obj.wpaPsk);
+}
+else if (obj.authtype == 'WPA2') {
+var ser_ip=obj.rs_ip.split(".");
+var i;
+for (i=0; i < ser_ip.length; ++i) {
+$('#radius_server_'+wifi+'g_'+i).val(ser_ip[i]);
+}
+$('#radius_port_'+wifi+'g').val(obj.rs_port);
+$('#radius_key_'+wifi+'g').val(obj.rs_password);
+}
+
+}
+}
+
+function get_obj_from_ui(obj,wifi) {
+var key;
+
+obj.authtype=$('#security_mode_'+wifi+'g').val();
+if ( obj.authtype == 'WPA2PSKWPA3PSK' || obj.authtype == 'WPA2PSK' || obj.authtype == 'WPA3PSK') {
+key = $('#passphrase_'+wifi+'g').val().trim();
+
+if (!valid_wpa_psk(obj.authtype, key))
+return false;
+obj.encrypType='AES';
+obj.wpaPsk=key;
+
+$('#passphrase_'+wifi+'g').val(key);
+}
+else if (obj.authtype == 'WPA2') {
+ip = $('#radius_server_'+wifi+'g_0').val()+"."+
+$('#radius_server_'+wifi+'g_1').val()+"."+
+$('#radius_server_'+wifi+'g_2').val()+"."+
+$('#radius_server_'+wifi+'g_3').val();
+
+port = $('#radius_port_'+wifi+'g').val();
+key = $('#radius_key_'+wifi+'g').val().trim();
+
+if (!valid_wpa_enterprise(ip, port, key))
+return false;
+obj.encrypType='AES';
+obj.rs_ip=ip;
+obj.rs_port=port;
+obj.rs_password=key;
+
+$('#radius_key_'+wifi+'g').val(key);
+}
+else if (obj.authtype == 'OPEN') {
+obj.encrypType='NONE';
+obj.wpaPsk="";
+}
+return true;
+}
+
+function valid_wpa_psk(mode,key) {
+if (mode != 'WPA2PSK' && mode != 'WPA3PSK' && mode != 'WPA2PSKWPA3PSK')
+return false;
+
+if (!validation_key(key)) {
+alert(L.error_message.lang_error_message2_err5);
+return false;
+}
+return true;
+}
+
+function valid_wpa_enterprise(ip, port, key) {
+if( 'undefined' == typeof(ip) || ip == "0.0.0.0" || ip == ""){
+alert(L.error_message.lang_error_message_err31);
+return false;
+}
+else if( 'undefined' == typeof(port) || port == ""){
+alert(L.error_message.lang_error_message_err31);
+return false;
+}
+else if( 'undefined' == typeof(key) || key == ""){
+alert(L.error_message.lang_error_message2_err3);
+return false;
+}
+else if (key.match(/^.{1,32}$/) === null) {
+alert(L.error_message.lang_error_message_err29);
+return false;
+}
+else
+return true;
+}
+
+function security_mode_selected(wifi,value){
+var last_security = $("#last_security_"+wifi+"g").val()
+
+if( last_security == "" ){
+$("#last_security_"+wifi+"g").val(value)
+}
+else if( last_security != "OPEN" && value == "OPEN" ){
+if (confirm(L.wifi_security.lang_security_disable_warning)!=true){
+$("#security_mode_"+wifi+"g").val(last_security)
+update_selected("security_mode_"+wifi+"g")
+security_mode_selected(wifi,last_security)
+return;
+}else
+$("#last_security_"+wifi+"g").val(value)
+}
+else if (last_security != "WPA2" && value == "WPA2") {
+if (confirm(L.wifi_security.lang_wps_disable_title) != true) {
+$("#security_mode_"+wifi+"g").val(last_security);
+update_selected("security_mode_"+wifi+"g")
+security_mode_selected(wifi,last_security)
+return;
+}
+else
+$("#last_security_"+wifi+"g").val(value)
+}
+else{
+$("#last_security_"+wifi+"g").val(value)
+}
+
+$('#tr_passphrase_'+wifi+'g').attr('style','display:none;');
+$('#tr_server_'+wifi+'g').attr('style','display:none;');
+$('#tr_port_'+wifi+'g').attr('style','display:none;');
+$('#tr_key_'+wifi+'g').attr('style','display:none;');
+
+if (value == 'WPA2PSKWPA3PSK' || value == 'WPA2PSK' || value == 'WPA3PSK') {
+$('#tr_passphrase_'+wifi+'g').removeAttr('style');
+if(value == 'WPA3PSK')
+MODIFIED_OBJ_DATA.wlanWps.WlanWpsT[0].enable = "0"
+}
+else if (value == 'WPA2') {
+$('#tr_server_'+wifi+'g').removeAttr('style');
+$('#tr_port_'+wifi+'g').removeAttr('style');
+$('#tr_key_'+wifi+'g').removeAttr('style');
+}
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+get_obj_data(OBJ_LIST);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+},SAVE_WIFI_SEC_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+var i;
+var ret;
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1"){
+if(valid_wpa_psk('WPA2PSK',$('#passphrase_5g').val())!=true){
+show_alert(L.common.fail_title, L.common.save_fail)
+return false;
+}
+if(valid_wpa_psk('WPA2PSK',$('#passphrase_2_4g').val())!=true){
+show_alert(L.common.fail_title, L.common.save_fail)
+return false;
+}
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.authType=$('#security_mode_2_4g').val();
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.authType5G=$('#security_mode_5g').val();
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.wpaPsk5G=$('#passphrase_5g').val();
+MODIFIED_OBJ_DATA.easyMeshBss.EasyMeshBssP.wpaPsk=$('#passphrase_2_4g').val();
+}else{
+for (i=0; i < MODIFIED_OBJ_DATA.wlanSecurity.WlanSecurityT.length; ++i) {
+if (MODIFIED_OBJ_DATA.wlanSecurity.WlanSecurityT[i].type == "2") {
+ret = get_obj_from_ui(MODIFIED_OBJ_DATA.wlanSecurity.WlanSecurityT[i],'2_4');
+}
+else if (MODIFIED_OBJ_DATA.wlanSecurity.WlanSecurityT[i].type == "5") {
+ret = get_obj_from_ui(MODIFIED_OBJ_DATA.wlanSecurity.WlanSecurityT[i],'5');
+}
+else
+ret = false;
+if (!ret) {
+show_alert(L.common.fail_title, L.common.save_fail)
+return;
+}
+}
+}
+
+if (fake_action == true) return;
+
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA))
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+else {
+$("#loader").show();
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=="1"){
+delete MODIFIED_OBJ_DATA.wlanSecurity
+}else{
+delete MODIFIED_OBJ_DATA.easyMeshBss
+}
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_wifi_security_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_wifi_security_init(MODIFIED_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+</script>
+

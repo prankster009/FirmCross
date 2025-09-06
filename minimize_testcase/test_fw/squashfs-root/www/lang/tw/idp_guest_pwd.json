@@ -1,0 +1,8 @@
+{
+    "idp_guest_pwd": {
+        "lang_idp_guest_pwd_title": "變更來賓密碼",
+        "lang_idp_guest_pwd_info1_title": "輸入新的來賓網路密碼：",
+        "lang_idp_guest_pwd_info2_title": "4 - 32 個字元",
+        "lang_idp_guest_pwd_alert_title": "請輸入有效的密碼。有效字元為英文字母 A-Z、a-z 以及數字 0-9"
+    }
+}

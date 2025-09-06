@@ -1,0 +1,140 @@
+#!/bin/sh
+
+SERVICE="mgmt"
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+. /lib/hummer/state.sh
+
+
+check_wan_status() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_status up
+
+    echo $wan_status
+}
+
+delete_mgmt_chains() {
+    iptables -t filter -F input_wan_mgmt
+    iptables -t filter -D input_wan_rule -j input_wan_mgmt
+    iptables -t filter -X input_wan_mgmt
+    iptables -t filter -F input_lan_mgmt
+    iptables -t filter -D input_lan_rule -j input_lan_mgmt
+    iptables -t filter -X input_lan_mgmt
+    iptables -t nat -F prerouting_wan_mgmt
+    iptables -t nat -D prerouting_wan_rule -j prerouting_wan_mgmt
+    iptables -t nat -X prerouting_wan_mgmt
+
+    ip6tables -t filter -F input_lan_mgmt
+    ip6tables -t filter -D input_lan_rule -j input_lan_mgmt
+    ip6tables -t filter -X input_lan_mgmt
+
+}
+
+add_mgmt_chains() {
+    iptables -t filter -N input_wan_mgmt
+    iptables -t filter -A input_wan_rule -j input_wan_mgmt
+    iptables -t filter -N input_lan_mgmt
+    iptables -t filter -A input_lan_rule -j input_lan_mgmt
+    iptables -t nat -N prerouting_wan_mgmt
+    iptables -t nat -A prerouting_wan_rule -j prerouting_wan_mgmt
+
+    ip6tables -t filter -N input_lan_mgmt
+    ip6tables -t filter -A input_lan_rule -j input_lan_mgmt
+
+}
+
+do_mgmt() {
+    local wanIp
+    local localhttps localWIFI remoteEnable remoteUpgrade startIp endIp remotePort remoteHttps
+
+    json_load "$(objReq wan json)"
+    json_select "WanP"
+    json_get_var wanmode proto
+    if [ "$wanmode" = "$WAN_PROTO_L2TP" -o "$wanmode" = "$WAN_PROTO_PPTP" ]; then
+        network_get_ipaddr wanIp vpn
+    else
+        network_get_ipaddr wanIp wan
+    fi
+
+    json_load "$(objReq management json)"
+    json_select "ManagementP"
+    json_get_vars localhttps localWIFI remoteEnable remoteUpgrade startIp endIp remotePort remoteHttps
+ 
+    # Local Management Access
+    # LAN input default policy: ACCEPT
+    if [ "$localWIFI" = "1" ]; then
+        echo 0 > /proc/sys/net/bridge/bridge-nf-call-iptables
+        echo 0 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
+    else
+        echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+        echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
+    fi
+
+    if [ "$localhttps" = "0" ]; then # allow http
+        if [ "$localWIFI" = "0" ]; then
+            iptables -t filter -A input_lan_mgmt -p tcp --dport 80 -m physdev ! --physdev-in eth0 -j DROP
+            ip6tables -t filter -A input_lan_mgmt -p tcp --dport 80 -m physdev ! --physdev-in eth0 -j DROP
+        fi
+        iptables -t filter -A input_lan_mgmt -p tcp --dport 443 -j DROP
+        ip6tables -t filter -A input_lan_mgmt -p tcp --dport 443 -j DROP
+    elif [ "$localhttps" = "1" ]; then # allow https
+        if [ "$localWIFI" = "0" ]; then
+            iptables -t filter -A input_lan_mgmt -p tcp --dport 443 -m physdev ! --physdev-in eth0 -j DROP
+            ip6tables -t filter -A input_lan_mgmt -p tcp --dport 443 -m physdev ! --physdev-in eth0 -j DROP
+        fi
+        iptables -t filter -A input_lan_mgmt -p tcp --dport 80 -j DROP
+        ip6tables -t filter -A input_lan_mgmt -p tcp --dport 80 -j DROP
+    elif [ "$localhttps" = "2" -a "$localWIFI" = "0" ]; then # allow both
+        iptables -t filter -A input_lan_mgmt -p tcp -m multiport --dports 80,443 -m physdev ! --physdev-in eth0 -j DROP
+        ip6tables -t filter -A input_lan_mgmt -p tcp -m multiport --dports 80,443 -m physdev ! --physdev-in eth0 -j DROP
+    fi
+
+    # Remote Management Access
+    # WAN input default policy: REJECT
+    if [ "$(check_wan_status)" = "0" ]; then
+        echo "$SERVICE, wan is down. Do nothing for remote management access setup." > /dev/console
+        return
+    fi
+
+    if [ "$remoteEnable" = "1" ]; then
+        if [ "$remoteHttps" = "0" ]; then # allow http
+            iptables -t filter -A input_wan_mgmt -p tcp --dport 80 -j ACCEPT
+            if [ "$remotePort" != "80" ]; then
+                iptables -t nat -A prerouting_wan_mgmt -p tcp --dport 80 -j DROP
+
+                if [ -n "$startIp" -a -n "$endIp" ]; then
+                    iptables -t nat -A prerouting_wan_mgmt -p tcp --dport $remotePort -m iprange --src-range $startIp-$endIp -j DNAT --to-destination $wanIp:80
+                else
+                    iptables -t nat -A prerouting_wan_mgmt -p tcp --dport $remotePort -j DNAT --to-destination $wanIp:80
+                fi
+            fi
+        elif [ "$remoteHttps" = "1" ]; then # allow https
+            iptables -t filter -A input_wan_mgmt -p tcp --dport 443 -j ACCEPT
+            if [ "$remotePort" != "443" ]; then
+                iptables -t nat -A prerouting_wan_mgmt -p tcp --dport 443 -j DROP
+
+                if [ -n "$startIp" -a -n "$endIp" ]; then
+                    iptables -t nat -A prerouting_wan_mgmt -p tcp --dport $remotePort -m iprange --src-range $startIp-$endIp -j DNAT --to-destination $wanIp:443
+                else
+                    iptables -t nat -A prerouting_wan_mgmt -p tcp --dport $remotePort -j DNAT --to-destination $wanIp:443
+                fi
+            fi
+        fi
+    fi
+}
+
+start() {
+    add_mgmt_chains >/dev/null 2>&1
+    do_mgmt >/dev/null 2>&1
+}
+
+stop() {
+    delete_mgmt_chains >/dev/null 2>&1
+}
+
+
+stop
+start
+

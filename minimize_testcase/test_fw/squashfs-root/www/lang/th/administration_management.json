@@ -1,0 +1,21 @@
+{
+    "administration_management": {
+        "lang_management_passwd_tips_prefix": "หากคุณเปิดใช้งานการจัดการระยะไกล เราขอแนะนำให้",
+        "lang_management_passwd_tips_link": "เปลี่ยนรหัสผ่านผู้ดูแลระบบของคุณ",
+        "lang_management_passwd_tips_postfix": "เพื่อความปลอดภัย",
+        "lang_management_zone_local_mg_title": "การเข้าถึงการจัดการภายใน",
+        "lang_local_http_mode_title": "เข้าถึงผ่าน",
+        "lang_http_title": "HTTP",
+        "lang_https_title": "HTTPS",
+        "lang_local_wireless_title": "เข้าถึงผ่านเครือข่ายไร้สาย",
+        "lang_management_zone_remote_mg_title": "การเข้าถึงการจัดการจากระยะไกล",
+        "lang_remote_enable_title": "การจัดการจากระยะไกล",
+        "lang_remote_http_mode_title": "เข้าถึงผ่าน",
+        "lang_remote_upgrade_title": "การอัปเกรดจากระยะไกล",
+        "lang_remote_allow_ip_any_title": "อนุญาตการเข้าถึงจากที่อยู่ IP ระยะไกล",
+        "lang_remote_allow_ip_any": "ที่อยู่ IP ใดๆ",
+        "lang_remote_port_title": "พอร์ตการจัดการจากระยะไกล",
+        "lang_to": "ถึง",
+        "lang_default_ps_warning": "ขณะนี้เราเตอร์ได้รับการตั้งค่าให้เป็นรหัสผ่านที่เป็นค่าเริ่มต้น เนื่องด้วยมาตรการความปลอดภัย คุณต้องเปลี่ยนรหัสผ่านก่อนจึงจะเปิดใช้งานคุณลักษณะ การจัดการจากระยะไกล ได้ คลิกปุ่ม ตกลง เพื่อเปลี่ยนรหัสผ่าน  คลิกปุ่ม ยกเลิก เพื่อคงคุณลักษณะ การจัดการจากระยะไกล เป็น เลิกใช้งาน ไว้"
+    }
+}

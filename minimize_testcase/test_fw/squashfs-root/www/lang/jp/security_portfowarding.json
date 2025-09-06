@@ -1,0 +1,17 @@
+{
+    "security_portfowarding": {
+        "lang_spf_app_name_title": "アプリケーション名",
+        "lang_spf_ext_port_title": "外部ポート",
+        "lang_spf_int_port_title": "内部ポート",
+        "lang_spf_protocol_title": "プロトコル",
+        "lang_spf_to_ip_title": "宛先 IP アドレス",
+        "lang_spf_enabled_title": "有効",
+        "lang_spf_action_title": "アクション",
+        "lang_spf_add_btn_title": "新しい単一ポート転送を追加",
+        "lang_spf_disabled_title": "無効",
+        "lang_spf_remove_btn_title": "削除",
+        "lang_spf_protocol_both": "両方",
+        "lang_spf_protocol_tcp": "TCP",
+        "lang_spf_protocol_udp": "UDP"
+    }
+}

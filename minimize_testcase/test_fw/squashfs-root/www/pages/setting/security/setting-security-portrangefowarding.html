@@ -1,0 +1,153 @@
+<script type="text/javascript">
+var OBJ_LIST = ['lan','portRangeForward']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+</script>
+<table class="table table-info-bg">
+<thead>
+<tr>
+<th><span class="multi_lang" id="lang_prf_app_name_title"></span></th>
+<th><span class="multi_lang" id="lang_prf_port_range_title"></span></th>
+<th><span class="multi_lang" id="lang_prf_protocol_title"></span></th>
+<th><span class="multi_lang" id="lang_prf_to_ip_title"></span></th>
+<th><span class="multi_lang" id="lang_prf_enabled_title"></span></th>
+<td><span class="multi_lang" id="lang_prf_action_title"></span></td>
+</tr>
+</thead>
+<tbody id="list_tbody">
+</tbody>
+<tfoot>
+<tr>
+<td colspan="7">
+<button class="btn logger_bot" type="button" name="add_new" onclick="displayPopout('prf_item_creator')"><span class="multi_lang" id="lang_prf_add_btn_title"></span></button>
+</td>
+</tr>
+</tfoot>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script language="javascript" type="text/javascript">
+page_tag='security_portrangefowarding'
+var PRF_DATA=[]
+$(document).ready(function(){
+$.lang_load("security_portrangefowarding");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+function page_cancel(){
+page_initial();
+//Coding cancel function here
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+PRF_DATA=[];
+for(i=0;i<MODIFIED_OBJ_DATA.portRangeForward.PortRangeForwardT.length;i++){
+insert_prf_item(MODIFIED_OBJ_DATA.portRangeForward.PortRangeForwardT[i]);
+}
+prf_table_layout()
+
+}
+function get_obj_error_cb(obj) {
+//console.log(obj)
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+function insert_prf_item(item, origin_id){
+if(typeof(origin_id) != "undefined"){
+PRF_DATA[origin_id]=item
+}else{
+PRF_DATA.push(item)
+}
+prf_table_layout()
+}
+
+function update_prf_item(item_id){
+PRF_DATA[item_id].index = item_id
+localStorage.iframe_item_data = JSON.stringify(PRF_DATA[item_id])
+displayPopout('prf_item_creator')
+}
+
+function remove_prf_item(item_id){
+PRF_DATA.splice(item_id, 1);
+prf_table_layout()
+}
+
+function prf_table_layout(){
+var prf_table_content=""
+var id = 0
+PRF_DATA.forEach(function(element) {
+element.name = "prf"+id;
+prf_table_content = prf_table_content + '<tr class="blue-bg">'
+prf_table_content = prf_table_content + '<td onclick="update_prf_item('+id+')">'+element.desc+'</td>'
+prf_table_content = prf_table_content + '<td onclick="update_prf_item('+id+')">'+element.externalPortStart+' ~ '+element.externalPortEnd+'</td>'
+prf_table_content = prf_table_content + '<td onclick="update_prf_item('+id+')">'+element.proto+'</td>'
+prf_table_content = prf_table_content + '<td onclick="update_prf_item('+id+')">'+MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[0]+'.'+MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[1]+'.'+MODIFIED_OBJ_DATA.lan.LanP.ipaddr.split(".")[2]+'.'+element.deviceIp.split(".")[3]+'</td>'
+
+if("1" == element.enable)
+prf_table_content = prf_table_content + '<td onclick="update_prf_item('+id+')"><div class="btn-group"><span class="label label-success  multi_lang" id="lang_prf_enabled_title">'+L.security_portrangefowarding.lang_prf_enabled_title+'</span></div></td>'
+else
+prf_table_content = prf_table_content + '<td onclick="update_prf_item('+id+')"><div class="btn-group"><span class="label label-default multi_lang" id="lang_prf_disabled_title">'+L.security_portrangefowarding.lang_prf_disabled_title+'</span></div></td>'
+
+prf_table_content = prf_table_content + '<td><button class="btn btn-danger" type="button" onclick="remove_prf_item('+id+')"><span class="multi_lang" id="lang_prf_remove_btn_title">'+L.security_portrangefowarding.lang_prf_remove_btn_title+'</span></button> </td>'
+prf_table_content = prf_table_content + '</tr>'
+
+id++
+});
+
+$("#list_tbody").html(prf_table_content)
+}
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+$("#loader").hide()
+show_alert(L.common.success_title, L.common.save_success)
+page_initial();
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide()
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+$("#loader").show()
+MODIFIED_OBJ_DATA.portRangeForward.PortRangeForwardT=PRF_DATA
+
+if (fake_action == true){
+$("#loader").hide()
+return;
+}
+delete MODIFIED_OBJ_DATA.lan;
+
+set_obj_data(MODIFIED_OBJ_DATA)
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+</script>

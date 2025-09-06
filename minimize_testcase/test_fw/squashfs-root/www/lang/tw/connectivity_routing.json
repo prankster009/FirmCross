@@ -1,0 +1,20 @@
+{
+    "connectivity_routing": {
+        "lang_routing_zone_advanced_routing_title": "進階路由",
+        "lang_nat_enable_title": "NAT",
+        "lang_routing_zone_dynamic_routing_title": "動態路由 (RIP)",
+        "lang_dynamic_rt_enable_title": "已啓用",
+        "lang_routing_zone_static_routing_title": "靜態路由",
+        "lang_rt_entries_title": "路由項目",
+        "lang_delete_entry_button": "刪除此項目",
+        "lang_rt_name_title": "輸入路由名稱",
+        "lang_dst_lan_ip_title": "目的地 LAN IP",
+        "lang_subnet_mask_title": "子網路遮罩",
+        "lang_gateway_title": "閘道",
+        "lang_interface_title": "介面",
+        "lang_rt_table_button": "顯示路由資料表",
+        "lang_interface_opt_lan_wifi": "LAN 和無線網路",
+        "lang_interface_opt_wan": "網際網路 (WAN)",
+        "lang_alert_guest_not_availabed_title": "如果停用了NAT，則來賓存取將不可用。繼續儲存所做的變更？"
+    }
+}

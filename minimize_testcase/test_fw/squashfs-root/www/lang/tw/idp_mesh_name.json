@@ -1,0 +1,12 @@
+{
+    "idp_mesh_name": {
+        "lang_idp_mesh_name_title": "您的節點在哪裡？",
+        "lang_idp_mesh_name_content1": "命名節點可幫助您在存取設定時加以區分。",
+        "lang_idp_mesh_name_content2": "節點名稱",
+        "lang_idp_mesh_name_content3": "範例：廚房、客廳、臥室",
+        "lang_idp_mesh_name_content4": "請為子節點命名，用於區分多台子節點",
+        "lang_idp_mesh_name_error1": "The Node name cannot be blank!",
+        "lang_idp_mesh_name_error2": "The node name can only contain alphanumberic characters and dashes.",
+        "lang_idp_mesh_name_error3": "The node name must start with a letter."
+    }
+}

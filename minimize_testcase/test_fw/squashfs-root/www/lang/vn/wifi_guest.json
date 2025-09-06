@@ -1,0 +1,13 @@
+{
+    "wifi_guest": {
+        "lang_guest_zone_guest_access_title": "Truy nhập khách cung cấp truy nhập Internet cho các vị khách tới nhà bạn, nhưng không cho họ quyền truy nhập máy tính và dữ liệu cá nhân của bạn.",
+        "lang_guest_access_allow_title": "Cho phép Truy nhập khách",
+        "lang_guest_net_name_title": "Tên mạng khách",
+        "lang_guest_password_title": "Mật khẩu khách",
+        "lang_guest_change_pwd_button": "Thay đổi",
+        "lang_guest_allow_total_title": "Tổng số khách cho phép",
+        "lang_ssid_broadcast_title": "Phát rộng SSID",
+        "lang_guest_info_title": "Khách của bạn cần phải kết nối với mạng khách không dây được ghi ở trên bằng cách mở trình duyệt Web và nhập mật khẩu khách.",
+        "lang_enable_warning": "Nếu bạn muốn bật Quyền truy cập với tư cách khách, bạn cần vào \"Cài đặt không dây cơ bản\" -> bỏ chọn EasyMesh"
+    }
+}

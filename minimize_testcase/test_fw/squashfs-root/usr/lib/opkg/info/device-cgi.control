@@ -1,0 +1,8 @@
+Package: device-cgi
+Version: ba04ad21ba6158b8facb646cd0b03282cef0bb08
+Depends: libc, libjson-c, libobj, gnvram, libopenssl
+Source: package/gemtek/device-cgi
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 33947
+Description:  Device CGI

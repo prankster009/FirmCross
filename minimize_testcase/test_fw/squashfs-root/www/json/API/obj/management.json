@@ -1,0 +1,12 @@
+{
+    "ManagementP": {
+        "localhttps": "0",
+        "localWIFI": "1",
+        "remoteEnable": "1",
+        "remoteUpgrade": "0",
+        "startIp": "",
+        "endIp": "",
+        "remotePort": "8080",
+        "remoteHttps": "0"
+    }
+}

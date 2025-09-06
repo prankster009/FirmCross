@@ -1,0 +1,8 @@
+{
+    "DhcpcP": {
+        "hostName": "",
+        "domainName": "",
+        "mtuMode": "0",
+        "mtu": "1500"
+    }
+}

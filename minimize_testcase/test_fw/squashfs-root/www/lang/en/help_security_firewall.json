@@ -1,0 +1,28 @@
+{
+    "help_security_firewall": {
+        "lang_help_security_firewall_title": "Firewall",
+        "lang_hsf1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hsf2": "Firewall",
+        "lang_hsf3": "SPI Firewall Protection",
+        "lang_hsf4": "SPI firewall protection helps protect your local network from the Internet.",
+        "lang_hsf5": "Internet Filters",
+        "lang_hsf6": "Filter Anonymous Internet Requests",
+        "lang_hsf7": "This filter blocks Internet requests from unknown sources, such as ping requests.",
+        "lang_hsf8": "Filter Multicast",
+        "lang_hsf9": "This filter blocks multicasting, which allows a single transmission to simultaneously reach specific recipients within your local network.",
+        "lang_hsf10": "Filter Internet NAT Redirection",
+        "lang_hsf11": "This filter prevents a local computer from using a URL or Internet IP address to access the local server.",
+        "lang_hsf12": "Filter IDENT (Port 113)",
+        "lang_hsf13": "This filter keeps port 113 from being scanned by devices from the Internet.",
+        "lang_hsf14": "Web Filters",
+        "lang_hsf15": "Proxy",
+        "lang_hsf16": "This filter blocks the use of Internet proxy servers.",
+        "lang_hsf17": "Java",
+        "lang_hsf18": "This filter blocks Java, so you may not be able to access Java content on websites.",
+        "lang_hsf19": "ActiveX",
+        "lang_hsf20": "This filter blocks ActiveX, so you may not be able to access ActiveX content on websites.",
+        "lang_hsf21": "Cookies",
+        "lang_hsf22": "This filter blocks cookies, which are data stored on your computer and used by websites when you interact with them.",
+        "lang_hsf23": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

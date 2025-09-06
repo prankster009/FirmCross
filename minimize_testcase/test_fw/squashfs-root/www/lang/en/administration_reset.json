@@ -1,0 +1,13 @@
+{
+    "administration_reset": {
+        "lang_reboot_title": "Restart the Router",
+        "lang_reboot_button": "Restart",
+        "lang_reset_default_title": "Reset to Factory Default Settings",
+        "lang_reset_default_button": "Factory Reset",
+        "lang_reboot_confirm": "Do you really want to reboot the device?",
+        "lang_reset_default_confirm": "Warning! If you click OK, the device will reset to factory default and all previous settings will be erased.",
+        "lang_rebooting": "Rebooting......",
+        "lang_reboot_fail": "Reboot failed",
+        "lang_reset_fail": "Factory reset failed"
+    }
+}

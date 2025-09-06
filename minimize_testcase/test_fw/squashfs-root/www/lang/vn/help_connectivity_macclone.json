@@ -1,0 +1,15 @@
+{
+    "help_connectivity_macclone": {
+        "lang_help_connectivity_macclone_title": "Sao chép địa chỉ MAC",
+        "lang_hcm1": "Nếu địa chỉ MAC của máy tính của bạn đã được đăng ký với ISP để truy nhập Internet và bạn không muốn đăng ký lại địa chỉ MAC thì bạn có thể gán địa chỉ MAC hiện tại đã đăng ký cho Bộ định tuyến.",
+        "lang_hcm2": "Lưu ý: Sau khi thực hiện thay đổi, hãy bấm <b>Lưu cài đặt</b> để áp dụng các thay đổi.",
+        "lang_hcm3": "Sao chép địa chỉ MAC",
+        "lang_hcm4": "Bật/Tắt",
+        "lang_hcm5": "Để Bộ định tuyến sao chép địa chỉ MAC mà bạn chỉ định bên dưới, hãy chọn <b>Bật</b>.",
+        "lang_hcm6": "Địa chỉ MAC",
+        "lang_hcm7": "Nhập địa chỉ MAC đã đăng ký với ISP của bạn.",
+        "lang_hcm8": "Sao chép MAC của máy tính của tôi",
+        "lang_hcm9": "Bấm tuỳ chọn này để sao chép địa chỉ MAC của máy tính bạn đang sử dụng.",
+        "lang_hcm10": "Lưu ý: Để biết thêm thông tin, vui lòng tham khảo Hướng dẫn sử dụng trực tuyến tại <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

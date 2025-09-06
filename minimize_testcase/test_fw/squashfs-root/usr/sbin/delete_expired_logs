@@ -1,0 +1,55 @@
+#!/bin/sh
+
+LOG_DIR="/tmp/"
+LOG_LIGHTTPD_DIR="/var/log/lighttpd/"
+
+LOG_INCOMING=".logincomingfp"
+LOG_OUTGOING=".logoutcoming"
+LOG_DHCP=".logdhcpfp"
+LOG_LOGIN_STATUS="login_status.log"
+
+LOG_LIGHTTOD_ERROR="lighttpd.error.log"
+LOG_LIGHTTOD_ACCESS="lighttpd.access.log"
+
+# time to remove files (in seconds)
+EXPIRED_TIME=259200
+
+# size to remove files (in bytes)
+SIZE=4096
+
+## remove logs that show in GUI log page
+##	.logincomingfp .logoutcoming .logdhcpfp login_status.log
+## when over size (4k)
+clean_expired_logs()
+{
+        local sz
+
+	for file in `find $LOG_DIR -type f \( -name ".log*" -o -name "$LOG_LOGIN_STATUS" \)`
+	do
+		sz=$(ls -l $file  | awk '{print $5}' | tr -d '\n')
+
+		[ $sz -ge $SIZE ] && echo "" > $file
+	done
+}
+
+## remove log "lighttpd.error.log" and "lighttpd.access.log"
+## when expired (3 days)
+clean_lighttpd_expired_logs()
+{
+        local ftime
+        local dtime
+
+        for file in `find $LOG_LIGHTTPD_DIR -type f -name "lighttpd*"`
+        do
+                ftime=$(date -r $file +%s)
+                dtime=$(($NOWTIME-$ftime))
+
+                [ $dtime -ge $EXPIRED_TIME ] && echo "" > $file
+        done
+}
+
+NOWTIME=$(date +%s)
+
+clean_expired_logs
+clean_lighttpd_expired_logs
+

@@ -1,0 +1,8 @@
+
+True Positives	=CountIF(H5:H3, "Y")/(CountIF(H5:H3, "Y") + CountIF(H5:H3, "N"))
+Completed	=CountA(G5:G3) & " of " & CountA(F5:F3)
+Brand	Firmware	SHA256	Name	Sink	Addr	TP	CFG Time	VRA Time	Analysis Time	Checked By	Notes
+
+
+
+Firmware	ENV Time	CFG Time	VRA Time	Analysis Time	Total (Minutes)

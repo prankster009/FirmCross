@@ -1,0 +1,14 @@
+{
+    "administration_language": {
+        "lang_language_title": "Chọn ngôn ngữ của bạn",
+        "lang_language_select_en": "English",
+        "lang_language_select_cn": "简体中文",
+        "lang_language_select_tw": "繁體中文",
+        "lang_language_select_th": "ภาษาไทย",
+        "lang_language_select_kr": "한국어",
+        "lang_language_select_jp": "日本語",
+        "lang_language_select_id": "Bahasa Indonesia",
+        "lang_language_select_vn": "Tiếng Việt",
+        "lang_language_select_ca": "Canadian French"
+    }
+}

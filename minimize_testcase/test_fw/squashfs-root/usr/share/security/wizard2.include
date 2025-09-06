@@ -1,0 +1,93 @@
+#!/bin/sh
+
+SERVICE="wizard"
+DR_QUEUE_NUM=100
+UF_QUEUE_NUM=101
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+check_wan() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_is_up up
+
+    if [ "$wan_is_up" != "1" ]; then
+        echo "$SERVICE, wan is down" > /dev/console
+        echo "$SERVICE, exit!" > /dev/console
+        exit 0
+    fi
+}
+
+delete_wizard2_chains() {
+    # input: wizard_dnsrecorder
+    iptables -t filter -F wizard_dnsrecorder
+    iptables -t filter -D input_rule -j wizard_dnsrecorder
+    iptables -t filter -X wizard_dnsrecorder
+
+    # ipv4 forward: wizard
+    iptables -t filter -F wizard
+    iptables -t filter -D forwarding_rule -j wizard
+    iptables -t filter -X wizard
+
+    # ipv6 forward: wizard
+    ip6tables -t filter -F wizard
+    ip6tables -t filter -D forwarding_rule -j wizard
+    ip6tables -t filter -X wizard
+}
+
+add_wizard2_chains() {
+    # input: wizard_dnsrecorder
+    iptables -t filter -N wizard_dnsrecorder
+    iptables -t filter -A input_rule -j wizard_dnsrecorder
+
+    # ipv4 forward: wizard
+    iptables -t filter -N wizard
+    iptables -t filter -A forwarding_rule -j wizard
+
+    # ipv6 forward: wizard
+    ip6tables -t filter -N wizard
+    ip6tables -t filter -A forwarding_rule -j wizard
+}
+
+do_wizard2() {
+    network_get_ipaddr lanIp lan
+
+    iptables -t filter -A wizard ! -i br-lan -j RETURN
+
+    # dnsrecorder
+    iptables -t filter -A wizard_dnsrecorder -p udp --sport 53 -j NFQUEUE --queue-num $DR_QUEUE_NUM --queue-bypass
+
+    # ipv4 forward: wizard
+    # urlfilter checking
+    iptables -t filter -A wizard -m mark --mark 0x0/0x1000 -j NFQUEUE --queue-num $UF_QUEUE_NUM --queue-bypass
+
+    # action
+    # UF_MARK_WHITELIST (1u<<14) is set
+    iptables -t filter -A wizard -m mark --mark 0x4000/0x4000 -j ACCEPT
+    iptables -t filter -A wizard -p tcp --dport 80 --tcp-flags ALL ACK,PSH -j HTTPREDIRECT --redirectpage http://192.168.1.1:80/system-status.html?dlg=wz --direction back
+    iptables -t filter -A wizard -p tcp --dport 80 --syn -j ACCEPT
+    iptables -t filter -A wizard -j DROP
+
+    # ipv6 forward: wizard
+    ip6tables -t filter -A wizard -i br-lan -j DROP
+}
+
+start() {
+    doneWizard=$(objReq system json | jsonfilter -e '@[*]' | jsonfilter -e '@.doneWizard')
+    if [ "$doneWizard" == "1" ]; then
+        echo "$SERVICE, finished." > /dev/console
+        exit 0
+    fi
+    check_wan
+    add_wizard2_chains >/dev/null 2>&1
+    do_wizard2 >/dev/null 2>&1
+}
+
+stop() {
+    delete_wizard2_chains >/dev/null 2>&1
+}
+
+
+stop
+start

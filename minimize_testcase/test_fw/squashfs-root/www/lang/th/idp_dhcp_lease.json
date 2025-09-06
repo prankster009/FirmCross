@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_lease": {
+        "lang_idp_dhcp_lease_title": "ตารางข้อมูลไคลเอ็นต์ DHCP",
+        "lang_idp_dhcp_lease_sortby_title": "เพื่อเรียงลำดับตาม",
+        "lang_idp_dhcp_lease_ipaddr": "ที่อยู่ IP",
+        "lang_idp_dhcp_lease_mac_addr": "ที่อยู่ MAC",
+        "lang_idp_dhcp_lease_interface": "อินเตอร์เฟซ",
+        "lang_idp_dhcp_lease_name": "ชื่อไคลเอ็นต์",
+        "lang_idp_dhcp_lease_name_title": "ชื่อไคลเอ็นต์",
+        "lang_idp_dhcp_lease_interface_title": "อินเตอร์เฟซ",
+        "lang_idp_dhcp_lease_ipaddr_title": "ที่อยู่ IP",
+        "lang_idp_dhcp_lease_mac_addr_title": "ที่อยู่ MAC",
+        "lang_idp_dhcp_lease_expire_title": "เวลาหมดอายุ",
+        "lang_idp_dhcp_lease_delete_abbreviation": "ลบ",
+        "lang_idp_dhcp_lease_interface_wifi": "ระบบไร้สาย"
+    }
+}

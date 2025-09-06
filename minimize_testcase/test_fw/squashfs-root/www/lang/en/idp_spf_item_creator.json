@@ -1,0 +1,28 @@
+{
+    "idp_spf_item_creator": {
+        "lang_spf_item_creator_title": "Add a New Single Port Forwarding",
+        "lang_spf_item_app_title": "Application",
+        "lang_spf_item_app_name_title": "Application Name",
+        "lang_spf_item_ext_port_title": "External Port",
+        "lang_spf_item_int_port_title": "Internal Port",
+        "lang_spf_item_protocol_title": "Protocol",
+        "lang_spf_item_to_ip_title": "To IP Address",
+        "lang_spf_item_enable_title": "Enabled",
+        "lang_app_manual": "Manual",
+        "lang_app_ftp": "FTP",
+        "lang_app_telnet": "Telnet",
+        "lang_app_smtp": "SMPT",
+        "lang_app_dns": "DNS",
+        "lang_app_tftp": "TFTP",
+        "lang_app_finger": "Finger",
+        "lang_app_http": "HTTP",
+        "lang_app_pop3": "POP3",
+        "lang_app_nntp": "NNTP",
+        "lang_app_snmp": "SNMP",
+        "lang_app_pptp": "PPTP",
+        "lang_protocol_both": "Both",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "You can't use the Router's IP, network or broadcast address."
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "security_portrangetrigger": {
+        "lang_prt_app_name_title": "Nom de l'application",
+        "lang_prt_port_trigger_range_title": "Ports déclenchés",
+        "lang_prt_port_forward_range_title": "Ports transférés",
+        "lang_prt_enabled_title": "Activé",
+        "lang_prt_action_title": "Action",
+        "lang_prt_add_btn_title": "Ajouter un nouveau déclenchement de plage de ports",
+        "lang_prt_disabled_title": "Désactivé",
+        "lang_prt_remove_btn_title": "Supprimer"
+    }
+}

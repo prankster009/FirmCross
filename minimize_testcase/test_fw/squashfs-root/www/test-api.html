@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Test API</title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/wapi-min.js"></script>
+<script type="text/javascript">
+var set_obj = set_obj || {};
+
+function test_get_success_cb(obj) {
+$("#res_value").val(JSON.stringify(obj));
+set_obj = API.obj.copy(obj);
+$("#req_value").val(JSON.stringify(set_obj));
+}
+
+function _test_get_error_cb(obj) {
+$("#res_value").val(JSON.stringify(obj));
+}
+
+function test_get_error_cb(obj) {
+var list = "";
+$("#res_value").val("");
+
+if (obj.api_return == 0) {
+$("#res_value").val(JSON.stringify(obj));
+} else {
+API.obj.get(list, test_get_success_cb, _test_get_error_cb);
+}
+}
+
+function exec_get(){
+var list = $("#uri").val();
+
+$("#req_value").val("");
+$("#res_value").val("");
+
+API.obj.get(list, test_get_success_cb, test_get_error_cb);
+}
+
+function test_set_success_cb(obj) {
+$("#res_value").val(JSON.stringify(obj));
+}
+
+function _test_set_error_cb(obj) {
+$("#res_value").val(JSON.stringify(obj));
+}
+
+function test_set_error_cb(obj) {
+var str = $("#req_value").val();
+$("#res_value").val("");
+
+if (obj.api_return == 0) {
+$("#res_value").val(JSON.stringify(obj));
+} else {
+API.obj.set(JSON.parse(str), test_set_success_cb, _test_set_error_cb);
+}
+}
+
+function exec_set(){
+var str = $("#req_value").val();
+
+if (str == "") {
+str = '{}';
+$("#req_value").val(str);
+}
+
+$("#res_value").val("");
+
+//if (!API.obj.isEmpty(set_obj)) {
+//    $("#req_value").val(JSON.stringify(set_obj));
+//    str = $("#req_value").val();
+//}
+
+API.obj.set(JSON.parse(str), test_set_success_cb, test_set_error_cb);
+}
+</script>
+</head>
+<body>
+<form id="form_cac" action="" method="post">
+<h2>Test API</h2>
+<table>
+<tr>
+<td>GET API Endpoint: <input type="text" id="uri" value=""></input></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>SET API Require Json</td>
+<td></td>
+<td>Response Json</td>
+</tr>
+<tr>
+<td>
+<textarea cols="40" rows="20" id="req_value" name="req_value" value=""></textarea>
+</td>
+<td>
+<input type="button" id="get" name="get" value="execute get" onclick="javascript:exec_get()"/><br>
+<input type="button" id="set" name="set" value="execute set" onclick="javascript:exec_set()"/>
+</td>
+<td>
+<textarea cols="100" rows="20" id="res_value" name="res_value" value=""></textarea>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

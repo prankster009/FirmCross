@@ -1,0 +1,10 @@
+{
+    "help_wifi_advanced": {
+        "lang_help_wifi_advanced_title": "Advanced Settings",
+        "lang_advanced_hwb1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_advanced_hwb2": "Wireless - Beamforming",
+        "lang_advanced_hwb3": "Enabled/Disabled",
+        "lang_advanced_hwb4": "Beamforming technology focuses Wi-Fi signal to each device on your network. To benefit from beamforming technology, keep the default, <b>Enabled</b>.",
+        "lang_advanced_hwb5": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

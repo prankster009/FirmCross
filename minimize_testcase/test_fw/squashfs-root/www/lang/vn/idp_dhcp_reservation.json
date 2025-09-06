@@ -1,0 +1,20 @@
+{
+    "idp_dhcp_reservation": {
+        "lang_idp_dhcp_reservation_title": "Bảng thiết bị khách DHCP",
+        "lang_idp_dhcp_reservation_select_add_title": "Chọn thiết bị khách từ Bảng DHCP",
+        "lang_idp_dhcp_reservation_client_name_title": "Tên thiết bị khách",
+        "lang_idp_dhcp_reservation_interface_title": "Giao diện",
+        "lang_idp_dhcp_reservation_ip_title": "Địa chỉ IP",
+        "lang_idp_dhcp_reservation_mac_title": "Địa chỉ MAC",
+        "lang_idp_dhcp_reservation_select_title": "Chọn",
+        "lang_idp_dhcp_reservation_interface_lan": "LAN",
+        "lang_idp_dhcp_reservation_interface_wifi": "Không dây",
+        "lang_idp_dhcp_reservation_add_client_button": "Thêm thiết bị khách",
+        "lang_idp_dhcp_reservation_manual_add_title": "Thêm thiết bị khách thủ công",
+        "lang_idp_dhcp_reservation_enter_client_name_title": "Nhập tên thiết bị khách",
+        "lang_idp_dhcp_reservation_assign_ip_title": "Gán địa chỉ IP",
+        "lang_idp_dhcp_reservation_to_mac_title": "cho địa chỉ MAC này",
+        "lang_idp_dhcp_reservation_client_reserved_title": "Thiết bị khách đã được giữ chỗ",
+        "lang_idp_dhcp_reservation_remove_client_button": "Xoá"
+    }
+}

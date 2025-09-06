@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_dev_rename": {
+        "lang_idp_parental_controls_dev_rename_title": "家长控制",
+        "lang_idp_parental_controls_dev_rename_info1_title": "请重命名设备：",
+        "lang_idp_parental_controls_dev_rename_info2_title": "请输入其新名称",
+        "lang_idp_parental_controls_dev_rename_alert_title": "设备名不能为空！"
+    }
+}

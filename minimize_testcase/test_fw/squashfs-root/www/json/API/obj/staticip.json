@@ -1,0 +1,12 @@
+{
+    "StaticipP": {
+        "ip": "",
+        "netmask": "",
+        "gateway": "",
+        "dns1": "",
+        "dns2": "",
+        "dns3": "",
+        "mtuMode": "0",
+        "mtu": "1500"
+    }
+}

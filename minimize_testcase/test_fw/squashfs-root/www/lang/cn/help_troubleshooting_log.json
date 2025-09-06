@@ -1,0 +1,13 @@
+{
+    "help_troubleshooting_log": {
+        "lang_help_troubleshooting_log_title": "日志",
+        "lang_htl1": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_htl2": "日志",
+        "lang_htl3": "启用/禁用",
+        "lang_htl4": "使用“日志”选项可以监视本地网络与 Internet 之间的流量。",
+        "lang_htl5": "浏览日志",
+        "lang_htl6": "要查看日志，请单击此选项。",
+        "lang_htl7": "“入站日志”显示 Internet 入站流量的临时日志。“出站日志”显示 Internet 出站流量的临时日志。“安全日志”显示路由器基于浏览器的实用工具的登录信息。“DHCP 客户端日志”显示本地 DHCP 服务器状态信息。",
+        "lang_htl8": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

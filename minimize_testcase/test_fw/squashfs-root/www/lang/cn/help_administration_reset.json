@@ -1,0 +1,10 @@
+{
+    "help_administration_reset": {
+        "lang_help_administration_reset_title": "设备重置",
+        "lang_har1": "重启路由器",
+        "lang_har2": "单击此选项可重启路由器。",
+        "lang_har3": "恢复为出厂默认设置",
+        "lang_har4": "使用此功能可以将路由器的所有配置设置重置为默认值。",
+        "lang_har5": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "help_status_network": {
+        "lang_help_status_network_title": "Mạng cục bộ",
+        "lang_hsn1": "Mạng cục bộ",
+        "lang_hsn2": "Địa chỉ MAC cục bộ",
+        "lang_hsn3": "Hiển thị địa chỉ MAC của giao diện nối dây cục bộ của Bộ định tuyến.",
+        "lang_hsn4": "Địa chỉ IPv4",
+        "lang_hsn5": "Hiển thị địa chỉ IPv4 cục bộ của Bộ định tuyến.",
+        "lang_hsn6": "Mặt nạ mạng con IPv4",
+        "lang_hsn7": "Hiển thị mặt nạ mạng con IPv4 của Bộ định tuyến.",
+        "lang_hsn8": "Địa chỉ Liên kết-cục bộ IPv6",
+        "lang_hsn9": "Hiển thị địa chỉ Liên kết-cục bộ IPv6 của Bộ định tuyến.",
+        "lang_hsn10": "Địa chỉ tiền tố",
+        "lang_hsn11": "Hiển thị địa chỉ tiền tố IPv6 của Bộ định tuyến.",
+        "lang_hsn12": "Máy chủ DHCP",
+        "lang_hsn13": "Máy chủ DHCP",
+        "lang_hsn14": "Hiển thị trạng thái của chức năng máy chủ DHCP của Bộ định tuyến.",
+        "lang_hsn15": "Địa chỉ IP bắt đầu",
+        "lang_hsn16": "Với dải các địa chỉ IP khả dụng, nó hiển thị địa chỉ IP bắt đầu.",
+        "lang_hsn17": "Địa chỉ IP kết thúc",
+        "lang_hsn18": "Với dải các địa chỉ IP khả dụng, nó hiển thị địa chỉ IP kết thúc.",
+        "lang_hsn19": "Bảng thiết bị khách DHCP",
+        "lang_hsn20": "Bấm tuỳ chọn này để xem danh sách các máy tính hoặc thiết bị khác đang sử dụng Bộ định tuyến làm máy chủ DHCP."
+    }
+}

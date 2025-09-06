@@ -1,0 +1,17 @@
+{
+    "FirewallP": {
+        "ipv4SpiEnable": "1",
+        "ipv6SpiEnable": "1",
+        "blockAnonys": "1",
+        "blockMulti": "0",
+        "blockNatRedirection": "0",
+        "blockIdent": "1",
+        "blockProxy": "0",
+        "blockJava": "0",
+        "blockActX": "0",
+        "blockCookie": "0",
+        "l2tpPassthrough": "1",
+        "pptpPassthrough": "1",
+        "ipsecPassthrough": "1"
+    }
+}

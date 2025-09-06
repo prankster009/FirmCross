@@ -1,0 +1,871 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "sub_410da8",
+                    "string": "sub_410da8(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>) @ 0x410da8",
+                    "ins_addr": "0x410da8"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV32 stack_base + 0xfffff648>)>) @ 0x410ff8",
+                "ins_addr": "0x410ff8"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "<BV312 0x2f6574632f72675f636f6e6669672f73696e676c652f .. TOP .. 0x496e646570656e642e6a736f6e>",
+                    "read("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_410da8",
+                    "string": "sub_410da8(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>) @ 0x410da8",
+                    "ins_addr": "0x410da8"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV32 stack_base + 0xfffff648>)>) @ 0x41114c",
+                "ins_addr": "0x41114c"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "<BV312 0x2f6574632f72675f636f6e6669672f73696e676c652f .. TOP .. 0x496e646570656e642e6a736f6e>",
+                    "read("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_41e1a8",
+                    "string": "sub_41e1a8() @ 0x41e1a8",
+                    "ins_addr": "0x41e1a8"
+                },
+                {
+                    "function": "sub_41dfd0",
+                    "string": "sub_41dfd0(<MultiValues({0: {<BV32 TOP + 0xffffffc4>, <BV32 0x0>}})>, <MultiValues(<BV32 0x4243a0>)>, <MultiValues(<BV32 TOP>)>) @ 0x41e2e4",
+                    "ins_addr": "0x41e2e4"
+                },
+                {
+                    "function": "uf_fork_as",
+                    "string": "uf_fork_as(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 0x4243a0>)>, <MultiValues(<BV32 TOP>)>) @ 0x41e038",
+                    "ins_addr": "0x41e038"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV32 TOP>)>) @ 0x417b74",
+                "ins_addr": "0x417b74"
+            },
+            "depth": 3,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV32 TOP + ARGC>)>, <MultiValues(<BV32 stack_base + 0xdeadc0de>)>) @ 0x403d10",
+                    "ins_addr": "0x403d10"
+                },
+                {
+                    "function": "add_pkg_cmd2_task",
+                    "string": "add_pkg_cmd2_task(<MultiValues(<BV32 0#31 .. TOP>)>) @ 0x4047fc",
+                    "ins_addr": "0x4047fc"
+                },
+                {
+                    "function": "uf_cmd_call",
+                    "string": "uf_cmd_call(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP + 0xffffffd0>)>) @ 0x40c3e8",
+                    "ins_addr": "0x40c3e8"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 0x4281a0>)>, <MultiValues(<BV32 stack_base + 0xfffffd28>)>) @ 0x41bd1c",
+                    "ins_addr": "0x41bd1c"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 0x4281a0>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 0x4281a0>)>, <MultiValues(<BV32 stack_base + 0xfffffd28>)>) @ 0x41bd1c",
+                    "ins_addr": "0x41bd1c"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 0x4281a0>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 0x4281a0>)>, <MultiValues(<BV32 stack_base + 0xfffffd28>)>) @ 0x41bd1c",
+                    "ins_addr": "0x41bd1c"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 0x4281a0>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 0x4281a0>)>, <MultiValues(<BV32 stack_base + 0xfffffd28>)>) @ 0x41bd1c",
+                    "ins_addr": "0x41bd1c"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 0x4281a0>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffff8a0>)>, <MultiValues(<BV32 stack_base + 0xfffffa88>)>) @ 0x41a7c0",
+                    "ins_addr": "0x41a7c0"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffff8a0>)>, <MultiValues(<BV32 stack_base + 0xfffffa88>)>) @ 0x41a7c0",
+                    "ins_addr": "0x41a7c0"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffffd80>)>) @ 0x408594",
+                    "ins_addr": "0x408594"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x41ce0c",
+                "ins_addr": "0x41ce0c"
+            },
+            "depth": 5,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "uf_socket_msg_read(",
+                    "fgets("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_41e1a8",
+                    "string": "sub_41e1a8() @ 0x41e1a8",
+                    "ins_addr": "0x41e1a8"
+                },
+                {
+                    "function": "sub_41dfd0",
+                    "string": "sub_41dfd0(<MultiValues({0: {<BV32 TOP + 0xffffffc4>, <BV32 0x0>}})>, <MultiValues(<BV32 0x4243a0>)>, <MultiValues(<BV32 TOP>)>) @ 0x41e2e4",
+                    "ins_addr": "0x41e2e4"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 TOP>)>, <MultiValues({0: {<BV32 0x34>, <BV32 TOP + 0xfffffff8>}})>) @ 0x41e09c",
+                    "ins_addr": "0x41e09c"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x41ce0c",
+                "ins_addr": "0x41ce0c"
+            },
+            "depth": 4,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_410da8",
+                    "string": "sub_410da8(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>) @ 0x410da8",
+                    "ins_addr": "0x410da8"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP + 0x58>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x410e8c",
+                    "ins_addr": "0x410e8c"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffff4f8>)>, <MultiValues(<BV32 stack_base + 0xfffff598>)>) @ 0x40f330",
+                    "ins_addr": "0x40f330"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffff4f8>)>, <MultiValues({0: {<BV32 Reverse(TOP) + 0x45fc>, <BV32 0x4245fc>}})>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffff5f0>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x1>)>) @ 0x4108e4",
+                    "ins_addr": "0x4108e4"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffff2e0>)>, <MultiValues(<BV32 stack_base + 0xfffff380>)>) @ 0x40f330",
+                    "ins_addr": "0x40f330"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffff2e0>)>, <MultiValues({0: {<BV32 Reverse(TOP) + 0x45fc>, <BV32 0x4245fc>}})>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffff5f0>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x1>)>) @ 0x4108e4",
+                    "ins_addr": "0x4108e4"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffff2e0>)>, <MultiValues(<BV32 stack_base + 0xfffff380>)>) @ 0x40f330",
+                    "ins_addr": "0x40f330"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffff2e0>)>, <MultiValues({0: {<BV32 Reverse(TOP) + 0x45fc>, <BV32 0x4245fc>}})>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffff648>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x4114fc",
+                    "ins_addr": "0x4114fc"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffff4f8>)>, <MultiValues(<BV32 stack_base + 0xfffff598>)>) @ 0x40f330",
+                    "ins_addr": "0x40f330"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffff4f8>)>, <MultiValues({0: {<BV32 Reverse(TOP) + 0x45fc>, <BV32 0x4245fc>}})>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffff648>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x41142c",
+                    "ins_addr": "0x41142c"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffff4f8>)>, <MultiValues(<BV32 stack_base + 0xfffff598>)>) @ 0x40f330",
+                    "ins_addr": "0x40f330"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffff4f8>)>, <MultiValues({0: {<BV32 Reverse(TOP) + 0x45fc>, <BV32 0x4245fc>}})>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV32 stack_base + 0xfffff4f8>)>, <MultiValues({0: {<BV32 0x4245fc>, <BV32 Reverse(TOP) + 0x45fc>}})>) @ 0x41ce0c",
+                "ins_addr": "0x41ce0c"
+            },
+            "depth": 4,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "<BV312 0x2f6574632f72675f636f6e6669672f73696e676c652f .. TOP .. 0x496e646570656e642e6a736f6e>",
+                    "fgets("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_411608",
+                    "string": "sub_411608(<MultiValues(<BV32 TOP>)>) @ 0x411608",
+                    "ins_addr": "0x411608"
+                },
+                {
+                    "function": "ufm_tipc_sync",
+                    "string": "ufm_tipc_sync(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>) @ 0x4117b0",
+                    "ins_addr": "0x4117b0"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffffc38>)>, <MultiValues(<BV32 TOP + 0x58>)>) @ 0x418acc",
+                    "ins_addr": "0x418acc"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffffc38>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV32 stack_base + 0xfffffc38>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x41ce0c",
+                "ins_addr": "0x41ce0c"
+            },
+            "depth": 4,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_410830",
+                    "string": "sub_410830(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>) @ 0x410830",
+                    "ins_addr": "0x410830"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xffffffd0>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x1>)>) @ 0x4108e4",
+                    "ins_addr": "0x4108e4"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffffcc0>)>, <MultiValues(<BV32 stack_base + 0xfffffd60>)>) @ 0x40f330",
+                    "ins_addr": "0x40f330"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffffcc0>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV32 stack_base + 0xfffffcc0>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x41ce0c",
+                "ins_addr": "0x41ce0c"
+            },
+            "depth": 4,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "<BV312 0x2f6574632f72675f636f6e6669672f73696e676c652f .. TOP .. 0x496e646570656e642e6a736f6e>"
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_41ac50",
+                    "string": "sub_41ac50(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>) @ 0x41ac50",
+                    "ins_addr": "0x41ac50"
+                },
+                {
+                    "function": "curl_rst_get",
+                    "string": "curl_rst_get(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffffdd8>)>) @ 0x41ad44",
+                    "ins_addr": "0x41ad44"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffffba0>)>, <MultiValues(<BV32 stack_base + 0xfffffd88>)>) @ 0x41a7c0",
+                    "ins_addr": "0x41a7c0"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffffba0>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffffba0>)>, <MultiValues(<BV32 stack_base + 0xfffffd88>)>) @ 0x41a7c0",
+                    "ins_addr": "0x41a7c0"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffffba0>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV32 stack_base + 0xfffffba0>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x41ce0c",
+                "ins_addr": "0x41ce0c"
+            },
+            "depth": 4,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_411608",
+                    "string": "sub_411608(<MultiValues(<BV32 TOP>)>) @ 0x411608",
+                    "ins_addr": "0x411608"
+                },
+                {
+                    "function": "ufm_popen",
+                    "string": "ufm_popen(<MultiValues(<BV32 stack_base + 0xfffffc38>)>, <MultiValues(<BV32 TOP + 0x58>)>) @ 0x418acc",
+                    "ins_addr": "0x418acc"
+                },
+                {
+                    "function": "uf_popen",
+                    "string": "uf_popen(<MultiValues(<BV32 stack_base + 0xfffffc38>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x4169a8",
+                    "ins_addr": "0x4169a8"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues({0: {<BV32 TOP + 0x58>, <BV32 TOP + 0x58>, <BV32 TOP + 0x58>, <BV32 TOP + 0x58>}})>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x411f64",
+                    "ins_addr": "0x411f64"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues({0: {<BV32 TOP + 0x58>, <BV32 TOP + 0x58>, <BV32 TOP + 0x58>, <BV32 TOP + 0x58>, <BV32 TOP + 0x58>}})>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x41222c",
+                    "ins_addr": "0x41222c"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues({0: {<BV32 TOP + 0x58>, <BV32 TOP + 0x58>, <BV32 TOP + 0x58>, <BV32 TOP + 0x58>, <BV32 TOP + 0x58>}})>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x412594",
+                    "ins_addr": "0x412594"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xffffff88>)>, <MultiValues(<BV32 0x1>)>, <MultiValues(<BV32 0x0>)>) @ 0x4127e8",
+                    "ins_addr": "0x4127e8"
+                }
+            ],
+            "sink": {
+                "function": "popen",
+                "string": "popen(<MultiValues(<BV32 stack_base + 0xfffffc38>)>, <MultiValues(<BV32 0x4245fc>)>) @ 0x41ce0c",
+                "ins_addr": "0x41ce0c"
+            },
+            "depth": 4,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "read(",
+                    "fgets("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_410da8",
+                    "string": "sub_410da8(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP>)>) @ 0x410da8",
+                    "ins_addr": "0x410da8"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 TOP + 0x58>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x410e8c",
+                    "ins_addr": "0x410e8c"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff578>)>, <MultiValues(<BV32 TOP + 0x58>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff578>)>, <MultiValues(<BV32 TOP + 0x58>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues({0: {<BV32 stack_base + 0xfffff578>, <BV32 stack_base + 0xfffff578>}})>, <MultiValues({0: {<BV32 TOP + 0x58>, <BV32 TOP + 0x58>}})>, <MultiValues({0: {<BV32 0x1>, <BV32 0x1>}})>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffff5f0>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x1>)>) @ 0x4108e4",
+                    "ins_addr": "0x4108e4"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff360>)>, <MultiValues(<BV32 stack_base + 0xfffff5f0>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff360>)>, <MultiValues(<BV32 stack_base + 0xfffff5f0>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues({0: {<BV32 stack_base + 0xfffff360>, <BV32 stack_base + 0xfffff360>}})>, <MultiValues({0: {<BV32 stack_base + 0xfffff5f0>, <BV32 stack_base + 0xfffff5f0>}})>, <MultiValues({0: {<BV32 0x1>, <BV32 0x1>}})>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffff5f0>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x1>)>) @ 0x4108e4",
+                    "ins_addr": "0x4108e4"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff360>)>, <MultiValues(<BV32 stack_base + 0xfffff5f0>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff360>)>, <MultiValues(<BV32 stack_base + 0xfffff5f0>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues({0: {<BV32 stack_base + 0xfffff360>, <BV32 stack_base + 0xfffff360>}})>, <MultiValues({0: {<BV32 stack_base + 0xfffff5f0>, <BV32 stack_base + 0xfffff5f0>}})>, <MultiValues({0: {<BV32 0x1>, <BV32 0x1>}})>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffff648>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x4114fc",
+                    "ins_addr": "0x4114fc"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff578>)>, <MultiValues(<BV32 stack_base + 0xfffff648>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff578>)>, <MultiValues(<BV32 stack_base + 0xfffff648>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues({0: {<BV32 stack_base + 0xfffff578>, <BV32 stack_base + 0xfffff578>}})>, <MultiValues({0: {<BV32 stack_base + 0xfffff648>, <BV32 stack_base + 0xfffff648>}})>, <MultiValues({0: {<BV32 0x1>, <BV32 0x1>}})>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xfffff648>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x41142c",
+                    "ins_addr": "0x41142c"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff578>)>, <MultiValues(<BV32 stack_base + 0xfffff648>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffff578>)>, <MultiValues(<BV32 stack_base + 0xfffff648>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues({0: {<BV32 stack_base + 0xfffff578>, <BV32 stack_base + 0xfffff578>}})>, <MultiValues({0: {<BV32 stack_base + 0xfffff648>, <BV32 stack_base + 0xfffff648>}})>, <MultiValues({0: {<BV32 0x1>, <BV32 0x1>}})>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                }
+            ],
+            "sink": {
+                "function": "execve",
+                "string": "execve(<MultiValues({0: {<BV32 TOP>, <BV32 Reverse(TOP) + 0x57ec>, <BV32 0x4257ec>}})>, <MultiValues(<BV32 stack_base + 0xfffff360>)>, <MultiValues(<BV32 0x0>)>) @ 0x417360",
+                "ins_addr": "0x417360"
+            },
+            "depth": 4,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "<BV312 0x2f6574632f72675f636f6e6669672f73696e676c652f .. TOP .. 0x496e646570656e642e6a736f6e>",
+                    "fgets(",
+                    "read("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_412888",
+                    "string": "sub_412888(<MultiValues(<BV32 TOP>)>) @ 0x412888",
+                    "ins_addr": "0x412888"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xffffffc8>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x412c3c",
+                    "ins_addr": "0x412c3c"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffffd80>)>, <MultiValues(<BV32 stack_base + 0xffffffc8>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffffd80>)>, <MultiValues(<BV32 stack_base + 0xffffffc8>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues({0: {<BV32 stack_base + 0xfffffd80>, <BV32 stack_base + 0xfffffd80>}})>, <MultiValues({0: {<BV32 stack_base + 0xffffffc8>, <BV32 stack_base + 0xffffffc8>}})>, <MultiValues({0: {<BV32 0x1>, <BV32 0x1>}})>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "call_module_commit",
+                    "string": "call_module_commit(<MultiValues(<BV32 TOP>)>, <MultiValues(<BV32 stack_base + 0xffffffc8>)>, <MultiValues(<BV32 0x0>)>, <MultiValues(<BV32 0x0>)>) @ 0x412be0",
+                    "ins_addr": "0x412be0"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffffd80>)>, <MultiValues(<BV32 stack_base + 0xffffffc8>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues(<BV32 stack_base + 0xfffffd80>)>, <MultiValues(<BV32 stack_base + 0xffffffc8>)>, <MultiValues(<BV32 0x0>)>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                },
+                {
+                    "function": "uf_safe_popen",
+                    "string": "uf_safe_popen(<MultiValues({0: {<BV32 stack_base + 0xfffffd80>, <BV32 stack_base + 0xfffffd80>}})>, <MultiValues({0: {<BV32 stack_base + 0xffffffc8>, <BV32 stack_base + 0xffffffc8>}})>, <MultiValues({0: {<BV32 0x1>, <BV32 0x1>}})>) @ 0x410508",
+                    "ins_addr": "0x410508"
+                }
+            ],
+            "sink": {
+                "function": "execve",
+                "string": "execve(<MultiValues({0: {<BV32 TOP>, <BV32 Reverse(TOP) + 0x57ec>, <BV32 0x4257ec>}})>, <MultiValues(<BV32 stack_base + 0xfffffd80>)>, <MultiValues(<BV32 0x0>)>) @ 0x417360",
+                "ins_addr": "0x417360"
+            },
+            "depth": 3,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "fgets(",
+                    "read("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 1088.6741919517517,
+    "vra_time": 31.96719717979431,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/ruijie/mips_unifyframe-sgi.elf",
+    "name": "mips_unifyframe-sgi.elf",
+    "has_sinks": true,
+    "sha256": "3019409f3ed7c9923c31bdfa50b871044468349f247afd2493f4732d523d6653",
+    "sink_times": {
+        "system": 127.02942776679993,
+        "popen": 259.21407866477966,
+        "execve": 251.8056092262268
+    },
+    "error": null,
+    "mango_time": 1041.7827622890472,
+    "sinks": {
+        "system": 1,
+        "popen": 1,
+        "execve": 1
+    },
+    "time_data": {
+        "0x40a6f4 -> 0x500144": {
+            "taint_time": 2.682709217071533,
+            "rda_time": 5.380235910415649
+        },
+        "0x40ac50 -> 0x40ad74 -> 0x500144": {
+            "taint_time": 0.49903321266174316,
+            "rda_time": 1.095496416091919
+        },
+        "0x410da8 -> 0x500144": {
+            "taint_time": 20.363919019699097,
+            "rda_time": 45.1307532787323
+        },
+        "0x417a78 -> 0x41dfd0 -> 0x41e1a8 -> 0x500144": {
+            "taint_time": 3.1025521755218506,
+            "rda_time": 0.7911107540130615
+        },
+        "0x41cdc0 -> 0x417180 -> 0x409968 -> 0x500170": {
+            "taint_time": 3.863544225692749,
+            "rda_time": 5.937126398086548
+        },
+        "0x41cdc0 -> 0x417180 -> 0x407e1c -> 0x40c0d4 -> 0x403d10 -> 0x500170": {
+            "taint_time": 14.937426328659058,
+            "rda_time": 23.00795888900757
+        },
+        "0x41cdc0 -> 0x417180 -> 0x500170": {
+            "taint_time": 0.001497507095336914,
+            "rda_time": 0.37131714820861816
+        },
+        "0x41cdc0 -> 0x417180 -> 0x41bb9c -> 0x500170": {
+            "taint_time": 0.5238704681396484,
+            "rda_time": 1.452509880065918
+        },
+        "0x41cdc0 -> 0x417180 -> 0x40d5d0 -> 0x500170": {
+            "taint_time": 0.7877583503723145,
+            "rda_time": 1.7870230674743652
+        },
+        "0x41cdc0 -> 0x417180 -> 0x40f134 -> 0x412f2c -> 0x500170": {
+            "taint_time": 22.094345808029175,
+            "rda_time": 27.953182220458984
+        },
+        "0x41cdc0 -> 0x417180 -> 0x41dfd0 -> 0x41e1a8 -> 0x500170": {
+            "taint_time": 0.5423910617828369,
+            "rda_time": 1.2366113662719727
+        },
+        "0x41cdc0 -> 0x417180 -> 0x41b6ac -> 0x41bf6c -> 0x412f2c -> 0x500170": {
+            "taint_time": 6.426917552947998,
+            "rda_time": 3.131603717803955
+        },
+        "0x41cdc0 -> 0x417180 -> 0x40f134 -> 0x410da8 -> 0x500170": {
+            "taint_time": 13.095018863677979,
+            "rda_time": 43.8394832611084
+        },
+        "0x41cdc0 -> 0x417180 -> 0x4188fc -> 0x411608 -> 0x500170": {
+            "taint_time": 3.2315773963928223,
+            "rda_time": 7.090332984924316
+        },
+        "0x41cdc0 -> 0x417180 -> 0x40f134 -> 0x410830 -> 0x500170": {
+            "taint_time": 0.8445806503295898,
+            "rda_time": 10.05843472480774
+        },
+        "0x41cdc0 -> 0x417180 -> 0x41a5e8 -> 0x41ac50 -> 0x500170": {
+            "taint_time": 1.974839687347412,
+            "rda_time": 3.151031017303467
+        },
+        "0x41cdc0 -> 0x417180 -> 0x40f134 -> 0x412888 -> 0x500170": {
+            "taint_time": 5.417270183563232,
+            "rda_time": 14.089457035064697
+        },
+        "0x41cdc0 -> 0x417180 -> 0x40f134 -> 0x411608 -> 0x500170": {
+            "taint_time": 5.623815059661865,
+            "rda_time": 25.422919988632202
+        },
+        "0x41cdc0 -> 0x417180 -> 0x41a5e8 -> 0x41ac50 -> 0x41bf6c -> 0x412f2c -> 0x500170": {
+            "taint_time": 2.7061619758605957,
+            "rda_time": 5.006648302078247
+        },
+        "0x41cdc0 -> 0x417180 -> 0x40f134 -> 0x410830 -> 0x410da8 -> 0x500170": {
+            "taint_time": 16.381513357162476,
+            "rda_time": 154.84853792190552
+        },
+        "0x41719c -> 0x40f134 -> 0x412f2c -> 0x500050": {
+            "taint_time": 25.196382761001587,
+            "rda_time": 31.26814603805542
+        },
+        "0x41719c -> 0x40f134 -> 0x410da8 -> 0x500050": {
+            "taint_time": 11.67660903930664,
+            "rda_time": 104.14613270759583
+        },
+        "0x41719c -> 0x40f134 -> 0x410830 -> 0x500050": {
+            "taint_time": 0.881385087966919,
+            "rda_time": 29.585797786712646
+        },
+        "0x41719c -> 0x40f134 -> 0x412888 -> 0x500050": {
+            "taint_time": 3.2455222606658936,
+            "rda_time": 32.28780555725098
+        },
+        "0x41719c -> 0x40f134 -> 0x411608 -> 0x500050": {
+            "taint_time": 5.727290630340576,
+            "rda_time": 38.98257756233215
+        },
+        "0x41719c -> 0x40f134 -> 0x410830 -> 0x410da8 -> 0x500050": {
+            "taint_time": 15.568356990814209,
+            "rda_time": 157.66449522972107
+        }
+    }
+}

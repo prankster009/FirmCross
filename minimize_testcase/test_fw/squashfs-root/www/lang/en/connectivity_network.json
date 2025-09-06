@@ -1,0 +1,30 @@
+{
+    "connectivity_network": {
+        "lang_network_zone_router_address_title": "Router Address",
+        "lang_ip_addr_title": "IP Address",
+        "lang_subnet_mask_title": "Subnet Mask",
+        "lang_router_name_title": "Router Name",
+        "lang_network_zone_dhcp_server_setting_title": "DHCP Server Setting",
+        "lang_dhcp_server_enable_title": "DHCP Server",
+        "lang_dhcp_reservation_button": "DHCP Reservation",
+        "lang_start_ip_title": "Start IP Address",
+        "lang_num_of_user_title": "Maximum Numbers of Users",
+        "lang_ip_range_title": "IP Address Range",
+        "lang_lease_time_title": "Client Lease Time",
+        "lang_lease_time_unit": "minutes (0 means one day)",
+        "lang_static_dns_1_title": "Static DNS 1",
+        "lang_static_dns_2_title": "Static DNS 2",
+        "lang_static_dns_3_title": "Static DNS 3",
+        "lang_wins_title": "WINS",
+        "lang_ip_range_to_title": "to",
+        "lang_alert_out_range": "The value is out of range",
+        "lang_alert_change_setting": "Avalue is out of range. Change Start IP Address or Maximum Number of Users.",
+        "lang_alert_illegal_char": "Illegal characters [must be 0 - 9].",
+        "lang_alert_dev_name_blank": "The Router name cannot be blank!",
+        "lang_alert_bridge_mode": "These features are not supported when the router is operating in Bridge mode.",
+        "lang_alert_dev_name_illegal_char": "The router name can only contain alphanumberic characters and dashes.",
+        "lang_alert_dev_name_start_letter": "The router name must start with a letter.",
+        "lang_alert_no_need_setup": "Not need to set up LAN settings.",
+        "lang_alert_gn_ip_range": "The 192.168.33.0/24 network (IP addresses 192.168.33.0 - 255) is reserved for the Wireless Guest Network. Please use a different network address."
+    }
+}

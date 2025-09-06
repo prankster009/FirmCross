@@ -1,0 +1,128 @@
+Vulnerability 2:
+Source
+	 File: /home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac, Function: reset_stat_params_config
+	 pc: -3, trigger: "reset_stat_params_config":
+	 description: function param idx: 0
+Sink
+	 File: /home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac, Function: reset_stat_params_config
+	 pc: 118, trigger: "luci.sys.fork_call", param idx: 0
+Taint propagation
+	 No.0 propagation path
+	 Source and Sink in the same function
+	 File: /home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac, Function: reset_stat_params_config
+	 Reassignment info:
+	 > pc: -3	 instr: [R[0]] = []
+	 > pc: 14	 instr: [R[6]] = [Table:reg_R[0] element_Constant_filter(value)_4(type)]]
+		 > explain: [ 14]   GETTABLE :   R[6]      0   K[2]        ; 
+	 > pc: 14	 instr: [R[6]] = [Table:reg_R[0] element_Constant_filter(value)_4(type)]]
+		 > explain: [ 14]   GETTABLE :   R[6]      0   K[2]        ; 
+	 > pc: 19	 instr: [R[11]] = [Table:reg_R[6] element_R[10]]]
+		 > explain: [ 19]   GETTABLE :  R[11]      6  R[10]        ; 
+	 > pc: 19	 instr: [R[11]] = [Table:reg_R[6] element_R[10]]]
+		 > explain: [ 19]   GETTABLE :  R[11]      6  R[10]        ; 
+	 > pc: 27	 instr: [R[12]] = [R[13], R[14], R[15], R[16]]
+		 > explain: [ 27]       CALL :     12      5      2        ; 
+	 > pc: 32	 instr: [R[13]] = [R[14], R[15], R[16], R[17]]
+		 > explain: [ 32]       CALL :     13      5      2        ; 
+	 > pc: 37	 instr: [R[14]] = [R[15], R[16], R[17], R[18]]
+		 > explain: [ 37]       CALL :     14      5      2        ; 
+	 > pc: 42	 instr: [R[15]] = [R[16], R[17], R[18], R[19]]
+		 > explain: [ 42]       CALL :     15      5      2        ; 
+	 > pc: 72	 instr: [R[16]] = [R[17]]
+		 > explain: [ 72]       CALL :     16      2      2        ; 
+	 > pc: 79	 instr: [R[17]] = [Table:reg_R[11] element_Constant_param_name(value)_4(type)]]
+		 > explain: [ 79]   GETTABLE :  R[17]     11   K[6]        ; 
+	 > pc: 80	 instr: [R[15]] = [R[16], R[17]]
+		 > explain: [ 80]       CALL :     15      3      2        ; 
+	 > pc: 79	 instr: [R[17]] = [Table:reg_R[11] element_Constant_param_name(value)_4(type)]]
+		 > explain: [ 79]   GETTABLE :  R[17]     11   K[6]        ; 
+	 > pc: 80	 instr: [R[15]] = [R[16], R[17]]
+		 > explain: [ 80]       CALL :     15      3      2        ; 
+	 > pc: 81	 instr: [R[2]] = [R[15]]
+		 > explain: [ 81]       MOVE :      2     15      0        ; move R[15] into R[2]
+	 > pc: 81	 instr: [R[2]] = [R[15]]
+		 > explain: [ 81]       MOVE :      2     15      0        ; move R[15] into R[2]
+	 > pc: 117	 instr: [R[8]] = [R[2]]
+		 > explain: [117]       MOVE :      8      2      0        ; move R[2] into R[8]
+	 > pc: 118	 instr: [] = [R[8]]
+		 > explain: [118]       CALL :      7      2      1        ; 
+	 No.1 propagation path
+	 Source and Sink in the same function
+	 File: /home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac, Function: reset_stat_params_config
+	 Reassignment info:
+	 > pc: -3	 instr: [R[0]] = []
+	 > pc: 14	 instr: [R[6]] = [Table:reg_R[0] element_Constant_filter(value)_4(type)]]
+		 > explain: [ 14]   GETTABLE :   R[6]      0   K[2]        ; 
+	 > pc: 14	 instr: [R[6]] = [Table:reg_R[0] element_Constant_filter(value)_4(type)]]
+		 > explain: [ 14]   GETTABLE :   R[6]      0   K[2]        ; 
+	 > pc: 19	 instr: [R[11]] = [Table:reg_R[6] element_R[10]]]
+		 > explain: [ 19]   GETTABLE :  R[11]      6  R[10]        ; 
+	 > pc: 19	 instr: [R[11]] = [Table:reg_R[6] element_R[10]]]
+		 > explain: [ 19]   GETTABLE :  R[11]      6  R[10]        ; 
+	 > pc: 27	 instr: [R[12]] = [R[13], R[14], R[15], R[16]]
+		 > explain: [ 27]       CALL :     12      5      2        ; 
+	 > pc: 32	 instr: [R[13]] = [R[14], R[15], R[16], R[17]]
+		 > explain: [ 32]       CALL :     13      5      2        ; 
+	 > pc: 37	 instr: [R[14]] = [R[15], R[16], R[17], R[18]]
+		 > explain: [ 37]       CALL :     14      5      2        ; 
+	 > pc: 42	 instr: [R[15]] = [R[16], R[17], R[18], R[19]]
+		 > explain: [ 42]       CALL :     15      5      2        ; 
+	 > pc: 72	 instr: [R[16]] = [R[17]]
+		 > explain: [ 72]       CALL :     16      2      2        ; 
+	 > pc: 79	 instr: [R[17]] = [Table:reg_R[11] element_Constant_param_name(value)_4(type)]]
+		 > explain: [ 79]   GETTABLE :  R[17]     11   K[6]        ; 
+	 > pc: 80	 instr: [R[15]] = [R[16], R[17]]
+		 > explain: [ 80]       CALL :     15      3      2        ; 
+	 > pc: 79	 instr: [R[17]] = [Table:reg_R[11] element_Constant_param_name(value)_4(type)]]
+		 > explain: [ 79]   GETTABLE :  R[17]     11   K[6]        ; 
+	 > pc: 80	 instr: [R[15]] = [R[16], R[17]]
+		 > explain: [ 80]       CALL :     15      3      2        ; 
+	 > pc: 81	 instr: [R[2]] = [R[15]]
+		 > explain: [ 81]       MOVE :      2     15      0        ; move R[15] into R[2]
+	 > pc: 81	 instr: [R[2]] = [R[15]]
+		 > explain: [ 81]       MOVE :      2     15      0        ; move R[15] into R[2]
+	 > pc: 117	 instr: [R[8]] = [R[2]]
+		 > explain: [117]       MOVE :      8      2      0        ; move R[2] into R[8]
+	 > pc: 118	 instr: [] = [R[8]]
+		 > explain: [118]       CALL :      7      2      1        ; 
+	 No.2 propagation path
+	 Source and Sink in the same function
+	 File: /home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac, Function: reset_stat_params_config
+	 Reassignment info:
+	 > pc: -3	 instr: [R[0]] = []
+	 > pc: 14	 instr: [R[6]] = [Table:reg_R[0] element_Constant_filter(value)_4(type)]]
+		 > explain: [ 14]   GETTABLE :   R[6]      0   K[2]        ; 
+	 > pc: 14	 instr: [R[6]] = [Table:reg_R[0] element_Constant_filter(value)_4(type)]]
+		 > explain: [ 14]   GETTABLE :   R[6]      0   K[2]        ; 
+	 > pc: 19	 instr: [R[11]] = [Table:reg_R[6] element_R[10]]]
+		 > explain: [ 19]   GETTABLE :  R[11]      6  R[10]        ; 
+	 > pc: 19	 instr: [R[11]] = [Table:reg_R[6] element_R[10]]]
+		 > explain: [ 19]   GETTABLE :  R[11]      6  R[10]        ; 
+	 > pc: 27	 instr: [R[12]] = [R[13], R[14], R[15], R[16]]
+		 > explain: [ 27]       CALL :     12      5      2        ; 
+	 > pc: 32	 instr: [R[13]] = [R[14], R[15], R[16], R[17]]
+		 > explain: [ 32]       CALL :     13      5      2        ; 
+	 > pc: 37	 instr: [R[14]] = [R[15], R[16], R[17], R[18]]
+		 > explain: [ 37]       CALL :     14      5      2        ; 
+	 > pc: 42	 instr: [R[15]] = [R[16], R[17], R[18], R[19]]
+		 > explain: [ 42]       CALL :     15      5      2        ; 
+	 > pc: 72	 instr: [R[16]] = [R[17]]
+		 > explain: [ 72]       CALL :     16      2      2        ; 
+	 > pc: 79	 instr: [R[17]] = [Table:reg_R[11] element_Constant_param_name(value)_4(type)]]
+		 > explain: [ 79]   GETTABLE :  R[17]     11   K[6]        ; 
+	 > pc: 80	 instr: [R[15]] = [R[16], R[17]]
+		 > explain: [ 80]       CALL :     15      3      2        ; 
+	 > pc: 79	 instr: [R[17]] = [Table:reg_R[11] element_Constant_param_name(value)_4(type)]]
+		 > explain: [ 79]   GETTABLE :  R[17]     11   K[6]        ; 
+	 > pc: 80	 instr: [R[15]] = [R[16], R[17]]
+		 > explain: [ 80]       CALL :     15      3      2        ; 
+	 > pc: 81	 instr: [R[2]] = [R[15]]
+		 > explain: [ 81]       MOVE :      2     15      0        ; move R[15] into R[2]
+	 > pc: 81	 instr: [R[2]] = [R[15]]
+		 > explain: [ 81]       MOVE :      2     15      0        ; move R[15] into R[2]
+	 > pc: 117	 instr: [R[8]] = [R[2]]
+		 > explain: [117]       MOVE :      8      2      0        ; move R[2] into R[8]
+	 > pc: 118	 instr: [] = [R[8]]
+		 > explain: [118]       CALL :      7      2      1        ; 
+
+

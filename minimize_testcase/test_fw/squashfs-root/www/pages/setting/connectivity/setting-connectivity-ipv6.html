@@ -1,0 +1,372 @@
+<script type="text/javascript">
+var OBJ_LIST = ['ipv6','wan']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var INFO_LIST = ['dhcp6cDuid'];
+var INFO_DATA = {};
+var str_6rd_tunnel = ['6rd_tunnel_opt_disabled','6rd_tunnel_opt_auto_config','6rd_tunnel_opt_manual_config'];
+var val_6rd_tunnel = ['0','1','2']; //['disabled','auto','manual'];
+var SAVE_IPV6_WAITING_TIME = 15000;
+</script>
+<form id='ui-form'>
+<div class="table-title internet_setup_zone">
+<span class="multi_lang" id="lang_ipv6_zone_internet_setup_title"></span>
+</div>
+<hr class="table-title-underline internet_setup_zone">
+<table class="table table-info internet_setup_zone">
+<tbody>
+<tr id="tr_ipv6_auto" >
+<td><script>draw_checkbox('ipv6.Ipv6P[dhcp6cEnable]', 'lang_ipv6_auto_title', 'on', "ipv6_auto_checked()");</script><span id="checkbox_div_ipv6.Ipv6P[dhcp6cEnable]"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+<tr id="tr_hr" >
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id="tr_ipv6_duid" >
+<td>
+<span class="multi_lang" id="lang_ipv6_duid_title"></span>
+</td>
+<td>
+<span name="ipv6_duid" id="ipv6_duid" ></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title network_setup_zone">
+<span class="multi_lang" id="lang_ipv6_zone_network_setup_title"></span>
+</div>
+<hr class="table-title-underline network_setup_zone">
+<table class="table table-info network_setup_zone">
+<tbody>
+<tr id="tr_6rd_tunnel" >
+<td>
+<span class="multi_lang" id="lang_6rd_tunnel_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('ipv6.Ipv6P[tun6rdMode]', str_6rd_tunnel, val_6rd_tunnel,'selected_6rd_tunnel(this.value)', '');})();</script>
+<div id="select_div_ipv6.Ipv6P[tun6rdMode]"></div>
+</td>
+</tr>
+<tr id='ipv6_tun6rd_br' style="display:none;">
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id='ipv6_ip6prefix' style="display:none;">
+<td><span class="multi_lang" id="lang_6rd_tunnel_ip6prefix_title"></span></td>
+<td><input type="text" maxlength="63" size="15" name="ipv6.Ipv6P[ip6prefix]" id="ipv6.Ipv6P[ip6prefix]" onblur="" class="logger_bot"></td>
+</tr>
+<tr id='ipv6_ip6prefixlen' style="display:none;">
+<td><span class="multi_lang" id="lang_6rd_tunnel_ip6prefixlen_title"></span></td>
+<td><input type="text" maxlength="2" size="3" name="ipv6.Ipv6P[ip6prefixlen]" id="ipv6.Ipv6P[ip6prefixlen]" onblur="valid_range(this,1,64,'prefix_length')" class="logger_bot"></td>
+</tr>
+<tr id='ipv6_peeraddr' style="display:none;">
+<td><span class="multi_lang" id="lang_6rd_tunnel_peeraddr_title"></span></td>
+<td><input type="text" maxlength="63" size="15" name="ipv6.Ipv6P[peeraddr]" id="ipv6.Ipv6P[peeraddr]" onblur="valid_name(this,'Domain%20name',SPACE_NO)" class="logger_bot"></td>
+</tr>
+<tr id='ipv6_ip4prefixlen' style="display:none;">
+<td><span class="multi_lang" id="lang_6rd_tunnel_ip4prefixlen_title"></span></td>
+<td><input type="text" maxlength="2" size="3" name="ipv6.Ipv6P[ip4prefixlen]" id="ipv6.Ipv6P[ip4prefixlen]" onblur="valid_range(this,0,32,'ipv4_addr_length')" class="logger_bot"></td>
+</tr>
+</tbody>
+</table>
+</form>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='connectivity_ipv6'
+$(document).ready(function(){
+$.lang_load("connectivity_ipv6");
+$.lang_load("error_message");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function set_ipv6_init(obj) {
+var setObj = UI.obj.copy(obj);
+
+UI.obj.toForm(setObj, 'ui-form');
+
+$('#ipv6_duid').text(INFO_DATA.duid);
+
+ele_set_default(document.getElementById("ipv6.Ipv6P[ip6prefixlen]"),obj.ipv6.Ipv6P.ip6prefixlen);
+ele_set_default(document.getElementById("ipv6.Ipv6P[ip4prefixlen]"),obj.ipv6.Ipv6P.ip4prefixlen);
+
+ipv6_auto_checked();
+
+update_checked($('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').attr('name'));
+update_selected($('#ipv6\\.Ipv6P\\[tun6rdMode\\]').attr('name'));
+}
+
+function set_all_6rdtun_element_enable() {
+$('#ipv6\\.Ipv6P\\[tun6rdMode\\]').removeAttr("disabled");
+$('#ipv6\\.Ipv6P\\[ip6prefix\\]').removeAttr("disabled");
+$('#ipv6\\.Ipv6P\\[ip6prefixlen\\]').removeAttr("disabled");
+$('#ipv6\\.Ipv6P\\[peeraddr\\]').removeAttr("disabled");
+$('#ipv6\\.Ipv6P\\[ip4prefixlen\\]').removeAttr("disabled");
+$('#ipv6_tun6rd_br').removeAttr("disabled");
+$('#ipv6_ip6prefix').removeAttr("disabled");
+$('#ipv6_ip6prefixlen').removeAttr("disabled");
+$('#ipv6_peeraddr').removeAttr("disabled");
+$('#ipv6_ip4prefixlen').removeAttr("disabled");
+}
+
+function set_all_6rdtun_element_disable() {
+$('#ipv6\\.Ipv6P\\[tun6rdMode\\]').attr("disabled", "true");
+$('#ipv6\\.Ipv6P\\[ip6prefix\\]').attr("disabled", "true");
+$('#ipv6\\.Ipv6P\\[ip6prefixlen\\]').attr("disabled", "true");
+$('#ipv6\\.Ipv6P\\[peeraddr\\]').attr("disabled", "true");
+$('#ipv6\\.Ipv6P\\[ip4prefixlen\\]').attr("disabled", "true");
+$('#ipv6_tun6rd_br').attr("disabled", "true");
+$('#ipv6_ip6prefix').attr("disabled", "true");
+$('#ipv6_ip6prefixlen').attr("disabled", "true");
+$('#ipv6_peeraddr').attr("disabled", "true");
+$('#ipv6_ip4prefixlen').attr("disabled", "true");
+}
+
+function ipv6_auto_checked() {
+var wan_proto=MODIFIED_OBJ_DATA.wan.WanP.proto;
+
+if (wan_proto == '3' || wan_proto == '4') {
+// l2tp or pptp disabled ipv6 dhcp, enabled 6rd tunnel
+//$('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').attr('value', '0');
+//$('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').removeAttr('checked');
+$('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').attr("disabled", "true");
+
+$('#ipv6\\.Ipv6P\\[tun6rdMode\\]').removeAttr("disabled");
+selected_6rd_tunnel($('#ipv6\\.Ipv6P\\[tun6rdMode\\]').val());
+}
+else {
+$('#ipv6\\.Ipv6P\\[tun6rdMode\\]').removeAttr("disabled");
+selected_6rd_tunnel($('#ipv6\\.Ipv6P\\[tun6rdMode\\]').val());
+}
+
+if ($('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').prop('checked')) {
+$('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').attr('value', '1');
+$('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').attr('checked','checked');
+set_all_6rdtun_element_disable();
+}
+else {
+$('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').attr('value', '0');
+$('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').removeAttr('checked');
+set_all_6rdtun_element_enable();
+}
+update_selected($('#ipv6\\.Ipv6P\\[tun6rdMode\\]').attr('name'));
+}
+
+function selected_6rd_tunnel(value){
+if (value == '2') {   // manual
+$('#ipv6_tun6rd_br').show();
+$('#ipv6_ip6prefix').show();
+$('#ipv6_ip6prefixlen').show();
+$('#ipv6_peeraddr').show();
+$('#ipv6_ip4prefixlen').show();
+}
+else {
+$('#ipv6_tun6rd_br').hide();
+$('#ipv6_ip6prefix').hide();
+$('#ipv6_ip6prefixlen').hide();
+$('#ipv6_peeraddr').hide();
+$('#ipv6_ip4prefixlen').hide();
+}
+}
+
+function valid_tunnel_prefix(value) {
+var prefix=value.split(":");
+var illegal=0;
+var i;
+
+for (i=0; i < prefix.length; ++i) {
+if (prefix[i] == 0 || prefix[i] == "")
+++illegal;
+
+if (i == (prefix.length-1) && illegal == prefix.length) {
+alert(L.error_message.lang_error_message_err100);
+return false;
+}
+}
+
+if (prefix.length == 3 && prefix[0] == "" && prefix[1] == "" && prefix[2] == "") {
+alert(L.error_message.lang_error_message_err100);
+return false;
+}
+
+if (!(value.match(/::/))) {
+if (prefix.length == 8) {
+for (i=0; i < 8; ++i) {
+if (prefix[i].length != 4 || prefix[i].match(/ffff/i) === null)
+break;
+if (i == 7) {
+alert(L.error_message.lang_error_message_err100);
+return false;
+}
+}
+}
+if (prefix.length != 8)
+$('#ipv6\\.Ipv6P\\[ip6prefix\\]').val(value+'::');
+}
+
+// if prefix=2002, prefix len should be 16, peeraddr should be 192.88.99.1, ipv4 mask should be 0
+if (prefix[0] == '2002') {
+illegal=0;
+for (i=1; i < prefix.length; ++i) {
+if (prefix[i] != 0)
+++illegal;
+}
+if (illegal) {
+alert(L.error_message.lang_error_message_err101);
+return false;
+}
+if (!illegal) {
+if (parseInt($('#ipv6\\.Ipv6P\\[ip6prefixlen\\]').val()) != 16 ||
+$('#ipv6\\.Ipv6P\\[peeraddr\\]').val() != '192.88.99.1' ||
+parseInt($('#ipv6\\.Ipv6P\\[ip4preifxlen\\]').val()) != 0)
+{
+alert(L.error_message.lang_error_message_err101);
+return false;
+}
+}
+}
+
+return true;
+}
+
+function valid_peeraddr(value) {
+var peeraddr=value.split(".");
+var i;
+
+for (i=0; i < peeraddr.length; ++i) {
+if (isNaN(peeraddr[i])) {
+alert(L.connectivity_ipv6.lang_alert_invalid_ip_title);
+return false;
+}
+
+if (i == (peeraddr.length-1)) {
+if (peeraddr.length != 4 ||
+(peeraddr[0] < 1 || peeraddr[0] > 223) ||
+(peeraddr[1] < 0 || peeraddr[1] > 255) ||
+(peeraddr[2] < 0 || peeraddr[2] > 255) ||
+(peeraddr[3] < 1 || peeraddr[3] > 254) ||
+(peeraddr[0] == "" || peeraddr[1] == "" || peeraddr[2] == "" || peeraddr[3] == ""))
+{
+alert(L.connectivity_ipv6.lang_alert_invalid_ip_title);
+return false;
+}
+}
+}
+
+return true;
+}
+
+function valid_len(ip4mask,ip6prefixlen) {
+// length range: 1-64
+if ((32-ip4mask+ip6prefixlen) > 64 || ip6prefixlen <= 0) {
+alert(L.error_message.lang_error_message_err101);
+return false;
+}
+return true;
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+get_obj_data(OBJ_LIST);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+},SAVE_IPV6_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+var obj=UI.form.toObj('ui-form');
+
+MODIFIED_OBJ_DATA = UI.obj.merge(MODIFIED_OBJ_DATA, obj);
+
+if ($('#ipv6\\.Ipv6P\\[dhcp6cEnable\\]').prop('checked')) {
+MODIFIED_OBJ_DATA.ipv6.Ipv6P.dhcp6cEnable='1';
+}
+else {
+MODIFIED_OBJ_DATA.ipv6.Ipv6P.dhcp6cEnable='0';
+if ($('#ipv6\\.Ipv6P\\[tun6rdMode\\]').val() == '2') {
+if (!valid_tunnel_prefix($('#ipv6\\.Ipv6P\\[ip6prefix\\]').val()))
+return;
+if (!valid_peeraddr($('#ipv6\\.Ipv6P\\[peeraddr\\]').val()))
+return;
+if (!valid_len(parseInt($('#ipv6\\.Ipv4P\\[ip6prefixlen\\]').val()),parseInt($('#ipv6\\.Ipv6P\\[ip6prefixlen\\]').val())))
+return;
+}
+}
+
+if (fake_action == true) return;
+
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA))
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+else {
+$("#loader").show();
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_ipv6_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_ipv6_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function get_info_success_cb(obj) {
+INFO_DATA = API.obj.copy(obj);
+
+get_obj_data(OBJ_LIST);
+}
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_info_data(INFO_LIST);
+}
+
+</script>
+

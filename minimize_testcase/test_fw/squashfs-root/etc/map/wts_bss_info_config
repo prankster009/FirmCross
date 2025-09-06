@@ -1,0 +1,4 @@
+#ucc_bss_info
+1,ff:ff:ff:ff:ff:ff 11x Multi-AP 0x0020 0x0008 12345678 1 1 hidden-N
+2,ff:ff:ff:ff:ff:ff 8x Multi-AP 0x0020 0x0008 12345678 1 1 hidden-N
+3,ff:ff:ff:ff:ff:ff 12x Multi-AP 0x0020 0x0008 12345678 1 1 hidden-N

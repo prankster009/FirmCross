@@ -1,0 +1,14 @@
+{
+    "help_security_vpn": {
+        "lang_help_security_vpn_title": "VPN パススルー",
+        "lang_hsv1": "メモ: 変更を加えたら、<b>設定を保存</b>をクリックして変更内容を適用してください。",
+        "lang_hsv2": "VPN パススルー",
+        "lang_hsv3": "IPSec パススルー",
+        "lang_hsv4": "ローカル ネットワーク上の VPN クライアントは、ルーターを介して IPSec VPN トンネルを構築できます。",
+        "lang_hsv5": "PPTP パススルー",
+        "lang_hsv6": "ローカル ネットワーク上の VPN クライアントは、ルーターを介して PPTP VPN トンネルを構築できます。",
+        "lang_hsv7": "L2TP パススルー",
+        "lang_hsv8": "ローカル ネットワーク上の VPN クライアントは、ルーターを介して L2TP VPN トンネルを構築できます。",
+        "lang_hsv9": "メモ: 詳細な情報については、<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b> のオンライン ユーザー ガイドを参照してください。"
+    }
+}

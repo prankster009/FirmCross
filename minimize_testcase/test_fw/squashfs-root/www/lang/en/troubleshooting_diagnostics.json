@@ -1,0 +1,17 @@
+{
+    "troubleshooting_diagnostics": {
+        "lang_diagnostics_zone_ping_test_title": "Ping Test",
+        "lang_diagnostics_zone_traceroute_test_title": "Traceroute Test",
+        "lang_ping_ip_url_address_title": "IP or Url Address",
+        "lang_packet_size_title": "Packet Size",
+        "lang_size_unit_title": "bytes (32 - 65500)",
+        "lang_num_to_ping_title": "Number to ping",
+        "lang_start_to_ping_button": "Start to Ping",
+        "lang_tr_ip_url_address_title": "IP or Url Address",
+        "lang_start_to_traceroute_button": "Start to Traceroute",
+        "lang_opt_unlimited": "Unlimited",
+        "lang_ping_alert_illegal_char": "Illegal characters [must be 0 - 9].",
+        "lang_ping_alert_range": "The value is out of range",
+        "lang_alert_ip_url_blank": "You must input an IP address or Domain Name."
+    }
+}

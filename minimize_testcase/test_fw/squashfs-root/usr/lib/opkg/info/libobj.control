@@ -1,0 +1,8 @@
+Package: libobj
+Version: 1
+Depends: libc, gnvram, liblua
+Source: package/gemtek/libobj
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 132738
+Description:  libobj

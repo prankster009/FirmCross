@@ -1,0 +1,19 @@
+{
+    "help_wifi_wifi_basic": {
+        "lang_help_wifi_wifi_basic_title": "Cài đặt không dây cơ bản",
+        "lang_hwb1": "Lưu ý: Sau khi thực hiện thay đổi, hãy bấm <b>Lưu cài đặt</b> để áp dụng các thay đổi.",
+        "lang_hwb2": "Cấu hình không dây (Thủ công)",
+        "lang_hwb3": "Cài đặt không dây 5 GHz/2.4 GHz",
+        "lang_hwb4": "Chế độ mạng",
+        "lang_hwb5": "Chọn các chuẩn không dây mà mạng của bạn sẽ hỗ trợ.",
+        "lang_hwb6": "Tên mạng (SSID)",
+        "lang_hwb7": "Nhập tên mạng không dây của bạn.",
+        "lang_hwb8": "Độ rộng kênh",
+        "lang_hwb9": "Chọn độ rộng kênh vô tuyến cho các thiết bị chuẩn Không dây-N của bạn.",
+        "lang_hwb10": "Kênh",
+        "lang_hwb11": "Chọn kênh vô tuyến mà Bộ định tuyến sẽ sử dụng.",
+        "lang_hwb12": "Phát rộng SSID",
+        "lang_hwb13": "Khi các thiết bị không dây khảo sát khu vực lân cận để tìm các mạng không dây để kết nối, chúng sẽ phát hiện được SSID (tên mạng không dây) mà Bộ định tuyến đang phát rộng. Để phát rộng SSID của Bộ định tuyến, hãy giữ nguyên mặc định, <b>Bật</b>.",
+        "lang_hwb14": "Lưu ý: Để biết thêm thông tin, vui lòng tham khảo Hướng dẫn sử dụng trực tuyến tại <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

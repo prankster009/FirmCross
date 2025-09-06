@@ -1,0 +1,12 @@
+{
+    "idp_wps_result": {
+        "lang_idp_wps_result_fail_title": "连接失败！",
+        "lang_idp_wps_result_success_title": "恭喜！",
+        "lang_idp_wps_result_fail_info1_title": "您的客户端设备无法连接到网络。",
+        "lang_idp_wps_result_success_info1_title": "您的客户端设备现已安全连接到您的网络。",
+        "lang_idp_wps_result_info2_title": "请参考客户端设备上的信息，获得更多说明。",
+        "lang_idp_wps_result_info3_title": "点按 \"",
+        "lang_idp_wps_result_info4_title": "\" 以继续。",
+        "lang_idp_wps_result_ok_button": "确定"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "security_vpn": {
+        "lang_ipsec_title": "Intercommunication IPSec",
+        "lang_pptp_title": "Intercommunication PPTP",
+        "lang_l2tp_title": "Intercommunication L2TP"
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "idp_ping": {
+        "lang_idp_ping_title": "핑",
+        "lang_idp_resolve_url_title": "URL 주소 확인 중...",
+        "lang_idp_ping_result_trans_title": "패킷이 전송됨",
+        "lang_idp_ping_result_recv_title": "패킷이 수신됨",
+        "lang_idp_ping_result_loss_title": "패킷 손실",
+        "lang_idp_ping_data_title": "데이터 통계",
+        "lang_idp_ping_data_unit_title": "데이터 바이트",
+        "lang_idp_ping_round_trip_title": "왕복 최소/평균/최대",
+        "lang_idp_ping_data_from_title": "바이트 시작:",
+        "lang_idp_ping_seq_title": "seq",
+        "lang_idp_ping_ttl_title": "ttl",
+        "lang_idp_ping_time_title": "시간",
+        "lang_idp_ping_time_unit_title": "ms",
+        "lang_idp_ping_unknow_host_title": "알 수 없는 호스트",
+        "lang_idp_ping_processing_title": "처리 중..."
+    }
+}

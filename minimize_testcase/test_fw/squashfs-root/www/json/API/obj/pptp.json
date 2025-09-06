@@ -1,0 +1,20 @@
+{
+    "PptpP": {
+        "enable": "0",
+        "username": "",
+        "password": "",
+        "autoObtain": "1",
+        "vpnServer": "",
+        "ipaddr": "",
+        "netmask": "",
+        "gateway": "",
+        "dns1": "",
+        "dns2": "",
+        "dns3": "",
+        "mtuMode": "0",
+        "mtu": "1460",
+        "ondemand": "0",
+        "maxIdleTime": "15",
+        "redialPeriod": "30"
+    }
+}

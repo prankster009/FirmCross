@@ -1,0 +1,8 @@
+{
+    "idp_guest_pwd": {
+        "lang_idp_guest_pwd_title": "Change Guest Passsword",
+        "lang_idp_guest_pwd_info1_title": "Enter a new guest network password:",
+        "lang_idp_guest_pwd_info2_title": "4 - 32 characters",
+        "lang_idp_guest_pwd_alert_title": "Please enter a valid password. Valid characters are A-Z, a-z, 0-9"
+    }
+}

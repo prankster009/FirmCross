@@ -1,0 +1,19 @@
+{
+    "administration_mesh": {
+        "lang_mesh_title": "Mesh Setup",
+        "lang_ssid_title": "SSID",
+        "lang_auth_type_title": "ประเภทการตรวจสอบความถูกต้อง",
+        "lang_encrypt_type_title": "Encryption Type",
+        "lang_psword_title": "วลีรหัสผ่าน",
+        "lang_parent_mode_title": "Mesh parent mode state",
+        "lang_apply_button": "Apply/Save",
+        "lang_add_node_button": "Add a new node",
+        "lang_parent_mode_state_enable": "เปิดใช้งาน",
+        "lang_parent_mode_state_disable": "ปิดใช้งาน",
+        "lang_ssid_empty_info": "คุณต้องป้อน SSID",
+        "lang_ssid_format_info": "Invalid SSID name.",
+        "lang_mesh_zone_mseh5gsetting_title": "การตั้งค่าเครือข่ายไร้สายที่มีความถี่ 5 GHz",
+        "lang_mesh_zone_mseh2gsetting_title": "การตั้งค่าเครือข่ายไร้สายที่มีความถี่ 2.4 GHz",
+        "lang_mesh_info_button": "Mesh information"
+    }
+}

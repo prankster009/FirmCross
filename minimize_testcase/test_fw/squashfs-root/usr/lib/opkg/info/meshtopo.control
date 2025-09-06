@@ -1,0 +1,9 @@
+Package: meshtopo
+Version: 2020-11-19
+Depends: libc, libobj
+Source: package/gemtek/meshtopo
+Section: utils
+Maintainer: Michelle Chung <michelle_chung@gemteks.com>
+Architecture: ramips_24kec
+Installed-Size: 3672
+Description:  EasyMesh topology parser

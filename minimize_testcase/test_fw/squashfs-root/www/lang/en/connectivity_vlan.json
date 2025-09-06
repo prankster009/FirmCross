@@ -1,0 +1,30 @@
+{
+    "connectivity_vlan": {
+        "lang_vlan_enable_title": "VLAN",
+        "lang_select_profile_title": "Select Profile:",
+        "lang_internet_trunk_title": "Internet (Trunk)",
+        "lang_internet_title": "Internet",
+        "lang_ethernet_title": "Ethernet",
+        "lang_port_title": "Port",
+        "lang_vlan_id_title": "VLAN ID",
+        "lang_id_head": "ID",
+        "lang_tag_head": "Tag",
+        "lang_priority_head": "Priority",
+        "lang_vlan_state_opt_untagged": "Untagged",
+        "lang_vlan_state_opt_tagged": "Tagged",
+        "lang_vlan_state_opt_excluded": "Excluded",
+        "lang_vlan_alert_range": "Please set a VLAN ID value in the range",
+        "lang_vlan_alert_illegal_char": "Illegal characters [must be 0 - 9].",
+        "lang_profile_opt_manual": "Manual",
+        "lang_profile_opt_M1": "M1 (Fibre)",
+        "lang_profile_opt_Maxis_special": "Maxis (Fibre special)",
+        "lang_profile_opt_Maxis": "Maxis (Maxis Infra)",
+        "lang_profile_opt_Singtel_TV": "Singtel (mio TV)",
+        "lang_profile_opt_Singtel_other": "Singtel (other)",
+        "lang_profile_opt_starhub": "StarHub",
+        "lang_profile_opt_Unifi_Business": "Unifi (@ Business)",
+        "lang_profile_opt_Unifi_Home": "Unifi (@ Home)",
+        "lang_profile_opt_Maxis_Fibre": "Maxis (Fibre)",
+        "lang_profile_opt_Maxis_TM": "Maxis (TM Infra)"
+    }
+}

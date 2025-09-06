@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_auth": {
+        "lang_idp_parental_controls_auth_title": "Contrôle parental",
+        "lang_idp_parental_controls_auth_info_title": "Entrez le mot de passe de contrôle parental :",
+        "lang_idp_parental_controls_auth_forgot_pwd_title": "J'ai oublié mon mot de passe",
+        "lang_idp_parental_controls_auth_errmsg_title": "Le mot de passe n'est pas valide."
+    }
+}

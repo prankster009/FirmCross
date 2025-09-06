@@ -1,0 +1,17 @@
+{
+    "troubleshooting_diagnostics": {
+        "lang_diagnostics_zone_ping_test_title": "Ping 测试",
+        "lang_diagnostics_zone_traceroute_test_title": "路由跟踪测试",
+        "lang_ping_ip_url_address_title": "IP 或 URL 地址",
+        "lang_packet_size_title": "数据包大小",
+        "lang_size_unit_title": "字节数 (32-65500)",
+        "lang_num_to_ping_title": "Ping 的次数",
+        "lang_start_to_ping_button": "开始 Ping",
+        "lang_tr_ip_url_address_title": "IP 或 URL 地址",
+        "lang_start_to_traceroute_button": "开始路由跟踪",
+        "lang_opt_unlimited": "无限制",
+        "lang_ping_alert_illegal_char": "非法字符 [必须为 0 - 9]。",
+        "lang_ping_alert_range": "值超出范围",
+        "lang_alert_ip_url_blank": "必须输入 IP 地址或域名。"
+    }
+}

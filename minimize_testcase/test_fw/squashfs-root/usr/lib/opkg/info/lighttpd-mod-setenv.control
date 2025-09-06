@@ -1,0 +1,8 @@
+Package: lighttpd-mod-setenv
+Version: b9c46a97e2c77d287955582aa559651c2b4ae340
+Depends: libc, lighttpd
+Source: package/gemtek/lighttpd
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 2477
+Description:  Environment variable setting module

@@ -1,0 +1,10 @@
+{
+    "parental_control_blocked": {
+        "lang_document_title": "已阻止 Internet",
+        "lang_content_title": "已阻止 Internet",
+        "lang_content_info": "当前已阻止 Internet 访问。  输入家长控制密码，使所有被阻止的网站和内容在一小时内可用。",
+        "lang_password_title": "密码：",
+        "lang_unblock_title": "取消阻止",
+        "lang_password_incorrect": "密码不正确。"
+    }
+}

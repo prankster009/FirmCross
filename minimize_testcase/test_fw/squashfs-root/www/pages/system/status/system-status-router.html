@@ -1,0 +1,525 @@
+<script type="text/javascript">
+var INFO_LIST = [ 'RouterInfo','InternetConnection','vpnAction','v6rdAction' ]
+var INFO_DATA = {}
+</script>
+<div class="table-title router_information_zone">
+<span class="multi_lang" id="lang_router_zone_router_information_title"></span>
+</div>
+<hr class="table-title-underline router_information_zone">
+<table class="table table-info router_information_zone">
+<tbody>
+<tr id="tr_firmware_info" >
+<td>
+<span class="multi_lang" id="lang_firmware_info_title"></span>
+</td>
+<td>
+<span name="firmware_info" id="firmware_info" ></span>
+</td>
+</tr>
+<tr id="tr_current_time" >
+<td>
+<span class="multi_lang" id="lang_current_time_title"></span>
+</td>
+<td>
+<span name="current_time" id="current_time" ></span>
+</td>
+</tr>
+<tr id="tr_internet_mac_addr" >
+<td>
+<span class="multi_lang" id="lang_internet_mac_addr_title"></span>
+</td>
+<td>
+<span name="internet_mac_addr" id="internet_mac_addr" ></span>
+</td>
+</tr>
+<tr id="tr_router_name" >
+<td>
+<span class="multi_lang" id="lang_router_name_title"></span>
+</td>
+<td>
+<span name="router_name" id="router_name" ></span>
+</td>
+</tr>
+<tr id="tr_host_name" >
+<td>
+<span class="multi_lang" id="lang_host_name_title"></span>
+</td>
+<td>
+<span name="host_name" id="host_name" ></span>
+</td>
+</tr>
+<tr id="tr_domain_name" >
+<td>
+<span class="multi_lang" id="lang_domain_name_title"></span>
+</td>
+<td>
+<span name="domain_name" id="domain_name" ></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title internet_connection_zone">
+<span class="multi_lang" id="lang_router_zone_internet_connection_title"></span>
+</div>
+<hr class="table-title-underline internet_connection_zone">
+<table class="table table-info internet_connection_zone">
+<tbody>
+<tr>
+<td>
+<strong>IPv4</strong>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr id="tr_ipv4_conn_type" >
+<td>
+<span class="multi_lang" id="lang_ipv4_conn_type_title"></span>
+</td>
+<td>
+<span name="ipv4_conn_type" id="ipv4_conn_type" ></span>
+</td>
+</tr>
+<tr id="tr_ipv4_conn_status" >
+<td>
+<span class="multi_lang" id="lang_ipv4_conn_status_title"></span>
+</td>
+<td>
+<span name="ipv4_conn_status" id="ipv4_conn_status" ></span>&nbsp;
+<button class="btn " type="button" name="" onclick="" id="ipv4_conn_control_btn"></button>
+</td>
+</tr>
+<tr id="tr_ipv4_internet_ip_addr" >
+<td>
+<span class="multi_lang" id="lang_ipv4_internet_ip_addr_title"></span>
+</td>
+<td>
+<span name="ipv4_internet_ip_addr" id="ipv4_internet_ip_addr" ></span>
+</td>
+</tr>
+<tr id="tr_ipv4_netmask" >
+<td>
+<span class="multi_lang" id="lang_ipv4_netmask_title"></span>
+</td>
+<td>
+<span name="ipv4_netmask" id="ipv4_netmask" ></span>
+</td>
+</tr>
+<tr id="tr_ipv4_gateway" >
+<td>
+<span class="multi_lang" id="lang_ipv4_gateway_title"></span>
+</td>
+<td>
+<span name="ipv4_gateway" id="ipv4_gateway" ></span>
+</td>
+</tr>
+<tr id="tr_ipv4_dns1" >
+<td>
+<span class="multi_lang" id="lang_ipv4_dns1_title"></span>
+</td>
+<td>
+<span name="ipv4_dns1" id="ipv4_dns1" ></span>
+</td>
+</tr>
+<tr id="tr_ipv4_dns2" >
+<td>
+<span class="multi_lang" id="lang_ipv4_dns2_title"></span>
+</td>
+<td>
+<span name="ipv4_dns2" id="ipv4_dns2" ></span>
+</td>
+</tr>
+<tr id="tr_ipv4_dns3" >
+<td>
+<span class="multi_lang" id="lang_ipv4_dns3_title"></span>
+</td>
+<td>
+<span name="ipv4_dns3" id="ipv4_dns3" ></span>
+</td>
+</tr>
+<tr id="tr_ipv4_mdu" >
+<td>
+<span class="multi_lang" id="lang_ipv4_mdu_title"></span>
+</td>
+<td>
+<span name="ipv4_mtu" id="ipv4_mtu" ></span>
+</td>
+</tr>
+<tr id="tr_ipv4_dhcp_lease_time" style="display:none">
+<td>
+<span class="multi_lang" id="lang_ipv4_dhcp_lease_time_title"></span>
+</td>
+<td>
+<span name="ipv4_dhcp_lease_time" id="ipv4_dhcp_lease_time" ></span>
+</td>
+</tr>
+<tr id="tr_dhcpv4_control" style="display:none">
+<td colspan="2">
+<button class="btn multi_lang logger_bot" type="button" name="dhcpv4_release_button" id="lang_dhcpv4_control_button_release" onclick="dhcp_control4('release','v4')"></button>
+<button class="btn multi_lang logger_bot" type="button" name="dhcpv4_renew_button" id="lang_dhcpv4_control_button_renew" onclick="dhcp_control4('renew','v4')"></button>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>
+<strong>IPv6</strong>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr id="tr_ipv6_conn_type" >
+<td>
+<span class="multi_lang" id="lang_ipv6_conn_type_title"></span>
+</td>
+<td>
+<span name="ipv6_conn_type" id="ipv6_conn_type" ></span>
+</td>
+</tr>
+<tr id="tr_ipv6_internet_ip_addr" class="ipv6_ip">
+<td>
+<span class="multi_lang" id="lang_ipv6_internet_ip_addr_title"></span>
+</td>
+<td>
+<span name="ipv6_internet_ip_addr" id="ipv6_internet_ip_addr" ></span>
+</td>
+</tr>
+<tr id="tr_ipv6_gateway" class="ipv6_ip">
+<td>
+<span class="multi_lang" id="lang_ipv6_gateway_title"></span>
+</td>
+<td>
+<span name="ipv6_gateway" id="ipv6_gateway" ></span>
+</td>
+</tr>
+<tr id="tr_ipv6_dns1" class="ipv6_ip">
+<td>
+<span class="multi_lang" id="lang_ipv6_dns1_title"></span>
+</td>
+<td>
+<span name="ipv6_dns1" id="ipv6_dns1" ></span>
+</td>
+</tr>
+<tr id="tr_ipv6_dns2" class="ipv6_ip">
+<td>
+<span class="multi_lang" id="lang_ipv6_dns2_title"></span>
+</td>
+<td>
+<span name="ipv6_dns2" id="ipv6_dns2" ></span>
+</td>
+</tr>
+<tr id="tr_ipv6_dns3" class="ipv6_ip">
+<td>
+<span class="multi_lang" id="lang_ipv6_dns3_title"></span>
+</td>
+<td>
+<span name="ipv6_dns3" id="ipv6_dns3" ></span>
+</td>
+</tr>
+<tr id="tr_ipv6_dhcp_lease_time" style="display:none" class="ipv6_ip">
+<td>
+<span class="multi_lang" id="lang_ipv6_dhcp_lease_time_title"></span>
+</td>
+<td>
+<span name="ipv6_dhcp_lease_time" id="ipv6_dhcp_lease_time" ></span>
+</td>
+</tr>
+<tr id="tr_dhcpv6_control" style="display:none" class="ipv6_ip">
+<td colspan="2">
+<button class="btn multi_lang logger_bot" type="button" name="dhcpv6_release_button" id="lang_dhcpv6_control_button_release" onclick="dhcp_control6('release','v6')"></button>
+<button class="btn multi_lang logger_bot" type="button" name="dhcpv6_renew_button" id="lang_dhcpv6_control_button_renew" onclick="dhcp_control6('renew','v6')"></button>
+</td>
+</tr>
+<tr id="tr_6rd_status" style="display:none" class="ipv6_tn">
+<td>
+<span class="multi_lang" id="lang_6rd_status_title"></span>
+</td>
+<td>
+<span name="6rd_status" id="6rd_status" ></span>
+</td>
+</tr>
+<tr id="tr_6rd_control" style="display:none" class="ipv6_tn">
+<td colspan="2">
+<button class="btn multi_lang logger_bot" type="button" name="6rd_control_button" id="lang_6rd_control_button" onclick="tunnel6rd_control()"></button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn multi_lang logger_bot" id="btnRefresh" type="button" name="refresh_button" onclick="page_refresh()"></button>
+</div>
+<script language="javascript" type="text/javascript">
+var INFO_DATA_MAPPING = [{"info":"RouterInfo.FWVersion","eid":"firmware_info"},{"info":"RouterInfo.CurrentTime","eid":"current_time"},{"info":"RouterInfo.MAC","eid":"internet_mac_addr"},{"info":"RouterInfo.HostName","eid":"host_name"},{"info":"RouterInfo.RouterName","eid":"router_name"},{"info":"RouterInfo.DomainName","eid":"domain_name"},{"info":"vpnAction","eid":"ipv4_conn_status"},{"info":"InternetConnection.IPv4.ConnectionType","eid":"ipv4_conn_type"},{"info":"InternetConnection.IPv4.IP","eid":"ipv4_internet_ip_addr"},{"info":"InternetConnection.IPv4.Netmask","eid":"ipv4_netmask"},{"info":"InternetConnection.IPv4.Gateway","eid":"ipv4_gateway"},{"info":"InternetConnection.IPv4.DNS1","eid":"ipv4_dns1"},{"info":"InternetConnection.IPv4.DNS2","eid":"ipv4_dns2"},{"info":"InternetConnection.IPv4.DNS3","eid":"ipv4_dns3"},{"info":"InternetConnection.IPv4.MTU","eid":"ipv4_mtu"},{"info":"InternetConnection.IPv4.DHCPLeaseTime","eid":"ipv4_dhcp_lease_time"},{"info":"InternetConnection.IPv6.ConnectionType","eid":"ipv6_conn_type"},{"info":"InternetConnection.IPv6.IP","eid":"ipv6_internet_ip_addr"},{"info":"InternetConnection.IPv6.Netmask","eid":"ipv6_netmask"},{"info":"InternetConnection.IPv6.Gateway","eid":"ipv6_gateway"},{"info":"InternetConnection.IPv6.DNS1","eid":"ipv6_dns1"},{"info":"InternetConnection.IPv6.DNS2","eid":"ipv6_dns2"},{"info":"InternetConnection.IPv6.DNS3","eid":"ipv6_dns3"},{"info":"InternetConnection.IPv6.MTU","eid":""},{"info":"InternetConnection.IPv6.DHCPLeaseTime","eid":"ipv6_dhcp_lease_time"},{"info":"v6rdAction","eid":"6rd_status"}]
+
+page_tag='status_router'
+$(document).ready(function(){
+$.lang_load("status_router");
+page_initial()
+resizeContent()
+//Add log mechanism
+inject_log_bot()
+});
+
+function page_refresh(){
+get_info_data(INFO_LIST)
+}
+
+function vpn_action_success_cb(obj){
+if(obj.api_return != 0){
+vpn_action_error_cb(obj)
+return;
+}
+setTimeout(function(){
+page_refresh()
+}, 4000);
+
+}
+
+function vpn_action_error_cb(obj){
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.operation_fail)
+setTimeout(function(){
+page_refresh()
+}, 2000);
+}
+}
+
+function connection_control(type, action){
+if(action == "connect"){
+$("#ipv4_conn_status").html(L.status_router.lang_ipv4_connecting_status)
+}
+var vpn_action_data = {"vpnAction": {"type":type, "status":"", "action":action}}
+API.info.set(vpn_action_data, vpn_action_success_cb, vpn_action_error_cb);
+}
+
+function status_layout(){
+INFO_DATA_MAPPING.forEach(function(item, index){
+eval('var info_data=INFO_DATA.'+item.info)
+
+if( "InternetConnection.IPv4.ConnectionType" == item.info ){
+$("#tr_dhcpv4_control").hide()
+$("#tr_ipv4_dhcp_lease_time").hide()
+$("#tr_ipv4_conn_status").hide()
+
+if(info_data == "dhcp" ){
+info_data = L.status_router.lang_type_dhcp_v4
+$("#tr_dhcpv4_control").show()
+$("#tr_ipv4_dhcp_lease_time").show()
+}
+else if(info_data == "static" ){
+info_data = L.status_router.lang_type_st_v4
+}
+else if(info_data == "pppoe" ){
+info_data = L.status_router.lang_type_pppoe_v4
+$("#tr_ipv4_conn_status").show()
+}
+else if(info_data == "l2tp" ){
+info_data = L.status_router.lang_type_l2tp_v4
+$("#tr_ipv4_conn_status").show()
+}
+else if(info_data == "pptp" ){
+info_data = L.status_router.lang_type_pptp_v4
+$("#tr_ipv4_conn_status").show()
+}
+else if(info_data == "bridge" )
+info_data = L.status_router.lang_type_bg_v4
+else if(info_data == "wireless_bridge" )
+info_data = L.status_router.lang_type_wbg_v4
+else if(info_data == "none" || info_data == "na"){
+info_data = L.status_router.lang_data_not_available
+}
+}else if( "InternetConnection.IPv6.ConnectionType" == item.info ){
+$(".ipv6_tn").hide()
+$(".ipv6_ip").show()
+$("#tr_dhcpv6_control").hide()
+if(info_data == "dhcpv6" ){
+$("#tr_dhcpv6_control").show()
+$("#tr_ipv6_dhcp_lease_time").show()
+info_data = L.status_router.lang_type_dhcp_v6
+}else if(info_data == "staticv6" ){
+info_data = L.status_router.lang_type_st_v6
+}else if(info_data == "pppoev6" )
+info_data = L.status_router.lang_type_pppoe_v6
+else if(info_data == "6rd" ){
+$(".ipv6_ip").hide()
+$(".ipv6_tn").show()
+info_data = L.status_router.lang_type_tunnel_v6
+}else if(info_data == "none" || info_data == "na"){
+info_data = L.status_router.lang_data_not_available
+}
+}else if("InternetConnection.IPv4.DHCPLeaseTime" == item.info || "InternetConnection.IPv6.DHCPLeaseTime" == item.info){
+info_data = sec2time(info_data)
+}else if("RouterInfo.MAC" == item.info || "InternetConnection.IPv6.IP" == item.info || "InternetConnection.IPv6.Netmask" == item.info || "InternetConnection.IPv6.Gateway" == item.info || "InternetConnection.IPv6.DNS1" == item.info || "InternetConnection.IPv6.DNS2" == item.info || "InternetConnection.IPv6.DNS3" == item.info){
+if( 'undefined'!= typeof(info_data) && info_data != "" )
+info_data = info_data.toUpperCase()
+}else if("vpnAction" == item.info && 'undefined' != typeof(info_data)){
+type = info_data.type
+if(type != "pppoe" && type != "pptp" && type != "l2tp")
+return;
+
+var con_status = info_data.status
+if( 'OK' == con_status ){
+$("#ipv4_conn_control_btn").html(L.status_router.lang_ipv4_disconnect_title)
+$("#ipv4_conn_control_btn").click(function(){ connection_control(type,'disconnect'); });
+info_data = L.status_router.lang_ipv4_connected_status
+}else if( 'NOK' == con_status ){
+$("#ipv4_conn_control_btn").html(L.status_router.lang_ipv4_connect_title)
+$("#ipv4_conn_control_btn").click(function(){ connection_control(type,'connect'); });
+info_data = L.status_router.lang_ipv4_disconnected_status
+}
+}else if("v6rdAction" == item.info && 'undefined' != typeof(info_data)){
+var status = info_data.status
+if( 'OK' == status ){
+info_data = L.status_router.lang_6rd_connected_status
+}else if( 'NOK' == status ){
+info_data = L.status_router.lang_6rd_disconnected_status
+}
+}
+
+if( 'undefined' == typeof(info_data) || info_data == "")
+info_data = L.status_router.lang_data_not_available
+
+$("#"+item.eid).html(info_data)
+});
+}
+
+function get_info_success_cb(obj) {
+if(obj.api_return != 0){
+get_info_error_cb(obj)
+return;
+}
+INFO_DATA = API.obj.copy(obj);
+status_layout()
+}
+
+function get_info_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_info_data(info_list){
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+function page_initial(){
+get_info_data(INFO_LIST)
+}
+
+var ACTION4
+var ACTION6
+
+function dhcp_action4_success_cb(obj){
+if(obj.api_return != 0){
+dhcp_action4_error_cb(obj)
+return;
+}
+
+var timeout_v4 = 2000
+
+if(ACTION4 == 'renew')
+timeout_v4 = 7000
+
+setTimeout(function(){
+$('button[name="dhcpv4_release_button"]').removeAttr("disabled")
+$('button[name="dhcpv4_renew_button"]').removeAttr("disabled")
+page_refresh()
+}, timeout_v4);
+
+}
+
+function dhcp_action4_error_cb(obj){
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else
+show_alert(L.common.fail_title, L.common.operation_fail)
+
+$('button[name="dhcpv4_release_button"]').removeAttr("disabled")
+$('button[name="dhcpv4_renew_button"]').removeAttr("disabled")
+}
+
+function dhcp_control4(act, type){
+var dhcp_action_data = {"dhcpAction":{"action":act, "target":type}}
+
+ACTION4 = act
+
+$('button[name="dhcpv4_release_button"]').attr("disabled","disabled")
+$('button[name="dhcpv4_renew_button"]').attr("disabled","disabled")
+
+API.info.set(dhcp_action_data, dhcp_action4_success_cb, dhcp_action4_error_cb);
+}
+
+function dhcp_action6_success_cb(obj){
+if(obj.api_return != 0){
+dhcp_action6_error_cb(obj)
+return;
+}
+
+var timeout_v6 = 2000
+
+if(ACTION6 == 'renew')
+timeout_v6 = 7000
+
+setTimeout(function(){
+$('button[name="dhcpv6_release_button"]').removeAttr("disabled")
+$('button[name="dhcpv6_renew_button"]').removeAttr("disabled")
+page_refresh()
+}, timeout_v6);
+
+}
+
+function dhcp_action6_error_cb(obj){
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else
+show_alert(L.common.fail_title, L.common.operation_fail)
+
+$('button[name="dhcpv6_release_button"]').removeAttr("disabled")
+$('button[name="dhcpv6_renew_button"]').removeAttr("disabled")
+}
+
+function dhcp_control6(act, type){
+var dhcp_action_data = {"dhcpAction":{"action":act, "target":type}}
+
+ACTION6 = act
+
+$('button[name="dhcpv6_release_button"]').attr("disabled","disabled")
+$('button[name="dhcpv6_renew_button"]').attr("disabled","disabled")
+
+API.info.set(dhcp_action_data, dhcp_action6_success_cb, dhcp_action6_error_cb);
+}
+
+function tunnel6rd_control_success_cb(obj){
+if(obj.api_return != 0){
+tunnel6rd_control_error_cb(obj)
+return;
+}
+setTimeout(function(){
+page_refresh()
+}, 4000);
+
+}
+
+function tunnel6rd_control_error_cb(obj){
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.operation_fail)
+setTimeout(function(){
+page_refresh()
+}, 2000);
+}
+}
+
+function tunnel6rd_control(){
+$("#6rd_status").html(L.status_router.lang_ipv6_connecting_status)
+var tunnel6rd_action_data = {"v6rdAction":{"status":"OK", "action":"reconnect"}}
+API.info.set(tunnel6rd_action_data, tunnel6rd_control_success_cb, tunnel6rd_control_error_cb);
+}
+</script>

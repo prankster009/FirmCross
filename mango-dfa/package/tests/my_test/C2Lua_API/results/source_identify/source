@@ -1,0 +1,9 @@
+[
+    {
+        "module_name": "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac",
+        "func_name": "reset_stat_params_config",
+        "type": "Source_Param",
+        "trigger_word": "reset_stat_params_config",
+        "param_idx": 0
+    }
+]

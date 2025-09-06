@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.firewall
+    set firewall.firewall=include
+    set firewall.firewall.type=script
+    set firewall.firewall.path=/usr/share/security/firewall.include
+    set firewall.firewall.family=ipv4
+    set firewall.firewall.reload=1
+EOT
+
+exit 0

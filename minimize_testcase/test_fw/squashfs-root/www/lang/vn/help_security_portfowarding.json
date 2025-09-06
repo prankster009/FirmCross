@@ -1,0 +1,21 @@
+{
+    "help_security_portfowarding": {
+        "lang_help_security_portfowarding_title": "Chuyển tiếp cổng đơn",
+        "lang_hsp1": "Chuyển tiếp cổng đơn cho phép bạn tùy chỉnh các dịch vụ cổng cho nhiều ứng dụng khác nhau. Khi người dùng gửi các loại yêu cầu này đến mạng của bạn qua Internet, Bộ định tuyến sẽ chuyển tiếp các yêu cầu đó đến các máy tính thích hợp (cũng được gọi là máy chủ).",
+        "lang_hsp2": "Lưu ý: Sau khi thực hiện thay đổi, hãy bấm <b>Lưu cài đặt</b> để áp dụng các thay đổi.",
+        "lang_hsp3": "Chuyển tiếp cổng đơn",
+        "lang_hsp4": "Tên ứng dụng",
+        "lang_hsp5": "Chọn các ứng dụng có sẵn hoặc nhập tên của ứng dụng tùy chỉnh.",
+        "lang_hsp6": "Cổng ngoài",
+        "lang_hsp7": "Với ứng dụng tùy chỉnh, hãy nhập số cổng ngoài chấp nhận lưu lượng đến.",
+        "lang_hsp8": "Cổng trong",
+        "lang_hsp9": "Với ứng dụng tùy chỉnh, hãy nhập số cổng trong chấp nhận lưu lượng được chuyển tiếp bởi Bộ định tuyến.",
+        "lang_hsp10": "Giao thức",
+        "lang_hsp11": "Với ứng dụng tùy chỉnh, hãy chọn (các) giao thức được sử dụng.",
+        "lang_hsp12": "Đến địa chỉ IP",
+        "lang_hsp13": "Nhập địa chỉ IP của máy tính sẽ nhận lưu lượng.",
+        "lang_hsp14": "Bật",
+        "lang_hsp15": "Chọn <b>Bật</b> để kích hoạt chuyển tiếp cổng.",
+        "lang_hsp16": "Lưu ý: Để biết thêm thông tin, vui lòng tham khảo Hướng dẫn sử dụng trực tuyến tại <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

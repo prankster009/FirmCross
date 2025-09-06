@@ -1,0 +1,17 @@
+{
+    "idp_prf_item_creator": {
+        "lang_prf_item_creator_title": "新しいポート範囲転送を追加",
+        "lang_prf_item_app_name_title": "アプリケーション名",
+        "lang_prf_item_port_range_title": "開始ポート～終了ポート",
+        "lang_prf_item_to_title": "～",
+        "lang_prf_item_protocol_title": "プロトコル",
+        "lang_prf_item_to_ip_title": "宛先 IP アドレス",
+        "lang_prf_item_enable_title": "有効",
+        "lang_protocol_both": "両方",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "ルーターの IP、ネットワーク、ブロードキャスト アドレスは使用できません。",
+        "lang_msg_repeated_name": "名前の繰り返し",
+        "lang_msg_port_overloap": "ポートの重複が発生しました。エントリを変更してください。"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_client_info": {
+        "lang_idp_dhcp_client_info_title": "DHCP 客户端表",
+        "lang_idp_dhcp_client_info_sortby_title": "排序方式",
+        "lang_idp_dhcp_client_info_ipaddr": "IP 地址",
+        "lang_idp_dhcp_client_info_mac_addr": "MAC 地址",
+        "lang_idp_dhcp_client_info_interface": "接口",
+        "lang_idp_dhcp_client_info_name": "客户端名称",
+        "lang_idp_dhcp_client_info_name_title": "客户端名称",
+        "lang_idp_dhcp_client_info_interface_title": "接口",
+        "lang_idp_dhcp_client_info_ipaddr_title": "IP 地址",
+        "lang_idp_dhcp_client_info_mac_addr_title": "MAC 地址",
+        "lang_idp_dhcp_client_info_expire_title": "到期时间",
+        "lang_idp_dhcp_client_info_select_title": "选择",
+        "lang_idp_dhcp_client_info_interface_wifi": "无线"
+    }
+}

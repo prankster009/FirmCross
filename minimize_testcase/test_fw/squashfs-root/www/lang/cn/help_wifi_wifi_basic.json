@@ -1,0 +1,19 @@
+{
+    "help_wifi_wifi_basic": {
+        "lang_help_wifi_wifi_basic_title": "基本无线设置",
+        "lang_hwb1": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hwb2": "无线配置（手动）",
+        "lang_hwb3": "5 GHz/2.4 GHz 无线设置",
+        "lang_hwb4": "网络模式",
+        "lang_hwb5": "选择您的网络支持的无线标准。",
+        "lang_hwb6": "网络名称 (SSID)",
+        "lang_hwb7": "输入您无线网络的名称。",
+        "lang_hwb8": "信道宽度",
+        "lang_hwb9": "选择您 Wireless-N 设备的无线信道宽度。",
+        "lang_hwb10": "信道",
+        "lang_hwb11": "选择路由器将使用的无线信道。",
+        "lang_hwb12": "SSID 广播",
+        "lang_hwb13": "当调查局部地区要关联的无线网络时，无线设备可以检测到路由器广播的 SSID（无线网络名称）。要广播路由器的 SSID，请保留默认设置“启用”<b></b>。",
+        "lang_hwb14": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

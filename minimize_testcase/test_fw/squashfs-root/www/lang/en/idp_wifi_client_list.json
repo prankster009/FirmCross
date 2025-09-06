@@ -1,0 +1,21 @@
+{
+    "idp_wifi_client_list": {
+        "lang_idp_wifi_client_list_title": "Wireless Client List",
+        "lang_idp_wifi_client_list_sortby_title": "To Sort by",
+        "lang_idp_wifi_client_list_ipaddr": "IP Address",
+        "lang_idp_wifi_client_list_mac_addr": "MAC Address",
+        "lang_idp_wifi_client_list_status": "Status",
+        "lang_idp_wifi_client_list_name": "Client Name",
+        "lang_idp_wifi_client_list_name_title": "Client Name",
+        "lang_idp_wifi_client_list_interface_title": "Interface",
+        "lang_idp_wifi_client_list_ipaddr_title": "IP Address",
+        "lang_idp_wifi_client_list_mac_addr_title": "MAC Address",
+        "lang_idp_wifi_client_list_status_title": "Status",
+        "lang_idp_wifi_client_list_none_title": "None",
+        "lang_idp_wifi_client_list_save_to_title": "Save to MAC Address Filter List",
+        "lang_idp_wifi_client_list_connected_title": "Connected",
+        "lang_idp_wifi_client_list_disconnected_title": "Disconnected",
+        "lang_idp_wifi_client_list_wireless_title": "Wireless",
+        "lang_idp_wifi_client_list_lan_title": "LAN"
+    }
+}

@@ -1,0 +1,104 @@
+<script>
+if( (window.location.pathname).indexOf('nodogsplash_auth') != -1 ){
+window.location.href = "/"+window.location.search
+}
+</script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<script language="javascript" type="text/javascript" src="js/all.min.js"></script>
+<script>
+if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i)){
+if( 'undefined' == typeof(localStorage.guest_mobile_view) || localStorage.guest_mobile_view == "")
+localStorage.guest_mobile_view = 1
+}else
+localStorage.guest_mobile_view = 0
+
+if( localStorage.guest_mobile_view == 1 ){
+var link_app = document.createElement('link');
+link_app.rel = "stylesheet";
+link_app.type = "text/css";
+link_app.href = "css/guest-m.css";
+document.head.appendChild(link_app);
+
+var meta = document.createElement('meta');
+meta.setAttribute('name', 'viewport');
+meta.content = "width=320; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;";
+document.getElementsByTagName('head')[0].appendChild(meta);
+}else{
+var link_app = document.createElement('link');
+link_app.rel = "stylesheet";
+link_app.type = "text/css";
+link_app.href = "css/guest.css";
+document.head.appendChild(link_app);
+}
+</script>
+</head>
+<body id="blocked">
+<div id="content">
+<div class="h1">
+<h1><span class="multi_lang" id="lang_content_title">Guest access</span></h1>
+</div>
+<script>
+if(localStorage.guest_mobile_view != 1){
+document.write('<div class="divider"><span><img src="/img/Divider.jpg" \=""></span></div>')
+}
+</script>
+<div class="info-text">
+<p>
+<span class="multi_lang" id="lang_content_info">Enter the guest access password to access the Internet. Ask the owner if you don't know the password. The guest access password can be found using Linksys Connect.</span>
+</p>
+<div class="formwrapper">
+<form name="login" method='GET' action='$authaction'>
+<input type='hidden' name='tok' value='$tok'>
+<input type='hidden' name='redir' value='$redir'>
+<div class="field">
+<label for="password"><span class="multi_lang" id="lang_password_title">Password</span>:</label>
+<input type='password' name='nodogpass' value='' size='12' maxlength='32'>
+</div>
+<div class="error" id="guest_error_msg">
+<p class="multi_lang" id="lang_error_msg"></p>
+</div>
+<table class="button" style="" id=""><tbody><tr><td class="left"></td><td class="middle"><a href="javascript:to_submit(document.forms[0])"><span class="multi_lang" id="lang_login_button">LOGIN</span></a></td><td class="right"></td></tr></tbody></table>
+</form>
+</div>
+<div class="alt-view">
+<p><span>
+<script>
+if(localStorage.guest_mobile_view == 1){
+document.write('<a href="javascript:set_view(\'f\')" id="view_link"><span class="multi_lang" id="lang_desktop_view_title">Desktop view</span></a>')
+}else if(localStorage.guest_mobile_view == 2)
+document.write('<a href="javascript:set_view(\'m\')" id="view_link"><span class="multi_lang" id="lang_mobile_view_title">Mobile view</span></a>')
+</script>
+
+</span></p>
+</div>
+</div>
+</div>
+</body>
+<script language="JavaScript">
+$(document).ready(function(){
+$.lang_load("guest");
+});
+
+function to_submit(F)
+{
+F.submit();
+}
+
+function set_view(mode){
+if( 'f' == mode )
+localStorage.guest_mobile_view = 2
+else
+localStorage.guest_mobile_view = 1
+
+location.replace('');
+}
+
+</script>
+</html>

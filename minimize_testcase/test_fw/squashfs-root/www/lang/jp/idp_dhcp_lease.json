@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_lease": {
+        "lang_idp_dhcp_lease_title": "DHCP クライアント テーブル",
+        "lang_idp_dhcp_lease_sortby_title": "以下で並べ替え",
+        "lang_idp_dhcp_lease_ipaddr": "IP アドレス",
+        "lang_idp_dhcp_lease_mac_addr": "MAC アドレス",
+        "lang_idp_dhcp_lease_interface": "インターフェイス",
+        "lang_idp_dhcp_lease_name": "クライアント名",
+        "lang_idp_dhcp_lease_name_title": "クライアント名",
+        "lang_idp_dhcp_lease_interface_title": "インターフェイス",
+        "lang_idp_dhcp_lease_ipaddr_title": "IP アドレス",
+        "lang_idp_dhcp_lease_mac_addr_title": "MAC アドレス",
+        "lang_idp_dhcp_lease_expire_title": "期限切れの時間",
+        "lang_idp_dhcp_lease_delete_abbreviation": "削除",
+        "lang_idp_dhcp_lease_interface_wifi": "ワイヤレス"
+    }
+}

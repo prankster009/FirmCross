@@ -1,0 +1,29 @@
+{
+    "help_parental_control_parental_control": {
+        "lang_help_parental_control_parental_control_title": "家長監護",
+        "lang_hpcpc1": "Linksys Connect 的其中一個功能是家長監護，可以限制最多五台電腦或裝置存取網際網路。您可以封鎖網際網路存取或限制在特定時間使用，也可以封鎖特定網站。",
+        "lang_hpcpc2": "備註：完成變更後，請按一下「儲存設定」套用您的變更。",
+        "lang_hpcpc3": "家長監護",
+        "lang_hpcpc4": "已啟用/已停用",
+        "lang_hpcpc5": "要限制本機網路中電腦或裝置存取網際網路，請選擇<b>已啟用</b>。",
+        "lang_hpcpc6": "目標裝置",
+        "lang_hpcpc7": "限制網際網路存取：",
+        "lang_hpcpc8": "此清單顯示受「家長監護」影響的電腦。",
+        "lang_hpcpc9": "新增",
+        "lang_hpcpc10": "如果要將家長監護套用於更多電腦，請選點<b>新增</b>。",
+        "lang_hpcpc11": "移除",
+        "lang_hpcpc12": "如果您不想要將家長監護套用於裝置，請選擇該裝置，然後選點<b>移除</b>。",
+        "lang_hpcpc13": "更改名稱",
+        "lang_hpcpc14": "要更改裝置的名稱，請選擇該裝置，然後選點<b>更改名稱</b>。",
+        "lang_hpcpc15": "排程",
+        "lang_hpcpc16": "指定何時封鎖網際網路的存取。",
+        "lang_hpcpc17": "從不/總是/特定時間",
+        "lang_hpcpc18": "要從不封鎖網際網路的存取，請選擇<b>從不</b>。",
+        "lang_hpcpc19": "要總是封鎖網際網路的存取，請選擇<b>總是</b>。",
+        "lang_hpcpc20": "要指定封鎖網際網路存取的日期和時間，請選擇<b>特定時間</b>。",
+        "lang_hpcpc21": "封鎖特定網站",
+        "lang_hpcpc22": "URL 1-8",
+        "lang_hpcpc23": "在每個欄位中，輸入您要封鎖的網址。",
+        "lang_hpcpc24": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

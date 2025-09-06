@@ -1,0 +1,12 @@
+{
+    "idp_route_table": {
+        "lang_idp_route_table_title": "Bảng định tuyến",
+        "lang_idp_route_table_dst_ip_title": "LAN IP đích",
+        "lang_idp_route_table_subnet_mask_title": "Mặt nạ mạng con",
+        "lang_idp_route_table_gateway_title": "Cổng nối",
+        "lang_idp_route_table_hop_count_title": "Số lượng bước nhảy",
+        "lang_idp_route_table_interface_title": "Giao diện",
+        "lang_idp_route_table_interface_lan_tilte": "LAN & Không dây",
+        "lang_idp_route_table_interface_wan_tilte": "Internet (WAN)"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "idp_wps": {
+        "lang_idp_wps_info_title": "正在搜索您的客户端设备。",
+        "lang_idp_wps_wait_title": "请稍候…",
+        "lang_idp_wps_cancel_button": "取消"
+    }
+}

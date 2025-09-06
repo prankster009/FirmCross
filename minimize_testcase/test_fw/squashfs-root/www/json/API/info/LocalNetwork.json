@@ -1,0 +1,17 @@
+{
+    "LocalNetwork": {
+        "LocalNetwork": {
+            "LocalMAC": "00:0c:43:28:80:e4",
+            "Prefix": "64",
+            "Gateway": "192.168.1.1",
+            "IPv6LinkLocalAddress": "fe80::20c:43ff:fe28:80e3",
+            "Netmask": "255.255.255.0",
+            "IP": "192.168.1.1"
+        },
+        "DHCP": {
+            "EndIP": "192.168.1.200",
+            "StartIP": "192.168.1.100",
+            "Server": "192.168.1.1"
+        }
+    }
+}

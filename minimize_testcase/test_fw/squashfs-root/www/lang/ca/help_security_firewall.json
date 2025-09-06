@@ -1,0 +1,28 @@
+{
+    "help_security_firewall": {
+        "lang_help_security_firewall_title": "Pare-feu",
+        "lang_hsf1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hsf2": "Pare-feu",
+        "lang_hsf3": "Protection de pare-feu SPI",
+        "lang_hsf4": "La protection pare-feu SPI aide à protéger votre réseau local contre les menaces provenant d'Internet.",
+        "lang_hsf5": "Filtres Internet",
+        "lang_hsf6": "Filtre des demandes Internet anonymes",
+        "lang_hsf7": "Ce filtre bloque les demandes Internet provenant de sources inconnues comme les demandes Ping.",
+        "lang_hsf8": "Filtre multidiffusion",
+        "lang_hsf9": "Ce filtre bloque la multidiffusion, ce qui permet à une transmission unique de joindre simultanément plusieurs destinataires spécifiques sur votre réseau local.",
+        "lang_hsf10": "Filtre de redirection NAT Internet",
+        "lang_hsf11": "Ce filtre permet d'interdire à un ordinateur de votre réseau d'utiliser une adresse URL (ou IP Internet) pour se connecter au serveur local.",
+        "lang_hsf12": "Filtre IDENT (Port 113)",
+        "lang_hsf13": "Ce filtre empêche l'analyse du port 113 par des périphériques à partir d'Internet.",
+        "lang_hsf14": "Filtres Web",
+        "lang_hsf15": "Proxy",
+        "lang_hsf16": "Ce filtre bloque l'utilisation de serveurs proxy Internet.",
+        "lang_hsf17": "Java",
+        "lang_hsf18": "Ce filtre bloque Java et peut ainsi vous empêcher d'accéder à des contenus Java sur des sites Web.",
+        "lang_hsf19": "ActiveX",
+        "lang_hsf20": "Ce filtre bloque ActiveX et peut ainsi vous empêcher d'accéder à des contenus ActiveX sur des sites Web.",
+        "lang_hsf21": "Témoins",
+        "lang_hsf22": "Ce filtre bloque les fichiers témoins (cookies), qui sont des données stockées sur votre ordinateur et utilisées par les sites Web que vous consultez.",
+        "lang_hsf23": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

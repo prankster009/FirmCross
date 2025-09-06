@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_client_info": {
+        "lang_idp_dhcp_client_info_title": "ตารางข้อมูลไคลเอ็นต์ DHCP",
+        "lang_idp_dhcp_client_info_sortby_title": "เพื่อเรียงลำดับตาม",
+        "lang_idp_dhcp_client_info_ipaddr": "ที่อยู่ IP",
+        "lang_idp_dhcp_client_info_mac_addr": "ที่อยู่ MAC",
+        "lang_idp_dhcp_client_info_interface": "อินเตอร์เฟซ",
+        "lang_idp_dhcp_client_info_name": "ชื่อไคลเอ็นต์",
+        "lang_idp_dhcp_client_info_name_title": "ชื่อไคลเอ็นต์",
+        "lang_idp_dhcp_client_info_interface_title": "อินเตอร์เฟซ",
+        "lang_idp_dhcp_client_info_ipaddr_title": "ที่อยู่ IP",
+        "lang_idp_dhcp_client_info_mac_addr_title": "ที่อยู่ MAC",
+        "lang_idp_dhcp_client_info_expire_title": "เวลาหมดอายุ",
+        "lang_idp_dhcp_client_info_select_title": "เลือก",
+        "lang_idp_dhcp_client_info_interface_wifi": "ระบบไร้สาย"
+    }
+}

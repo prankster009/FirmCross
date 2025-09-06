@@ -1,0 +1,17 @@
+{
+    "connectivity_ipv6": {
+        "lang_ipv6_zone_internet_setup_title": "Thiết lập Internet",
+        "lang_ipv6_auto_title": "IPv6 - Tự động",
+        "lang_ipv6_duid_title": "DUID",
+        "lang_ipv6_zone_network_setup_title": "Thiết lập mạng",
+        "lang_6rd_tunnel_title": "Đường hầm 6rd",
+        "lang_6rd_tunnel_opt_disabled": "Tắt",
+        "lang_6rd_tunnel_opt_auto_config": "Cấu hình tự động",
+        "lang_6rd_tunnel_opt_manual_config": "Cấu hình thủ công",
+        "lang_alert_invalid_ip_title": "Địa chỉ IP không hợp lệ",
+        "lang_6rd_tunnel_ip6prefix_title": "Tiền tố",
+        "lang_6rd_tunnel_ip6prefixlen_title": "Độ dài tiền tố",
+        "lang_6rd_tunnel_peeraddr_title": "Chuyển tiếp biên",
+        "lang_6rd_tunnel_ip4prefixlen_title": "Mặt nạ địa chỉ IPv4"
+    }
+}

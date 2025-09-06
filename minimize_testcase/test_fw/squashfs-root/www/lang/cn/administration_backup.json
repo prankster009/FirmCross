@@ -1,0 +1,14 @@
+{
+    "administration_backup": {
+        "lang_backup_title": "备份配置",
+        "lang_backup_config_button": "备份",
+        "lang_restore_title": "还原配置",
+        "lang_restore_config_button": "开始还原",
+        "lang_file_empty_msg": "请选择要还原的文件。",
+        "lang_file_format_msg": "配置文件不正确。",
+        "lang_file_restore_fail_msg": "还原配置失败！",
+        "lang_restore_success": "还原成功",
+        "lang_restore_rebooting": "正在重启……",
+        "lang_file_backup_fail_msg": "备份配置失败！"
+    }
+}

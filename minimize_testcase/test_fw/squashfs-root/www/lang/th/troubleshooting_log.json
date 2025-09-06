@@ -1,0 +1,8 @@
+{
+    "troubleshooting_log": {
+        "lang_log_title": "รายการบันทึก",
+        "lang_log_enable_title": "รายการบันทึก",
+        "lang_view_log_button": "ดูรายการบันทึก",
+        "lang_log_alert_msg": "คลิก Save (บันทึก) เพื่อสร้างบันทึก จากนั้นคุณสามารถคลิกดูบันทึกเพื่อดูบันทึก"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "administration_gateway": {
+        "lang_sip_alg_title": "SIP ALG",
+        "lang_gateway_zone_upnp_title": "UPnP",
+        "lang_upnp_enable_title": "UPnP",
+        "lang_allow_config_title": "Allow Users to Configure",
+        "lang_allow_disable_net_title": "Allow Users to Disable Internet Access"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "idp_prf_item_creator": {
+        "lang_prf_item_creator_title": "새로운 포트 범위 전달 추가",
+        "lang_prf_item_app_name_title": "응용 프로그램 이름",
+        "lang_prf_item_port_range_title": "시작 ~ 종료 포트",
+        "lang_prf_item_to_title": "-",
+        "lang_prf_item_protocol_title": "프로토콜",
+        "lang_prf_item_to_ip_title": "대상 IP 주소",
+        "lang_prf_item_enable_title": "활성화됨",
+        "lang_protocol_both": "둘 다",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "라우터의 IP, 네트워크 또는 브로드캐스트 주소를 사용할 수 없습니다.",
+        "lang_msg_repeated_name": "반복된 이름",
+        "lang_msg_port_overloap": "포트 오버랩이 발생했습니다! 입력 사항을 변경하십시오!"
+    }
+}

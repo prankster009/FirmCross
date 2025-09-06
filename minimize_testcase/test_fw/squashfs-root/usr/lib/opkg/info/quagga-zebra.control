@@ -1,0 +1,10 @@
+Package: quagga-zebra
+Version: 1.1.0-1
+Depends: libc, quagga, quagga-libzebra
+Source: package/network/services/quagga
+License: GPL-2.0
+Section: net
+Maintainer: Vasilis Tsiligiannis <acinonyx@openwrt.gr>
+Architecture: ramips_24kec
+Installed-Size: 86757
+Description:  Zebra daemon

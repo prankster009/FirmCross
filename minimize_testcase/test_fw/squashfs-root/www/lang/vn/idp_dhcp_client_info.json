@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_client_info": {
+        "lang_idp_dhcp_client_info_title": "Bảng thiết bị khách DHCP",
+        "lang_idp_dhcp_client_info_sortby_title": "Sắp xếp theo",
+        "lang_idp_dhcp_client_info_ipaddr": "Địa chỉ IP",
+        "lang_idp_dhcp_client_info_mac_addr": "Địa chỉ MAC",
+        "lang_idp_dhcp_client_info_interface": "Giao diện",
+        "lang_idp_dhcp_client_info_name": "Tên thiết bị khách",
+        "lang_idp_dhcp_client_info_name_title": "Tên thiết bị khách",
+        "lang_idp_dhcp_client_info_interface_title": "Giao diện",
+        "lang_idp_dhcp_client_info_ipaddr_title": "Địa chỉ IP",
+        "lang_idp_dhcp_client_info_mac_addr_title": "Địa chỉ MAC",
+        "lang_idp_dhcp_client_info_expire_title": "Thời gian hết hạn",
+        "lang_idp_dhcp_client_info_select_title": "Chọn",
+        "lang_idp_dhcp_client_info_interface_wifi": "Không dây"
+    }
+}

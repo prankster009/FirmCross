@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_dev_rename": {
+        "lang_idp_parental_controls_dev_rename_title": "การควบคุมโดยผู้ปกครอง",
+        "lang_idp_parental_controls_dev_rename_info1_title": "โปรดเปลี่ยนชื่ออุปกรณ์:",
+        "lang_idp_parental_controls_dev_rename_info2_title": "โปรดป้อนชื่อใหม่สำหรับ",
+        "lang_idp_parental_controls_dev_rename_alert_title": "ชื่ออุปกรณ์ต้องไม่ปล่อยเว้นว่างไว้"
+    }
+}

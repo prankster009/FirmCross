@@ -1,0 +1,29 @@
+{
+    "mpt": {
+        "lang_wifi_mpt_title": "Khu vực phát",
+        "lang_wifi_mpt_info": "Công suất phát Wi-Fi được đặt theo giới hạn của từng khu vực. Bạn có thể bị phạt nếu chọn khu vực không đúng với nơi sẽ sử dụng bộ định tuyến.",
+        "lang_wiz_mpt_title": "Chọn khu vực",
+        "lang_wiz_mpt_info_1": "Công suất phát Wi-Fi tối đa được cho phép sẽ thay đổi tùy theo từng khu vực. Việc chọn khu vực sẽ thiết lập giới hạn đó.",
+        "lang_wiz_mpt_info_2": "Bạn có thể bị phạt nếu chọn khu vực không đúng với nơi sẽ sử dụng bộ định tuyến.",
+        "lang_wiz_mpt_option_initial": "Quốc gia hoặc khu vực",
+        "lang_mpt_country_CHN": "Châu Á - Trung Quốc",
+        "lang_mpt_country_HKG": "Châu Á - Hồng Kông",
+        "lang_mpt_country_IND": "Châu Á - Ấn Độ",
+        "lang_mpt_country_SGP": "Châu Á - Singapore",
+        "lang_mpt_country_TWN": "Châu Á - Đài Loan",
+        "lang_mpt_country_THA": "Châu Á - Thái Lan",
+        "lang_mpt_country_XAH": "Châu Á - Phần còn lại của châu Á",
+        "lang_mpt_country_CAN": "Canada",
+        "lang_mpt_country_EEE": "Châu Âu",
+        "lang_mpt_country_SAU": "Trung Đông - Ả-rập Xê-út",
+        "lang_mpt_country_XME": "Trung Đông",
+        "lang_mpt_country_USA": "Hoa Kỳ",
+        "lang_mpt_country_PHI": "Châu á - nước Phi luật tân",
+        "lang_mpt_country_KOR": "Châu á - Hàn Quốc",
+        "lang_mpt_country_MAC": "Châu á - Ma cao",
+        "lang_mpt_country_MYS": "Châu á - Malaysia",
+        "lang_mpt_country_VNM": "Châu á - Việt Nam",
+        "lang_mpt_country_AUS": "Úc",
+        "lang_mpt_country_NZL": "New Zealand"
+    }
+}

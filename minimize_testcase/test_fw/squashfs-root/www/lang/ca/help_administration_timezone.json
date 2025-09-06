@@ -1,0 +1,12 @@
+{
+    "help_administration_timezone": {
+        "lang_help_administration_timezone_title": "Fuseau horaire",
+        "lang_hat1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hat2": "Réglage de l'heure",
+        "lang_hat3": "Fuseau horaire",
+        "lang_hat4": "Sélectionnez le fuseau horaire de votre réseau dans le menu déroulant.",
+        "lang_hat5": "Réglage automatique de l'horloge pour le passage à l'heure avancée",
+        "lang_hat6": "Sélectionnez cette option pour que le routeur passe automatiquement à l'heure avancée.",
+        "lang_hat7": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "help_status_ports": {
+        "lang_help_status_ports_title": "連接埠",
+        "lang_hsp1": "後連接埠指示燈",
+        "lang_hsp2": "網際網路連接埠連結",
+        "lang_hsp3": "10/100 Mbps 或 1 Gbps",
+        "lang_hsp4": "顯示網際網路連接埠的最大速度。",
+        "lang_hsp5": "本機連接埠連結",
+        "lang_hsp6": "10/100 Mbps 或 1 Gbps",
+        "lang_hsp7": "顯示每個本機連接埠（連接埠 1-4）的最大速度。",
+        "lang_hsp8": "要更新螢幕上的資訊，請點選<b>重新整理</b>。"
+    }
+}

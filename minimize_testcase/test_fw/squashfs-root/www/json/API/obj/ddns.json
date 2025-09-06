@@ -1,0 +1,15 @@
+{
+    "DdnsP": {
+        "enable": "0",
+        "username": "",
+        "password": "",
+        "hostname": "",
+        "provider": "",
+        "system": "0",
+        "mailex": "",
+        "backupmailex": "0",
+        "wildcard": "0",
+        "ip": "",
+        "status": ""
+    }
+}

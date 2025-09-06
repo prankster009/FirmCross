@@ -1,0 +1,20 @@
+{
+    "connectivity_routing": {
+        "lang_routing_zone_advanced_routing_title": "고급 라우팅",
+        "lang_nat_enable_title": "NAT",
+        "lang_routing_zone_dynamic_routing_title": "동적 라우팅(RIP)",
+        "lang_dynamic_rt_enable_title": "활성화됨",
+        "lang_routing_zone_static_routing_title": "고정 라우팅",
+        "lang_rt_entries_title": "경로 항목",
+        "lang_delete_entry_button": "이 항목 삭제",
+        "lang_rt_name_title": "경로 이름 입력",
+        "lang_dst_lan_ip_title": "대상 LAN IP",
+        "lang_subnet_mask_title": "서브넷 마스크",
+        "lang_gateway_title": "게이트웨이",
+        "lang_interface_title": "인터페이스",
+        "lang_rt_table_button": "라우팅 테이블 표시",
+        "lang_interface_opt_lan_wifi": "LAN 및 무선",
+        "lang_interface_opt_wan": "인터넷(WAN)",
+        "lang_alert_guest_not_availabed_title": "NAT가 비활성화된 경우 게스트 액세스를 사용할 수 없습니다. 변경 사항을 저장하시겠습니까?"
+    }
+}

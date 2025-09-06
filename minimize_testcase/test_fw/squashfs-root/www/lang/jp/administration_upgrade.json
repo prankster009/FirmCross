@@ -1,0 +1,20 @@
+{
+    "administration_upgrade": {
+        "lang_current_fw_title": "現在のファームウェアのバージョン",
+        "lang_check_fw_button": "ファームウェアを確認する",
+        "lang_upload_fw_title": "アップグレードするファイルを選択してください。",
+        "lang_upgrade_fw_button": "アップグレードを開始",
+        "lang_upgrade_fw_progress_warning": "警告",
+        "lang_upgrade_fw_progress_warning_info": "ファームウェアのアップグレードには数分かかる場合があります。;電源をオフにしたりリセット ボタンを押したりしないでください。",
+        "lang_upgrade_fw_progress_warning_tip": "アップグレードする際は、割り込まれないようにする必要があります。",
+        "lang_ota_last_version_title": "最新のファームウェアのバージョン",
+        "lang_ota_upgrade_button": "アップグレード",
+        "lang_file_empty_msg": "アップグレードするファイルを選択してください。",
+        "lang_file_format_msg": "イメージ ファイルが正しくありません。",
+        "lang_upgrade_success": "ファームウェアのアップグレードに成功しました",
+        "lang_upgrade_rebooting": "再起動中......",
+        "lang_file_upgrade_fail_msg": "ファームウェアのアップグレードに失敗しました。",
+        "lang_up_to_date_msg": "最新の状態",
+        "lang_auto_upgrade_title": "自動ファームウェアアップグレード"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "closures": [],
+    "cfg_time": 0.11187028884887695,
+    "vra_time": 0.9194810390472412,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/system_no_vul/program",
+    "name": "program",
+    "has_sinks": true,
+    "sha256": "0d4cc986a0b0a33a0c8c7b8cf5932a57ba048322c9bdb9b234c74374be1fdde7",
+    "sink_times": {},
+    "error": null,
+    "mango_time": 404.1607663631439,
+    "sinks": {
+        "system": 2
+    },
+    "time_data": {}
+}

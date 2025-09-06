@@ -1,0 +1,68 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4014da",
+                    "ins_addr": "0x4014da"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x4016e4",
+                    "ins_addr": "0x4016e4"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4014be",
+                "ins_addr": "0x4014be"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401679_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199521,
+                    4199394,
+                    4199462,
+                    4199366,
+                    4200057,
+                    4199487
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 0.144822359085083,
+    "vra_time": 0.5087237358093262,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/program",
+    "name": "program",
+    "has_sinks": true,
+    "sha256": "1ab3f926dcacd54db5ccbd332bae1b1c6397367141993b8b93e9cd958a96492e",
+    "sink_times": {
+        "system": 1.366267204284668
+    },
+    "error": null,
+    "mango_time": 5.155457019805908,
+    "sinks": {
+        "system": 2
+    },
+    "time_data": {
+        "0x401376 -> 0x4014da -> 0x401180": {
+            "taint_time": 1.0932645797729492,
+            "rda_time": 0.272655725479126
+        }
+    }
+}

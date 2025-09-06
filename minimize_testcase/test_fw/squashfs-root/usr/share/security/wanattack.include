@@ -1,0 +1,102 @@
+#!/bin/sh
+
+SERVICE="wanattack"
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+. /lib/hummer/state.sh
+
+
+check_wan() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_is_up up
+
+    if [ "$wan_is_up" != "1" ]; then
+        echo "$SERVICE, wan is down" > /dev/console
+        echo "$SERVICE, exit!" > /dev/console
+        exit 0
+    fi
+}
+
+delete_wanattack_chains() {
+    iptables -t mangle -F tcp_wanattack
+    iptables -t mangle -D PREROUTING -j tcp_wanattack
+    iptables -t mangle -X tcp_wanattack
+    iptables -t nat -F ip_wanattack
+    iptables -t nat -D prerouting_wan_rule -j ip_wanattack
+    iptables -t nat -X ip_wanattack
+}
+
+add_wanattack_chains() {
+    iptables -t mangle -N tcp_wanattack
+    iptables -t mangle -I PREROUTING -j tcp_wanattack
+    iptables -t nat -N ip_wanattack
+    iptables -t nat -A prerouting_wan_rule -j ip_wanattack
+}
+
+do_wanattack() {
+    local wanmode wan_ip wan_ifname
+
+    wanmode=$(objReq wan json | jsonfilter -e '@[*].proto')
+
+    if [ "$wanmode" = "$WAN_PROTO_L2TP" -o "$wanmode" = "$WAN_PROTO_PPTP" ]; then
+        network_get_ipaddr wan_ip vpn
+        network_get_device wan_ifname vpn
+    else
+        network_get_ipaddr wan_ip wan
+        network_get_device wan_ifname wan
+    fi
+
+    #
+    # tcp wan attack
+    #
+    iptables -t mangle -A tcp_wanattack ! -d $wan_ip -j RETURN
+
+    # Block Invalid Packets
+    iptables -t mangle -A tcp_wanattack -m conntrack --ctstate INVALID -j DROP
+
+    # Block New Packets That Are Not SYN
+    iptables -t mangle -A tcp_wanattack -p tcp ! --syn -m conntrack --ctstate NEW -j DROP
+
+    # Block Packets with Bogus TCP Flags
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG NONE -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags FIN,SYN FIN,SYN -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags SYN,RST SYN,RST -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags FIN,RST FIN,RST -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags FIN,ACK FIN -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags ACK,URG URG -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags ACK,FIN FIN -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags ACK,PSH PSH -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags ALL ALL -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags ALL NONE -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags ALL FIN,PSH,URG -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags ALL SYN,FIN,PSH,URG -j DROP 
+    iptables -t mangle -A tcp_wanattack -p tcp --tcp-flags ALL SYN,RST,ACK,FIN,URG -j DROP
+
+    #
+    # ip wan attack
+    #
+    iptables -t raw -A PREROUTING ! -d $wan_ip -j RETURN
+    # Accept IP, ICMP, IGMP, IP-ENCAP, TCP, UDP, GRE, IPSEC-ESP, IPSEC-AH
+    iptables -t raw -A PREROUTING -m u32 --u32 "9&0xFF000000>>24=0x00,0x01,0x02,0x04,0x06,0x11,0x2f,0x32,0x33" -j RETURN
+    # Accept IPIP, ETHERIP, ENCAP, PIM, IPCOMP, VRRP, L2TP, SCTP, UDPLite
+    iptables -t raw -A PREROUTING -m u32 --u32 "9&0xFF000000>>24=0x5e,0x61,0x62,0x67,0x6c,0x70,0x73,0x84,0x88" -j RETURN
+
+}
+
+start() {
+    check_wan
+    add_wanattack_chains >/dev/null 2>&1
+    do_wanattack >/dev/null 2>&1
+}
+
+stop() {
+    delete_wanattack_chains >/dev/null 2>&1
+}
+
+
+
+stop
+start
+

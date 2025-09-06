@@ -1,0 +1,8 @@
+Package: lighttpd
+Version: b9c46a97e2c77d287955582aa559651c2b4ae340
+Depends: libc, libopenssl, libpcre, libpthread
+Source: package/gemtek/lighttpd
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 85699
+Description:  A flexible and lightweight web server

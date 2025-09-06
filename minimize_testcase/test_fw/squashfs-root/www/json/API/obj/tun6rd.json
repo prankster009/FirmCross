@@ -1,0 +1,9 @@
+{
+    "Tun6rdP": {
+        "mode": "0",
+        "ip6prefix": "::",
+        "ip6prefixlen": "0",
+        "peeraddr": "",
+        "ip4prefixlen": "0"
+    }
+}

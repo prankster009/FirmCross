@@ -1,0 +1,11 @@
+{
+    "login": {
+        "lang_auth_title": "AUTHENTICATION REQUIRED",
+        "lang_acnt_username": "Username",
+        "lang_acnt_passwd": "Password",
+        "lang_try_again": "Please log in again!",
+        "lang_login": "LOGIN",
+        "lang_login_invalid": "Invalid Username or Password.",
+        "lang_session_fail": "Session Failure."
+    }
+}

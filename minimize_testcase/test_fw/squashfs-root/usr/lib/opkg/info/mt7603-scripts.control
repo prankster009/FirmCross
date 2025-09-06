@@ -1,0 +1,8 @@
+Package: mt7603-scripts
+Version: gerrit
+Depends: libc, mtk-base-files
+Source: package/mtk/drivers/mt7603
+Section: opt
+Architecture: ramips_24kec
+Installed-Size: 6362
+Description:  mt7603 scripts

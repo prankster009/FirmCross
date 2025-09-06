@@ -1,0 +1,11 @@
+/www/cgi-bin/upload_fw.cgi
+/www/cgi-bin/upgrade_fw.cgi
+/www/cgi-bin/upload_config.cgi
+/www/cgi-bin/mesh_login.cgi
+/www/cgi-bin/login.cgi
+/www/cgi-bin/al.cgi
+/usr/sbin/backup-config.sh
+/usr/sbin/restore-config.sh
+/www/cgi-bin/upgrade_config.cgi
+/usr/sbin/sysupgrade.sh
+/www/cgi-bin/backup_config.cgi

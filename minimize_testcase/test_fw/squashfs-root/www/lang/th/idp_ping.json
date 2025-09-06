@@ -1,0 +1,19 @@
+{
+    "idp_ping": {
+        "lang_idp_ping_title": "Ping",
+        "lang_idp_resolve_url_title": "กำลังแก้ไขที่อยู่ URL ...",
+        "lang_idp_ping_result_trans_title": "แพคเก็ตที่ส่ง",
+        "lang_idp_ping_result_recv_title": "แพคเก็ตที่รับ",
+        "lang_idp_ping_result_loss_title": "แพคเก็ตที่สูญหาย",
+        "lang_idp_ping_data_title": "สถิติข้อมูล",
+        "lang_idp_ping_data_unit_title": "ไบต์ข้อมูล",
+        "lang_idp_ping_round_trip_title": "รอบไปกลับ ต่ำสุด/เฉลี่ย/สูงสุด",
+        "lang_idp_ping_data_from_title": "ไบต์จาก",
+        "lang_idp_ping_seq_title": "seq",
+        "lang_idp_ping_ttl_title": "ttl",
+        "lang_idp_ping_time_title": "เวลา",
+        "lang_idp_ping_time_unit_title": "ms",
+        "lang_idp_ping_unknow_host_title": "โฮสต์ที่ไม่รู้จัก",
+        "lang_idp_ping_processing_title": "กำลังประมวลผล..."
+    }
+}

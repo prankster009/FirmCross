@@ -1,0 +1,7 @@
+{
+    "idp_parental_controls_forgot_pwd": {
+        "lang_idp_parental_controls_forgot_pwd_title": "家长控制",
+        "lang_idp_parental_controls_forgot_pwd_info_title": "输入家长控制密码：",
+        "lang_idp_parental_controls_forgot_pwd_errmsg_title": "答案不正确"
+    }
+}

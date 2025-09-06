@@ -1,0 +1,42 @@
+#!/usr/bin/env lua
+obj = require('libobj')
+json = require('json')
+
+
+
+function usage()
+    print("objLua - manipulate the libobj with lua")
+    print("usage:")
+    print("  objLua list")
+    print("  objLua get <NAME>")
+    print("  objLua set <NAME> <JSON_FILE>")
+    print("  objLua count <NAME>")
+    print("  objLua reset <NAME>")
+    print("  objLua commit")
+    print("")
+end
+
+
+
+
+
+if (#arg == 1 and arg[1] == "list") then
+    for k,v in ipairs(obj.list()) do
+        print(v)
+    end
+elseif (#arg == 2 and arg[1] == "get") then
+    print(obj.json_get(arg[2]))
+elseif (#arg == 3 and arg[1] == "set") then
+    local f = assert(io.open(arg[3], "r"))
+    local jsonstr = f:read("*all")
+    f:close()
+    obj.json_set(arg[2], jsonstr)
+elseif (#arg == 2 and arg[1] == "count") then
+    print(obj.count(arg[2]))
+elseif (#arg == 2 and arg[1] == "reset") then
+    obj.reset(arg[2])
+elseif (#arg == 1 and arg[1] == "commit") then
+    obj.commit()
+else
+    usage()
+end

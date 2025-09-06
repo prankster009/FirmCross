@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="wifi_client_list">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close logger_bot" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_idp_wifi_client_list_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<tr>
+<td><span class="multi_lang" id="lang_idp_wifi_client_list_sortby_title"></span></td>
+<td>
+<span id="select_div_sortby"></span>
+<script>
+(function(){
+var str = ['idp_wifi_client_list_ipaddr', 'idp_wifi_client_list_mac_addr', 'idp_wifi_client_list_status', 'idp_wifi_client_list_name'],
+val = ['ip', 'mac', 'status', 'name'];
+draw_select('sortby', str, val, 'SoryBy()', '', 1);
+})();
+</script>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="table-title-underline" style="margin: -1em 0 1em 0">
+<div class="table-box-warpper table-responsive">
+<table class="table table-info-bg table-bordered">
+<thead>
+<tr>
+<td><span class="multi_lang" id="lang_idp_wifi_client_list_name_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_wifi_client_list_interface_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_wifi_client_list_ipaddr_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_wifi_client_list_mac_addr_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_wifi_client_list_status_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_wifi_client_list_save_to_title"></td>
+</tr>
+</thead>
+<tbody id="wifi_client_list_content"></tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="add_to_filter()" id="btnAdd"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="refresh()" id="btnRefresh"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="closePopout()" id="btnClose"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+function SoryBy(key)
+{
+if( typeof(key) == 'undefined')
+key=$("#sortby").val()
+
+eval('var dy_id=lang_idp.'+$("#sortby option:selected").attr("id")+'')
+$("#sortby").siblings( ".selectSpan" ).html("<p>"+dy_id+"</p>");
+
+wifi_client_list_layout(key)
+resizePopout()
+inject_log_bot_idp()
+}
+
+function _find_index(mac) {
+for (var j=1; j <= 32; ++j) {
+eval("var m=window.parent.document.forms['ui-form'].mac"+j+".value");
+if (m == mac)
+return j;
+}
+return -1;
+}
+
+function add_to_filter() {
+var i,j;
+var index;
+
+for (i=0,j=1; i < table.length && j <= 32; ++i) {
+index = _find_index(table[i].mac);
+
+if (table[i].check == false) {
+if (index > 0) {
+// remove mac
+eval("window.parent.document.forms['ui-form'].mac"+index+".value='00:00:00:00:00:00'");
+}
+}
+else if (table[i].check == true) {
+if (index == -1)
+index = _find_index("00:00:00:00:00:00");
+
+if (index > 0) {
+// add mac
+eval("window.parent.document.forms['ui-form'].mac"+index+".value='"+(table[i].mac).toUpperCase()+"'");
+}
+}
+}
+closePopout();
+}
+
+function refresh() {
+closePopout();
+window.parent.open_wifi_client_table();
+}
+
+function save_to_list_checked(index) {
+var flag=false;
+
+if ($('#save_to_fileter_enable'+index).prop('checked'))
+$('#save_to_fileter_enable'+index).attr('checked','checked');
+else
+$('#save_to_fileter_enable'+index).removeAttr('checked');
+
+if (index < 0 || index >= table.length)
+return;
+
+table[index].check = $('#save_to_fileter_enable'+index).prop('checked');
+
+$('#btnAdd').attr('disabled','true');
+for (var i=0; i < table.length; ++i) {
+if (table[i].check == true) {
+$('#btnAdd').removeAttr('disabled');
+break;
+}
+}
+}
+
+function get_table(obj) {
+var i,j;
+var sel;
+
+for (i=0; i < 32; ++i) {
+eval("var m=window.parent.MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].mac"+i);
+if (m != "00:00:00:00:00:00")
+wl_maclist.push(m.toUpperCase());
+}
+
+table = [];
+for (i=0; i < obj.wlanClientT.length; ++i) {
+/* set checkbox checked when mac is found. */
+sel = false;
+for (j=0; j < wl_maclist.length; ++j) {
+if (obj.wlanClientT[i].mac.toUpperCase() == wl_maclist[j]) {
+sel = true;
+break;
+}
+}
+
+table[i] = new AAA(obj.wlanClientT[i].hostname,
+obj.wlanClientT[i].assignedIp,
+obj.wlanClientT[i].mac.toUpperCase(),
+'WL',
+obj.wlanClientT[i].status,
+sel);
+}
+
+//table[0] = new AAA('1300472-NB01','192.168.1.113','40:16:7E:6B:02:B2','WL','1','');
+//table[1] = new AAA('kenny-HP-ProBook-440-G2','192.168.1.121','B0:5A:DA:EB:59:AB','WL','0',true);
+//table[2] = new AAA('ejRobotFramework','192.168.1.117','08:00:27:CB:8D:34','WL','1',true);
+//wl_maclist = ["40:16:7E:6B:02:B2","B0:5A:DA:EB:59:AB"];
+
+ret = !table.length;
+}
+
+function init()
+{
+setTimeout(function(){
+
+lang_idp = eval('window.parent.L.'+localStorage.iframe_idp_name)
+$('#loader', window.parent.document).hide();
+
+get_info_data(INFO_LIST);
+},1000);
+
+}
+
+var INFO_LIST=['wlanClientT','dhcpClientT'];
+var INFO_DATA={};
+var lang_idp;
+var table = new Array();	// device list
+var sortby = "";
+var wl_maclist = new Array();	// mac filter list
+var ret=0;	// ret=1 --> no wifi client
+
+function AAA(name,ip,mac,iface,status,check)
+{
+this.name = name;
+this.ip = ip;
+this.mac = mac;
+this.status = status;
+this.iface = iface;
+this.check = check;
+}
+
+function ByName(a,b)
+{
+if( a.name > b.name ) return 1;
+else if (a.name == b.name ) return 0;
+else return -1;
+}
+
+function ByMac(a,b)
+{
+if( a.mac > b.mac ) return 1;
+else if (a.mac == b.mac ) return 0;
+else return -1;
+}
+
+function ByIp(a,b)
+{
+if( a.ip > b.ip ) return 1;
+else if (a.ip == b.ip ) return 0;
+else return -1;
+}
+
+function ByIface(a,b)
+{
+if( a.iface > b.iface ) return 1;
+else if (a.iface == b.iface ) return 0;
+else return -1;
+}
+
+function ByStatus(a,b)
+{
+if( a.status > b.status ) return 1;
+else if (a.status == b.status ) return 0;
+else return -1;
+}
+
+function wifi_client_list_layout(sortby){
+if(sortby == "") {
+sortby = "ip";
+}
+if(sortby == "name") {
+table.sort(ByName);
+}
+else if(sortby == "mac") {
+table.sort(ByMac);
+}
+else if(sortby == "ip") {
+table.sort(ByIp);
+}
+else if(sortby == "status") {
+table.sort(ByStatus);
+}
+
+var i = 0;
+var ip = new Array();
+var check = "";
+var none=lang_idp.lang_idp_wifi_client_list_none_title;
+
+table_content=""
+$('#btnAdd').attr('disabled','true');
+
+for(i=0;;i++) {
+if(table.length == 0) {
+table[0] = new AAA(none,none,none,none,none,"");
+ret = 1;
+}
+else if(table.length == i) {
+break;
+}
+
+if(table[i].iface == "WL")
+table[i].iface = lang_idp.lang_idp_wifi_client_list_wireless_title;
+else if(table[i].iface == lang_idp.lang_idp_wifi_client_list_wireless_title)
+table[i].iface = lang_idp.lang_idp_wifi_client_list_wireless_title;
+else if(table[i].iface == "G")
+table[i].iface = lang_idp.lang_idp_wifi_client_list_wireless_title+"-G";
+else if(table[i].iface == "B")
+table[i].iface = lang_idp.lang_idp_wifi_client_list_wireless_title+"-B";
+else if(table[i].iface == "A")
+table[i].iface = lang_idp.lang_idp_wifi_client_list_wireless_title+"-A";
+else if(table[i].iface == "N")
+table[i].iface = lang_idp.lang_idp_wifi_client_list_wireless_title+"-N";
+else if(table[i].iface == "LAN")
+table[i].iface = lang_idp.lang_idp_wifi_client_list_lan_title;
+else
+table[i].iface = none;
+
+for (var j=0; j < wl_maclist.length; ++j) {
+if (table[i].check) {
+$('#btnAdd').removeAttr('disabled');
+break;
+}
+}
+
+table_content= table_content + '<tr>'
+table_content= table_content + '<td>' + table[i].name + '</td>'
+table_content= table_content + '<td>' + table[i].iface + '</td>'
+table_content= table_content + '<td>' + table[i].ip + '</td>'
+table_content= table_content + '<td>' + table[i].mac + '</td>'
+
+if (table[i].status == "connected")
+table_content= table_content + '<td>' + lang_idp.lang_idp_wifi_client_list_connected_title + '</td>'
+else
+table_content= table_content + '<td>' + lang_idp.lang_idp_wifi_client_list_disconnected_title + '</td>'
+
+if(ret == 1) {
+table_content= table_content + '<td>&nbsp;</td>'
+}
+else
+{
+table_content= table_content + '<td>'
+table_content= table_content + '<span id="checkbox_div_save_to_fileter_enable'+i+'"></span>';
+table_content= table_content + '</td>'
+
+}
+table_content= table_content + '</tr>'
+
+if(ret == 1)
+break;
+}
+$("#wifi_client_list_content").html(table_content)
+
+if (ret == 0) {
+for (i=0; i < table.length; ++i) {
+draw_checkbox("save_to_fileter_enable"+i, "", "on", "save_to_list_checked("+i+")",  table[i].check);
+update_checked($('#save_to_fileter_enable'+i).attr('name'));
+}
+}
+}
+
+function get_info_success_cb(obj) {
+INFO_DATA = API.obj.copy(obj);
+
+get_table(INFO_DATA);
+SoryBy($("#sortby").val())
+}
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+</script>
+
+</FORM></BODY></HTML>

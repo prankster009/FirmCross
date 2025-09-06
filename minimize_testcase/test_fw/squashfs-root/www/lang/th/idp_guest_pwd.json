@@ -1,0 +1,8 @@
+{
+    "idp_guest_pwd": {
+        "lang_idp_guest_pwd_title": "เปลี่ยนรหัสผ่านของบัญชี Guest",
+        "lang_idp_guest_pwd_info1_title": "ป้อนรหัสผ่านใหม่ของเครือข่ายบัญชี Guest:",
+        "lang_idp_guest_pwd_info2_title": "อักขระ 4 - 32 ตัว",
+        "lang_idp_guest_pwd_alert_title": "โปรดป้อนรหัสผ่านที่ถูกต้อง อักขระที่ใช้ได้ ได้แก่ A-Z, a-z, 0-9"
+    }
+}

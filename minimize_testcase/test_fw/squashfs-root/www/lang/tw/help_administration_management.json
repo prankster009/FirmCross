@@ -1,0 +1,23 @@
+{
+    "help_administration_management": {
+        "lang_help_administration_management_title": "管理",
+        "lang_ham1": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_ham2": "本機管理存取",
+        "lang_ham3": "存取方式：",
+        "lang_ham4": "選擇本機存取的通訊協定。",
+        "lang_ham5": "無線存取",
+        "lang_ham6": "要允許無線存取至路由器的瀏覽器介面，請保留預設的<b>已啟用</b>。",
+        "lang_ham7": "遠端管理存取",
+        "lang_ham8": "遠端管理",
+        "lang_ham9": "要透過網際網路管理路由器，請選擇<b>已啟用</b>。",
+        "lang_ham10": "存取方式：",
+        "lang_ham11": "選擇遠端存取的通訊協定。",
+        "lang_ham12": "遠端升級",
+        "lang_ham13": "要透過網際網路升級路由器的韌體，請選擇<b>已啟用</b>。",
+        "lang_ham14": "允許的遠端 IP 位址",
+        "lang_ham15": "要允許從任何外部 IP 位址存取路由器，請選擇<b>任意 IP 位址</b>。要指定外部 IP 位址或 IP 位址範圍，請選擇並填寫 IP 位址範圍欄位。",
+        "lang_ham16": "遠端管理連接埠",
+        "lang_ham17": "輸入將開放給遠端存取的連接埠號碼。",
+        "lang_ham18": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

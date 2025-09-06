@@ -1,0 +1,9 @@
+{
+    "LanP": {
+        "name": "lan",
+        "ifnameList": "eth0",
+        "ipaddr": "192.168.1.1",
+        "netmask": "255.255.255.0",
+        "routername": "E5600"
+    }
+}

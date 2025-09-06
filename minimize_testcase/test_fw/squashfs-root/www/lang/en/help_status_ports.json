@@ -1,0 +1,13 @@
+{
+    "help_status_ports": {
+        "lang_help_status_ports_title": "Ports",
+        "lang_hsp1": "Rear Port Lights",
+        "lang_hsp2": "Internet Port Link",
+        "lang_hsp3": "10/100 Mbps or 1 Gbps",
+        "lang_hsp4": "The maximum speed of the Internet port is displayed.",
+        "lang_hsp5": "Local Port Link",
+        "lang_hsp6": "10/100 Mbps or 1 Gbps",
+        "lang_hsp7": "The maximum speed of each local port (Ports 1-4) is displayed.",
+        "lang_hsp8": "Click <b>Refresh</b> to update the on-screen information."
+    }
+}

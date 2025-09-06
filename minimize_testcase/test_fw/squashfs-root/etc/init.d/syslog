@@ -1,0 +1,33 @@
+#!/bin/sh /etc/rc.common
+
+. /usr/share/libubox/jshn.sh
+
+START=90
+STOP=20
+SERVICE="logEnable"
+LOGFILE="/var/log/messages"
+
+start() {
+    json_load "$(objReq logEnable json)"
+    json_select "LogEnableP"
+    json_get_vars logEnable
+
+    if [ "$logEnable" = "1" ]; then
+        echo "$SERVICE, enabled" > /dev/console
+        syslogd -S -D -s 512 -b 2
+        klogd
+    else
+        echo "$SERVICE, disabled" > /dev/console
+        killall -9 syslogd
+        killall -9 klogd
+        rm -f $LOGFILE
+    fi
+}
+
+stop() {
+    killall -9 syslogd
+    killall -9 klogd
+    rm -f $LOGFILE
+}
+
+

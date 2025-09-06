@@ -1,0 +1,12 @@
+{
+    "help_administration_timezone": {
+        "lang_help_administration_timezone_title": "Time Zone",
+        "lang_hat1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hat2": "Time Settings",
+        "lang_hat3": "Time Zone",
+        "lang_hat4": "Select your network's time zone from the drop-down menu.",
+        "lang_hat5": "Automatically adjust clock for daylight saving changes",
+        "lang_hat6": "Select this option to have the Router automatically adjust for daylight saving time.",
+        "lang_hat7": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

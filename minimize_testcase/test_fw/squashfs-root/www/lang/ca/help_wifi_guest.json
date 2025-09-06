@@ -1,0 +1,24 @@
+{
+    "help_wifi_guest": {
+        "lang_help_wifi_guest_title": "Accès d'invité",
+        "lang_hwg1": "Utilisez la fonction Accès d'invité pour offrir un accès Internet seul à vos invités. Le réseau d'invité est un réseau sans fil séparé de votre réseau local.",
+        "lang_hwg2": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hwg3": "Accès d'invité",
+        "lang_hwg4": "Autoriser l'accès d'invité",
+        "lang_hwg5": "Pour autoriser l’accès Internet par le biais d’un réseau d’invité, sélectionnez <b>oui</b>.",
+        "lang_hwg6": "Nom du réseau d'invité",
+        "lang_hwg7": "Le nom du réseau d'invité s'affiche.",
+        "lang_hwg8": "Mot de passe d'invité",
+        "lang_hwg9": "Le mot de passe d'accès au réseau d'invité s'affiche.",
+        "lang_hwg10": "Modifier",
+        "lang_hwg11": "Cliquez sur <b>Modifier</b> pour changer le mot de passe d’invité.",
+        "lang_hwg12": "Modifier le mot de passe d'invité",
+        "lang_hwg13": "Entrez un nouveau mot de passe de réseau d'invité",
+        "lang_hwg14": "Entrez un mot de passe comptant entre 4 et 32 caractères. Puis cliquez sur <b>Modifier</b>.",
+        "lang_hwg15": "Nombre total d'invités autorisés",
+        "lang_hwg16": "Sélectionnez le nombre d'invités auxquels vous voulez autoriser l'accès sur votre réseau d'invités.",
+        "lang_hwg17": "Diffusion SSID",
+        "lang_hwg18": "Lorsque des périphériques sans fil rechercheront des réseaux sans fil à proximité auxquels s’associer, ils détecteront le SSID (nom du réseau sans fil) diffusé par le routeur. Pour diffuser le SSID du réseau d’invité, conservez la valeur par défaut, soit <b>Activé</b>.",
+        "lang_hwg19": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

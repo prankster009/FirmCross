@@ -1,0 +1,21 @@
+{
+    "help_security_portfowarding": {
+        "lang_help_security_portfowarding_title": "單一連接埠轉寄",
+        "lang_hsp1": "單一連接埠轉寄可讓您為各種應用程式自訂連接埠服務。當使用者透過網際網路將此類請求傳送至您的網路上時，路由器會轉寄這些請求傳輸至適當的電腦上（伺服器）。",
+        "lang_hsp2": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hsp3": "單一連接埠轉寄",
+        "lang_hsp4": "應用程式名稱",
+        "lang_hsp5": "選擇預設應用程式，或輸入自訂應用程式的名稱。",
+        "lang_hsp6": "外部連接埠",
+        "lang_hsp7": "對於自訂應用程式，輸入接受傳入流量的外部連接埠號碼。",
+        "lang_hsp8": "內部連接埠",
+        "lang_hsp9": "對於自訂應用程式，輸入接受路由器轉寄的流量的內部連接埠號碼。",
+        "lang_hsp10": "通訊協定",
+        "lang_hsp11": "對於自訂應用程式，選擇使用的通訊協定。",
+        "lang_hsp12": "到 IP 位址",
+        "lang_hsp13": "輸入應收到流量的電腦 IP 位址。",
+        "lang_hsp14": "已啓用",
+        "lang_hsp15": "選擇<b>已啟用</b>以啟動連接埠轉寄。",
+        "lang_hsp16": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "idp_mesh_confirm": {
+        "lang_idp_mesh_confirm_title": "Press the WPS button<img src=\"/img/wps_mark.png\"  width=\"35\" height=\"30\"> on the child node for 3 seconds",
+        "lang_idp_mesh_confirm_content": "Setup will continue..."
+    }
+}

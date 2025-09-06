@@ -1,0 +1,15 @@
+{
+    "help_connectivity_macclone": {
+        "lang_help_connectivity_macclone_title": "MAC 位址複製",
+        "lang_hcm1": "如果您電腦的 MAC 位址已向 ISP 註冊以存取網際網路，並且您不想要重新註冊 MAC 位址，則可以將目前已註冊的 MAC 位址指派給路由器。",
+        "lang_hcm2": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hcm3": "MAC 位址複製",
+        "lang_hcm4": "已啟用/已停用",
+        "lang_hcm5": "要讓路由器複製您在下面指定的 MAC 位址，請選擇<b>已啟用</b>。",
+        "lang_hcm6": "MAC 位址",
+        "lang_hcm7": "輸入在您的 ISP 中註冊的 MAC 位址。",
+        "lang_hcm8": "複製我的電腦 MAC",
+        "lang_hcm9": "點選此選項以複製您電腦的 MAC 位址。",
+        "lang_hcm10": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

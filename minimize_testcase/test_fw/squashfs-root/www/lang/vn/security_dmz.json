@@ -1,0 +1,12 @@
+{
+    "security_dmz": {
+        "lang_dmz_enable_title": "DMZ",
+        "lang_source_ip_addr_title": "Địa chỉ IP nguồn",
+        "lang_source_ip_any_title": "Địa chỉ IP bất kỳ",
+        "lang_to": "tới",
+        "lang_dest_ip_addr_title": "Đích",
+        "lang_dest_ip_title": "Địa chỉ IP",
+        "lang_dest_mac_addr": "Địa chỉ MAC",
+        "lang_dest_dhcp_client_button": "Bảng thiết bị khách DHCP"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "security_portrangefowarding": {
+        "lang_prf_app_name_title": "ชื่อแอปพลิเคชัน",
+        "lang_prf_port_range_title": "พอร์ตเริ่มต้น ~ สิ้นสุด",
+        "lang_prf_protocol_title": "โพรโทคอล",
+        "lang_prf_to_ip_title": "ถึงที่อยู่ IP",
+        "lang_prf_enabled_title": "เปิดใช้งาน",
+        "lang_prf_action_title": "การดำเนินการ",
+        "lang_prf_add_btn_title": "เพิ่มการส่งต่อช่วงของพอร์ตใหม่",
+        "lang_prf_disabled_title": "ปิดใช้งาน",
+        "lang_prf_remove_btn_title": "ลบ",
+        "lang_prf_protocol_both": "ทั้งสองอย่าง",
+        "lang_prf_protocol_tcp": "TCP",
+        "lang_prf_protocol_udp": "UDP"
+    }
+}

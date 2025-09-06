@@ -1,0 +1,8 @@
+Package: switch
+Version: 1
+Depends: libc, libnl-tiny
+Source: package/mtk/applications/switch
+Section: MTK Properties
+Architecture: ramips_24kec
+Installed-Size: 20695
+Description:  An program to config switch.

@@ -1,0 +1,16 @@
+{
+    "security_portrangefowarding": {
+        "lang_prf_app_name_title": "應用程式名稱",
+        "lang_prf_port_range_title": "開始～結束連接埠",
+        "lang_prf_protocol_title": "通訊協定",
+        "lang_prf_to_ip_title": "到 IP 位址",
+        "lang_prf_enabled_title": "已啓用",
+        "lang_prf_action_title": "動作",
+        "lang_prf_add_btn_title": "新增一個新連接埠範圍轉寄",
+        "lang_prf_disabled_title": "已停用",
+        "lang_prf_remove_btn_title": "移除",
+        "lang_prf_protocol_both": "兩者",
+        "lang_prf_protocol_tcp": "TCP",
+        "lang_prf_protocol_udp": "UDP"
+    }
+}

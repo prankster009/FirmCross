@@ -1,0 +1,23 @@
+{
+    "help_administration_management": {
+        "lang_help_administration_management_title": "Gestion",
+        "lang_ham1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_ham2": "Accès local de gestion",
+        "lang_ham3": "Accès via",
+        "lang_ham4": "Sélectionnez le protocole pour l’accès local.",
+        "lang_ham5": "Accès sans fil",
+        "lang_ham6": "Pour autoriser l’accès sans fil à l’utilitaire Web du routeur, conservez la valeur par défaut, <b>Activé</b>.",
+        "lang_ham7": "Accès de gestion à distance",
+        "lang_ham8": "Gestion à distance",
+        "lang_ham9": "Pour gérer le routeur sur Internet, sélectionnez <b>Activé</b>.",
+        "lang_ham10": "Accès via",
+        "lang_ham11": "Sélectionnez le protocole pour l’accès à distance.",
+        "lang_ham12": "Mise à niveau à distance",
+        "lang_ham13": "Pour mettre à niveau le micrologiciel du routeur sur Internet, sélectionnez <b>Activé</b>.",
+        "lang_ham14": "Adresse IP à distance autorisée",
+        "lang_ham15": "Pour autoriser l’accès au routeur à partir de n’importe quelle adresse IP externe, sélectionnez <b>Toute adresse IP</b>. Pour préciser une adresse IP ou une plage d’adresses IP externes, sélectionnez et remplissez les champs de plage d’adresses IP.",
+        "lang_ham16": "Port de gestion à distance",
+        "lang_ham17": "Entrez le numéro de port qui sera ouvert à l’accès à distance.",
+        "lang_ham18": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "idp_prf_item_creator": {
+        "lang_prf_item_creator_title": "เพิ่มการส่งต่อช่วงของพอร์ตใหม่",
+        "lang_prf_item_app_name_title": "ชื่อแอปพลิเคชัน",
+        "lang_prf_item_port_range_title": "พอร์ตเริ่มต้น ~ สิ้นสุด",
+        "lang_prf_item_to_title": "ถึง",
+        "lang_prf_item_protocol_title": "โพรโทคอล",
+        "lang_prf_item_to_ip_title": "ถึงที่อยู่ IP",
+        "lang_prf_item_enable_title": "เปิดใช้งาน",
+        "lang_protocol_both": "ทั้งสองอย่าง",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "คุณไม่สามารถใช้ ที่อยู่ IP, ที่อยู่เครือข่าย หรือที่อยู่ในการเผยแพร่ของเราเตอร์ได้",
+        "lang_msg_repeated_name": "ชื่อซ้ำ",
+        "lang_msg_port_overloap": "พอร์ตเกิดการซ้อนทับกัน! โปรดเปลี่ยนแปลงค่าที่ป้อน!"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "Ipv6P": {
+        "dhcp6cEnable": "1",
+        "tun6rdMode": "0",
+        "ip6prefix": "::",
+        "ip6prefixlen": "0",
+        "peeraddr": "",
+        "ip4prefixlen": "0"
+    }
+}

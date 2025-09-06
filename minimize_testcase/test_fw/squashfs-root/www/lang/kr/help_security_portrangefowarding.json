@@ -1,0 +1,19 @@
+{
+    "help_security_portrangefowarding": {
+        "lang_help_security_portrangefowarding_title": "포트 범위 전달",
+        "lang_hspr1": "포트 범위 전달 기능을 사용하면 네트워크에서 웹 서버, FTP 서버, 이메일 서버 또는 기타 전문적인 인터넷 응용 프로그램과 같은 공용 서비스를 설정할 수 있습니다.",
+        "lang_hspr2": "참고: 변경한 후 <b>설정 저장</b>을 클릭하여 변경 사항을 적용하십시오.",
+        "lang_hspr3": "포트 범위 전달",
+        "lang_hspr4": "응용 프로그램 이름",
+        "lang_hspr5": "응용 프로그램의 이름을 입력합니다.",
+        "lang_hspr6": "시작~종료 포트",
+        "lang_hspr7": "수신되는 트래픽에 사용되는 포트 수 또는 범위를 입력합니다.",
+        "lang_hspr8": "프로토콜",
+        "lang_hspr9": "이 응용 프로그램에 사용되는 프로토콜을 선택합니다.",
+        "lang_hspr10": "대상 IP 주소",
+        "lang_hspr11": "특정 응용 프로그램을 실행하는 서버의 IP 주소를 입력합니다.",
+        "lang_hspr12": "활성화됨",
+        "lang_hspr13": "포트 전달을 활성화하려면 <b>활성화</b>를 선택합니다.",
+        "lang_hspr14": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

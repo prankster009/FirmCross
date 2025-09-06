@@ -1,0 +1,6 @@
+{
+    "idp_mesh_confirm": {
+        "lang_idp_mesh_confirm_title": "Press and hold 3 seconds the WPS button on the child node",
+        "lang_idp_mesh_confirm_content": "セットアップを続行…"
+    }
+}

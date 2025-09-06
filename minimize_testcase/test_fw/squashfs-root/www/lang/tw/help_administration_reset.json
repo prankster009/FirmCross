@@ -1,0 +1,10 @@
+{
+    "help_administration_reset": {
+        "lang_help_administration_reset_title": "重設裝置",
+        "lang_har1": "重新啟動路由器",
+        "lang_har2": "點選此選項以重新啟動路由器。",
+        "lang_har3": "重設為原廠預設設定",
+        "lang_har4": "此功能可讓您將路由器的所有設定重設為其預設值。",
+        "lang_har5": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

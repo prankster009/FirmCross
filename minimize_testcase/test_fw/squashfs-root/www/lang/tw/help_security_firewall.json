@@ -1,0 +1,28 @@
+{
+    "help_security_firewall": {
+        "lang_help_security_firewall_title": "防火牆",
+        "lang_hsf1": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hsf2": "防火牆",
+        "lang_hsf3": "SPI 防火牆保護",
+        "lang_hsf4": "SPI 防火牆保護有助於保護您的本機網路免受網際網路的侵害。",
+        "lang_hsf5": "網際網路篩選",
+        "lang_hsf6": "篩選匿名網際網路請求",
+        "lang_hsf7": "此篩選器封鎖來自不明來源的網際網路請求，例如偵測請求。",
+        "lang_hsf8": "篩選多點傳送",
+        "lang_hsf9": "此篩選器封鎖多點傳送，其可讓單一傳輸同時送達本機網路中的特定收件人。",
+        "lang_hsf10": "篩選網際網路 NAT 重新導向",
+        "lang_hsf11": "此篩選器可防止本機電腦使用 URL 或網際網路 IP 位址存取本機伺服器。",
+        "lang_hsf12": "篩選器身分（連接埠 113）",
+        "lang_hsf13": "此篩選器可防網際網路上的裝置掃描連接埠 113。",
+        "lang_hsf14": "網頁篩選器",
+        "lang_hsf15": "代理伺服器",
+        "lang_hsf16": "此篩選器封鎖網際網路代理伺服器的使用。",
+        "lang_hsf17": "Java",
+        "lang_hsf18": "此篩選器封鎖 Java，因此您可能無法存取網站上的 Java 內容。",
+        "lang_hsf19": "ActiveX",
+        "lang_hsf20": "此篩選器封鎖 ActiveX，因此您可能無法存取網站上的 ActiveX 內容。",
+        "lang_hsf21": "Cookie",
+        "lang_hsf22": "此篩選器封鎖 cookie，cookie 是儲存在您電腦上的資料，在您與網站進行互動時使用。",
+        "lang_hsf23": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

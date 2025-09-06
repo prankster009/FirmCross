@@ -1,0 +1,28 @@
+{
+    "idp_spf_item_creator": {
+        "lang_spf_item_creator_title": "Ajouter un nouveau routage de port unique",
+        "lang_spf_item_app_title": "Application",
+        "lang_spf_item_app_name_title": "Nom de l'application",
+        "lang_spf_item_ext_port_title": "Port externe",
+        "lang_spf_item_int_port_title": "Port interne",
+        "lang_spf_item_protocol_title": "Protocole",
+        "lang_spf_item_to_ip_title": "Adresse IP de destination",
+        "lang_spf_item_enable_title": "Activé",
+        "lang_app_manual": "Manuel",
+        "lang_app_ftp": "FTP",
+        "lang_app_telnet": "Telnet",
+        "lang_app_smtp": "SMPT",
+        "lang_app_dns": "DNS",
+        "lang_app_tftp": "TFTP",
+        "lang_app_finger": "Doigt",
+        "lang_app_http": "HTTP",
+        "lang_app_pop3": "POP3",
+        "lang_app_nntp": "NNTP",
+        "lang_app_snmp": "SNMP",
+        "lang_app_pptp": "PPTP",
+        "lang_protocol_both": "Les deux",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "Vous ne pouvez pas utiliser l'adresse de diffusion, de réseau ou IP du routeur."
+    }
+}

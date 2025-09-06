@@ -1,0 +1,14 @@
+{
+    "administration_backup": {
+        "lang_backup_title": "BackUp Configurations",
+        "lang_backup_config_button": "BackUp",
+        "lang_restore_title": "Restore Configurations",
+        "lang_restore_config_button": "Start to Restore",
+        "lang_file_empty_msg": "Please select a file to restore.",
+        "lang_file_format_msg": "The config file is incorrect.",
+        "lang_file_restore_fail_msg": "Restore configuration failed!",
+        "lang_restore_success": "Restore is successful",
+        "lang_restore_rebooting": "Rebooting......",
+        "lang_file_backup_fail_msg": "Backup configurations failed!"
+    }
+}

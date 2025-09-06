@@ -1,0 +1,19 @@
+{
+    "security_ipv6": {
+        "lang_ipv6_zone_firewall_title": "IPv6 ファイアウォール設定",
+        "lang_ipv6_description_title": "説明",
+        "lang_ipv6_address_title": "IPv6 アドレス",
+        "lang_ipv6_disable": "無効にする",
+        "lang_ipv6_tcp": "TCP",
+        "lang_ipv6_udp": "UDP",
+        "lang_ipv6_both": "両方",
+        "lang_ipv6_allow_title": "許可",
+        "lang_ipv6_to": "～",
+        "lang_ipv6_optional": "(オプション)",
+        "lang_ipv6_allowing_ports": "ポートを許可中",
+        "lang_ipv6_description": "説明",
+        "lang_ipv6_address": "アドレス",
+        "lang_ipv6_allow": "許可",
+        "lang_ipv6_error_msg_1": "無効な IPv6 アドレスが入力されています、正しい IPv6 アドレスを再入力してください。"
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "connectivity_network": {
+        "lang_network_zone_router_address_title": "路由器位址",
+        "lang_ip_addr_title": "IP 位址",
+        "lang_subnet_mask_title": "子網路遮罩",
+        "lang_router_name_title": "路由器名稱",
+        "lang_network_zone_dhcp_server_setting_title": "DHCP 伺服器設定",
+        "lang_dhcp_server_enable_title": "DHCP 伺服器",
+        "lang_dhcp_reservation_button": "DHCP 保留區",
+        "lang_start_ip_title": "起始 IP 位址",
+        "lang_num_of_user_title": "最大使用者數量",
+        "lang_ip_range_title": "IP 位址範圍",
+        "lang_lease_time_title": "用戶端租用時間",
+        "lang_lease_time_unit": "分鐘（0 代表一天）",
+        "lang_static_dns_1_title": "靜態 DNS 1",
+        "lang_static_dns_2_title": "靜態 DNS 2",
+        "lang_static_dns_3_title": "靜態 DNS 3",
+        "lang_wins_title": "WINS",
+        "lang_ip_range_to_title": "到",
+        "lang_alert_out_range": "數值超出範圍",
+        "lang_alert_change_setting": "數值超出範圍。更改起始 IP 位址或最大使用者數量。",
+        "lang_alert_illegal_char": "非法的字元 [必須為 0-9 ]。",
+        "lang_alert_dev_name_blank": "路由器名稱不能是空白！",
+        "lang_alert_bridge_mode": "當路由器在橋接模式下運作時，不支援這些功能。",
+        "lang_alert_dev_name_illegal_char": "路由器名稱只能包含英數字元和破折號。",
+        "lang_alert_dev_name_start_letter": "路由器名稱必須以英文字母開頭。",
+        "lang_alert_no_need_setup": "不需要設定 LAN 設定。",
+        "lang_alert_gn_ip_range": "192.168.33.0/24 網路（IP 位址 192.168.33.0 - 255）是保留給無線來賓網路。請使用其他網路位址。"
+    }
+}

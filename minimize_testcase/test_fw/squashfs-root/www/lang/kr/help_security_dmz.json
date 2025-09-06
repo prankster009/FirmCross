@@ -1,0 +1,16 @@
+{
+    "help_security_dmz": {
+        "lang_help_security_dmz_title": "DMZ",
+        "lang_hsd1": "DMZ 기능은 하나의 네트워크 장치를 인터넷에 노출시켜 온라인 게임과 같은 특수 목적의 서비스를 사용할 수 있게 합니다. 라우터는 모든 포트를 동시에 DMZ 장치로 전달합니다.",
+        "lang_hsd2": "참고: 변경한 후 <b>설정 저장</b>을 클릭하여 변경 사항을 적용하십시오.",
+        "lang_hsd3": "DMZ",
+        "lang_hsd4": "활성화/비활성화",
+        "lang_hsd5": "한 대의 컴퓨터를 DMZ 장치로 노출시키려면, <b>활성화</b>를 선택합니다.",
+        "lang_hsd6": "소스 IP 주소",
+        "lang_hsd7": "인터넷의 IP 주소가 DMZ 장치에 액세스하게 허용하려면, <b>임의의 IP 주소</b>를 선택합니다. DMZ 장치에 액세스하기 위해 인터넷에서 IP 주소 또는 IP 주소 범위를 지정하려면, IP 주소 범위 필드를 선택하고 이를 작성합니다.",
+        "lang_hsd8": "대상",
+        "lang_hsd9": "IP 주소로 DMZ 장치를 지정하려면, <b>IP 주소</b>를 선택하고 해당 IP 주소를 입력합니다.",
+        "lang_hsd10": "MAC 주소로 DMZ 장치를 지정하려면 <b>MAC 주소</b>를 선택하고 해당 MAC 주소를 입력합니다. MAC 주소를 찾으려면 <b>DHCP 클라이언트 테이블</b>을 클릭합니다.",
+        "lang_hsd11": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

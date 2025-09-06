@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.log
+    set firewall.log=include
+    set firewall.log.type=script
+    set firewall.log.path=/usr/share/security/log.include
+    set firewall.log.family=ipv4
+    set firewall.log.reload=1
+EOT
+
+exit 0

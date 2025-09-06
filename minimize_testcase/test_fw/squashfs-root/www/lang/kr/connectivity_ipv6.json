@@ -1,0 +1,17 @@
+{
+    "connectivity_ipv6": {
+        "lang_ipv6_zone_internet_setup_title": "인터넷 설정",
+        "lang_ipv6_auto_title": "IPv6 - 자동",
+        "lang_ipv6_duid_title": "DUID",
+        "lang_ipv6_zone_network_setup_title": "네트워크 설정",
+        "lang_6rd_tunnel_title": "6차 터널",
+        "lang_6rd_tunnel_opt_disabled": "비활성화됨",
+        "lang_6rd_tunnel_opt_auto_config": "자동 구성",
+        "lang_6rd_tunnel_opt_manual_config": "수동 구성",
+        "lang_alert_invalid_ip_title": "잘못된 IP 주소",
+        "lang_6rd_tunnel_ip6prefix_title": "접두어",
+        "lang_6rd_tunnel_ip6prefixlen_title": "접두어 길이",
+        "lang_6rd_tunnel_peeraddr_title": "보더 릴레이",
+        "lang_6rd_tunnel_ip4prefixlen_title": "IPv4 주소 마스크"
+    }
+}

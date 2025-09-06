@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<link rel="stylesheet" href="/css/wps.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="mesh_confirm" onsubmit="return false;">
+
+<div class="pop-modal">
+
+<div class="modal-header"></div>
+<div class="modal-body">
+<div class="row">
+<div class="col" style="padding-left: 10px"><img class="img_cursor" src="/img/back.png" width="20px" height="20px" onclick="wps_cancel()"></div>
+</div>
+
+<div class="wiz-content">
+<div class="wiz-content-title"><span class="multi_lang" id="lang_idp_mesh_confirm_title"></span></div>
+
+<div id="count" style="display:none" class="row mb-3 mt-5">
+<div class="col" id="wpsCountdown">
+<div class="progress-wps">
+<div class="progress-wps blue-wps">
+<span class="progress-left-wps">
+<span class="progress-bar-wps"></span>
+</span>
+<span class="progress-right-wps">
+<span class="progress-bar-wps"></span>
+</span>
+<div class="progress-value-wps" id="wpsCountdown_value">0</div>
+</div>
+</div>
+</div>
+</div>
+<div id="fig" style="display:none"class="row">
+<div class="col" style="text-align: center;">
+<img src="/img/wiz_wps_press.png">
+</div>
+</div>
+
+
+<div id="clip" class="v-spinner">
+<div class="v-clip" style="height: 65px; width: 65px; border-width: 2px; border-style: solid; border-color: rgb(0, 104, 217) rgb(0, 104, 217) transparent; border-radius: 100%; background: transparent !important;">&nbsp;</div>
+</div>
+<div class="row">
+</div>
+<br>
+<div class="row">
+<div class="col-md-12"><span class="multi_lang" id="lang_idp_mesh_confirm_content"></span></div>
+</div>
+
+</div>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+var info_list=['easyMeshWps'];
+var WPS_action = {"easyMeshWps":{"action":"wps"}};
+var WPS_cancel = {"easyMeshWps":{"action":"cancel"}};
+var info_data={};
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+L_parent = window.parent.L.connectivity_mesh;
+$('#loader', window.parent.document).hide();
+//dev_list=window.parent.INFO_DATA.hosts;
+inject_log_bot_idp();
+
+setTimeout(function(){
+$('#count').show()
+$('#fig').show()
+$('#clip').hide()
+resizePopout();
+set_info_data(WPS_action);
+wps_countdown = 120
+$('#wpsCountdown_value').html(wps_countdown)
+wps_countdown_id = setInterval(wps_countdown_GUI, 1 * 1000)
+wps_detection()
+},15000);
+resizePopout();
+},1000);
+
+}
+
+function get_info_success_cb(obj) {
+info_data = API.obj.copy(obj);
+}
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+function set_info_success_cb(obj) {
+//displayPopout('wps');
+console.log("pass")
+}
+function set_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function set_info_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.info.set(JSON.parse(obj_content), set_info_success_cb, set_info_error_cb);
+else if(typeof(obj_content) == 'object')
+API.info.set(obj_content, set_info_success_cb, set_info_error_cb);
+}
+function wps_cancel(){
+set_info_data(WPS_cancel);
+clearWPScontext()
+setTimeout(function(){
+setTimeout(window.parent.switch_page("plug"), 500);
+closePopout();
+},1000);
+}
+function wps_countdown_GUI() {
+wps_countdown--
+$('#wpsCountdown_value').html(wps_countdown)
+if (wps_countdown <= 0) {
+clearWPScontext()
+//set_info_data(WPS_cancel);
+setTimeout(window.parent.switch_page("fail"), 2000);
+}
+get_info_data(info_list);
+}
+
+function wps_detection() {
+// Still not detect, keep polling every after 1 sec.
+// If countdown goes to 0 seconds, stopping polling.
+wscresult = info_data.wps_status;
+console.log(wscresult);
+if(wps_countdown <=110){
+if (wscresult == 'wps_successful' || wscresult == 'wps_failed') {
+if (wscresult == 'wps_successful'){
+setTimeout(window.parent.switch_page("pass"), 2000);
+}
+if ( wscresult == 'wps_failed')
+setTimeout(window.parent.switch_page("fail"), 2000);
+closePopout();
+clearWPScontext()
+return;
+}
+}
+if (wps_countdown > 0) {
+setTimeout(wps_detection, 1000 * 1)
+}
+}
+
+function clearWPScontext() {
+// Stop interval clock when back from WPS
+if (typeof (wps_countdown_id) != 'undefined')
+clearInterval(wps_countdown_id)
+// Stop Mesh polling
+wps_countdown = 0
+}
+</script>
+
+</FORM></BODY></HTML>

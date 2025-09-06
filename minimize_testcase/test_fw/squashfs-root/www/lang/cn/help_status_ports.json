@@ -1,0 +1,13 @@
+{
+    "help_status_ports": {
+        "lang_help_status_ports_title": "端口",
+        "lang_hsp1": "后部端口指示灯",
+        "lang_hsp2": "Internet 端口链路",
+        "lang_hsp3": "10/100 Mbps 或 1 Gbps",
+        "lang_hsp4": "显示 Internet 端口的最大速度。",
+        "lang_hsp5": "本地端口链路",
+        "lang_hsp6": "10/100 Mbps 或 1 Gbps",
+        "lang_hsp7": "显示每个本地端口（端口 1-4）的最大速度。",
+        "lang_hsp8": "单击“刷新”<b></b>可更新屏幕上的信息。"
+    }
+}

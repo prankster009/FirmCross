@@ -1,0 +1,10 @@
+{
+    "idp_traceroute": {
+        "lang_idp_traceroute_title": "traceroute",
+        "lang_idp_traceroute_complete_title": "トレース完了",
+        "lang_idp_traceroute_start_title": "への traceroute",
+        "lang_idp_traceroute_hop_max_title": "ホップ最大",
+        "lang_idp_traceroute_data_unit_title": "バイト パケット",
+        "lang_idp_traceroute_unknow_host_title": "不明なホスト"
+    }
+}

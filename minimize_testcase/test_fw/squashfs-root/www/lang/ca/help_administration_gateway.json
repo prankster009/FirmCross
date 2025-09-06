@@ -1,0 +1,16 @@
+{
+    "help_administration_gateway": {
+        "lang_help_administration_gateway_title": "Fonction Passerelle",
+        "lang_hag1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hag2": "ALG SIP",
+        "lang_hag3": "L’option ALG SIP autorise les paquets SIP à traverser le pare-feu NAT. Pour utiliser la fonction ALG SIP pour le service VoIP, sélectionnez Activé. Si votre fournisseur de service de VoIP utilise d’autres solutions de traversée NAT, telles que STUN, TURN ou ICE, conservez le paramètre par défaut, Désactivé.",
+        "lang_hag4": "UPnP",
+        "lang_hag5": "UPnP",
+        "lang_hag6": "La fonction UPnP permet au système d'exploitation approprié de configurer le routeur automatiquement pour différentes applications, comme par exemple les jeux en ligne et les appels Voix sur IP (VoIP).",
+        "lang_hag7": "Permettre la configuration par les utilisateurs",
+        "lang_hag8": "Pour pouvoir modifier manuellement des paramètres du routeur tout en utilisant la fonction UPnP, conservez la valeur par défaut, Activé.",
+        "lang_hag9": "Autoriser les utilisateurs à désactiver l'accès Internet",
+        "lang_hag10": "Pour empêcher les utilisateurs du réseau local de désactiver votre connexion Internet au moyen de la fonction UPnP, conservez la valeur par défaut, <b>Désactivé</b>.",
+        "lang_hag11": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

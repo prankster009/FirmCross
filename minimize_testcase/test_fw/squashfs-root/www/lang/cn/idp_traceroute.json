@@ -1,0 +1,10 @@
+{
+    "idp_traceroute": {
+        "lang_idp_traceroute_title": "路由跟踪",
+        "lang_idp_traceroute_complete_title": "跟踪完成",
+        "lang_idp_traceroute_start_title": "路由跟踪目标",
+        "lang_idp_traceroute_hop_max_title": "最大跃点数",
+        "lang_idp_traceroute_data_unit_title": "字节数据包",
+        "lang_idp_traceroute_unknow_host_title": "未知主机"
+    }
+}

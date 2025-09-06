@@ -1,0 +1,17 @@
+{
+    "idp_log": {
+        "lang_idp_log_title": "Nhật ký",
+        "lang_idp_log_type_title": "Loại",
+        "lang_idp_log_incoming": "Nhật ký đến",
+        "lang_idp_log_outgoing": "Nhật ký đi",
+        "lang_idp_log_security": "Nhật ký bảo mật",
+        "lang_idp_log_dhcp_client": "Nhật ký Thiết bị khách DHCP",
+        "lang_idp_log_save_button": "Lưu Nhật ký",
+        "lang_idp_log_clear_button": "Xóa",
+        "lang_idp_log_incoming_src_ip_title": "Địa chỉ IP nguồn",
+        "lang_idp_log_incoming_dst_port_title": "Số cổng đích",
+        "lang_idp_log_outgoing_lan_ip_title": "Địa chỉ LAN IP",
+        "lang_idp_log_outgoing_dst_ip_url_title": "URL đích đến địa chỉ IP",
+        "lang_idp_log_outgoing_port_title": "Số cổng (Dịch vụ)"
+    }
+}

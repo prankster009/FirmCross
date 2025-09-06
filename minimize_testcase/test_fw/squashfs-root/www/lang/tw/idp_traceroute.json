@@ -1,0 +1,10 @@
+{
+    "idp_traceroute": {
+        "lang_idp_traceroute_title": "traceroute",
+        "lang_idp_traceroute_complete_title": "追蹤完成",
+        "lang_idp_traceroute_start_title": "traceroute 到",
+        "lang_idp_traceroute_hop_max_title": "最大跳數",
+        "lang_idp_traceroute_data_unit_title": "位元組封包",
+        "lang_idp_traceroute_unknow_host_title": "不明的主機"
+    }
+}

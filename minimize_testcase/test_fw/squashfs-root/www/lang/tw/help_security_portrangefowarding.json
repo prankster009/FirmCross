@@ -1,0 +1,19 @@
+{
+    "help_security_portrangefowarding": {
+        "lang_help_security_portrangefowarding_title": "連接埠範圍轉寄",
+        "lang_hspr1": "連接埠範圍轉寄可讓您在網路上設定公共服務，例如 Web 伺服器、FTP 伺服器、電子郵件伺服器或其他特定的網際網路應用程式。",
+        "lang_hspr2": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hspr3": "連接埠範圍轉寄",
+        "lang_hspr4": "應用程式名稱",
+        "lang_hspr5": "輸入應用程式的名稱。",
+        "lang_hspr6": "開始～結束連接埠",
+        "lang_hspr7": "輸入傳入流量使用的連接埠號碼或連接埠範圍。",
+        "lang_hspr8": "通訊協定",
+        "lang_hspr9": "選擇用於此應用程式的通訊協定。",
+        "lang_hspr10": "到 IP 位址",
+        "lang_hspr11": "輸入執行特定應用程式的伺服器 IP 位址。",
+        "lang_hspr12": "已啓用",
+        "lang_hspr13": "選擇<b>已啟用</b>以啟動連接埠轉寄。",
+        "lang_hspr14": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

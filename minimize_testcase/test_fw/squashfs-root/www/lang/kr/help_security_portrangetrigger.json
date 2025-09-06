@@ -1,0 +1,17 @@
+{
+    "help_security_portrangetrigger": {
+        "lang_help_security_portrangetrigger_title": "포트 범위 트리거링",
+        "lang_hsprt1": "포트 범위 트리거링 기능은 라우터가 특정 포트 번호에 대해 송신 데이터를 감시하도록 허용합니다. 일치하는 데이터를 전송하는 컴퓨터의 IP 주소가 라우터에 의해 기억되며, 따라서 요청된 데이터가 라우터를 통해 반환될 때, 해당 데이터가 IP 주소 및 포트 매핑 규칙에 따라 적절한 컴퓨터로 다시 전달됩니다.",
+        "lang_hsprt2": "참고: 변경한 후 <b>설정 저장</b>을 클릭하여 변경 사항을 적용하십시오.",
+        "lang_hsprt3": "포트 범위 트리거링",
+        "lang_hsprt4": "응용 프로그램 이름",
+        "lang_hsprt5": "응용 프로그램의 이름을 입력합니다.",
+        "lang_hsprt6": "트리거된 범위",
+        "lang_hsprt7": "송신 트래픽의 시작 및 종료 포트 번호를 입력합니다.",
+        "lang_hsprt8": "전달된 범위",
+        "lang_hsprt9": "수신 트래픽의 시작 및 종료 포트 번호를 입력합니다.",
+        "lang_hsprt10": "활성화됨",
+        "lang_hsprt11": "포트 트리거링을 활성화하려면  <b>활성화</b>를 선택합니다.",
+        "lang_hsprt12": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

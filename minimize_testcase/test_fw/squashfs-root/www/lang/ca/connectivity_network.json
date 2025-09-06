@@ -1,0 +1,30 @@
+{
+    "connectivity_network": {
+        "lang_network_zone_router_address_title": "Adresse du routeur",
+        "lang_ip_addr_title": "Adresse IP",
+        "lang_subnet_mask_title": "Masque de sous-réseau",
+        "lang_router_name_title": "Nom du routeur",
+        "lang_network_zone_dhcp_server_setting_title": "Paramètres de serveur DHCP",
+        "lang_dhcp_server_enable_title": "Serveur DHCP",
+        "lang_dhcp_reservation_button": "Réservation DHCP",
+        "lang_start_ip_title": "Adresse IP de début",
+        "lang_num_of_user_title": "Nombres maximaux d’utilisateurs",
+        "lang_ip_range_title": "Plage d'adresses IP",
+        "lang_lease_time_title": "Durée du bail client",
+        "lang_lease_time_unit": "minutes (0 signifie une journée)",
+        "lang_static_dns_1_title": "DNS statique 1",
+        "lang_static_dns_2_title": "DNS statique 2",
+        "lang_static_dns_3_title": "DNS statique 3",
+        "lang_wins_title": "WINS",
+        "lang_ip_range_to_title": "à",
+        "lang_alert_out_range": "La valeur se trouve en dehors de la plage permise",
+        "lang_alert_change_setting": "Une valeur se trouve en dehors de la plage permise. Modifiez l’adresse IP de début ou le nombre maximal d’utilisateurs.",
+        "lang_alert_illegal_char": "Caractères non valides [ils doivent être des chiffres entre 0 et 9].",
+        "lang_alert_dev_name_blank": "Le nom du routeur ne peut pas être vide !",
+        "lang_alert_bridge_mode": "Ces fonctionnalités ne sont pas prises en charge lorsque le routeur est en mode Pont.",
+        "lang_alert_dev_name_illegal_char": "Le nom du routeur ne peut contenir que des caractères alphanumériques et des tirets.",
+        "lang_alert_dev_name_start_letter": "Le nom du routeur doit commencer par une lettre.",
+        "lang_alert_no_need_setup": "Pas besoin de configurer les paramètres de réseau local (LAN).",
+        "lang_alert_gn_ip_range": "Le réseau 192.168.33.0/24 (adresses IP 192.168.33.0 - 255) est réservé au réseau sans fil d'invité. Veuillez utiliser une différente adresse de réseau."
+    }
+}

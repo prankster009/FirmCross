@@ -1,0 +1,16 @@
+{
+    "help_security_dmz": {
+        "lang_help_security_dmz_title": "DMZ",
+        "lang_hsd1": "DMZ 功能可讓網路裝置在網際網路上公開，以用於諸如線上遊戲之類的專用服務。路由器將同時轉寄所有連接埠到 DMZ 設備。",
+        "lang_hsd2": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hsd3": "DMZ",
+        "lang_hsd4": "已啟用/已停用",
+        "lang_hsd5": "要將電腦公開為 DMZ 裝置，請選擇<b>已啟用</b>。",
+        "lang_hsd6": "來源 IP 位址",
+        "lang_hsd7": "要允許網際網路上的任何 IP 位址存取 DMZ 裝置，請選擇<b>任意 IP 位址</b>。要從網際網路指定 IP 位址或 IP 位址範圍以存取 DMZ 裝置，請選擇並填寫 IP 位址範圍欄位。",
+        "lang_hsd8": "目的地",
+        "lang_hsd9": "要透過 IP 位址指定 DMZ 裝置，請選擇 <b>IP 位址</b>，然後輸入其 IP 位址。",
+        "lang_hsd10": "要透過 MAC 位址指定 DMZ 裝置，請選擇 <b>MAC 位址</b>，然後輸入其 MAC 地址。要查找其 MAC 位址，請點選 <b>DHCP 用戶端資料表</b>。",
+        "lang_hsd11": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

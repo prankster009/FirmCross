@@ -1,0 +1,9 @@
+{
+    "administration_gateway": {
+        "lang_sip_alg_title": "SIP ALG",
+        "lang_gateway_zone_upnp_title": "UPnP",
+        "lang_upnp_enable_title": "UPnP",
+        "lang_allow_config_title": "ユーザーが構成できるように許可",
+        "lang_allow_disable_net_title": "ユーザーがインターネット アクセスを無効にできるように許可"
+    }
+}

@@ -1,0 +1,24 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006 OpenWrt.org
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+json_load "$(objReq route json)"
+json_select "RouteP"
+json_get_vars RIP
+
+START=60
+start() {
+	if [ $RIP == "1" ]; then
+		echo "Starting RIP" > /dev/console
+		/usr/sbin/quagga.init start
+	else
+		echo "RIP is Disabled!!!" > /dev/console
+	fi
+}
+
+stop() {
+	/usr/sbin/quagga.init stop
+}

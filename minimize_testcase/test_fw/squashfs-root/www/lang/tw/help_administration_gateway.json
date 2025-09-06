@@ -1,0 +1,16 @@
+{
+    "help_administration_gateway": {
+        "lang_help_administration_gateway_title": "閘道功能",
+        "lang_hag1": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hag2": "SIP ALG",
+        "lang_hag3": "SIP ALG 選項可讓 SIP 封包穿越 NAT 防火牆。要將 SIP ALG 用於 VoIP 服務，請選擇「已啟用」。如果您的 VoIP 服務供應商使用其他的 NAT 穿越解決方案，例如 STUN、TURN 或 ICE，請保留預設的「已停用」。",
+        "lang_hag4": "UPnP",
+        "lang_hag5": "UPnP",
+        "lang_hag6": "UPnP 可讓適當的作業系統為各種應用程式（例如線上遊戲和 VoIP 通話）自動設定路由器。",
+        "lang_hag7": "允許使用者設定",
+        "lang_hag8": "如果您希望在使用 UPnP 功能時能夠手動更改路由器，請維持預設的「已啟用」。",
+        "lang_hag9": "允許使用者停用網際網路存取",
+        "lang_hag10": "為防止本機網路使用者透過 UPnP 功能停用您的網際網路連線，請保留預設的<b>已停用</b>。",
+        "lang_hag11": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

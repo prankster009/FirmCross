@@ -1,0 +1,21 @@
+{
+    "idp_wifi_client_list": {
+        "lang_idp_wifi_client_list_title": "무선 클라이언트 목록",
+        "lang_idp_wifi_client_list_sortby_title": "정렬 기준:",
+        "lang_idp_wifi_client_list_ipaddr": "IP 주소",
+        "lang_idp_wifi_client_list_mac_addr": "MAC 주소",
+        "lang_idp_wifi_client_list_status": "상태",
+        "lang_idp_wifi_client_list_name": "클라이언트 이름",
+        "lang_idp_wifi_client_list_name_title": "클라이언트 이름",
+        "lang_idp_wifi_client_list_interface_title": "인터페이스",
+        "lang_idp_wifi_client_list_ipaddr_title": "IP 주소",
+        "lang_idp_wifi_client_list_mac_addr_title": "MAC 주소",
+        "lang_idp_wifi_client_list_status_title": "상태",
+        "lang_idp_wifi_client_list_none_title": "없음",
+        "lang_idp_wifi_client_list_save_to_title": "MAC 주소 필터 목록에 저장",
+        "lang_idp_wifi_client_list_connected_title": "연결됨",
+        "lang_idp_wifi_client_list_disconnected_title": "연결이 해제됨",
+        "lang_idp_wifi_client_list_wireless_title": "무선",
+        "lang_idp_wifi_client_list_lan_title": "LAN"
+    }
+}

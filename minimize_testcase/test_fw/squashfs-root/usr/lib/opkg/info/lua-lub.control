@@ -1,0 +1,9 @@
+Package: lua-lub
+Version: 2018-07-15-8d7a56faac052126113fc91cb2f4f2c5a1b359aa
+Depends: libc, lua
+Source: package/lang/lua-lub
+License: MIT
+Section: lang
+Architecture: ramips_24kec
+Installed-Size: 19459
+Description:  Lubyk core library (provides autoloading, helpers).

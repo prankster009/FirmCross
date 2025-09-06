@@ -1,0 +1,11 @@
+{
+    "login": {
+        "lang_auth_title": "ต้องมีการตรวจสอบสิทธิ์",
+        "lang_acnt_username": "ชื่อผู้ใช้",
+        "lang_acnt_passwd": "รหัสผ่าน",
+        "lang_try_again": "กรุณาเข้าสู่ระบบอีกครั้ง!",
+        "lang_login": "ล็อกอิน",
+        "lang_login_invalid": "ชื่อผู้ใช้และรหัสผ่านไม่ถูกต้อง",
+        "lang_session_fail": "เซสชันล้มเหลว"
+    }
+}

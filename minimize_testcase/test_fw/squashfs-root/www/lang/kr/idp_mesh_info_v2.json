@@ -1,0 +1,23 @@
+{
+    "idp_mesh_info_v2": {
+        "lang_idp_mesh_confirm_title": "하위 노드의 WPS 버튼을 3초간 길게 눌러주세요",
+        "lang_idp_mesh_fail_title": "Connecting to your child node took to longer than expected. Try again.",
+        "lang_idp_mesh_tryagain": "다시 시도하십시오",
+        "lang_idp_mesh_pass_title": "하위 노드가 Wi-Fi에 연결되었습니다!",
+        "lang_idp_mesh_plug_title": "하위 노드를 연결합니다.",
+        "lang_idp_mesh_plug_content1": "Easy Mesh 장치의 전원이 완전히 켜질 때까지 기다리십시오. 3분만 기다려 주세요.",
+        "lang_idp_mesh_plug_content2": "더 많은 하위 노드를 설정하는 경우, 문제를 방지하기 위해 한 번에 하나씩 수행해야 합니다.",
+        "lang_idp_mesh_process_title": "하위 노드의 WPS 버튼을 3초간 길게 눌러주세요",
+        "lang_idp_mesh_info_title": "메시 정보",
+        "lang_idp_parent_info_title": "연결된 장치",
+        "lang_idp_child_info_title": "연결된 하위 노드 정보:",
+        "lang_idp_child_info_name": "클라이언트 이름",
+        "lang_idp_child_info_interface": "인터페이스",
+        "lang_idp_child_info_mac": "MAC 주소",
+        "lang_idp_child_info_rssi": "RSSI",
+        "lang_idp_child_info_fw": "펌웨어 버전",
+        "lang_idp_child_info_ip": "IP 주소",
+        "lang_idp_connected": "연결된 장치",
+        "lang_idp_device_type": "장치 유형"
+    }
+}

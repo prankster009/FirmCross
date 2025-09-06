@@ -1,0 +1,86 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x4011f6",
+                    "ins_addr": "0x4011f6"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x4012ca",
+                "ins_addr": "0x4012ca"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4198974
+                ]
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x4011f6",
+                    "ins_addr": "0x4011f6"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x4012ca",
+                "ins_addr": "0x4012ca"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4198974
+                ]
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 0.09529757499694824,
+    "vra_time": 0.2041184902191162,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/input_to_sink/program",
+    "name": "program",
+    "has_sinks": true,
+    "sha256": "4bb287d64039a38ca73fb0906002c34b103940e463648d8e5873801de18ab09e",
+    "sink_times": {
+        "system": 0.2934889793395996
+    },
+    "error": null,
+    "mango_time": 1.0642552375793457,
+    "sinks": {
+        "system": 2
+    },
+    "time_data": {
+        "0x4011f6 -> 0x4010b0": {
+            "taint_time": 0.11888265609741211,
+            "rda_time": 0.17422962188720703
+        }
+    }
+}

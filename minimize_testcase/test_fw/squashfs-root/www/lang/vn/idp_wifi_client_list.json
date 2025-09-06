@@ -1,0 +1,21 @@
+{
+    "idp_wifi_client_list": {
+        "lang_idp_wifi_client_list_title": "Danh sách thiết bị khách không dây",
+        "lang_idp_wifi_client_list_sortby_title": "Sắp xếp theo",
+        "lang_idp_wifi_client_list_ipaddr": "Địa chỉ IP",
+        "lang_idp_wifi_client_list_mac_addr": "Địa chỉ MAC",
+        "lang_idp_wifi_client_list_status": "Trạng thái",
+        "lang_idp_wifi_client_list_name": "Tên thiết bị khách",
+        "lang_idp_wifi_client_list_name_title": "Tên thiết bị khách",
+        "lang_idp_wifi_client_list_interface_title": "Giao diện",
+        "lang_idp_wifi_client_list_ipaddr_title": "Địa chỉ IP",
+        "lang_idp_wifi_client_list_mac_addr_title": "Địa chỉ MAC",
+        "lang_idp_wifi_client_list_status_title": "Trạng thái",
+        "lang_idp_wifi_client_list_none_title": "Không",
+        "lang_idp_wifi_client_list_save_to_title": "Lưu vào Danh sách lọc địa chỉ MAC",
+        "lang_idp_wifi_client_list_connected_title": "Đã kết nối",
+        "lang_idp_wifi_client_list_disconnected_title": "Đã ngắt kết nối",
+        "lang_idp_wifi_client_list_wireless_title": "Không dây",
+        "lang_idp_wifi_client_list_lan_title": "LAN"
+    }
+}

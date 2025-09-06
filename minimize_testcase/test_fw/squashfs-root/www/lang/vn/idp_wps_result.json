@@ -1,0 +1,12 @@
+{
+    "idp_wps_result": {
+        "lang_idp_wps_result_fail_title": "Lỗi kết nối!",
+        "lang_idp_wps_result_success_title": "Xin chúc mừng!",
+        "lang_idp_wps_result_fail_info1_title": "Thiết bị khách của bạn không kết nối được vào mạng.",
+        "lang_idp_wps_result_success_info1_title": "Thiết bị khách hiện đã kết nối an toàn với mạng của bạn.",
+        "lang_idp_wps_result_info2_title": "Hãy tham khảo lại các tài liệu của thiết bị khách để được hướng dẫn thêm.",
+        "lang_idp_wps_result_info3_title": "Ấn \"",
+        "lang_idp_wps_result_info4_title": "\" để tiếp tục.",
+        "lang_idp_wps_result_ok_button": "đồng ý"
+    }
+}

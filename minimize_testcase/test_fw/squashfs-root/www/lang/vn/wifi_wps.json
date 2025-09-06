@@ -1,0 +1,20 @@
+{
+    "wifi_wps": {
+        "lang_wps_info_title": "Không thể sử dụng Wi-Fi Protected Setup với<br>Chế độ bảo mật WPA2 Doanh nghiệp<br>Phát rộng SSID bị tắt<br>Băng tần 2.4 GHz hoặc 5 GHz bị tắt<br>Lọc MAC<br>Để sử dụng WPS, hãy thay đổi chế độ bảo mật, chế độ mạng và/hoặc tắt tính năng Lọc MAC.",
+        "lang_wps_setup_title": "Wi-Fi Protected Setup",
+        "lang_wps_zone_push_btn_title": "Nút nhấn",
+        "lang_push_button_info_title": "Nếu thiết bị khách của bạn có nút Wi-Fi Protected Setup<sup>TM</sup>, hãy bấm hoặc ấn nút đó, sau đó bấm nút ở bên phải.",
+        "lang_push_btn_state_success_title": "Thành công",
+        "lang_push_btn_state_fail_title": "Thất bại",
+        "lang_push_btn_state_search_title": "Đang tìm kiếm ...",
+        "lang_push_btn_state_Connect_title": "Kết nối",
+        "lang_wps_zone_dev_pin_title": "PIN thiết bị",
+        "lang_dev_pin_info_title": "Nếu thiết bị khách của bạn có mã PIN Wi-Fi Protected Setup<sup>TM</sup>, hãy nhập mã đó và bấm đăng ký.",
+        "lang_dev_pin_register_button": "Đăng ký",
+        "lang_wps_zone_router_pin_title": "PIN bộ định tuyến",
+        "lang_router_pin_info_title": "Nếu thiết bị khách của bạn hỏi mã PIN của Bộ định tuyến, hãy nhập mã số này {number} vào thiết bị khách",
+        "lang_dev_pin_alert_title": "Lỗi mã PIN.",
+        "lang_macfilter_enable_alert_title": "Không thể bật Wi-Fi Protected Setup khi đang bật Lọc MAC không dây.",
+        "lang_wps_info_title2": "Không thể sử dụng Wi-Fi Protected Setup với<br>Phát rộng SSID bị tắt<br>Băng tần 2.4 GHz hoặc 5 GHz bị tắt<br>Lọc MAC<br>Để sử dụng WPS, hãy thay đổi chế độ bảo mật, chế độ mạng và/hoặc tắt tính năng Lọc MAC."
+    }
+}

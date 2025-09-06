@@ -1,0 +1,28 @@
+{
+    "help_connectivity_routing": {
+        "lang_help_connectivity_routing_title": "Routage avancé",
+        "lang_hcr1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hcr2": "Routage avancé",
+        "lang_hcr3": "NAT",
+        "lang_hcr4": "Activé/Désactivé",
+        "lang_hcr5": "Si ce routeur partage votre connexion Internet pour votre réseau local, conservez la valeur par défaut, <b>Activé</b>.",
+        "lang_hcr6": "Routage dynamique (RIP)",
+        "lang_hcr7": "Activé/Désactivé",
+        "lang_hcr8": "Lorsque l'option NAT est désactivée, cette fonction est disponible. Cela permet au routeur d'échanger automatiquement des tables de routage avec d'autres routeurs.",
+        "lang_hcr9": "Routage statique",
+        "lang_hcr10": "Entrées de route",
+        "lang_hcr11": "Pour configurer une route statique entre le routeur et un autre réseau, sélectionnez un numéro dans le menu déroulant. Pour supprimer une route statique, sélectionnez son numéro et cliquez sur <b>Supprimer cette entrée</b>.",
+        "lang_hcr12": "Entrer un nom de route",
+        "lang_hcr13": "Entrez un nom pour la route.",
+        "lang_hcr14": "Adresse IP du réseau local cible",
+        "lang_hcr15": "Entrez l'adresse IP du réseau ou de l'hôte distant auquel vous désirez attribuer une route statique.",
+        "lang_hcr16": "Masque de sous-réseau",
+        "lang_hcr17": "Entrez le masque de sous-réseau pour l'adresse IP du réseau local de destination.",
+        "lang_hcr18": "Passerelle",
+        "lang_hcr19": "Entrez l'adresse IP du serveur de la passerelle qui permet la communication entre le routeur et le réseau ou l'hôte distant.",
+        "lang_hcr20": "Interface",
+        "lang_hcr21": "Choisissez l'emplacement de l'adresse IP du réseau local de destination.",
+        "lang_hcr22": "Pour faire afficher les routes statiques que vous avez déjà configurées, cliquez sur <b>Afficher la table de routage</b>.",
+        "lang_hcr23": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

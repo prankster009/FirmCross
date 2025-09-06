@@ -1,0 +1,17 @@
+{
+    "security_firewall": {
+        "lang_firewall_zone_firewall_title": "Firewall",
+        "lang_ipv6_spi_firewall_title": "IPv6 SPI Firewall Protection",
+        "lang_ipv4_spi_firewall_title": "IPv4 SPI Firewall Protection",
+        "lang_firewall_zone_net_filter_title": "Internet Filter",
+        "lang_anonymous_filter_title": "Filter Anonymous Internet Requests",
+        "lang_multicast_filter_title": "Filter Multicast",
+        "lang_nat_redirection_filter_title": "Filter Internet NAT Redirection for IPv4 Internet Only",
+        "lang_ident_title": "Filter IDENT (Port 113)",
+        "lang_firewall_zone_web_filter_title": "Web Filter",
+        "lang_proxy_filter_title": "Proxy",
+        "lang_java_filter_title": "Java",
+        "lang_activex_filter_title": "ActiveX",
+        "lang_cookies_filter_title": "Cookies"
+    }
+}

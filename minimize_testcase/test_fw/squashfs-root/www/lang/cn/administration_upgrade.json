@@ -1,0 +1,20 @@
+{
+    "administration_upgrade": {
+        "lang_current_fw_title": "当前固件版本",
+        "lang_check_fw_button": "检查固件",
+        "lang_upload_fw_title": "请选择要升级的文件",
+        "lang_upgrade_fw_button": "开始升级",
+        "lang_upgrade_fw_progress_warning": "警告",
+        "lang_upgrade_fw_progress_warning_info": "升级固件可能需要几分钟时间，请不要关闭电源或按重置按钮。",
+        "lang_upgrade_fw_progress_warning_tip": "不得中断升级！",
+        "lang_ota_last_version_title": "最新固件版本",
+        "lang_ota_upgrade_button": "升级",
+        "lang_file_empty_msg": "请选择要升级的文件",
+        "lang_file_format_msg": "图像文件不正确。",
+        "lang_upgrade_success": "固件升级成功",
+        "lang_upgrade_rebooting": "正在重启……",
+        "lang_file_upgrade_fail_msg": "固件升级失败！",
+        "lang_up_to_date_msg": "已为最新版本",
+        "lang_auto_upgrade_title": "自动固件升级"
+    }
+}

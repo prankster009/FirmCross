@@ -1,0 +1,34 @@
+#!/bin/sh /etc/rc.common
+
+. /usr/share/libubox/jshn.sh
+
+#START=90
+#STOP=90
+
+# only in case that firewall is disabled
+
+start() {
+	lan=`uci get -q network.lan.ipaddr | awk -F"." '{print $1"."$2"."$3"."0}'`
+	wan=`uci get -q network.wan.ifname`
+	wan_proto=`uci get -q network.wan.proto`
+	if [ "$lan" != "" ] && [ "$wan" != "" ]; then
+		if [ "$wan_proto" == "pppoe" ];then
+			json_load "$(ubus call network.interface.wan status)"
+			json_get_var device "l3_device"
+			iptables -wt nat -A POSTROUTING -s $lan/24 -o $device -j MASQUERADE
+		else
+			iptables -wt nat -A POSTROUTING -s $lan/24 -o $wan -j MASQUERADE
+		fi
+	fi
+
+}
+
+stop() {
+	iptables -t nat -F
+	echo > /dev/null
+}
+
+reload() {
+	stop
+	start
+}

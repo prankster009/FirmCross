@@ -1,0 +1,25 @@
+{
+    "help_status_network": {
+        "lang_help_status_network_title": "로컬 네트워크",
+        "lang_hsn1": "로컬 네트워크",
+        "lang_hsn2": "로컬 MAC 주소",
+        "lang_hsn3": "라우터의 로컬 유선 인터페이스의 MAC 주소가 표시됩니다.",
+        "lang_hsn4": "IPv4 주소",
+        "lang_hsn5": "라우터의 로컬 IPv4 주소가 표시됩니다.",
+        "lang_hsn6": "IPv4 서브넷 마스크",
+        "lang_hsn7": "라우터의 IPv4 서브넷 마스크가 표시됩니다.",
+        "lang_hsn8": "IPv6 링크-로컬 주소",
+        "lang_hsn9": "라우터의 IPv4 링크 로컬 주소가 표시됩니다.",
+        "lang_hsn10": "접두어 주소",
+        "lang_hsn11": "라우터의 IPv4 접두어 주소가 표시됩니다.",
+        "lang_hsn12": "DHCP 서버",
+        "lang_hsn13": "DHCP 서버",
+        "lang_hsn14": "라우터의 DHCP 서버 기능 상태가 표시됩니다.",
+        "lang_hsn15": "시작 IP 주소",
+        "lang_hsn16": "사용 가능한 IP 주소 범위에 대해 시작 IP 주소가 표시됩니다.",
+        "lang_hsn17": "종료 IP 주소",
+        "lang_hsn18": "사용 가능한 IP 주소 범위에 대해 종료 IP 주소가 표시됩니다.",
+        "lang_hsn19": "DHCP 클라이언트 테이블",
+        "lang_hsn20": "라우터를 DHCP 서버로 사용하는 컴퓨터 또는 다른 장치 목록을 보려면 이 옵션을 클릭하십시오."
+    }
+}

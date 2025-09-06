@@ -1,0 +1,29 @@
+{
+    "mpt": {
+        "lang_wifi_mpt_title": "伝送領域",
+        "lang_wifi_mpt_info": "Wi-Fi 送信電力は、地域の制限により設定されます。ルーターを使用する場所以外の地域を選択すると、罰金を課されたり処罰されたりする可能性があります。",
+        "lang_wiz_mpt_title": "地域を選択します",
+        "lang_wiz_mpt_info_1": "許可されている最高の Wi-Fi 信号伝送強度は地域により異なります。地域を選択すると、その制限が設定されます。",
+        "lang_wiz_mpt_info_2": "ルーターを使用する場所以外の地域を選択すると、罰金を課されたり処罰されたりする可能性があります。",
+        "lang_wiz_mpt_option_initial": "国または地域",
+        "lang_mpt_country_CHN": "アジア - 中国",
+        "lang_mpt_country_HKG": "アジア - 香港",
+        "lang_mpt_country_IND": "アジア - インド",
+        "lang_mpt_country_SGP": "アジア - シンガポール",
+        "lang_mpt_country_TWN": "アジア - 台湾",
+        "lang_mpt_country_THA": "アジア - タイ",
+        "lang_mpt_country_XAH": "アジア - その他のアジア",
+        "lang_mpt_country_CAN": "カナダ",
+        "lang_mpt_country_EEE": "欧州",
+        "lang_mpt_country_SAU": "中東 - サウジアラビア",
+        "lang_mpt_country_XME": "中東",
+        "lang_mpt_country_USA": "アメリカ合衆国",
+        "lang_mpt_country_PHI": "アジア - フィリピン\u000bハマー",
+        "lang_mpt_country_KOR": "アジア - 韓国",
+        "lang_mpt_country_MAC": "アジア - マカオ",
+        "lang_mpt_country_MYS": "アジア - マレーシア",
+        "lang_mpt_country_VNM": "アジア - ベトナム",
+        "lang_mpt_country_AUS": "オーストラリア",
+        "lang_mpt_country_NZL": "ニュージーランド"
+    }
+}

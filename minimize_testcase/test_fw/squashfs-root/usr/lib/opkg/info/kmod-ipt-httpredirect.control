@@ -1,0 +1,8 @@
+Package: kmod-ipt-httpredirect
+Version: 3.10.108-1
+Depends: kernel (=3.10.108-1-41b2331d49b4ca2b30f8dd2717544b31), kmod-ipt-core
+Source: package/gemtek/ipt-httpredirect
+Section: net
+Architecture: ramips_24kec
+Installed-Size: 5881
+Description:  Module for httpredirect

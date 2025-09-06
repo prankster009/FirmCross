@@ -1,0 +1,135 @@
+<script type="text/javascript">
+var OBJ_LIST = []
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+</script>
+<table class="table table-info reset_zone">
+<tbody>
+<tr id="tr_reboot" >
+<td>
+<span class="multi_lang" id="lang_reboot_title"></span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_reboot_button" onclick="reboot()"></button>
+</td>
+</tr>
+<tr id="tr_reset_default" >
+<td>
+<span class="multi_lang" id="lang_reset_default_title"></span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_reset_default_button" onclick="reset_default()"></button>
+</td>
+</tr>
+</tbody>
+</table>
+<script language="javascript" type="text/javascript">
+page_tag='administration_reset'
+$(document).ready(function(){
+$.lang_load("administration_reset");
+get_info_data()
+inject_log_bot()
+});
+
+function reboot_success_cb(obj) {
+if(obj.api_return != 0){
+reboot_error_cb(obj)
+return;
+}
+$("#loader_msg_sub").html('<span>'+L.common.lang_rebooting+'</span>')
+$("#loader_msg_sub").show()
+control_timer = setTimeout(function(){
+reboot_back_checker()
+},60000)
+}
+
+function reboot_error_cb(obj) {
+$('#loader').hide();
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.administration_reset.lang_reboot_fail)
+}
+}
+
+function reboot(){
+if(!confirm(L.administration_reset.lang_reboot_confirm))
+return;
+else{
+$('#loader').show();
+var reboot_data = {"deviceReset":{"action": "reboot"}}
+API.info.set(reboot_data, reboot_success_cb, reboot_error_cb);
+}
+}
+
+function reset_success_cb(obj) {
+if(obj.api_return != 0){
+reboot_error_cb(obj)
+return;
+}
+$("#loader_msg_sub").html('<span>'+L.common.lang_rebooting+'</span>')
+$("#loader_msg_sub").show()
+if(REMOTE_FLAG == 1){
+control_timer = setTimeout(function(){
+window.location.href = LOCAL_LAN_URL;
+},80000)
+}else{
+control_timer = setTimeout(function(){
+reboot_back_checker(LOCAL_LAN_URL,"/")
+},60000)
+}
+
+}
+
+function reset_error_cb(obj) {
+$('#loader').hide();
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.administration_reset.lang_reset_fail)
+}
+}
+
+function reset_default(){
+if(!confirm(L.administration_reset.lang_reset_default_confirm))
+return;
+else{
+$('#loader').show();
+var reset_data = {"deviceReset":{"action": "reset"}}
+API.info.set(reset_data, reset_success_cb, reset_error_cb);
+}
+}
+
+var REMOTE_FLAG = 0
+
+function get_info_success_cb(obj) {
+if(obj.api_return != 0){
+get_info_error_cb(obj)
+return;
+}
+
+lanipT = "192.168.1.1"
+
+lan_ipT = lanipT.split(".")
+loginipT = obj.LOGINIP.split(".")
+
+for(var i=0;i<=2;i++){
+if( lan_ipT[i] != loginipT[i] )
+REMOTE_FLAG=1
+}
+}
+
+function get_info_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_info_data(info_list){
+API.info.get('LocalNetwork', get_info_success_cb, get_info_error_cb);
+}
+</script>
+

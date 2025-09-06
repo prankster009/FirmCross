@@ -1,0 +1,31 @@
+#!/bin/sh /etc/rc.common
+
+. /usr/share/libubox/jshn.sh
+
+START=90
+STOP=90
+SERVICE="alg"
+
+
+start() {
+    json_load "$(objReq alg json)"
+    json_select "AlgP"
+    json_get_vars sipAlgEnable
+
+    if [ "$sipAlgEnable" = "1" ]; then
+        echo "$SERVICE, enabled" > /dev/console
+        insmod /lib/modules/3.10.108/nf_conntrack_sip.ko
+        insmod /lib/modules/3.10.108/nf_nat_sip.ko
+    else
+        echo "$SERVICE, disabled" > /dev/console
+        rmmod nf_nat_sip
+        rmmod nf_conntrack_sip
+    fi
+}
+
+stop() {
+    rmmod nf_nat_sip
+    rmmod nf_conntrack_sip
+}
+
+

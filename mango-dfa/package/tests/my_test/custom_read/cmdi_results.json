@@ -1,0 +1,51 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x4012da",
+                    "ins_addr": "0x4012da"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x401351",
+                "ins_addr": "0x401351"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 0.10187315940856934,
+    "vra_time": 0.2283940315246582,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/custom_read/program",
+    "name": "program",
+    "has_sinks": true,
+    "sha256": "0eb3f93841651d48cfa923a91461d1e10be261b696da053ac067544bdcb1c833",
+    "sink_times": {
+        "system": 1.237351655960083
+    },
+    "error": null,
+    "mango_time": 7.146374225616455,
+    "sinks": {
+        "system": 2
+    },
+    "time_data": {
+        "0x4012da -> 0x4010d0": {
+            "taint_time": 1.0356569290161133,
+            "rda_time": 0.201310396194458
+        }
+    }
+}

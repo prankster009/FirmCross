@@ -1,0 +1,8 @@
+{
+    "troubleshooting_log": {
+        "lang_log_title": "로그",
+        "lang_log_enable_title": "로그",
+        "lang_view_log_button": "로그 보기",
+        "lang_log_alert_msg": "저장을 클릭하여 로그를 생성합니다. 그 다음 로그 보기를 클릭하여 로그를 확인합니다."
+    }
+}

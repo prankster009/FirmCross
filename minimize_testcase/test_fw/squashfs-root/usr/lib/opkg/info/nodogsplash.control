@@ -1,0 +1,10 @@
+Package: nodogsplash
+Version: 0.9_beta9.9.9-5
+Depends: libc, libpthread, iptables-mod-ipopt
+Source: package/network/routing/nodogsplash
+License: GPL-2.0+
+Section: net
+Architecture: ramips_24kec
+Installed-Size: 66967
+Description:  Nodogsplash offers a simple way to open a free hotspot providing
+ restricted access to an internet connection.

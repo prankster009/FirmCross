@@ -1,0 +1,20 @@
+{
+    "connectivity_routing": {
+        "lang_routing_zone_advanced_routing_title": "Advanced Routing",
+        "lang_nat_enable_title": "NAT",
+        "lang_routing_zone_dynamic_routing_title": "Dynamic Routing (RIP)",
+        "lang_dynamic_rt_enable_title": "Enabled",
+        "lang_routing_zone_static_routing_title": "Static Routing",
+        "lang_rt_entries_title": "Route Entries",
+        "lang_delete_entry_button": "Delete This Entry",
+        "lang_rt_name_title": "Enter Route Name",
+        "lang_dst_lan_ip_title": "Destination LAN IP",
+        "lang_subnet_mask_title": "Subnet Mask",
+        "lang_gateway_title": "Gateway",
+        "lang_interface_title": "Interface",
+        "lang_rt_table_button": "Show Routing Table",
+        "lang_interface_opt_lan_wifi": "LAN & Wireless",
+        "lang_interface_opt_wan": "Internet (WAN)",
+        "lang_alert_guest_not_availabed_title": "Guest Access will not be available if NAT is disabled. Proceed with saving your changes?"
+    }
+}

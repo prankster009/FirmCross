@@ -1,0 +1,12 @@
+{
+    "guest": {
+        "lang_document_title": "Truy nhập khách",
+        "lang_content_title": "Truy nhập khách",
+        "lang_content_info": "Nhập mật khẩu truy nhập khách để truy nhập Internet. Hãy hỏi người chủ sở hữu nếu bạn không biết mật khẩu. Mật khẩu truy nhập khách có thể được tìm thấy bằng cách sử dụng Linksys Connect.",
+        "lang_password_title": "Mật khẩu",
+        "lang_login_button": "ĐĂNG NHẬP",
+        "lang_lang_error_msg": "Đăng nhập thất bại",
+        "lang_desktop_view_title": "Chế độ xem cho máy tính",
+        "lang_mobile_view_title": "Chế độ xem di động"
+    }
+}

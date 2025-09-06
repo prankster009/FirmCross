@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_client_info": {
+        "lang_idp_dhcp_client_info_title": "DHCP Client Table",
+        "lang_idp_dhcp_client_info_sortby_title": "To Sort by",
+        "lang_idp_dhcp_client_info_ipaddr": "IP Address",
+        "lang_idp_dhcp_client_info_mac_addr": "MAC Address",
+        "lang_idp_dhcp_client_info_interface": "Interface",
+        "lang_idp_dhcp_client_info_name": "Client Name",
+        "lang_idp_dhcp_client_info_name_title": "Client Name",
+        "lang_idp_dhcp_client_info_interface_title": "Interface",
+        "lang_idp_dhcp_client_info_ipaddr_title": "IP Address",
+        "lang_idp_dhcp_client_info_mac_addr_title": "MAC Address",
+        "lang_idp_dhcp_client_info_expire_title": "Expires Time",
+        "lang_idp_dhcp_client_info_select_title": "Select",
+        "lang_idp_dhcp_client_info_interface_wifi": "Wireless"
+    }
+}

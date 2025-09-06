@@ -1,0 +1,29 @@
+{
+    "help_parental_control_parental_control": {
+        "lang_help_parental_control_parental_control_title": "Parental Controls",
+        "lang_hpcpc1": "As part of Linksys Connect, Parental Controls can restrict Internet access for up to five computers or devices. You can block Internet access or limit it to specific times, and you can also block specific websites.",
+        "lang_hpcpc2": "Note: After you have made your changes, click Save Settings to apply your changes.",
+        "lang_hpcpc3": "Parental Controls",
+        "lang_hpcpc4": "Enabled/Disabled",
+        "lang_hpcpc5": "To restrict Internet access of computers or devices in your local network, select <b>Enabled</b>.",
+        "lang_hpcpc6": "Target Devices",
+        "lang_hpcpc7": "Restrict Internet access on",
+        "lang_hpcpc8": "The list displays the computers affected by Parental Controls.",
+        "lang_hpcpc9": "Add",
+        "lang_hpcpc10": "If you want to apply Parental Controls to more computers, click <b>Add</b>.",
+        "lang_hpcpc11": "Remove",
+        "lang_hpcpc12": "If you no longer want to apply Parental Controls to a device, select it and click <b>Remove</b>.",
+        "lang_hpcpc13": "Rename",
+        "lang_hpcpc14": "To change the name of a device, select it and click <b>Rename</b>.",
+        "lang_hpcpc15": "Schedule",
+        "lang_hpcpc16": "Specify when Internet access is blocked.",
+        "lang_hpcpc17": "Never/Always/Specific times",
+        "lang_hpcpc18": "To never block Internet access, select <b>Never</b>.",
+        "lang_hpcpc19": "To always block Internet access, select <b>Always</b>.",
+        "lang_hpcpc20": "To specify days and times when Internet access is blocked, select <b>Specific times</b>.",
+        "lang_hpcpc21": "Block Specific Sites",
+        "lang_hpcpc22": "URL 1-8",
+        "lang_hpcpc23": "In each field, enter a website address that you want to block.",
+        "lang_hpcpc24": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

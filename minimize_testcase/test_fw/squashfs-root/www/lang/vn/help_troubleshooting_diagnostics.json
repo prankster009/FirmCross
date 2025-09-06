@@ -1,0 +1,23 @@
+{
+    "help_troubleshooting_diagnostics": {
+        "lang_help_troubleshooting_diagnostics_title": "Chẩn đoán",
+        "lang_htd1": "Chẩn đoán",
+        "lang_htd2": "Kiểm tra Ping",
+        "lang_htd3": "Ping kiểm tra xem có kết nối được tới một địa chỉ IP hoặc URL hay không.",
+        "lang_htd4": "Địa chỉ IP hoặc URL",
+        "lang_htd5": "Nhập địa chỉ IP hoặc URL bạn muốn kiểm tra.",
+        "lang_htd6": "Kích thước gói tin",
+        "lang_htd7": "Nhập kích thước gói tin bạn muốn gửi.",
+        "lang_htd8": "Số lần Ping",
+        "lang_htd9": "Nhập số lần bạn muốn kiểm tra kết nối.",
+        "lang_htd10": "Bắt đầu Ping",
+        "lang_htd11": "Để tiến hành kiểm tra, bấm tuỳ chọn này. Màn hình Ping sẽ cho biết nếu kiểm tra thành công.",
+        "lang_htd12": "Kiểm tra Traceroute",
+        "lang_htd13": "Traceroute hiển thị tuyến mà các gói tin di chuyển giữa máy tính của bạn và địa chỉ IP hoặc URL.",
+        "lang_htd14": "Địa chỉ IP hoặc URL",
+        "lang_htd15": "Nhập địa chỉ IP hoặc URL bạn muốn kiểm tra.",
+        "lang_htd16": "Bắt đầu Traceroute",
+        "lang_htd17": "Để tiến hành kiểm tra, bấm tuỳ chọn này. Màn hình Traceroute sẽ cho biết nếu kiểm tra thành công.",
+        "lang_htd18": "Lưu ý: Để biết thêm thông tin, vui lòng tham khảo Hướng dẫn sử dụng trực tuyến tại <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

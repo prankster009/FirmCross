@@ -1,0 +1,12 @@
+{
+    "security_portrangetrigger": {
+        "lang_prt_app_name_title": "應用程式名稱",
+        "lang_prt_port_trigger_range_title": "已觸發的範圍",
+        "lang_prt_port_forward_range_title": "已轉寄的範圍",
+        "lang_prt_enabled_title": "已啓用",
+        "lang_prt_action_title": "動作",
+        "lang_prt_add_btn_title": "新增一個新連接埠範圍觸發",
+        "lang_prt_disabled_title": "已停用",
+        "lang_prt_remove_btn_title": "移除"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "connectivity_ipv6": {
+        "lang_ipv6_zone_internet_setup_title": "網際網路設定",
+        "lang_ipv6_auto_title": "IPv6－自動",
+        "lang_ipv6_duid_title": "DUID",
+        "lang_ipv6_zone_network_setup_title": "網路設定",
+        "lang_6rd_tunnel_title": "6rd 通道",
+        "lang_6rd_tunnel_opt_disabled": "已停用",
+        "lang_6rd_tunnel_opt_auto_config": "自動設定",
+        "lang_6rd_tunnel_opt_manual_config": "手動設定",
+        "lang_alert_invalid_ip_title": "IP 位址不正確",
+        "lang_6rd_tunnel_ip6prefix_title": "首碼",
+        "lang_6rd_tunnel_ip6prefixlen_title": "首碼長度",
+        "lang_6rd_tunnel_peeraddr_title": "邊緣繼電器",
+        "lang_6rd_tunnel_ip4prefixlen_title": "Ipv4 位址遮罩"
+    }
+}

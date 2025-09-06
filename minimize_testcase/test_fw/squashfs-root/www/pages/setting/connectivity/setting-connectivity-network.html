@@ -1,0 +1,982 @@
+<script type="text/javascript">
+var OBJ_LIST = ['lan','dhcps','wan','pptp']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var INFO_LIST = ['InternetConnection','showRouteT'];
+var INFO_DATA = {};
+
+var subnet_mask_str = ['255.255.255.0','255.255.255.128','255.255.255.192','255.255.255.224','255.255.255.240','255.255.255.248','255.255.255.252'];
+var subnet_mask_val = ['255.255.255.0','255.255.255.128','255.255.255.192','255.255.255.224','255.255.255.240','255.255.255.248','255.255.255.252'];
+var setObj = setObj || {};
+
+var dhcp_start_ip = new Array();
+var dhcp_end_ip  = new Array();
+var dhcp_valid_st = false;
+var dhcp_range_num = 0;
+var max_range_num;
+var SAVE_WAITING_TIME = 30000;
+</script>
+<form id="ui-form">
+<div class="table-title router_address_zone">
+<span class="multi_lang" id="lang_network_zone_router_address_title"></span>
+</div>
+<hr class="table-title-underline router_address_zone">
+<table class="table table-info router_address_zone">
+<tbody>
+<tr id="tr_ip_addr" >
+<td>
+<span class="multi_lang" id="lang_ip_addr_title"></span>
+</td>
+<td>
+<input type="hidden" id="lan_ip" name="lan.LanP[ipaddr]" uisync="ip4;ip_addr0;ip_addr1;ip_addr2;ip_addr3" class="logger_bot">
+<input maxlength="3" value="" name="ip_addr0" id="ip_addr_0" onblur="valid_range(this,1,223,'IP');update_ip_prefix()" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="ip_addr1" id="ip_addr_1" onblur="valid_range(this,0,255,'IP');update_ip_prefix()" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="ip_addr2" id="ip_addr_2" onblur="valid_range(this,0,255,'IP');update_ip_prefix()" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="ip_addr3" id="ip_addr_3" onblur="valid_range(this,1,254,'IP');update_ip_prefix()" size="3" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_subnet_mask" >
+<td>
+<span class="multi_lang" id="lang_subnet_mask_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('lan.LanP[netmask]', subnet_mask_str, subnet_mask_val,'subnet_mask_selected(this.value)', '');})();</script>
+<div id="select_div_lan.LanP[netmask]"></div>
+</td>
+</tr>
+<tr id="tr_router_name" >
+<td>
+<span class="multi_lang" id="lang_router_name_title"></span>
+</td>
+<td>
+<input maxlength="20" value="" name="lan.LanP[routername]" id="lan.LanP[routername]" onblur="valid_device_name(this)" size="17" class="logger_bot">
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title dhcp_server_setting_zone">
+<span class="multi_lang" id="lang_network_zone_dhcp_server_setting_title"></span>
+</div>
+<hr class="table-title-underline dhcp_server_setting_zone">
+<table class="table table-info dhcp_server_setting_zone">
+<tbody>
+<tr id="tr_dhcp_server_enable" >
+<td><script>draw_checkbox('dhcps.DhcpsP[enable]', 'lang_dhcp_server_enable_title', 'on', "dhcp_server_enable_checked()");</script><span id="checkbox_div_dhcps.DhcpsP[enable]"></span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_dhcp_reservation_button" onclick="displayPopout('dhcp_reservation')"></button>
+</td>
+</tr>
+<tr id="tr_start_ip" >
+<td>
+<span class="multi_lang" id="lang_start_ip_title"></span>
+</td>
+<td>
+<span id="ip_prefix"></span>
+<input maxlength="3" value="" name="dhcps.DhcpsP[startIp]" id="start_ip" onblur="valid_dhcp_range(this.form,this.id)" size="3" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_num_of_user" >
+<td>
+<span class="multi_lang" id="lang_num_of_user_title"></span>
+</td>
+<td>
+<input maxlength="3" value="" name="dhcps.DhcpsP[maxClient]" id="num_of_user" onblur="valid_dhcp_range(this.form,this.id)" size="3"  class="logger_bot">
+</td>
+</tr>
+<tr id="tr_ip_range" >
+<td>
+<span class="multi_lang" id="lang_ip_range_title"></span>
+</td>
+<td>
+<span name="ip_range" id="ip_range" ></span>
+</td>
+</tr>
+<tr id="tr_lease_time" >
+<td>
+<span class="multi_lang" id="lang_lease_time_title"></span>
+</td>
+<td>
+<input maxlength="4" value="" name="dhcps.DhcpsP[leaseTime]" id="lease_time" onblur="valid_range(this,0,9999,'DHCP%20Lease%20Time')" size="4" class="logger_bot">
+&nbsp;
+<span class="multi_lang" id="lang_lease_time_unit"></span>
+</td>
+</tr>
+<tr id="tr_static_dns_1" >
+<td>
+<span class="multi_lang" id="lang_static_dns_1_title"></span>
+</td>
+<td>
+<input type="hidden" id="dns1" name="dhcps.DhcpsP[dns1]" uisync="ip4;static_dns1_0;static_dns1_1;static_dns1_2;static_dns1_3" class="logger_bot">
+<input maxlength="3" value="" name="static_dns1_0" id="static_dns1_0" onblur="valid_range(this,0,223,'DNS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="static_dns1_1" id="static_dns1_1" onblur="valid_range(this,0,255,'DNS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="static_dns1_2" id="static_dns1_2" onblur="valid_range(this,0,255,'DNS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="static_dns1_3" id="static_dns1_3" onblur="valid_range(this,0,254,'DNS')" size="3" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_static_dns_2" >
+<td>
+<span class="multi_lang" id="lang_static_dns_2_title"></span>
+</td>
+<td>
+<input type="hidden" id="dns2" name="dhcps.DhcpsP[dns2]" uisync="ip4;static_dns2_0;static_dns2_1;static_dns2_2;static_dns2_3" class="logger_bot">
+<input maxlength="3" value="" name="static_dns2_0" id="static_dns2_0" onblur="valid_range(this,0,223,'DNS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="static_dns2_1" id="static_dns2_1" onblur="valid_range(this,0,255,'DNS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="static_dns2_2" id="static_dns2_2" onblur="valid_range(this,0,255,'DNS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="static_dns2_3" id="static_dns2_3" onblur="valid_range(this,0,254,'DNS')" size="3" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_static_dns_3" >
+<td>
+<span class="multi_lang" id="lang_static_dns_3_title"></span>
+</td>
+<td>
+<input type="hidden" id="dns3" name="dhcps.DhcpsP[dns3]" uisync="ip4;static_dns3_0;static_dns3_1;static_dns3_2;static_dns3_3" class="logger_bot">
+<input maxlength="3" value="" name="static_dns3_0" id="static_dns3_0" onblur="valid_range(this,0,223,'DNS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="static_dns3_1" id="static_dns3_1" onblur="valid_range(this,0,255,'DNS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="static_dns3_2" id="static_dns3_2" onblur="valid_range(this,0,255,'DNS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="static_dns3_3" id="static_dns3_3" onblur="valid_range(this,0,254,'DNS')" size="3" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_wins" >
+<td>
+<span class="multi_lang" id="lang_wins_title"></span>
+</td>
+<td>
+<input type="hidden" id="wins1" name="dhcps.DhcpsP[wins1]" uisync="ip4;wins_0;wins_1;wins_2;wins_3" class="logger_bot">
+<input maxlength="3" value="" name="wins_0" id="wins_0" onblur="valid_range(this,0,223,'WINS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="wins_1" id="wins_1" onblur="valid_range(this,0,255,'WINS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="wins_2" id="wins_2" onblur="valid_range(this,0,255,'WINS')" size="3" class="logger_bot"> .
+<input maxlength="3" value="" name="wins_3" id="wins_3" onblur="valid_range(this,0,254,'WINS')" size="3" class="logger_bot">
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='connectivity_network'
+$(document).ready(function(){
+$.lang_load("connectivity_network");
+$.lang_load("error_message");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+// ip_address: string, ex: 192.168.1.1
+// elm_name: element to set
+function set_ip_address(ip_address, elm_name) {
+var ip_array=ip_address.split(".");
+
+if (ip_array.length == 4) {
+$('#'+elm_name+'_0').val(ip_array[0]);
+$('#'+elm_name+'_1').val(ip_array[1]);
+$('#'+elm_name+'_2').val(ip_array[2]);
+$('#'+elm_name+'_3').val(ip_array[3]);
+$('#'+elm_name+'_0').attr('value',ip_array[0]);
+$('#'+elm_name+'_1').attr('value',ip_array[1]);
+$('#'+elm_name+'_2').attr('value',ip_array[2]);
+$('#'+elm_name+'_3').attr('value',ip_array[3]);
+}
+else {
+$('[name^='+elm_name+']').attr('value','0');
+$('[name^='+elm_name+']').val('0');
+}
+}
+
+function set_ip_range(start,end,num) {
+var range_set;
+var lanip3 = parseInt($('#ip_addr_3').val());
+
+if (parseInt(start) < lanip3 && parseInt(end) >= lanip3)
+range_set = 2;
+else
+range_set = 1;
+
+if (range_set == 1) {
+dhcp_start_ip[0] = start;
+dhcp_end_ip[0] = end;
+$('#ip_range').html($('#ip_prefix').text()+dhcp_start_ip[0]+' '+L.connectivity_network.lang_ip_range_to_title+' '+dhcp_end_ip[0]);
+}
+else if (range_set == 2) {
+dhcp_start_ip[0] = start;
+dhcp_end_ip[0] = lanip3 - 1;
+dhcp_start_ip[1] = lanip3 + 1;
+dhcp_end_ip[1] = end + 1;
+$('#ip_range').html($('#ip_prefix').text()+dhcp_start_ip[0]+' '+L.connectivity_network.lang_ip_range_to_title+' '+dhcp_end_ip[0]+'<br>'+
+$('#ip_prefix').text()+dhcp_start_ip[1]+' '+L.connectivity_network.lang_ip_range_to_title+' '+dhcp_end_ip[1]);
+}
+dhcp_range_num = parseInt(num);
+}
+
+function update_ip_prefix() {
+$('#ip_prefix').text($('#ip_addr_0').val()+' . '+$('#ip_addr_1').val()+' . '+$('#ip_addr_2').val()+' . ');
+set_ip_range($('#start_ip').val(),
+parseInt($('#start_ip').val()) + parseInt($('#num_of_user').val()) - 1,
+$('#num_of_user').val());
+}
+
+function set_local_network_init(obj) {
+var s_ip=obj.dhcps.DhcpsP.startIp;
+//var e_ip=obj.dhcps.DhcpsP.endIp;
+var tmp_ip;
+
+setObj = UI.obj.copy(obj);
+UI.obj.toForm(setObj, 'ui-form');
+
+ele_set_default(document.getElementById("lan.LanP[routername]"),obj.lan.LanP.routername);
+
+update_ip_prefix();
+
+tmp_ip=s_ip.split(".");
+if (tmp_ip.length == 4) {
+$('#start_ip').val(tmp_ip[3]);
+$('#start_ip').attr('value',tmp_ip[3]);
+}
+else {
+$('#start_ip').val('0');
+$('#start_ip').attr('value','0');
+}
+$('#num_of_user').attr('value',obj.dhcps.DhcpsP.maxClient);
+$('#lease_time').attr('value',obj.dhcps.DhcpsP.leaseTime);
+
+set_ip_range($('#start_ip').val(),
+parseInt($('#start_ip').val()) + parseInt($('#num_of_user').val()) - 1,
+$('#num_of_user').val());
+
+set_ip_address(obj.lan.LanP.ipaddr, 'ip_addr');
+set_ip_address(obj.dhcps.DhcpsP.dns1, 'static_dns1');
+set_ip_address(obj.dhcps.DhcpsP.dns2, 'static_dns2');
+set_ip_address(obj.dhcps.DhcpsP.dns3, 'static_dns3');
+set_ip_address(obj.dhcps.DhcpsP.wins1, 'wins');
+
+dhcp_server_enable_checked();
+
+if ($('#lan\\.LanP\\[netmask\\]').find(":selected").val() == '255.255.255.252' || !$('#dhcps\\.DhcpsP\\[enable\\]').prop('checked')) {
+$('#start_ip').attr("disabled", "true");
+$('#num_of_user').attr("disabled", "true");
+}
+else {
+$('#start_ip').removeAttr("disabled");
+$('#num_of_user').removeAttr("disabled");
+}
+
+if (obj.wan.WanP.proto == '0') {	// static
+// disabled second dns
+$('[name^=static_dns]').attr("disabled","true");
+set_ip_address("", 'static_dns1');
+set_ip_address("", 'static_dns2');
+set_ip_address("", 'static_dns3');
+}
+else if (obj.wan.WanP.proto == '5') {	// bridge mode
+alert(L.connectivity_network.lang_alert_bridge_mode);
+$('[name^=ip_addr]').attr("disabled", "true");
+$('#lan\\.LanP\\[netmask\\]').attr("disabled", "true");
+$('#lan\\.LanP\\[routername\\]').attr("disabled", "true");
+$('#dhcps\\.DhcpsP\\[enable\\]').attr("disabled", "true");
+set_all_dhcp_element_disable();
+}
+
+update_selected($('#lan\\.LanP\\[netmask\\]').attr('name'));
+update_checked($('#dhcps\\.DhcpsP\\[enable\\]').attr('name'));
+}
+
+function set_all_dhcp_element_enable() {
+$('#start_ip').removeAttr("disabled");
+$('#num_of_user').removeAttr("disabled");
+$('#lease_time').removeAttr("disabled");
+$('#lang_dhcp_reservation_button').removeAttr("disabled");
+$('[name^=static_dns]').removeAttr("disabled");
+$('[name^=wins]').removeAttr("disabled");
+}
+
+function set_all_dhcp_element_disable() {
+$('#start_ip').attr("disabled", "true");
+$('#num_of_user').attr("disabled", "true");
+$('#lease_time').attr("disabled", "true");
+$('#lang_dhcp_reservation_button').attr("disabled", "true");
+$('[name^=static_dns]').attr("disabled", "true");
+$('[name^=wins]').attr("disabled", "true");
+}
+
+function dhcp_server_enable_checked() {
+if ($('#dhcps\\.DhcpsP\\[enable\\]').prop('checked')) {
+$('#dhcps\\.DhcpsP\\[enable\\]').attr('value', '1');
+$('#dhcps\\.DhcpsP\\[enable\\]').attr('checked', 'checked');
+set_all_dhcp_element_enable();
+}
+else {
+$('#dhcps\\.DhcpsP\\[enable\\]').attr('value', '0');
+$('#dhcps\\.DhcpsP\\[enable\\]').removeAttr('checked');
+set_all_dhcp_element_disable();
+}
+}
+
+// validation of start ip and number of max client
+function valid_dhcp_range(I, string) {
+var start_ip_min, start_ip_max;
+var mask = new Array();
+var iplen, iprange;
+var lan_ip3;
+var start_ip, max_num;
+var dhcp_max_num;
+var ucount;
+var sip = new Array();
+var eip = new Array();
+var st, et = 256;
+var set2 = false;
+
+mask = $('#lan\\.LanP\\[netmask\\]').val().split(".");
+iprange = 256 - parseInt(mask[3]);
+iplen = 256 / iprange;
+
+lan_ip3 = $('#ip_addr_3').val();
+start_ip_min = (parseInt(mask[3]) & lan_ip3) + 1;
+start_ip_max = start_ip_min + iprange - 3;
+
+if (lan_ip3 == start_ip_min - 1) {
+// equals to the subnet address
+alert(L.error_message.lang_error_message_err77);
+return false;
+}
+else if (lan_ip3 == start_ip_max + 1) {
+// equals to the subnet broadcast
+alert(L.error_message.lang_error_message_err78);
+return false;
+}
+
+// validate start ip range
+if (string == "start_ip" && valid_range(I.start_ip,start_ip_min,start_ip_max,"DHCP%20starting%20IP") == false) {
+$('#ip_range').text("");
+return false;
+}
+
+start_ip = parseInt($('#start_ip').val());
+if (lan_ip3 == start_ip)
+$('#start_ip').val(start_ip + 1);
+
+start_ip = parseInt($('#start_ip').val());
+max_num = parseInt($('#num_of_user').val());
+if (lan_ip3 > start_ip)
+dhcp_max_num = (parseInt(mask[3])&start_ip) + iprange - 3;
+else
+dhcp_max_num = (parseInt(mask[3])&start_ip) + iprange - 2;
+
+// validate max client range
+if (string == "num_of_user" && valid_range(I.num_of_user,1,dhcp_max_num-start_ip+1,"Number%20of%20DHCP%20users") == false) {
+$('#ip_range').text("");
+return false;
+}
+
+if ((iprange - 3) >= max_num)
+ucount = max_num;
+else {
+// value out of range
+alert(L.error_message.lang_error_message_err2);
+$('#ip_range').text("");
+return false;
+}
+
+for(var i = 0; i < iplen; i++) {
+if (iplen == 1) {
+sip[0] = start_ip;
+if((parseInt(lan_ip3) > parseInt(sip[0])) &&((parseInt(lan_ip3) - parseInt(sip[0])) < parseInt(ucount)))
+{
+eip[0] = parseInt(lan_ip3) - 1;
+sip[1] = parseInt(lan_ip3) + 1;
+eip[1] = parseInt(sip[1]) + parseInt(ucount) - (parseInt(eip[0]) - parseInt(sip[0])) - 2;
+set2 = true;
+}
+else
+eip[0] = parseInt(sip[0])+parseInt(ucount) - 1;
+et = 256;
+break;
+}
+else {
+st = i*iprange;
+et = (i + 1) * iprange;
+
+if ((st < lan_ip3) && (lan_ip3 < et)) {
+st = st + 1 ; //It can not be the network IP
+if (st == lan_ip3) {
+sip[0] = st+1;
+if((st < start_ip) && (start_ip <= et)) {
+sip[0] = start_ip;
+}
+eip[0] = parseInt(sip[0]) + parseInt(ucount) - 1;
+}
+else {
+if (lan_ip3 - st >= ucount) {
+sip[0] = st;
+if((st < start_ip) && (start_ip < et)) {
+sip[0] = start_ip;
+}
+if((parseInt(lan_ip3) > parseInt(sip[0])) && ((parseInt(lan_ip3) - parseInt(sip[0])) < parseInt(ucount)))
+{
+eip[0] = parseInt(lan_ip3) - 1;
+sip[1] = parseInt(lan_ip3) + 1;
+eip[1] = parseInt(sip[1]) + parseInt(ucount) - (parseInt(eip[0]) - parseInt(sip[0])) - 2;
+set2 = true;
+}
+else
+eip[0] = parseInt(sip[0]) + parseInt(ucount) - 1;
+}
+else {
+sip[0] = st;
+if((st < start_ip) && (start_ip < et))
+sip[0] = start_ip;
+
+if((parseInt(lan_ip3) > parseInt(sip[0])) && ((parseInt(lan_ip3) - parseInt(sip[0])) < parseInt(ucount)))
+{
+eip[0] = parseInt(lan_ip3) - 1;
+sip[1] = parseInt(lan_ip3) + 1;
+eip[1] = parseInt(sip[1]) + parseInt(ucount) - (parseInt(eip[0]) - parseInt(sip[0])) - 2;
+set2 = true;
+}
+else
+eip[0] = parseInt(sip[0]) + parseInt(ucount) - 1;
+}
+}
+break;
+}
+} // else end
+} // for loop  end
+
+if((!set2 && (parseInt(sip[0]) + parseInt(ucount)) > (et - 1)) || (set2 && (parseInt(sip[0]) + parseInt(ucount) + 1) > (et - 1)))
+{
+// value out of range
+alert(L.error_message.lang_error_message_err2);
+$('#ip_range').text("");
+return false;
+}
+dhcp_start_ip = [];
+dhcp_end_ip = [];
+dhcp_start_ip[0] = sip[0];
+dhcp_end_ip[0] = eip[0];
+dhcp_range_num = ucount;
+
+var msg = "";
+var ip_prefix = $('#ip_prefix').text();
+msg += ip_prefix + sip[0] + ' ' + L.connectivity_network.lang_ip_range_to_title + ' ' + eip[0];
+if (set2 == true) {
+msg += '<BR>' + ip_prefix + sip[1] + ' ' + L.connectivity_network.lang_ip_range_to_title + ' ' + eip[1];
+dhcp_start_ip[1] = sip[1];
+dhcp_end_ip[1] = eip[1];
+}
+
+$('#ip_range').html(msg);
+$('#num_of_user').val(ucount);
+$('#start_ip').val(sip[0]);
+return true;
+}
+
+function check_dhcp_ip_range(subnet_mask,lanip3) {
+var mask=subnet_mask.split(".");
+var iprange, iplen;
+var st,et;
+
+iprange = 256 - parseInt(mask[3]);
+iplen = 256 / iprange;
+max_range_num = iprange - 3;	// nerwork ip + broadcasr ip + router ip
+
+if (iprange > 50) dhcp_range_num = 50;
+else dhcp_range_num = iprange - 3;
+
+dhcp_start_ip = [];
+dhcp_end_ip = [];
+
+for (var i=0; i < iplen; ++i) {
+if (iplen == 1 && parseInt(lanip3) == 1) {
+dhcp_start_ip[0] = '100';
+dhcp_end_ip[0] = parseInt(dhcp_start_ip[0]) + dhcp_range_num - 1;
+return true;
+}
+else {
+st = i * iprange;
+et = ((i+1) * iprange) - 1;
+
+if (lanip3 == st) {	// equal to subnet address
+alert(L.error_message.lang_error_message_err77);
+return false;
+}
+if (lanip3 == et) {	// equal to subnet broadcast
+alert(L.error_message.lang_error_message_err78);
+return false;
+}
+if (st < lanip3 && lanip3 < et) {
+st = st + 1;
+if (st == lanip3) {
+dhcp_start_ip[0] = st + 1;
+dhcp_end_ip[0] = parseInt(dhcp_start_ip[0]) + dhcp_range_num - 1;
+return true;
+}
+else {
+if ((lanip3 - st) >= dhcp_range_num) {
+dhcp_start_ip[0] = st;
+dhcp_end_ip[0] = parseInt(dhcp_start_ip[0]) + dhcp_range_num - 1;
+return true;
+}
+else {
+dhcp_start_ip[0] = st;
+dhcp_end_ip[0] = parseInt(lanip3) - 1;
+dhcp_start_ip[1] = parseInt(lanip3) + 1;
+dhcp_end_ip[1] = parseInt(dhcp_start_ip[1]) + dhcp_range_num - (parseInt(dhcp_end_ip[0] - parseInt(dhcp_start_ip[0]))) - 2;
+return true;
+}
+}
+}
+}
+}
+return false;
+}
+
+function subnet_mask_selected(value){
+var ip_prefix = $('#ip_prefix').text();
+
+if ($('#dhcps\\.DhcpsP\\[enable\\]').prop('checked') == false)
+return;
+
+if (!check_dhcp_ip_range(value,$('#ip_addr_3').val()))
+return;
+
+switch(dhcp_start_ip.length) {
+case 1:
+$('#ip_range').text(ip_prefix+dhcp_start_ip[0]+' '+L.connectivity_network.lang_ip_range_to_title+' '+dhcp_end_ip[0]);
+$('#num_of_user').val(dhcp_range_num);
+$('#start_ip').val(dhcp_start_ip[0]);
+break;
+case 2:
+$('#ip_range').html(ip_prefix+dhcp_start_ip[0]+' '+L.connectivity_network.lang_ip_range_to_title+' '+dhcp_end_ip[0]+'<br>'+
+ip_prefix+dhcp_start_ip[1]+' '+L.connectivity_network.lang_ip_range_to_title+' '+dhcp_end_ip[1]);
+$('#num_of_user').val(dhcp_range_num);
+$('#start_ip').val(dhcp_start_ip[0]);
+break;
+}
+
+if (value == '255.255.255.252') {
+// only one case: start ip=192.168.1.2, num_of_user=1
+$('#start_ip').attr("disabled", "true");
+$('#num_of_user').attr("disabled", "true");
+}
+else {
+$('#start_ip').removeAttr("disabled");
+$('#num_of_user').removeAttr("disabled");
+}
+
+if (value != '255.255.255.0')
+check_reservated_ip($('ip_addr_3').val(),$('#lan\\.LanP\\[netmask\\]').val());
+}
+
+function check_reservated_ip(lanip3,mask) {
+var st_route = INFO_DATA.showRouteT;
+var subnetmask3 = parseInt(mask.split(":")[3]);
+var subnet = subnetmask3 & parseInt(lanip3);
+var reserve_ip;
+var i;
+
+for (i=0; i < st_route.length; ++i) {
+reserve_ip = parseInt(st_route[i].dest.split(".")[3]);
+if ((reserve_ip & subnetmask3) != subnet && $('#dhcps\\.DhcpsP\\[enable\\]').prop('checked')) {
+alert(L.error_message.lang_error_message_err102);
+return false;
+}
+}
+
+return true;
+}
+
+function valid_lan_ip() {
+var mask = $('#lan\\.LanP\\[netmask\\]').val().split(".");
+var ip = new Array(4);
+var netid = new Array(4);
+var brcastip = new Array(4);
+var sip, eip;
+var i;
+
+for (i=0; i < 4; ++i) {
+ip[i] = $('#ip_addr_'+i).val();
+netid[i] = eval(ip[i] & mask[i]);
+
+if (i < 3)
+brcastip[i] = netid[i];
+else
+brcastip[i] = eval(netid[i] + 255 -  mask[i]);
+}
+
+sip = eval(netid[3] + 1);
+eip = eval(netid[3] - 1);
+if (ip[0] == netid[0] && ip[1] == netid[1] && ip[2] == netid[2] && ip[3] == netid[3]) {
+alert(L.error_message.lang_error_message_err14 + '[' + sip + '-' + eip + ']');
+return false;
+}
+
+if (ip[0] == brcastip[0] && ip[1] == brcastip[1] && ip[2] == brcastip[2] && ip[3] == brcastip[3]) {
+alert(L.error_message.lang_error_message_err14 + '[' + sip + '-' + eip + ']');
+return false;
+}
+return true;
+}
+
+function valid_gn_ip(ip,mask) {
+var gn_lan_ip = '192.168.33.1';
+var gn_lan_mask = '255.255.255.0';
+var a_gn_ip = gn_lan_ip.split(".");
+var a_gn_mask = gn_lan_mask.split(".");
+var a_ip = ip.split(".");
+var a_mask = mask.split(".");
+
+if ((((a_gn_ip[0] & a_mask[0]) == (a_ip[0] & a_mask[0])) &&
+((a_gn_ip[1] & a_mask[1]) == (a_ip[1] & a_mask[1])) &&
+((a_gn_ip[2] & a_mask[2]) == (a_ip[2] & a_mask[2])) &&
+((a_gn_ip[3] & a_mask[3]) == (a_ip[2] & a_mask[3]))) ||
+(((a_gn_ip[0] & a_gn_mask[0]) == (a_ip[0] & a_gn_mask[0])) &&
+((a_gn_ip[1] & a_gn_mask[1]) == (a_ip[1] & a_gn_mask[1])) &&
+((a_gn_ip[2] & a_gn_mask[2]) == (a_ip[2] & a_gn_mask[2])) &&
+((a_gn_ip[3] & a_gn_mask[3]) == (a_ip[3] & a_gn_mask[3]))))
+{
+return false;
+}
+
+return true;
+}
+
+var ZERO_NO=1;
+var ZERO_OK=2;
+var MASK_NO=4;
+var MASK_OK=8;
+var BCST_NO=16;
+var BCST_OK=32
+function valid_ip(N,flag) {
+var m = new Array(4);
+
+for(i=0; i < 4; i++)
+m[i] = eval("$('#"+N+"_"+i+"')").val();
+
+if(m[0] == 127 || m[0] == 224) {
+alert(L.error_message.lang_error_message_err31);
+return false;
+}
+
+if(m[0] == "0" && m[1] == "0" && m[2] == "0" && m[3] == "0") {
+if(flag & ZERO_NO) {
+alert(L.error_message.lang_error_message_err31);
+return false;
+}
+}
+
+if((m[0] != "0" || m[1] != "0" || m[2] != "0") && m[3] == "0"){
+if(flag & MASK_NO) {
+alert(L.error_message.lang_error_message_err31);
+return false;
+}
+}
+return true;
+}
+
+function valid_ip_dns(N,M1,flag) {
+var m = new Array(4);
+
+M = unescape(M1);
+for(i=0; i < 4; i++)
+m[i] = eval("$('#"+N+"_"+i+"')").val();
+
+if (m[0] == 127 || m[0] == 224) {
+alert(L.error_message.lang_error_message_err31);
+return false;
+}
+
+if(m[0] == "0" && m[1] != "0" && m[2] != "0" && m[3] != "0") {
+alert(M + ' : ' + L.error_message.lang_error_message_err31);
+return false;
+}
+
+if(m[0] == "0" && m[1] == "0" && m[2] == "0" && m[3] == "0") {
+if(flag & ZERO_NO) {
+alert(L.error_message.lang_error_message_staticnodns);
+return false;
+}
+}
+
+if((m[0] != "0" || m[1] != "0" || m[2] != "0") && m[3] == "0"){
+if(flag & MASK_NO) {
+alert(M + ' : ' + L.error_message.lang_error_message_err31);
+return false;
+}
+}
+
+return true;
+}
+
+function valid_same_dns(num) {
+var dns = new Array(num);
+var i,j;
+
+for (i=0; i < num; ++i) {
+dns[i] = $('#static_dns'+(i+1)+'_0').val() + '.' + $('#static_dns'+(i+1)+'_1').val() + '.' +
+$('#static_dns'+(i+1)+'_2').val() + '.' + $('#static_dns'+(i+1)+'_3').val();
+}
+
+for (i=0; i < num; ++i) {
+for (j=i+1; j < num; ++j) {
+if (dns[i] == dns[j]) {
+dns[j] = '0.0.0.0';
+$('#static_dns'+(j+1)+'_0').val('0');
+$('#static_dns'+(j+1)+'_1').val('0');
+$('#static_dns'+(j+1)+'_2').val('0');
+$('#static_dns'+(j+1)+'_3').val('0');
+}
+}
+}
+}
+
+function valid_dhcp_server() {
+var sip = parseInt($('#startp_ip').val());
+var num = parseInt($('#num_of_user').val());
+
+if (parseInt($('#ip_addr_3').val()) == sip)
+$('#startp_ip').val(parseInt(sip) + 1);
+
+if ((sip + num) > 255) {
+alert(L.error_message.lang_error_message_err2);
+return false;
+}
+
+if (!valid_ip_dns('static_dns1','DNS1',MASK_NO)) return false;
+if (!valid_ip_dns('static_dns2','DNS2',MASK_NO)) return false;
+if (!valid_ip_dns('static_dns3','DNS3',MASK_NO)) return false;
+if (!valid_ip('wins',MASK_NO)) return false;
+
+valid_same_dns(3);
+
+return true;
+}
+
+function valid_values() {
+var lanip = $('#ip_addr_0').val()+'.'+$('#ip_addr_1').val()+'.'+$('#ip_addr_2').val()+'.'+$('#ip_addr_3').val();
+var wanip = INFO_DATA.InternetConnection.IPv4.IP;;
+var wanmask = INFO_DATA.InternetConnection.IPv4.Netmask;
+var wangw = INFO_DATA.InternetConnection.IPv4.Gateway;
+
+// proto = static | pptp(auto obtain ip)
+if (MODIFIED_OBJ_DATA.wan.WanP.proto == '0' || (MODIFIED_OBJ_DATA.wan.WanP.proto == '4' && MODIFIED_OBJ_DATA.pptp.PptpP.autoObtain == '1')) {
+if (lanip == wanip) {
+alert(L.error_message.lang_error_message_err79);
+return false;
+}
+if (wanip != "" && wanmask != "" && !valid_gn_ip(wanip,wanmask)) {
+alert(L.connectivity_network.lang_alert_gn_ip_range);
+return false;
+}
+}
+
+if (!valid_dhcp_server())
+return false;
+return true;
+}
+
+function valid_dhcps_setting() {
+var num, xnum;
+var sip;
+
+check_dhcp_ip_range($('#lan\\.LanP\\[netmask\\]').val(),$('#ip_addr_3').val());
+
+sip = dhcp_start_ip[0];
+if (sip == 100) sip = 0;
+
+num = sip + parseInt($('#num_of_user').val());
+xnum = parseInt(parseInt(sip) + parseInt(max_range_num));
+
+if (parseInt($('#ip_addr_3').val()) == parseInt($('#start_ip').val())) {
+// equal lan ip
+alert(L.error_message.lang_error_message_err62);
+return false;
+}
+
+if (parseInt($('#start_ip').val()) < parseInt(sip)) {
+// out of range
+alert(L.error_message.lang_error_message_err2);
+return false;
+}
+
+if (dhcp_start_ip.length == 1) {
+if (((parseInt(sip) > parseInt(num)) || (parseInt(xnum) < parseInt(num))) && $('#dhcps\\.DhcpsP\\[enable\\]').prop('checked')) {
+alert(L.error_message.lang_error_message_err2);
+return false;
+}
+}
+else if (dhcp_start_ip.length == 2) {
+if ((parseInt(num) < parseInt(sip)) || (parseInt(num) > parseInt(xnum))) {
+alert(L.error_message.lang_error_message_err2);
+return false;
+}
+}
+
+sip = parseInt($('#start_ip').val());
+num = parseInt($('#num_of_user').val());
+if ((sip + num) > 255) {
+// out of range
+alert(L.error_message.lang_error_message_err2);
+return false;
+}
+
+if ($('#lan\\.LanP\\[netmask\\]').val() != '255.255.255.0' &&
+!check_reservated_ip($('#ip_addr_3').val(),$('#lan\\.LanP\\[netmask\\]').val()) &&
+$('#dhcps\\.DhcpsP\\[enable\\]').prop('checked'))
+return false;
+
+if (valid_lan_ip() && valid_values()) {
+if ($('#lan\\.LanP\\[netmask\\]').val() != '255.255.255.252') {
+$('#start_ip').removeAttr('disabled');
+$('#num_of_user').removeAttr('disabled');
+}
+}
+else
+return false;
+
+return true;
+}
+
+function open_dhcp_client_table() {
+displayPopout('dhcp_reservation');
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+var old_lanip = ORIGINAL_OBJ_DATA.lan.LanP.ipaddr;
+var new_lanip = MODIFIED_OBJ_DATA.lan.LanP.ipaddr;
+var prot;
+
+ORIGINAL_OBJ_DATA = API.obj.copy(MODIFIED_OBJ_DATA);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+
+if (old_lanip != new_lanip) {
+prot = (window.location.protocol == 'https:') ? "https" : "http";
+window.location.href = prot+"://"+new_lanip;
+}
+else
+window.location.reload();
+},SAVE_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+var obj;
+var ip_prefix;
+
+if (MODIFIED_OBJ_DATA.wan.WanP.proto == '5') {
+alert(L.connectivity_network.lang_alert_no_need_setup);
+return;
+}
+
+if (!valid_dhcps_setting())
+return;
+
+if (!valid_dhcp_range($('#ui-form')[0],'start_ip')) {
+return;
+}
+
+if (!valid_dhcp_range($('#ui-form')[0],'num_of_user')) {
+return;
+}
+
+obj=UI.form.toObj('ui-form');
+MODIFIED_OBJ_DATA = UI.obj.merge(MODIFIED_OBJ_DATA, obj);
+
+// adjust obj content
+ip_prefix = $('#ip_prefix').text().replace(/ /g,"");
+if (dhcp_start_ip.length == 1) {
+MODIFIED_OBJ_DATA.dhcps.DhcpsP.startIp = ip_prefix + $('#start_ip').val();
+//MODIFIED_OBJ_DATA.dhcps.DhcpsP.endIp = ip_prefix + (parseInt($('#start_ip').val()) + parseInt($('#num_of_user').val()) - 1);
+}
+else if (dhcp_start_ip.length == 2) {
+MODIFIED_OBJ_DATA.dhcps.DhcpsP.startIp = ip_prefix + $('#start_ip').val();
+//MODIFIED_OBJ_DATA.dhcps.DhcpsP.endIp = ip_prefix + (parseInt($('#start_ip').val()) + parseInt($('#num_of_user').val()));
+}
+
+for (var i=1; i <= 3; ++i) {
+eval('var ip_t=MODIFIED_OBJ_DATA.dhcps.DhcpsP.dns'+i);
+if (ip_t == "0.0.0.0")
+eval('MODIFIED_OBJ_DATA.dhcps.DhcpsP.dns'+i+'=""');
+}
+if (MODIFIED_OBJ_DATA.dhcps.DhcpsP.wins1 == "0.0.0.0")
+MODIFIED_OBJ_DATA.dhcps.DhcpsP.wins1="";
+
+if (fake_action == true) return;
+
+// set to object
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA))
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+else {
+delete MODIFIED_OBJ_DATA.wan;
+delete MODIFIED_OBJ_DATA.pptp;
+
+$("#loader").show();
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_local_network_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+// ui initialize
+set_local_network_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function get_info_success_cb(obj) {
+INFO_DATA = API.obj.copy(obj);
+get_obj_data(OBJ_LIST)
+}
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_info_data(INFO_LIST)
+}
+
+</script>
+

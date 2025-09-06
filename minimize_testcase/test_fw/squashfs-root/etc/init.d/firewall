@@ -1,0 +1,249 @@
+#!/bin/sh /etc/rc.common
+
+START=19
+USE_PROCD=1
+QUIET=""
+NDS_BACKUP_DIR="/tmp/nodogsplash"
+
+. /usr/share/libubox/jshn.sh
+
+validate_firewall_redirect()
+{
+	uci_validate_section firewall redirect "${1}" \
+		'proto:or(uinteger, string)' \
+		'src:string' \
+		'src_ip:cidr' \
+		'src_dport:or(port, portrange)' \
+		'dest:string' \
+		'dest_ip:cidr' \
+		'dest_port:or(port, portrange)' \
+		'target:or("SNAT", "DNAT")'
+}
+
+validate_firewall_rule()
+{
+	uci_validate_section firewall rule "${1}" \
+		'proto:or(uinteger, string)' \
+		'src:string' \
+		'dest:string' \
+		'src_port:or(port, portrange)' \
+		'dest_port:or(port, portrange)' \
+		'target:string'
+}
+
+obj2uci() {
+    local wanZoneIdx
+	local ipv4SpiEnable ipv6SpiEnable NAT
+    local doneWizard
+
+    wanZoneIdx=$(uci show firewall | awk "/zone/ && /name='wan'/" | tr -dc '0-9')
+
+	json_load "$(objReq firewall json)"
+	json_select "FirewallP"
+	json_get_vars ipv4SpiEnable ipv6SpiEnable
+    json_select ".."
+
+	uci set firewall.@defaults[0].ipv4_ctstate="$ipv4SpiEnable"
+	uci set firewall.@defaults[0].ipv6_ctstate="$ipv6SpiEnable"
+
+    json_load "$(objReq route json)"
+    json_select "RouteP"
+    json_get_vars NAT
+    json_select ".."
+
+    if [ "$NAT" = "0" ]; then
+        uci set firewall.@zone[$wanZoneIdx].masq='0'
+    else
+        uci set firewall.@zone[$wanZoneIdx].masq='1'
+    fi
+
+    json_load "$(objReq wan json)"
+    json_select "WanP"
+    json_get_vars hostname proto 
+    json_select ".."
+    
+    local lanZoneIdx
+    lanZoneIdx=$(uci show firewall | awk "/zone/ && /name='lan'/" | tr -dc '0-9')
+    
+    if [ "$proto" = "5" -o "$proto" = "6" ]; then
+        uci set firewall.@zone[$lanZoneIdx].masq=1
+    else
+        uci delete firewall.@zone[$lanZoneIdx].masq
+    fi
+
+	uci commit firewall
+}
+
+backup_nds_rules() {
+	nds_status=$(pidof nodogsplash)
+
+	if [ -z "$nds_status" ]; then
+		rm -rf $NDS_BACKUP_DIR
+		return
+	fi
+
+	mkdir -p $NDS_BACKUP_DIR
+	# backup rules in the mangle table
+	iptables -t mangle -S ndsTRU > $NDS_BACKUP_DIR/mangle-ndsTRU.ipt
+	iptables -t mangle -S ndsBLK > $NDS_BACKUP_DIR/mangle-ndsBLK.ipt
+	iptables -t mangle -S ndsINC > $NDS_BACKUP_DIR/mangle-ndsINC.ipt
+	iptables -t mangle -S ndsOUT > $NDS_BACKUP_DIR/mangle-ndsOUT.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/mangle-ndsTRU.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/mangle-ndsBLK.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/mangle-ndsINC.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/mangle-ndsOUT.ipt
+	sed -i -e 's/^/iptables -t mangle /' $NDS_BACKUP_DIR/mangle-ndsTRU.ipt
+	sed -i -e 's/^/iptables -t mangle /' $NDS_BACKUP_DIR/mangle-ndsBLK.ipt
+	sed -i -e 's/^/iptables -t mangle /' $NDS_BACKUP_DIR/mangle-ndsINC.ipt
+	sed -i -e 's/^/iptables -t mangle /' $NDS_BACKUP_DIR/mangle-ndsOUT.ipt
+
+	# backup rules in the nat table
+	iptables -t nat -S ndsOUT > $NDS_BACKUP_DIR/nat-ndsOUT.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/nat-ndsOUT.ipt
+	sed -i -e 's/^/iptables -t nat /' $NDS_BACKUP_DIR/nat-ndsOUT.ipt
+
+	# backup rules in the filter table
+	iptables -t filter -S ndsNET > $NDS_BACKUP_DIR/filter-ndsNET.ipt
+	iptables -t filter -S ndsRTR > $NDS_BACKUP_DIR/filter-ndsRTR.ipt
+	iptables -t filter -S ndsAUT > $NDS_BACKUP_DIR/filter-ndsAUT.ipt
+	iptables -t filter -S ndsTRU > $NDS_BACKUP_DIR/filter-ndsTRU.ipt
+	iptables -t filter -S ndsTRT > $NDS_BACKUP_DIR/filter-ndsTRT.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/filter-ndsNET.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/filter-ndsRTR.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/filter-ndsAUT.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/filter-ndsTRU.ipt
+	sed -i -e '1d' $NDS_BACKUP_DIR/filter-ndsTRT.ipt
+	sed -i -e 's/^/iptables -t filter /' $NDS_BACKUP_DIR/filter-ndsNET.ipt
+	sed -i -e 's/^/iptables -t filter /' $NDS_BACKUP_DIR/filter-ndsRTR.ipt
+	sed -i -e 's/^/iptables -t filter /' $NDS_BACKUP_DIR/filter-ndsAUT.ipt
+	sed -i -e 's/^/iptables -t filter /' $NDS_BACKUP_DIR/filter-ndsTRU.ipt
+	sed -i -e 's/^/iptables -t filter /' $NDS_BACKUP_DIR/filter-ndsTRT.ipt
+}
+
+restore_nds_rules() {
+	nds_status=$(pidof nodogsplash)
+
+	if [ -z "$nds_status" ]; then
+		rm -rf $NDS_BACKUP_DIR
+		return
+	fi
+
+	mangle_ndsTRU=$(cat $NDS_BACKUP_DIR/mangle-ndsTRU.ipt)
+	mangle_ndsBLK=$(cat $NDS_BACKUP_DIR/mangle-ndsBLK.ipt)
+	mangle_ndsINC=$(cat $NDS_BACKUP_DIR/mangle-ndsINC.ipt)
+	mangle_ndsOUT=$(cat $NDS_BACKUP_DIR/mangle-ndsOUT.ipt)
+	nat_ndsOUT=$(cat $NDS_BACKUP_DIR/nat-ndsOUT.ipt)
+	filter_ndsNET=$(cat $NDS_BACKUP_DIR/filter-ndsNET.ipt)
+	filter_ndsRTR=$(cat $NDS_BACKUP_DIR/filter-ndsRTR.ipt)
+	filter_ndsAUT=$(cat $NDS_BACKUP_DIR/filter-ndsAUT.ipt)
+	filter_ndsTRU=$(cat $NDS_BACKUP_DIR/filter-ndsTRU.ipt)
+	filter_ndsTRT=$(cat $NDS_BACKUP_DIR/filter-ndsTRT.ipt)
+
+cat <<EOF >/tmp/restore-nds.ipt
+#!/bin/sh
+# create nds chains in the mangle table
+iptables -t mangle -N ndsTRU
+iptables -t mangle -N ndsBLK
+iptables -t mangle -N ndsINC
+iptables -t mangle -N ndsOUT
+iptables -t mangle -I PREROUTING 1 -i br-guest -j ndsOUT
+iptables -t mangle -I PREROUTING 2 -i br-guest -j ndsBLK
+iptables -t mangle -I PREROUTING 3 -i br-guest -j ndsTRU
+iptables -t mangle -I POSTROUTING 1 -o br-guest -j ndsINC
+
+# create nds chains in the nat table
+iptables -t nat -N ndsOUT
+iptables -t nat -I PREROUTING -i br-guest -j ndsOUT
+
+# create nds chains in the filter table
+iptables -t filter -N ndsNET
+iptables -t filter -N ndsRTR
+iptables -t filter -N ndsAUT
+iptables -t filter -N ndsTRU
+iptables -t filter -N ndsTRT
+iptables -t filter -I INPUT -i br-guest -j ndsRTR
+iptables -t filter -I FORWARD -i br-guest -j ndsNET
+
+$mangle_ndsTRU
+$mangle_ndsBLK
+$mangle_ndsINC
+$mangle_ndsOUT
+$nat_ndsOUT
+$filter_ndsNET
+$filter_ndsRTR
+$filter_ndsAUT
+$filter_ndsTRU
+$filter_ndsTRT
+EOF
+
+    sh /tmp/restore-nds.ipt
+    echo "Restore nds rules! ($?)" > /dev/console
+}
+
+restore_miniupnp_rules() {
+        json_load "$(objReq upnp json)"
+	json_select UpnpP
+	json_get_var enable enable
+
+	if [ "$proto" = "$WAN_PROTO_BRIDGE" -o "$proto" = "$WAN_PROTO_WLAN_BRIDGE" -o "$enable" = "0" ]; then
+		echo "Skip upnp rule!!!" > /dev/console
+	else
+		WANIF="eth1"
+		if [ "$proto" = "$WAN_PROTO_L2TP" ]; then
+			WANIF="l2tp-vpn"
+		elif [ "$proto" = "$WAN_PROTO_PPTP" ]; then
+			WANIF="pptp-vpn"
+		elif [ "$proto" = "$WAN_PROTO_PPPOE" ]; then
+			WANIF="pppoe-wan"
+		fi
+		echo "Add upnp rule for $WANIF!!!" > /dev/console
+		#adding the rule to MINIUPNPD
+		iptables -wt nat -N MINIUPNPD
+		iptables -wt nat -A PREROUTING -i $WANIF -j MINIUPNPD
+		iptables -wt filter -N MINIUPNPD
+		iptables -wt filter -A FORWARD -i $WANIF ! -o $WANIF -j MINIUPNPD
+	fi
+}
+
+restart() {
+	backup_nds_rules
+	obj2uci
+	fw3 restart
+	restore_nds_rules
+	restore_miniupnp_rules
+	rcConf restart dnsrecorder
+	rcConf restart urlfilter
+    rcConf run
+}
+
+start_service() {
+	obj2uci
+	fw3 ${QUIET} start
+	restore_nds_rules
+	restore_miniupnp_rules
+	rcConf restart dnsrecorder
+	rcConf restart urlfilter
+    rcConf run
+}
+
+stop_service() {
+	backup_nds_rules
+	fw3 flush
+	conntrack -F
+}
+
+reload_service() {
+	obj2uci
+	fw3 reload
+}
+
+boot() {
+    # insmod extra netfilter modules
+    insmod /lib/modules/3.10.108/ipt_HTTPREDIRECT.ko
+    insmod /lib/modules/3.10.108/ipt_TRIGGER.ko
+    insmod /lib/modules/3.10.108/xt_webstr.ko
+	# Be silent on boot, firewall might be started by hotplug already,
+	# so don't complain in syslog.
+	QUIET=-q
+	start
+}

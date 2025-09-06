@@ -1,0 +1,8 @@
+Package: ca-certificates
+Version: 20150426
+Depends: libc
+Source: package/system/ca-certificates
+Section: base
+Architecture: ramips_24kec
+Installed-Size: 183532
+Description:  System CA certificates

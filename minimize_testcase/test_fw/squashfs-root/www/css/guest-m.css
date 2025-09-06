@@ -1,0 +1,181 @@
+/* This file is applied ot all pages. */
+
+a:link { color: white; }
+a:visited { color: white; } 
+a:hover { color: white; } 
+
+input
+{
+color: #535353;
+background: white;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: #09344d url(/img/top_to_bottom_gradient-m.jpg)
+                top left repeat-x;
+}
+
+/* color and spacing for main display tile */
+div#content {
+    /* The background image is 749w by 509h */
+    background: url(/img/background-m.jpg)
+                top left no-repeat;
+    /* 320 - 50 = 270 */
+    padding-left: 50px;
+    width: 270px;
+    /* 365 - 70 = 295 */
+    padding-top: 70px;
+    height: 295px;
+}
+
+/* Horizontally-center div#content */
+body {
+    text-align: center;
+}
+div#content {
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* Space between header and content */
+div#content h1 {
+    margin: 0 0 10px 0;
+}
+div#content p {
+    margin: 10px 0;
+}
+
+/* basic styles for div#content elements */
+div#content h1 {
+    font-family: Arial Bold, Arial, sans-serif;
+    font-size: 14pt;
+    color: #a5d5fd;
+}
+div#content div.info-text {
+/* 270-50 = 220px */
+    width: 220px;
+}
+div#content div.info-text p {
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    color: #ffffff;
+}
+div#content div.alt-view p {
+    font-family: Arial, sans-serif;
+    font-size: 8pt;
+    color: #ffffff;
+    padding-top:10px;
+}
+
+/* center form */
+div#content div.formwrapper {
+    text-align: center;
+    padding-left: 20px;
+}
+div#content form {
+    width: 270px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* space between form and div.info-text
+   this must be after the 'margin: 0 auto;'
+   centering for the form */
+div#content form {
+    margin-top: 20px;
+}
+
+/* Form element styles */
+div#content form label {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 8pt;
+    color: #ffffff;
+}
+div#content form div.error p{
+    font-family: Arial, sans-serif;
+    font-size: 8pt;
+    color: orange;
+}
+
+/* Form element spacing */
+div#content form label {
+    /* TODO: space between "Password:" label and input box */
+    margin-bottom: 5px;
+}
+div#content form div.error {
+    margin: 10px 0;
+}
+
+/* Buttons */
+table.button {
+    cursor: pointer;
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    height: 23px;    /* HEIGHT 1 */
+    padding: 0;
+}
+table.button td {
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+table.button td.middle {
+    background: transparent url(/img/normal_middle.gif) repeat-x top right;
+}
+
+/*
+table.button:hover td.middle {
+    background: transparent url(/img/over_middle.gif) repeat-x top right;
+}
+table.button.click td.middle {
+    background: transparent url(/img/down_middle.gif) repeat-x top right;
+}
+*/
+
+table.button td.left {
+    background: transparent url(/img/normal_left.gif) no-repeat top left;
+    padding-left: 11px; /* WIDTH 1 */
+}
+
+/*
+table.button:hover td.left {
+    background: transparent url(/img/over_left.gif) repeat-x top right;
+}
+table.button.click td.left {
+    background: transparent url(/img/down_left.gif) repeat-x top right;
+}
+*/
+
+table.button td.right {
+    background: transparent url(/img/normal_right.gif) no-repeat top right;
+    padding-right: 11px; /* WIDTH 1 */
+}
+
+/*
+table.button:hover td.right {
+    background: transparent url(/img/over_right.gif) repeat-x top right;
+}
+table.button.click td.right {
+    background: transparent url(/img/down_right.gif) repeat-x top right;
+}
+*/
+
+table.button td.middle a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 10pt;
+    padding: 0 1em;
+    line-height: 23px;    /* HEIGHT 1 */
+}
+
+/*
+table.button:hover a {
+    color: #5CADE3;
+}
+*/
+

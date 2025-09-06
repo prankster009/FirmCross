@@ -1,0 +1,19 @@
+{
+    "idp_ping": {
+        "lang_idp_ping_title": "偵測",
+        "lang_idp_resolve_url_title": "正在解析 URL 位址...",
+        "lang_idp_ping_result_trans_title": "已傳輸的封包",
+        "lang_idp_ping_result_recv_title": "已收到的封包",
+        "lang_idp_ping_result_loss_title": "封包遺失",
+        "lang_idp_ping_data_title": "資料統計",
+        "lang_idp_ping_data_unit_title": "資料位元組",
+        "lang_idp_ping_round_trip_title": "往返時間最小值/平均值/最大值",
+        "lang_idp_ping_data_from_title": "位元組來自",
+        "lang_idp_ping_seq_title": "seq",
+        "lang_idp_ping_ttl_title": "ttl",
+        "lang_idp_ping_time_title": "時間",
+        "lang_idp_ping_time_unit_title": "ms",
+        "lang_idp_ping_unknow_host_title": "不明的主機",
+        "lang_idp_ping_processing_title": "正在處理..."
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "idp_dhcp_reservation": {
+        "lang_idp_dhcp_reservation_title": "DHCP 客户端表",
+        "lang_idp_dhcp_reservation_select_add_title": "从 DHCP 表中选择客户端",
+        "lang_idp_dhcp_reservation_client_name_title": "客户端名称",
+        "lang_idp_dhcp_reservation_interface_title": "接口",
+        "lang_idp_dhcp_reservation_ip_title": "IP 地址",
+        "lang_idp_dhcp_reservation_mac_title": "MAC 地址",
+        "lang_idp_dhcp_reservation_select_title": "选择",
+        "lang_idp_dhcp_reservation_interface_lan": "LAN",
+        "lang_idp_dhcp_reservation_interface_wifi": "无线",
+        "lang_idp_dhcp_reservation_add_client_button": "添加客户端",
+        "lang_idp_dhcp_reservation_manual_add_title": "手动添加客户端",
+        "lang_idp_dhcp_reservation_enter_client_name_title": "输入客户端名称",
+        "lang_idp_dhcp_reservation_assign_ip_title": "分配 IP 地址",
+        "lang_idp_dhcp_reservation_to_mac_title": "到此 MAC 地址",
+        "lang_idp_dhcp_reservation_client_reserved_title": "已保留客户端",
+        "lang_idp_dhcp_reservation_remove_client_button": "删除"
+    }
+}

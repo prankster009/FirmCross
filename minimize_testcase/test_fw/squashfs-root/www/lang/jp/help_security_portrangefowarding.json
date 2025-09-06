@@ -1,0 +1,19 @@
+{
+    "help_security_portrangefowarding": {
+        "lang_help_security_portrangefowarding_title": "ポート範囲転送",
+        "lang_hspr1": "ポート範囲転送を利用すると、Web サーバー、FTP サーバー、メール サーバー、他の特化したインターネット アプリケーションなどのパブリック サービスをネットワークにセットアップできます。",
+        "lang_hspr2": "メモ: 変更を加えたら、<b>設定を保存</b>をクリックして変更内容を適用してください。",
+        "lang_hspr3": "ポート範囲転送",
+        "lang_hspr4": "アプリケーション名",
+        "lang_hspr5": "アプリケーションの名前を入力してください。",
+        "lang_hspr6": "開始～終了ポート",
+        "lang_hspr7": "受信トラフィックが使用するポートの範囲の数を入力してください。",
+        "lang_hspr8": "プロトコル",
+        "lang_hspr9": "このアプリケーションが使用するプロトコルを選択してください。",
+        "lang_hspr10": "宛先 IP アドレス",
+        "lang_hspr11": "特定のアプリケーションを実行しているサーバーの IP アドレスを入力してください。",
+        "lang_hspr12": "有効",
+        "lang_hspr13": "<b>有効</b>を選択して、ポート転送をアクティブにしてください。",
+        "lang_hspr14": "メモ: 詳細な情報については、<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b> のオンライン ユーザー ガイドを参照してください。"
+    }
+}

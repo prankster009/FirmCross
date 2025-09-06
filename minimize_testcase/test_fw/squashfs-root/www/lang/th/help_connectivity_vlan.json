@@ -1,0 +1,6 @@
+{
+    "help_connectivity_vlan": {
+        "lang_help_connectivity_vlan_title": "การตั้งค่า VLAN",
+        "lang_hcv1": "VLAN (virtual local area network) ให้คุณสามารถจัดกลุ่มอุปกรณ์บนซับเน็ตได้ อุปกรณ์เหล่านั้นสามารถติดต่อสื่อสารถึงกันได้ แต่ไม่สามารถติดต่อสื่อสารกับอุปกรณ์บนซับเน็ตอื่นได้"
+    }
+}

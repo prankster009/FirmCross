@@ -1,0 +1,10 @@
+{
+    "help_wifi_advanced": {
+        "lang_help_wifi_advanced_title": "고급 설정",
+        "lang_advanced_hwb1": "참고: 변경한 후 <b>설정 저장</b>을 클릭하여 변경 사항을 적용하십시오.",
+        "lang_advanced_hwb2": "무선 - 빔형성",
+        "lang_advanced_hwb3": "활성화/비활성화",
+        "lang_advanced_hwb4": "빔형성 기술은 네트워크의 각 장치에 Wi-Fi 신호를 집중시킵니다. 빔형성 기술의 혜택을 누리려면, 기본값인 <b>활성화</b>를 유지하십시오.",
+        "lang_advanced_hwb5": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

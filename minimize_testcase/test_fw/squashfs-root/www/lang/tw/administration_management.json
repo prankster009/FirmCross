@@ -1,0 +1,21 @@
+{
+    "administration_management": {
+        "lang_management_passwd_tips_prefix": "如果啟用遠端管理，我們建議",
+        "lang_management_passwd_tips_link": "變更您的 admin 密碼，",
+        "lang_management_passwd_tips_postfix": "為了安全起見。",
+        "lang_management_zone_local_mg_title": "本機管理存取",
+        "lang_local_http_mode_title": "存取方式：",
+        "lang_http_title": "HTTP",
+        "lang_https_title": "HTTPS",
+        "lang_local_wireless_title": "無線存取",
+        "lang_management_zone_remote_mg_title": "遠端管理存取",
+        "lang_remote_enable_title": "遠端管理",
+        "lang_remote_http_mode_title": "存取方式：",
+        "lang_remote_upgrade_title": "遠端升級",
+        "lang_remote_allow_ip_any_title": "允許的遠端 IP 位址",
+        "lang_remote_allow_ip_any": "任意 IP 位址",
+        "lang_remote_port_title": "遠端管理連接埠",
+        "lang_to": "到",
+        "lang_default_ps_warning": "路由器目前設定為預設密碼。為了安全性考量，您必須先更改密碼，然後才能啟用遠端管理功能。點選「確定」按鈕以更改密碼。  點選「取消」按鈕以停用遠端管理功能。"
+    }
+}

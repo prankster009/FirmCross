@@ -1,0 +1,20 @@
+{
+    "idp_dhcp_reservation": {
+        "lang_idp_dhcp_reservation_title": "ตารางข้อมูลไคลเอ็นต์ DHCP",
+        "lang_idp_dhcp_reservation_select_add_title": "เลือกไคลเอ็นต์จากตาราง DHCP",
+        "lang_idp_dhcp_reservation_client_name_title": "ชื่อไคลเอ็นต์",
+        "lang_idp_dhcp_reservation_interface_title": "อินเตอร์เฟซ",
+        "lang_idp_dhcp_reservation_ip_title": "ที่อยู่ IP",
+        "lang_idp_dhcp_reservation_mac_title": "ที่อยู่ MAC",
+        "lang_idp_dhcp_reservation_select_title": "เลือก",
+        "lang_idp_dhcp_reservation_interface_lan": "LAN",
+        "lang_idp_dhcp_reservation_interface_wifi": "ระบบไร้สาย",
+        "lang_idp_dhcp_reservation_add_client_button": "เพิ่มไคลเอ็นต์",
+        "lang_idp_dhcp_reservation_manual_add_title": "เพิ่มไคลเอ็นต์ด้วยตนเอง",
+        "lang_idp_dhcp_reservation_enter_client_name_title": "ป้อนชื่อไคลเอ็นต์",
+        "lang_idp_dhcp_reservation_assign_ip_title": "กำหนด ที่อยู่ IP",
+        "lang_idp_dhcp_reservation_to_mac_title": "ไปยังที่อยู่ MAC นี้",
+        "lang_idp_dhcp_reservation_client_reserved_title": "ไคลเอ็นต์ที่ได้รับการสำรองไว้",
+        "lang_idp_dhcp_reservation_remove_client_button": "ลบ"
+    }
+}

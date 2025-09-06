@@ -1,0 +1,30 @@
+{
+    "connectivity_vlan": {
+        "lang_vlan_enable_title": "VLAN",
+        "lang_select_profile_title": "เลือกโปรไฟล์:",
+        "lang_internet_trunk_title": "อินเทอร์เน็ต (ทรังค์)",
+        "lang_internet_title": "อินเทอร์เน็ต",
+        "lang_ethernet_title": "อีเทอร์เน็ต",
+        "lang_port_title": "พอร์ต",
+        "lang_vlan_id_title": "VLAN ID",
+        "lang_id_head": "ID",
+        "lang_tag_head": "แท็ก",
+        "lang_priority_head": "ลำดับความสำคัญ",
+        "lang_vlan_state_opt_untagged": "ยกเลิกแท็กแล้ว",
+        "lang_vlan_state_opt_tagged": "แท็กแล้ว",
+        "lang_vlan_state_opt_excluded": "ได้รับการยกเว้น",
+        "lang_vlan_alert_range": "โปรดตั้งค่า VLAN ID ในช่วง",
+        "lang_vlan_alert_illegal_char": "อักขระไม่ถูกต้อง [ต้องเป็น 0 - 9]",
+        "lang_profile_opt_manual": "กำหนดเอง",
+        "lang_profile_opt_M1": "M1 (ไฟเบอร์)",
+        "lang_profile_opt_Maxis_special": "Maxis (ไฟเบอร์พิเศษ)",
+        "lang_profile_opt_Maxis": "Maxis (Maxis Infra)",
+        "lang_profile_opt_Singtel_TV": "SingTel (mio TV)",
+        "lang_profile_opt_Singtel_other": "Singtel (อื่น ๆ )",
+        "lang_profile_opt_starhub": "StarHub",
+        "lang_profile_opt_Unifi_Business": "Unifi (@ ธุรกิจ)",
+        "lang_profile_opt_Unifi_Home": "Unifi (@ บ้าน)",
+        "lang_profile_opt_Maxis_Fibre": "Maxis (ไฟเบอร์)",
+        "lang_profile_opt_Maxis_TM": "Maxis (TM Infra)"
+    }
+}

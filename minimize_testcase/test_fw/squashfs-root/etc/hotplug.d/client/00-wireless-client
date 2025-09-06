@@ -1,0 +1,20 @@
+#
+# Environment variable: ACTION, FROM, INTERFACE, MAC, TYPE
+#
+
+[ "$ACTION" = "remove" -a "$FROM" = "wireless" -a "$TYPE" = "disassoc" ] && {
+	    echo "Disassoc $MAC from $INTERFACE" > /dev/console
+		if [ "$INTERFACE" = "rai1" ] || [ "$INTERFACE" = "ra1" ]; then
+#echo "deauth $MAC from $INTERFACE" > /dev/console
+			/usr/bin/sync_guest_client.sh "mac" "$MAC"
+		fi
+}
+
+[ "$ACTION" = "add" -a "$FROM" = "wireless" -a "$TYPE" = "assoc" ] && {
+	    echo "Assoc $MAC from $INTERFACE" > /dev/console
+	    if [ "$INTERFACE" = "rai1" ] || [ "$INTERFACE" = "ra1" ]; then
+#echo "New guest $MAC from $INTERFACE" > /dev/console
+			/usr/bin/sync_guest_client.sh "$INTERFACE"
+	    fi
+}
+

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+. /lib/hummer/api.sh
+. /lib/functions/network.sh
+
+[ "$ACTION" = ifup -o "$ACTION" = ifupdate ] || exit 0
+
+if [ "$INTERFACE" = "lan" ]; then
+    network_get_ipaddr ip lan
+fi
+
+#Check ipv6 address
+[ $INTERFACE = "wan6" ] && {
+	ipv6ip=`ifstatus wan6 | jsonfilter -e '@["ipv6-address"][0].address'`
+	[ -n "$ipv6ip" ] || exit 0
+}
+rcConf restart dhcps
+#/etc/init.d/dnsmasq enabled && /etc/init.d/dnsmasq start

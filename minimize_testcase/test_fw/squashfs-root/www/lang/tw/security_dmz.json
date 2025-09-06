@@ -1,0 +1,12 @@
+{
+    "security_dmz": {
+        "lang_dmz_enable_title": "DMZ",
+        "lang_source_ip_addr_title": "來源 IP 位址",
+        "lang_source_ip_any_title": "任意 IP 位址",
+        "lang_to": "到",
+        "lang_dest_ip_addr_title": "目的地",
+        "lang_dest_ip_title": "IP 位址",
+        "lang_dest_mac_addr": "MAC 位址",
+        "lang_dest_dhcp_client_button": "DHCP 用戶端資料表"
+    }
+}

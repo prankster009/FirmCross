@@ -1,0 +1,20 @@
+{
+    "idp_dhcp_reservation": {
+        "lang_idp_dhcp_reservation_title": "DHCP クライアント テーブル",
+        "lang_idp_dhcp_reservation_select_add_title": "クライアントを DHCP テーブルから選択する",
+        "lang_idp_dhcp_reservation_client_name_title": "クライアント名",
+        "lang_idp_dhcp_reservation_interface_title": "インターフェイス",
+        "lang_idp_dhcp_reservation_ip_title": "IP アドレス",
+        "lang_idp_dhcp_reservation_mac_title": "MAC アドレス",
+        "lang_idp_dhcp_reservation_select_title": "選択する",
+        "lang_idp_dhcp_reservation_interface_lan": "LAN",
+        "lang_idp_dhcp_reservation_interface_wifi": "ワイヤレス",
+        "lang_idp_dhcp_reservation_add_client_button": "クライアントを追加",
+        "lang_idp_dhcp_reservation_manual_add_title": "クライアントを手動で追加",
+        "lang_idp_dhcp_reservation_enter_client_name_title": "クライアント名を入力",
+        "lang_idp_dhcp_reservation_assign_ip_title": "IP アドレスを割り当てる",
+        "lang_idp_dhcp_reservation_to_mac_title": "この MAC アドレスへ",
+        "lang_idp_dhcp_reservation_client_reserved_title": "クライアントがすでに予約済み",
+        "lang_idp_dhcp_reservation_remove_client_button": "削除"
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "mpt": {
+        "lang_wifi_mpt_title": "Région de transmission",
+        "lang_wifi_mpt_info": "La puissance de transmission du signal sans fil est déterminée par des limites régionales. Vous pourriez être passible d’amendes et de sanctions si vous choisissez une région autre que celle où vous utiliserez le routeur.",
+        "lang_wiz_mpt_title": "Choisissez une région",
+        "lang_wiz_mpt_info_1": "La puissance maximale de transmission de signal sans fil autorisée varie selon les régions. Le choix d’une région définit cette limite.",
+        "lang_wiz_mpt_info_2": "Vous pourriez être passible d’amendes et de sanctions si vous choisissez une région autre que celle où vous utiliserez le routeur.",
+        "lang_wiz_mpt_option_initial": "Pays ou région",
+        "lang_mpt_country_CHN": "Asie - Chine",
+        "lang_mpt_country_HKG": "Asie - Hong Kong",
+        "lang_mpt_country_IND": "Asie - Inde",
+        "lang_mpt_country_SGP": "Asie - Singapour",
+        "lang_mpt_country_TWN": "Asie - Taïwan",
+        "lang_mpt_country_THA": "Asie - Thaïlande",
+        "lang_mpt_country_XAH": "Asie - Autres pays d’Asie",
+        "lang_mpt_country_CAN": "Canada",
+        "lang_mpt_country_EEE": "Europe",
+        "lang_mpt_country_SAU": "Moyen-Orient - Arabie saoudite",
+        "lang_mpt_country_XME": "Moyen-Orient",
+        "lang_mpt_country_USA": "États-Unis",
+        "lang_mpt_country_PHI": "Asie-Philippines",
+        "lang_mpt_country_KOR": "KOR-Asie",
+        "lang_mpt_country_MAC": "Asie - Macao",
+        "lang_mpt_country_MYS": "Asie - Malaisie",
+        "lang_mpt_country_VNM": "Asie - Vietnam",
+        "lang_mpt_country_AUS": "Australie",
+        "lang_mpt_country_NZL": "Nouvelle Zélande"
+    }
+}

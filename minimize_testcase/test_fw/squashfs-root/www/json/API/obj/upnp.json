@@ -1,0 +1,7 @@
+{
+    "UpnpP": {
+        "enable": "1",
+        "allowUserConf": "1",
+        "disableInternet": "0"
+    }
+}

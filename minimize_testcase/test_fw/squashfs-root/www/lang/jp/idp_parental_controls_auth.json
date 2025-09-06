@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_auth": {
+        "lang_idp_parental_controls_auth_title": "保護者による制限",
+        "lang_idp_parental_controls_auth_info_title": "保護者による制限のパスワードを入力してください:",
+        "lang_idp_parental_controls_auth_forgot_pwd_title": "パスワードを忘れました。",
+        "lang_idp_parental_controls_auth_errmsg_title": "パスワードが正しくありません。"
+    }
+}

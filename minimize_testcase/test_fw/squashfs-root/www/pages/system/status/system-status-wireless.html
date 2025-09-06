@@ -1,0 +1,218 @@
+<script type="text/javascript">
+var INFO_LIST = [ 'Wifi2G','Wifi5G' ]
+var INFO_DATA = {}
+</script>
+<div class="table-title wifi_5g_network_zone">
+<span class="multi_lang" id="lang_wireless_zone_wifi_5g_network_title"></span>
+</div>
+<hr class="table-title-underline wifi_5g_network_zone">
+<table class="table table-info wifi_5g_network_zone">
+<tbody>
+<tr id="tr_wifi_5g_mac_addr" >
+<td>
+<span class="multi_lang" id="lang_wifi_5g_mac_addr_title"></span>
+</td>
+<td>
+<span name="wifi_5g_mac_addr" id="wifi_5g_mac_addr" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_5g_mode" >
+<td>
+<span class="multi_lang" id="lang_wifi_5g_mode_title"></span>
+</td>
+<td>
+<span name="wifi_5g_mode" id="wifi_5g_mode" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_5g_ssid" >
+<td>
+<span class="multi_lang" id="lang_wifi_5g_ssid_title"></span>
+</td>
+<td>
+<span name="wifi_5g_ssid" id="wifi_5g_ssid" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_5g_width" >
+<td>
+<span class="multi_lang" id="lang_wifi_5g_width_title"></span>
+</td>
+<td>
+<span name="wifi_5g_width" id="wifi_5g_width" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_5g_channel" >
+<td>
+<span class="multi_lang" id="lang_wifi_5g_channel_title"></span>
+</td>
+<td>
+<span name="wifi_5g_channel" id="wifi_5g_channel" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_5g_security" >
+<td>
+<span class="multi_lang" id="lang_wifi_5g_security_title"></span>
+</td>
+<td>
+<span name="wifi_5g_security" id="wifi_5g_security" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_5g_broadcast" >
+<td>
+<span class="multi_lang" id="lang_wifi_5g_broadcast_title"></span>
+</td>
+<td>
+<span name="wifi_5g_broadcast" id="wifi_5g_broadcast" ></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title wifi_2g_network_zone">
+<span class="multi_lang" id="lang_wireless_zone_wifi_2g_network_title"></span>
+</div>
+<hr class="table-title-underline wifi_2g_network_zone">
+<table class="table table-info wifi_2g_network_zone">
+<tbody>
+<tr id="tr_wifi_2g_mac_addr" >
+<td>
+<span class="multi_lang" id="lang_wifi_2g_mac_addr_title"></span>
+</td>
+<td>
+<span name="wifi_2g_mac_addr" id="wifi_2g_mac_addr" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_2g_mode" >
+<td>
+<span class="multi_lang" id="lang_wifi_2g_mode_title"></span>
+</td>
+<td>
+<span name="wifi_2g_mode" id="wifi_2g_mode" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_2g_ssid" >
+<td>
+<span class="multi_lang" id="lang_wifi_2g_ssid_title"></span>
+</td>
+<td>
+<span name="wifi_2g_ssid" id="wifi_2g_ssid" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_2g_width" >
+<td>
+<span class="multi_lang" id="lang_wifi_2g_width_title"></span>
+</td>
+<td>
+<span name="wifi_2g_width" id="wifi_2g_width" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_2g_channel" >
+<td>
+<span class="multi_lang" id="lang_wifi_2g_channel_title"></span>
+</td>
+<td>
+<span name="wifi_2g_channel" id="wifi_2g_channel" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_2g_security" >
+<td>
+<span class="multi_lang" id="lang_wifi_2g_security_title"></span>
+</td>
+<td>
+<span name="wifi_2g_security" id="wifi_2g_security" ></span>
+</td>
+</tr>
+<tr id="tr_wifi_2g_broadcast" >
+<td>
+<span class="multi_lang" id="lang_wifi_2g_broadcast_title"></span>
+</td>
+<td>
+<span name="wifi_2g_broadcast" id="wifi_2g_broadcast" ></span>
+</td>
+</tr>
+</tbody>
+</table>
+<script language="javascript" type="text/javascript">
+
+var INFO_DATA_MAPPING = [{"info":"Wifi5G.MAC","eid":"wifi_5g_mac_addr"},{"info":"Wifi5G.Mode","eid":"wifi_5g_mode"},{"info":"Wifi5G.SSID","eid":"wifi_5g_ssid"},{"info":"Wifi5G.ChannelWidth","eid":"wifi_5g_width"},{"info":"Wifi5G.Channel","eid":"wifi_5g_channel"},{"info":"Wifi5G.Security","eid":"wifi_5g_security"},{"info":"Wifi5G.SSIDHiden","eid":"wifi_5g_broadcast"},{"info":"Wifi2G.MAC","eid":"wifi_2g_mac_addr"},{"info":"Wifi2G.Mode","eid":"wifi_2g_mode"},{"info":"Wifi2G.SSID","eid":"wifi_2g_ssid"},{"info":"Wifi2G.ChannelWidth","eid":"wifi_2g_width"},{"info":"Wifi2G.Channel","eid":"wifi_2g_channel"},{"info":"Wifi2G.Security","eid":"wifi_2g_security"},{"info":"Wifi2G.SSIDHiden","eid":"wifi_2g_broadcast"}]
+
+var WLAN_MODE_LANG_INDEX={"m0":"lang_wifi_mode_bg","m1":"lang_wifi_mode_b","m2":"lang_wifi_mode_a","m4":"lang_wifi_mode_g","m6":"lang_wifi_mode_n","m9":"lang_wifi_mode_mixed","m11":"lang_wifi_mode_n","m14":"lang_wifi_mode_5g_mixed","m15":"lang_wifi_mode_ac_mixed","mdisable":"lang_wifi_mode_disabled"}
+var WLAN_BW_LANG_INDEX={"bw0":"lang_wifi_bw_auto","bw1":"lang_wifi_bw_20","bw2":"lang_wifi_bw_40","bw3":"lang_wifi_bw_80"}
+var WLAN_SEC_LANG_INDEX={"WPA2PSK":"lang_wifi_auth_type_wpa2","WPA2":"lang_wifi_auth_type_wpa2_enterprise","OPEN":"lang_wifi_auth_type_open"}
+
+page_tag='status_wireless'
+$(document).ready(function(){
+$.lang_load("status_wireless");
+page_initial()
+//Add log mechanism
+inject_log_bot()
+});
+function page_refresh(){
+get_info_data(INFO_LIST)
+}
+
+function status_layout(){
+var wifi_disabled = false
+INFO_DATA_MAPPING.forEach(function(item, index){
+eval('var info_data=INFO_DATA.'+item.info)
+//Broadcast string convert
+if( "Wifi2G.SSIDHiden" == item.info || "Wifi5G.SSIDHiden" == item.info ){
+if(info_data == "1")
+info_data = L.status_wireless.lang_wifi_broadcast_disable
+else
+info_data = L.status_wireless.lang_wifi_broadcast_enable
+}else if( "Wifi2G.Mode" == item.info || "Wifi5G.Mode" == item.info ){
+eval('var mode_index=WLAN_MODE_LANG_INDEX.m'+info_data)
+eval('var mode_lang=L.status_wireless.'+mode_index)
+
+if( "disable" == info_data )
+wifi_disabled = true
+
+info_data = mode_lang
+}else if( "Wifi2G.ChannelWidth" == item.info || "Wifi5G.ChannelWidth" == item.info ){
+eval('var bw_index=WLAN_BW_LANG_INDEX.bw'+info_data)
+eval('var bw_lang=L.status_wireless.'+bw_index)
+info_data = bw_lang
+}else if( "Wifi2G.Security" == item.info || "Wifi5G.Security" == item.info ){
+eval('var sec_index=WLAN_SEC_LANG_INDEX.'+info_data)
+eval('var sec_lang=L.status_wireless.'+sec_index)
+info_data = sec_lang
+}else if( "Wifi2G.Channel" == item.info || "Wifi5G.Channel" == item.info ){
+if(!wifi_disabled && (info_data == "0" || info_data == "") ){
+info_data = L.common.lang_loader_msg_main
+setTimeout(function(){
+get_info_data(INFO_LIST)
+}, 5000);
+}else if(wifi_disabled){
+wifi_disabled = false
+}
+}
+
+$("#"+item.eid).html(info_data)
+});
+}
+
+function get_info_success_cb(obj) {
+if(obj.api_return != 0){
+get_info_error_cb(obj)
+return;
+}
+INFO_DATA = API.obj.copy(obj);
+status_layout()
+}
+
+function get_info_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_info_data(info_list){
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+function page_initial(){
+get_info_data(INFO_LIST)
+}
+
+</script>
+

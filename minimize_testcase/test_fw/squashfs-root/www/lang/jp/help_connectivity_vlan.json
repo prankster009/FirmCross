@@ -1,0 +1,6 @@
+{
+    "help_connectivity_vlan": {
+        "lang_help_connectivity_vlan_title": "VLAN セットアップ",
+        "lang_hcv1": "VLAN (仮想ローカル エリア ネットワーク) では、サブネット上のデバイスをまとめてグループ化できます。デバイス間で通信できますが、他のサブネット上にあるデバイスとは通信できません。"
+    }
+}

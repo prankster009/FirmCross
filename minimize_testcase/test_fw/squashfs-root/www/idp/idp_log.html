@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="log">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_idp_log_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<tr>
+<td><span class="multi_lang" id="lang_idp_log_type_title"></span></td>
+<td>
+<span id="select_div_type"></span>
+<script>
+(function(){
+var str = ['idp_log_incoming', 'idp_log_outgoing', 'idp_log_security', 'idp_log_dhcp_client'],
+val = ['incoming', 'outgoing', 'security', 'dhcp'];
+draw_select('type', str, val, 'get_log_msg(this.value)', '', 1);
+})();
+</script>
+</td>
+</tr>
+<tr><td colspan="2"><hr class="table-title-underline" style="margin: -1em 0 1em 0"></td></tr>
+<tr>
+<td class="vtop"><span id="log_type_text"></span></td>
+<td><table class="log_table" id="log_content"></table></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="save_log()" id="lang_idp_log_save_button"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="refresh()" id="btnRefresh"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="clear_log()" id="lang_idp_log_clear_button"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="closePopout()" id="btnClose"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var INFO_DATA = {};
+var GET_CMD = {"systemLog":{"type":"incoming","action":""}};
+var CLEAR_CMD = {"systemLog":{"type":"incoming","action":"clear"}};
+var L;
+
+var log_incoming = [];
+var log_outgoing = [];
+var log_security = "";
+var log_dhcp = "";
+
+function log_type(key)
+{
+if( typeof(key) == 'undefined')
+key=$("#type").val()
+
+eval('var dy_id=L.'+$("#type option:selected").attr("id")+'')
+$("#type").siblings( ".selectSpan" ).html("<p>"+dy_id+"</p>");
+
+$('#log_type_text').text(dy_id);
+
+log_table_layout(key);
+resizePopout();
+inject_log_bot_idp()
+}
+
+function download(filename, text) {
+var element = document.createElement('a');
+var blob;
+
+if (navigator.userAgent.search("MSIE") >= 0 || navigator.userAgent.match(/Trident.*rv\:11\./)) {
+blob = new Blob([text], { type: "octet/stream" });
+
+if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+window.navigator.msSaveOrOpenBlob(blob, filename);
+}
+}
+else {
+element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+element.setAttribute('download', filename);
+
+element.style.display = 'none';
+document.body.appendChild(element);
+
+element.click();
+
+document.body.removeChild(element);
+}
+}
+
+function save_log() {
+var fname=$("#type").val()+'_log.txt';
+var type=$('#type').val();
+var data_save;
+var i;
+
+if(type == "incoming") {
+data_save = "";
+for (i=0; i < log_incoming.length; ++i) {
+data_save += log_incoming[i].srcip+" from wan to port "+log_incoming[i].port+" is accepted\r\n";
+}
+}
+else if(type == "outgoing") {
+data_save = "";
+for (i=0; i < log_outgoing.length; ++i) {
+data_save += log_outgoing[i].lanip+" to "+log_outgoing[i].dst+":"+log_outgoing[i].port+" is accepted\r\n";
+}
+}
+else if(type == "security") {
+data_save = log_security.replace(/\n/g,"\r\n");
+}
+else if(type == "dhcp") {
+data_save = log_dhcp.replace(/\n/g,"\r\n");
+}
+else
+data_save = "";
+
+download(fname,data_save);
+}
+
+function clear_log() {
+CLEAR_CMD.systemLog.type = $('#type').val();
+set_info_data(CLEAR_CMD);
+
+// get log background for next show
+get_log_msg("incoming");
+get_log_msg("outgoing");
+}
+
+function refresh() {
+closePopout();
+window.parent.open_log_table();
+}
+
+function get_log_msg(type) {
+if(type == "incoming") {
+GET_CMD.systemLog.type = "incoming";
+}
+else if(type == "outgoing") {
+GET_CMD.systemLog.type = "outgoing";
+}
+else if(type == "security") {
+GET_CMD.systemLog.type = "security";
+}
+else if(type == "dhcp") {
+GET_CMD.systemLog.type = "dhcp";
+}
+else {
+return;
+}
+
+set_info_data(GET_CMD);
+}
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name);
+
+// prepare log at initialize
+get_log_msg("incoming");
+get_log_msg("outgoing");
+
+$('#loader', window.parent.document).hide();
+
+update_selected($('#type').attr('name'));
+},1000);
+}
+
+function draw_log_incoming() {
+var table_content="";
+var log_array=log_incoming;
+var srcip="", port="";
+
+if (typeof(log_array) == "undefined" || log_array == "")
+log_array = [];
+
+table_content= table_content + '<thead><tr>';
+table_content= table_content + '<th class="log_td" style="width:50%">'+L.lang_idp_log_incoming_src_ip_title+'</th>';
+table_content= table_content + '<th class="log_td" style="width:50%">'+L.lang_idp_log_incoming_dst_port_title+'</th>';
+table_content= table_content + '</tr></thead>';
+table_content= table_content + '<tbody>';
+
+table_content= table_content + '<tr>';
+table_content= table_content + '<td id="in_td_srcip" class="log_td" style="vertical-align:top;">&nbsp;</td>';
+table_content= table_content + '<td id="in_td_port" class="log_td" style="vertical-align:top;">&nbsp;</td>';
+table_content= table_content + '</tr>';
+
+table_content= table_content + '</tbody>';
+$("#log_content").html(table_content);
+
+for (var i=0; i < log_array.length; ++i) {
+if (i > 0) {
+srcip += "<br>";
+port += "<br>";
+}
+
+srcip += log_array[i].srcip;
+port += log_array[i].port;
+}
+
+$('#in_td_srcip').html(srcip);
+$('#in_td_port').html(port);
+}
+
+function draw_log_outgoing() {
+var table_content="";
+var log_array=log_outgoing;
+var lanip="", dst="", port="";
+
+if (typeof(log_array) == "undefined" || log_array == "")
+log_array = [];
+
+table_content= table_content + '<thead><tr>';
+table_content= table_content + '<th class="log_td">'+L.lang_idp_log_outgoing_lan_ip_title+'</th>';
+table_content= table_content + '<th class="log_td">'+L.lang_idp_log_outgoing_dst_ip_url_title+'</th>';
+table_content= table_content + '<th class="log_td">'+L.lang_idp_log_outgoing_port_title+'</th>';
+table_content= table_content + '</tr></thead>';
+table_content= table_content + '<tbody>';
+
+table_content= table_content + '<tr>';
+table_content= table_content + '<td id="out_td_lanip" class="log_td" style="vertical-align:top;">&nbsp;</td>';
+table_content= table_content + '<td id="out_td_dst" class="log_td" style="vertical-align:top;">&nbsp;</td>';
+table_content= table_content + '<td id="out_td_port" class="log_td" style="vertical-align:top;">&nbsp;</td>';
+table_content= table_content + '</tr>';
+
+table_content= table_content + '</tbody>';
+$("#log_content").html(table_content);
+
+for (var i=0; i < log_array.length; ++i) {
+if (i > 0) {
+lanip += "<br>";
+dst += "<br>";
+port += "<br>";
+}
+
+lanip += log_array[i].lanip;
+dst += log_array[i].dst;
+port += log_array[i].port;
+}
+
+$('#out_td_lanip').html(lanip);
+$('#out_td_dst').html(dst);
+$('#out_td_port').html(port);
+}
+
+function draw_log_security() {
+var table_content="";
+var log_array;
+
+if (typeof(log_security) == "undefined")
+log_array = [];
+else
+log_array = log_security.split(/\r?\n/);
+
+table_content= table_content + '<tbody>';
+
+for (var i=0;; ++i) {
+if (log_array.length == 0) {
+table_content= table_content + '<tr>';
+table_content= table_content + '<td class="log_td" style="vertical-align:top;border:0;">&nbsp;</td>';
+table_content= table_content + '</tr>';
+break;
+}
+
+if (i == 0) {
+table_content= table_content + '<tr><td style="vertical-align:top;border:0;">';
+} else if (i == log_array.length) {
+table_content= table_content + '</td></tr>';
+table_content= table_content + '<tr><td style="border:0;">&nbsp;</td></tr>';
+break;
+}
+
+table_content= table_content + '<table><tbody><tr>';
+table_content= table_content + '<td style="text-align:left;border:0;">' + log_array[i] +'</td>';
+table_content= table_content + '</tr></tbody></table>';
+}
+
+table_content= table_content + '</tbody>';
+$("#log_content").html(table_content);
+}
+
+function draw_log_dhcp_client() {
+var table_content="";
+var log_array;
+
+if (typeof(log_dhcp) == "undefined")
+log_array = [];
+else
+log_array = log_dhcp.split(/\r?\n/);
+
+table_content= table_content + '<tbody>';
+
+for (var i=0;; ++i) {
+if (log_array.length == 0) {
+table_content= table_content + '<tr>';
+table_content= table_content + '<td class="log_td" style="vertical-align:top;border:0;">&nbsp;</td>';
+table_content= table_content + '</tr>';
+break;
+}
+
+if (i == 0) {
+table_content= table_content + '<tr><td style="vertical-align:top;border:0;">';
+} else if (i == log_array.length) {
+table_content= table_content + '</td></tr>';
+table_content= table_content + '<tr><td style="border:0;">&nbsp;</td></tr>';
+break;
+}
+
+table_content= table_content + '<table><tbody><tr>';
+table_content= table_content + '<td style="text-align:left;border:0;">' + log_array[i] +'</td>';
+table_content= table_content + '</tr></tbody></table>';
+}
+
+table_content= table_content + '</tbody>';
+$("#log_content").html(table_content);
+}
+
+function log_table_layout(type){
+if(type == "") {
+type = "incoming";
+}
+
+if(type == "incoming") {
+draw_log_incoming();
+}
+else if(type == "outgoing") {
+draw_log_outgoing();
+}
+else if(type == "security") {
+draw_log_security();
+}
+else if(type == "dhcp") {
+draw_log_dhcp_client();
+}
+}
+
+function set_info_success_cb(obj) {
+var type;
+
+INFO_DATA = API.obj.copy(obj);
+type = INFO_DATA.systemLog.systemLog.type;
+
+if (type != "incoming" && type != "outgoing" && type != "security" && type != "dhcp")
+return;
+
+eval('log_'+type+' = INFO_DATA.systemLog.systemLog.data');
+
+log_type($("#type").val());
+}
+function set_info_error_cb(obj) {
+log_msg="";
+log_type($("#type").val());
+
+if (obj.api_return == 403) {
+logout('sto');
+}
+}
+function set_info_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.info.set(JSON.parse(obj_content), set_info_success_cb, set_info_error_cb);
+else if(typeof(obj_content) == 'object')
+API.info.set(obj_content, set_info_success_cb, set_info_error_cb);
+}
+
+</script>
+
+</FORM></BODY></HTML>

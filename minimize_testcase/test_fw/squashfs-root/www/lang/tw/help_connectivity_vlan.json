@@ -1,0 +1,6 @@
+{
+    "help_connectivity_vlan": {
+        "lang_help_connectivity_vlan_title": "VLAN 設定",
+        "lang_hcv1": "VLAN（虛擬本機區域網路）讓您可以在子網路中將裝置群組在一起。這些裝置可以相互通訊，但不能與其他子網路上的裝置通訊。"
+    }
+}

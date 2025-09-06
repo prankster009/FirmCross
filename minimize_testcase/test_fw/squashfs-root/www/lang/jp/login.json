@@ -1,0 +1,11 @@
+{
+    "login": {
+        "lang_auth_title": "認証が必須です。",
+        "lang_acnt_username": "ユーザー名",
+        "lang_acnt_passwd": "パスワード",
+        "lang_try_again": "もう一度ログインしてください。",
+        "lang_login": "ログイン",
+        "lang_login_invalid": "ユーザー名またはパスワードが無効です。",
+        "lang_session_fail": "セッションに失敗。"
+    }
+}

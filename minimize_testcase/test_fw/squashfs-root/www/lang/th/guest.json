@@ -1,0 +1,12 @@
+{
+    "guest": {
+        "lang_document_title": "การเข้าถึงของบัญชี Guest",
+        "lang_content_title": "การเข้าถึงของบัญชี Guest",
+        "lang_content_info": "ป้อนรหัสผ่านสำหรับการเข้าถึงบัญชี Guest ในการเข้าถึงอินเทอร์เน็ต สอบถามเจ้าของหากคุณไม่ทราบรหัสผ่าน คุณสามารถใช้ Linksys Connect ในการค้นหารหัสผ่านสำหรับการเข้าถึงบัญชี Guest ได้",
+        "lang_password_title": "รหัสผ่าน",
+        "lang_login_button": "ล็อกอิน",
+        "lang_lang_error_msg": "การล็อกอินล้มเหลว",
+        "lang_desktop_view_title": "มุมมองจากคอมพิวเตอร์",
+        "lang_mobile_view_title": "มุมมองจากโทรศัพท์มือถือ"
+    }
+}

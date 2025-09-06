@@ -1,0 +1,25 @@
+#!/bin/sh
+
+CACHE_DIR="/var/cache/lighttpd"
+
+# time to remove files (in seconds)
+EXPIRED_TIME=86400
+
+clean_expired_files() {
+        local dir=$1
+        local ftime
+	local dtime
+
+        for file in `find $1 -type f`
+        do
+                ftime=$(date -r $file +%s)
+                dtime=$(($NOWTIME-$ftime))
+
+                [ $dtime -ge $EXPIRED_TIME ] && rm -f $file
+        done
+}
+
+NOWTIME=$(date +%s)
+
+clean_expired_files $CACHE_DIR
+

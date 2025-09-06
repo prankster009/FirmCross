@@ -1,0 +1,29 @@
+{
+    "mpt": {
+        "lang_wifi_mpt_title": "傳輸區域",
+        "lang_wifi_mpt_info": "Wi-Fi 傳輸功率由區域限制而定。如果您選擇您將使用本路由器所在地以外的區域，可能會遭到罰款。",
+        "lang_wiz_mpt_title": "選擇一個區域",
+        "lang_wiz_mpt_info_1": "各區域所允許的 Wi-Fi 傳輸功率各有差異。選擇一個區域來設定上限。",
+        "lang_wiz_mpt_info_2": "如果您選擇您將使用本路由器所在地以外的區域，可能會遭到罰款。",
+        "lang_wiz_mpt_option_initial": "國家或區域",
+        "lang_mpt_country_CHN": "亞洲－中國",
+        "lang_mpt_country_HKG": "亞洲－香港",
+        "lang_mpt_country_IND": "亞洲－印度",
+        "lang_mpt_country_SGP": "亞洲－新加坡",
+        "lang_mpt_country_TWN": "亞洲－台灣",
+        "lang_mpt_country_THA": "亞洲－泰國",
+        "lang_mpt_country_XAH": "亞洲－其他區域",
+        "lang_mpt_country_CAN": "加拿大",
+        "lang_mpt_country_EEE": "歐洲",
+        "lang_mpt_country_SAU": "中東－沙烏地阿拉伯",
+        "lang_mpt_country_XME": "中東",
+        "lang_mpt_country_USA": "美國",
+        "lang_mpt_country_PHI": "亞洲－菲律賓",
+        "lang_mpt_country_KOR": "亞洲－韓國",
+        "lang_mpt_country_MAC": "亞洲－澳門",
+        "lang_mpt_country_MYS": "亞洲－馬來西亞",
+        "lang_mpt_country_VNM": "亞洲－越南",
+        "lang_mpt_country_AUS": "澳洲",
+        "lang_mpt_country_NZL": "紐西蘭"
+    }
+}

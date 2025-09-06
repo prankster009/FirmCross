@@ -1,0 +1,12 @@
+{
+    "guest": {
+        "lang_document_title": "ゲスト アクセス",
+        "lang_content_title": "ゲスト アクセス",
+        "lang_content_info": "インターネットにアクセスするには、ゲスト アクセスのパスワードを入力します。パスワードを知らない場合、所有者に確認してください。Linksys Connect を使用して、ゲスト アクセスのパスワードを見つけられます。",
+        "lang_password_title": "パスワード",
+        "lang_login_button": "ログイン",
+        "lang_lang_error_msg": "ログイン失敗",
+        "lang_desktop_view_title": "デスクトップ ビュー",
+        "lang_mobile_view_title": "モバイル ビュー"
+    }
+}

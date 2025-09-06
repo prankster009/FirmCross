@@ -1,0 +1,6 @@
+{
+    "idp_mesh_fail": {
+        "lang_idp_mesh_fail_title": "已超时，未连接到子节点。重试。",
+        "lang_idp_mesh_tryagain": "请重试"
+    }
+}

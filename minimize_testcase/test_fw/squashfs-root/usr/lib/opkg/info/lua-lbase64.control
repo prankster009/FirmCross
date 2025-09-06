@@ -1,0 +1,8 @@
+Package: lua-lbase64
+Version: 2013-02-18
+Depends: libc, lua
+Source: package/lang/lua-lbase64
+Section: lang
+Architecture: ramips_24kec
+Installed-Size: 2261
+Description:  A Base64 library for Lua

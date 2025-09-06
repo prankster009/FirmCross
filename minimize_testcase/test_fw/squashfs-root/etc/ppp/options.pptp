@@ -1,0 +1,6 @@
+noipdefault
+defaultroute
+noauth
+nobsdcomp
+nodeflate
+#mppe required,no40,no56,stateless

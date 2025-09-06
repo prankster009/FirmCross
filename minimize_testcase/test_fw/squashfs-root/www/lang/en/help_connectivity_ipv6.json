@@ -1,0 +1,25 @@
+{
+    "help_connectivity_ipv6": {
+        "lang_help_connectivity_ipv6_title": "IPv6 Setup",
+        "lang_hci1": "IPv6 is a new IP protocol that uses simplified packet headers and requires IPSec as a fundamental interoperability requirement. It also has improved support for mobile IP and computing devices.",
+        "lang_hci2": "Note: After you have made your changes, click Save Settings to apply your changes.",
+        "lang_hci3": "Internet Setup",
+        "lang_hci4": "Internet Connection Type",
+        "lang_hci5": "IPv6 - Automatic",
+        "lang_hci6": "Select <b>Enabled</b> to automatically use IPv6 for all network addressing.",
+        "lang_hci7": "DUID",
+        "lang_hci8": "This is the IPv6 DUID (DHCP for IPv6 Unique Identifier) value that the router automatically generates.",
+        "lang_hci9": "Network Setup",
+        "lang_hci10": "6rd Tunnel",
+        "lang_hci11": "To use 6rd Tunnel, <b>IPv6 – Automatic</b> must be disabled. A 6rd Tunnel allows your router to send IPv6 IP addresses over IPv4 networks. Select <b>Automatic Configuration</b> for your router to handle these settings (such as prefixes and address masks) automatically. Select <b>Manual Configuration</b> to change these settings manually.",
+        "lang_hci12": "Prefix",
+        "lang_hci13": "Enter the prefix address used for the tunnel provided by your ISP.",
+        "lang_hci14": "Prefix Length",
+        "lang_hci15": "Enter the prefix length used for the tunnel provided by your ISP.",
+        "lang_hci16": "Border Relay",
+        "lang_hci17": "Enter the border relay address used for the tunnel provided by your ISP.",
+        "lang_hci18": "IPv4 Address Mask",
+        "lang_hci19": "Enter the IPv4 address mask length used for the tunnel provided by your ISP.",
+        "lang_hci20": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

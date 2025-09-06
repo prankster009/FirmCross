@@ -1,0 +1,5 @@
+/usr/lib/lua/shuci.lua
+/usr/bin/dat2uci
+/usr/bin/uci2dat
+/usr/bin/datdiff
+/usr/bin/l1prof

@@ -1,0 +1,197 @@
+<script type="text/javascript">
+var OBJ_LIST = ['firewall']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+</script>
+<div class="table-title firewall_zone">
+<span class="multi_lang" id="lang_firewall_zone_firewall_title"></span>
+</div>
+<hr class="table-title-underline firewall_zone">
+<table class="table table-info firewall_zone">
+<tbody>
+<tr id="tr_ipv6_spi_firewall" >
+<td><script>draw_checkbox('ipv6_spi_firewall', 'lang_ipv6_spi_firewall_title', 'on', "ipv6_fw_control()");</script><span id="checkbox_div_ipv6_spi_firewall"></span>
+</td>
+</tr>
+<tr id="tr_ipv4_spi_firewall" >
+<td><script>draw_checkbox('ipv4_spi_firewall', 'lang_ipv4_spi_firewall_title', 'on', "ipv4_fw_control()");</script><span id="checkbox_div_ipv4_spi_firewall"></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title net_filter_zone">
+<span class="multi_lang" id="lang_firewall_zone_net_filter_title"></span>
+</div>
+<hr class="table-title-underline net_filter_zone">
+<table class="table table-info net_filter_zone">
+<tbody>
+<tr id="tr_anonymous_filter" >
+<td><script>draw_checkbox('anonymous_filter', 'lang_anonymous_filter_title', 'on', "nf_anonymous_control()");</script><span id="checkbox_div_anonymous_filter"></span>
+</td>
+</tr>
+<tr id="tr_multicast_filter" >
+<td><script>draw_checkbox('multicast_filter', 'lang_multicast_filter_title', 'on', "nf_multicast_control()");</script><span id="checkbox_div_multicast_filter"></span>
+</td>
+</tr>
+<tr id="tr_nat_redirection_filter" >
+<td><script>draw_checkbox('nat_redirection_filter', 'lang_nat_redirection_filter_title', 'on', "nf_nat_control()");</script><span id="checkbox_div_nat_redirection_filter"></span>
+</td>
+</tr>
+<tr id="tr_ident" >
+<td><script>draw_checkbox('ident', 'lang_ident_title', 'on', "nf_ident_control()");</script><span id="checkbox_div_ident"></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title web_filter_zone">
+<span class="multi_lang" id="lang_firewall_zone_web_filter_title"></span>
+</div>
+<hr class="table-title-underline web_filter_zone">
+<table class="table table-info web_filter_zone">
+<tbody>
+<tr id="tr_proxy_filter" >
+<td>
+<script>draw_checkbox('proxy_filter', 'lang_proxy_filter_title', '', "wf_control('proxy')");</script><span id="checkbox_div_proxy_filter"></span>&nbsp;&nbsp;&nbsp;
+<script>draw_checkbox('java_filter', 'lang_java_filter_title', '', "wf_control('java')");</script><span id="checkbox_div_java_filter"></span>&nbsp;&nbsp;&nbsp;
+<script>draw_checkbox('activex_filter', 'lang_activex_filter_title', '', "wf_control('activex')");</script><span id="checkbox_div_activex_filter"></span>&nbsp;&nbsp;&nbsp;
+<script>draw_checkbox('cookies_filter', 'lang_cookies_filter_title', '', "wf_control('cookies')");</script><span id="checkbox_div_cookies_filter"></span>&nbsp;&nbsp;&nbsp;
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script language="javascript" type="text/javascript">
+page_tag='security_firewall'
+$(document).ready(function(){
+$.lang_load("security_firewall");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+function callback(){
+
+}
+
+function ipv6_fw_control(enable){
+checkbox_switch('ipv6_spi_firewall', enable)
+}
+
+function ipv4_fw_control(enable){
+checkbox_switch('ipv4_spi_firewall', enable)
+}
+
+function nf_anonymous_control(enable){
+enable = checkbox_switch('anonymous_filter', enable)
+
+if(enable == 1){
+$("#ident").attr('disabled', false);
+$("#ident").parent().removeClass('disabled')
+}else{
+$("#ident").attr('disabled', true);
+$("#ident").parent().addClass('disabled')
+}
+}
+
+function nf_multicast_control(enable){
+checkbox_switch('multicast_filter', enable)
+}
+
+function nf_nat_control(enable){
+checkbox_switch('nat_redirection_filter', enable)
+}
+
+function nf_ident_control(enable){
+checkbox_switch('ident', enable)
+}
+
+function wf_control(app, enable){
+checkbox_switch(app+'_filter', enable)
+}
+
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+show_alert(L.common.success_title, L.common.save_success)
+//console.log(obj)
+page_initial();
+}
+function set_obj_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+//Coding save function here
+MODIFIED_OBJ_DATA.firewall.FirewallP.blockActX = $("#activex_filter").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.firewall.FirewallP.blockAnonys = $("#anonymous_filter").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.firewall.FirewallP.blockCookie = $("#cookies_filter").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.firewall.FirewallP.blockIdent = $("#ident").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.firewall.FirewallP.blockJava = $("#java_filter").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.firewall.FirewallP.blockMulti = $("#multicast_filter").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.firewall.FirewallP.blockNatRedirection = $("#nat_redirection_filter").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.firewall.FirewallP.blockProxy = $("#proxy_filter").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.firewall.FirewallP.ipv4SpiEnable = $("#ipv4_spi_firewall").prop("checked")?"1":"0";
+MODIFIED_OBJ_DATA.firewall.FirewallP.ipv6SpiEnable = $("#ipv6_spi_firewall").prop("checked")?"1":"0";
+
+if (fake_action == true){
+return;
+}
+
+set_obj_data(MODIFIED_OBJ_DATA)
+}
+function page_cancel(){
+page_initial();
+//Coding cancel function here
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+wf_control("activex",MODIFIED_OBJ_DATA.firewall.FirewallP.blockActX);
+wf_control("proxy",MODIFIED_OBJ_DATA.firewall.FirewallP.blockProxy);
+wf_control("java",MODIFIED_OBJ_DATA.firewall.FirewallP.blockJava);
+wf_control("cookies",MODIFIED_OBJ_DATA.firewall.FirewallP.blockCookie);
+nf_anonymous_control(MODIFIED_OBJ_DATA.firewall.FirewallP.blockAnonys);
+ipv6_fw_control(MODIFIED_OBJ_DATA.firewall.FirewallP.ipv6SpiEnable);
+ipv4_fw_control(MODIFIED_OBJ_DATA.firewall.FirewallP.ipv4SpiEnable);
+nf_ident_control(MODIFIED_OBJ_DATA.firewall.FirewallP.blockIdent);
+nf_multicast_control(MODIFIED_OBJ_DATA.firewall.FirewallP.blockMulti);
+nf_nat_control(MODIFIED_OBJ_DATA.firewall.FirewallP.blockNatRedirection);
+//console.log(MODIFIED_OBJ_DATA)
+}
+function get_obj_error_cb(obj) {
+//console.log(obj)
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+//		ipv6_fw_control(1)
+//		nf_anonymous_control(1)
+//		nf_ident_control(1)
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+</script>

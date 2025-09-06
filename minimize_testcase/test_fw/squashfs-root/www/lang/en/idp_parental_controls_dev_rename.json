@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_dev_rename": {
+        "lang_idp_parental_controls_dev_rename_title": "Parental Controls",
+        "lang_idp_parental_controls_dev_rename_info1_title": "Please rename the device:",
+        "lang_idp_parental_controls_dev_rename_info2_title": "Please enter a new name for",
+        "lang_idp_parental_controls_dev_rename_alert_title": "The device name must not be blank!"
+    }
+}

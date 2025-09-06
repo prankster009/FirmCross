@@ -1,0 +1,20 @@
+{
+    "help_status_wireless": {
+        "lang_help_status_wireless_title": "Wireless Network",
+        "lang_hsw1": "5 GHz/2.4 GHz Wireless Network",
+        "lang_hsw2": "MAC Address",
+        "lang_hsw3": "The MAC address of the Router's wireless interface is displayed.",
+        "lang_hsw4": "Mode",
+        "lang_hsw5": "The wireless mode used by the network is displayed.",
+        "lang_hsw6": "Network Name (SSID)",
+        "lang_hsw7": "The name of the wireless network, also called the SSID, is displayed.",
+        "lang_hsw8": "Channel Width",
+        "lang_hsw9": "The radio channel width used by Wireless-N devices is displayed.",
+        "lang_hsw10": "Channel",
+        "lang_hsw11": "The Router's operating radio channel is displayed.",
+        "lang_hsw12": "Security",
+        "lang_hsw13": "The wireless security method used by the wireless network is displayed.",
+        "lang_hsw14": "SSID Broadcast",
+        "lang_hsw15": "The status of the SSID Broadcast option is displayed."
+    }
+}

@@ -1,0 +1,9 @@
+Package: datconf-lua
+Version: 1.0-1
+Depends: libc, datconf, liblua
+Source: package/mtk/applications/datconf
+Section: MTK Properties
+Maintainer: Weijie Gao <weijie.gao@mediatek.com>
+Architecture: ramips_24kec
+Installed-Size: 5145
+Description:  Lua plugin for datconf

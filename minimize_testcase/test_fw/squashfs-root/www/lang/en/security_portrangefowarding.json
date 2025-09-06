@@ -1,0 +1,16 @@
+{
+    "security_portrangefowarding": {
+        "lang_prf_app_name_title": "Application Name",
+        "lang_prf_port_range_title": "Start ~ End Port",
+        "lang_prf_protocol_title": "Protocol",
+        "lang_prf_to_ip_title": "To IP Address",
+        "lang_prf_enabled_title": "Enabled",
+        "lang_prf_action_title": "Action",
+        "lang_prf_add_btn_title": "Add a New Port Range Forwarding",
+        "lang_prf_disabled_title": "Disabled",
+        "lang_prf_remove_btn_title": "Remove",
+        "lang_prf_protocol_both": "Both",
+        "lang_prf_protocol_tcp": "TCP",
+        "lang_prf_protocol_udp": "UDP"
+    }
+}

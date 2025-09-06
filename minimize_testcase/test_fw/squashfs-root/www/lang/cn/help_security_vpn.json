@@ -1,0 +1,14 @@
+{
+    "help_security_vpn": {
+        "lang_help_security_vpn_title": "VPN 通道",
+        "lang_hsv1": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hsv2": "VPN 通道",
+        "lang_hsv3": "IPSec 通道",
+        "lang_hsv4": "本地网络上的 VPN 客户端可以通过路由器建立 IPSec VPN 隧道。",
+        "lang_hsv5": "PPTP 通道",
+        "lang_hsv6": "本地网络上的 VPN 客户端可以通过路由器建立 PPTP VPN 隧道。",
+        "lang_hsv7": "L2TP 通道",
+        "lang_hsv8": "本地网络上的 VPN 客户端可以通过路由器建立 L2TP VPN 隧道。",
+        "lang_hsv9": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

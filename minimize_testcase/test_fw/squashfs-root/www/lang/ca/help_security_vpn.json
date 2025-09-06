@@ -1,0 +1,14 @@
+{
+    "help_security_vpn": {
+        "lang_help_security_vpn_title": "Intercommunication VPN",
+        "lang_hsv1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hsv2": "Intercommunication VPN",
+        "lang_hsv3": "Intercommunication IPSec",
+        "lang_hsv4": "Les clients de réseau privé virtuel (RPV, ou VPN en anglais) sur le réseau local peuvent établir un tunnel RPV IPSec en passant par le routeur.",
+        "lang_hsv5": "Intercommunication PPTP",
+        "lang_hsv6": "Les clients RPV sur le réseau local peuvent établir un tunnel RPV PPTP en passant par le routeur.",
+        "lang_hsv7": "Intercommunication L2TP",
+        "lang_hsv8": "Les clients RPV sur le réseau local peuvent établir un tunnel RPV L2TP en passant par le routeur.",
+        "lang_hsv9": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

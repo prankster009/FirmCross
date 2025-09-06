@@ -1,0 +1,12 @@
+{
+    "help_administration_backup": {
+        "lang_help_administration_backup_title": "Sao lưu",
+        "lang_hab1": "Lưu ý: Sau khi thực hiện thay đổi, hãy bấm <b>Lưu cài đặt</b> để áp dụng các thay đổi.",
+        "lang_hab2": "Sao lưu và Khôi phục",
+        "lang_hab3": "Sao lưu cấu hình",
+        "lang_hab4": "Để sao lưu cài đặt cấu hình của Bộ định tuyến, hãy bấm vào tuỳ chọn này và làm theo hướng dẫn trên màn hình.",
+        "lang_hab5": "Khôi phục cấu hình",
+        "lang_hab6": "Để khôi phục cài đặt cấu hình của Bộ định tuyến, hãy bấm tuỳ chọn này và làm theo hướng dẫn trên màn hình. (Trước đó, bạn đã sao lưu cài đặt cấu hình của Bộ định tuyến.)",
+        "lang_hab7": "Lưu ý: Để biết thêm thông tin, vui lòng tham khảo Hướng dẫn sử dụng trực tuyến tại <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

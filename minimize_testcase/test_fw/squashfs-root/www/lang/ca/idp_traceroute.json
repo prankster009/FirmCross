@@ -1,0 +1,10 @@
+{
+    "idp_traceroute": {
+        "lang_idp_traceroute_title": "Traceroute",
+        "lang_idp_traceroute_complete_title": "Recherche d'itinéraire terminée",
+        "lang_idp_traceroute_start_title": "recherche d'itinéraire vers",
+        "lang_idp_traceroute_hop_max_title": "max d'étapes",
+        "lang_idp_traceroute_data_unit_title": "paquets d’octets",
+        "lang_idp_traceroute_unknow_host_title": "Hôte inconnu"
+    }
+}

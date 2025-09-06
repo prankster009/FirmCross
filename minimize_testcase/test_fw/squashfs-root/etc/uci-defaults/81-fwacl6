@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.fwacl6
+    set firewall.fwacl6=include
+    set firewall.fwacl6.type=script
+    set firewall.fwacl6.path=/usr/share/security/fwacl6.include
+    set firewall.fwacl6.family=ipv6
+    set firewall.fwacl6.reload=1
+EOT
+
+exit 0

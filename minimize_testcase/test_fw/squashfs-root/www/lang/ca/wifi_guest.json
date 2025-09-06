@@ -1,0 +1,13 @@
+{
+    "wifi_guest": {
+        "lang_guest_zone_guest_access_title": "L’accès d’invité offre un accès Internet à vos visiteurs sans leur donner accès à votre ordinateur ou à vos données personnelles.",
+        "lang_guest_access_allow_title": "Autoriser l'accès d'invité",
+        "lang_guest_net_name_title": "Nom du réseau d'invité",
+        "lang_guest_password_title": "Mot de passe d'invité",
+        "lang_guest_change_pwd_button": "Modifier",
+        "lang_guest_allow_total_title": "Nombre total d'invités autorisés",
+        "lang_ssid_broadcast_title": "Diffusion SSID",
+        "lang_guest_info_title": "Vos invités doivent se connecter à votre réseau sans fil indiqué ci-dessus en ouvrant un navigateur Web, puis en entrant le mot de passe d'invité.",
+        "lang_enable_warning": "Si vous souhaitez activer l'accès invité, vous devez aller dans \"Paramètres sans fil de base\" -> décochez EasyMesh"
+    }
+}

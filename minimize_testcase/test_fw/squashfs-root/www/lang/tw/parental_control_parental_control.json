@@ -1,0 +1,33 @@
+{
+    "parental_control_parental_control": {
+        "lang_parental_control_zone_target_dev_title": "目標裝置",
+        "lang_parental_control_zone_schedule_title": "排程",
+        "lang_parental_control_zone_block_spec_sites_title": "封鎖特定網站",
+        "lang_parental_enable_title": "家長控制",
+        "lang_restrict_internet_access_title": "限制網際網路存取：",
+        "lang_dev_add_button": "新增",
+        "lang_dev_remove_button": "移除",
+        "lang_dev_rename_button": "更改名稱",
+        "lang_schedule_never_title": "從不",
+        "lang_schedule_always_title": "總是",
+        "lang_schedule_spec_time_title": "指定時間",
+        "lang_block_internet_access_title": "封鎖網際網路存取",
+        "lang_school_nights_start_title": "上班前一天的晚上",
+        "lang_school_nights_end_title": "到",
+        "lang_weekends_start_title": "週末",
+        "lang_weekends_end_title": "到",
+        "lang_block_url1_title": "URL 1：",
+        "lang_block_url2_title": "URL 2：",
+        "lang_block_url3_title": "URL 3：",
+        "lang_block_url4_title": "URL 4：",
+        "lang_block_url5_title": "URL 5：",
+        "lang_block_url6_title": "URL 6：",
+        "lang_block_url7_title": "URL 7：",
+        "lang_block_url8_title": "URL 8：",
+        "lang_spec_time_opt_midnight": "午夜",
+        "lang_spec_time_opt_noon": "中午",
+        "lang_spec_time_opt_am": "AM",
+        "lang_spec_time_opt_pm": "PM",
+        "lang_parental_control_unknow_dev_title": "網路裝置"
+    }
+}

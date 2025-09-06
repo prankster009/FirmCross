@@ -1,0 +1,20 @@
+{
+    "help_status_wireless": {
+        "lang_help_status_wireless_title": "Réseau sans fil",
+        "lang_hsw1": "Réseau sans fil 5 GHz/2,4 GHz",
+        "lang_hsw2": "Adresse MAC",
+        "lang_hsw3": "L’adresse MAC de l’interface sans fil du routeur s’affiche.",
+        "lang_hsw4": "Mode",
+        "lang_hsw5": "Le mode sans fil utilisé par le réseau s'affiche.",
+        "lang_hsw6": "Nom du réseau (SSID)",
+        "lang_hsw7": "Le nom du réseau sans fil, ou SSID, s'affiche.",
+        "lang_hsw8": "Largeur du canal",
+        "lang_hsw9": "La largeur du canal radio utilisé par les périphériques sans fil N s'affiche.",
+        "lang_hsw10": "Canal",
+        "lang_hsw11": "Le canal radio de communication du routeur s’affiche.",
+        "lang_hsw12": "Sécurité",
+        "lang_hsw13": "Le mode de sécurité sans fil utilisé par le réseau sans fil s'affiche.",
+        "lang_hsw14": "Diffusion SSID",
+        "lang_hsw15": "L'état de la fonction de diffusion du SSID s'affiche."
+    }
+}

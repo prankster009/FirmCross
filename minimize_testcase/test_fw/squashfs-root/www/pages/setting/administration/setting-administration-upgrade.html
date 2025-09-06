@@ -1,0 +1,405 @@
+<script type="text/javascript">
+var OBJ_LIST = [ 'management','autofw' ]
+var INFO_LIST = [ 'RouterInfo','LocalNetwork' ]
+var INFO_DATA = {}
+</script>
+<script src="js/ajaxfileupload.js"></script>
+<table class="table table-info reset_zone">
+<tbody>
+<tr id="tr_auto_upgrade">
+<td>
+<script>draw_checkbox('auto_upgrade', 'lang_auto_upgrade_title', '', "auto_upgrade_control()");</script><span id="checkbox_div_auto_upgrade"></span>
+</td>
+<td>
+(<span class="multi_lang" id="lang_current_fw_title"></span>:&nbsp;<span id="current_fw"></span>)
+</td>
+</tr>
+<tr id="tr_check_fw" >
+<td colspan="2">
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_check_fw_button" onclick="check_fw_version()"></button>
+</td>
+</tr>
+<tr id="tr_ota_uptodate" style="display:none">
+<td>
+<span class="multi_lang" id="ota_uptodate"></span>
+</td>
+<td></td>
+</tr>
+<tr id="ota_upgrade_fw" style="display:none">
+<td>
+<span class="multi_lang" id="lang_ota_last_version_title"></span>:<br/>
+<span id="lang_ota_last_version"></span>&nbsp;&nbsp;
+</td>
+<td>
+<button type="button" class="btn btn-primary btn-wiz logger_bot" onclick="ota_upgrade_fw()" id="ota_upgrade_button" style="display:none">
+<span class="multi_lang" id="lang_ota_upgrade_button">Upgrade</span>
+</button>
+</td>
+</tr>
+
+<tr id="tr_hr" >
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id="tr_upload_fw" >
+<td>
+<span class="multi_lang" id="lang_upload_fw_title"></span>
+</td>
+<td>
+<input type="file" name="upload_fw" id="upload_fw" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_upgrade_fw" >
+<td>
+<span >&nbsp;</span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_upgrade_fw_button" onclick="check_upload_file()"></button>
+</td>
+</tr>
+<tr id="tr_hr" >
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr>
+<td colspan="2" class="error">
+<b><span class="multi_lang" id="lang_upgrade_fw_progress_warning"></span>:</b>
+&nbsp;<span class="multi_lang" id="lang_upgrade_fw_progress_warning_info"></span></td>
+</tr>
+<tr>
+<td colspan="2">
+<div class="Bar" style="width:50%"><div id="left" style="width: 0%;"><span id="percent">0%</span></div></div>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="error" style="font-weight:700"><span class="multi_lang" id="lang_upgrade_fw_progress_warning_tip"></span></td>
+</tr>
+</tbody>
+</table>
+<script language="javascript" type="text/javascript">
+var CHECK_OTA_FLAG = 0
+var REMOTE_FLAG = 0
+page_tag='administration_upgrade'
+$(document).ready(function(){
+$.lang_load("administration_upgrade");
+page_initial()
+resize_bar()
+inject_log_bot()
+});
+
+function resize_bar(){
+var right_content_width = document.getElementById('right_content').offsetWidth;
+$(".Bar").width((right_content_width * 0.5))
+$(".Bar div span").width((right_content_width * 0.5))
+}
+
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+remote_upgrade = MODIFIED_OBJ_DATA.management.ManagementP.remoteUpgrade
+if( 1 == REMOTE_FLAG && remote_upgrade == 0 ){
+$("#lang_check_fw_button").attr("disabled", true);
+$("#upload_fw").attr("disabled", true);
+$("#lang_upgrade_fw_button").attr("disabled", true);
+$("#btnSave").attr("disabled", true);
+$("#auto_upgrade").attr("disabled", true);
+}
+
+auto_upgrade_control(MODIFIED_OBJ_DATA.autofw.AutofwP.enable)
+}
+function get_obj_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+
+function get_info_success_cb(obj) {
+if(obj.api_return != 0){
+get_info_error_cb(obj)
+return;
+}
+
+INFO_DATA = API.obj.copy(obj);
+$("#current_fw").html(INFO_DATA.RouterInfo.FWVersion)
+
+lanipT = INFO_DATA.LocalNetwork.LocalNetwork.IP.split(".")
+loginipT = obj.LOGINIP.split(".")
+
+for(var i=0;i<3;i++){
+if( lanipT[i] != loginipT[i] )
+REMOTE_FLAG=1
+}
+get_obj_data(OBJ_LIST)
+}
+
+function get_info_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_info_data(info_list){
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+function page_initial(){
+get_info_data(INFO_LIST)
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+var process_percentage = 0
+var bar_timer
+function reflash_process_bar(){
+bar_timer = setInterval(function(){
+process_percentage = process_percentage + 2.5
+$("#left").css("width", process_percentage+"%");
+$("#percent").html(process_percentage+"%")
+if( 100 == process_percentage ){
+clearInterval(bar_timer)
+$("#loader_msg_main").html('<span>'+L.administration_upgrade.lang_upgrade_success+'</span>')
+$("#loader_msg_sub").html('<span>'+L.administration_upgrade.lang_upgrade_rebooting+'</span>')
+$("#loader_msg_sub").show()
+$("#loader_msg_warning").html('<span>'+L.common.lang_reconnect+'</span>')
+$("#loader_msg_warning").show()
+$("#loader").show()
+}
+},2000);
+}
+
+function get_fwv_success_cb(obj) {
+if(obj.api_return != 0){
+get_fwv_error_cb(obj)
+return;
+}
+
+INFO_DATA = API.obj.copy(obj);
+
+if( "0" != INFO_DATA.checkFW.status){
+$('#ota_upgrade_fw').show();
+$('#tr_ota_uptodate').hide();
+$('#lang_ota_last_version').html(INFO_DATA.checkFW.version);
+$('#ota_upgrade_button').show();
+}else{
+$('#ota_upgrade_fw').hide();
+$('#tr_ota_uptodate').show();
+$("#ota_uptodate").html(L.administration_upgrade.lang_up_to_date_msg)
+}
+}
+function get_fwv_error_cb(obj) {
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function check_fw_version(){
+API.info.get('checkFW', get_fwv_success_cb, get_fwv_error_cb);
+}
+
+var OTA_STATUS_CHECK_TIMER
+
+function get_ota_status_success_cb(obj) {
+
+if(obj.api_return != 0 || obj.checkFW.fwstatus == "-1"){
+get_ota_status_error_cb(obj)
+return;
+}
+
+if( 95 < parseInt(obj.checkFW.fwstatus,10)){
+/*$("#loader_msg_main").html('<span>'+L.administration_upgrade.lang_upgrade_success+'</span>')
+$("#loader_msg_sub").html('<span>'+L.administration_upgrade.lang_upgrade_rebooting+'</span>')
+$("#loader_msg_sub").show()
+$("#loader").show()*/
+process_percentage=0
+reflash_process_bar()
+control_timer = setTimeout(function(){
+reboot_back_checker()
+},20000)
+}else{
+OTA_STATUS_CHECK_TIMER = setTimeout(function(){
+check_ota_process_percentage()
+},2000)
+
+}
+}
+function get_ota_status_error_cb(obj) {
+$('#loader').hide();
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.administration_upgrade.lang_file_upgrade_fail_msg)
+}
+}
+
+function check_ota_process_percentage(){
+clearTimeout(OTA_STATUS_CHECK_TIMER)
+API.info.get('checkFW', get_ota_status_success_cb, get_ota_status_error_cb);
+}
+
+function upgrade_success_cb(obj) {
+if(obj.api_return != 0){
+upgrade_error_cb(obj)
+return;
+}
+$("#loader").hide()
+show_alert(L.common.success_title, "")
+OTA_STATUS_CHECK_TIMER = setTimeout(function(){
+$("#loader").show()
+check_ota_process_percentage()
+},1000)
+}
+
+function upgrade_error_cb(obj) {
+$('#loader').hide();
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.administration_upgrade.lang_file_upgrade_fail_msg)
+}
+}
+
+function ota_upgrade_fw(){
+$('#loader').show();
+var fw_data = {"checkFW":{"version":INFO_DATA.checkFW.version, "status":"1", "fwstatus":"0"}}
+API.info.set(fw_data, upgrade_success_cb, upgrade_error_cb);
+}
+
+function check_upload_file(){
+var file_name = $("#upload_fw").val();
+
+if (typeof(file_name) == "undefined" || file_name == "") {
+alert(L.administration_upgrade.lang_file_empty_msg);
+return;
+} else {
+if(validation_file_name(file_name) != true) {
+alert(L.administration_upgrade.lang_file_format_msg);
+} else {
+upload_fw_file();
+}
+}
+}
+
+function validation_file_name(f_name) {
+var file_type = f_name.substr(f_name.length - 4 , f_name.length).toLowerCase();
+
+if(file_type == '.bin' || file_type == '.img') {
+return true;
+} else {
+return false;
+}
+}
+
+function upload_fw_file() {
+$.ajaxFileUpload({
+url:"cgi-bin/upload_fw.cgi",
+secureuri:false,
+fileElementId:'upload_fw',
+dataType: 'text',
+success: function (data, status){
+var splitdata = data.split("{");
+var splitdata2 = splitdata[1].split("</pre>");
+var current_data = "{"+ splitdata2[0];
+var obj_result = jQuery.parseJSON(current_data);
+
+if (obj_result.result == "success") {
+$("#loader").show()
+upgrade_fw_process();
+} else {
+alert(L.administration_backup.lang_file_restore_fail_msg);
+}
+}
+})
+}
+
+function upgrade_fw_process() {
+var estr = '{}';
+
+$.ajax({
+type: "POST",
+url: "cgi-bin/upgrade_fw.cgi",
+data: estr,
+dataType : "text",
+cache: false,
+timeout: 5000,
+async:  false,
+beforeSend: onSend,
+success: onSuccess,
+complete: onComplete,
+error: onError
+});
+function onSend(){};
+function onComplete(){};
+function onError(){};
+function onSuccess(data, status){
+var success = data.search("success");
+var time_out = data.search("timeout");
+if(success != -1){
+$("#loader").hide()
+show_alert(L.common.success_title, L.administration_upgrade.lang_upgrade_success)
+setTimeout(function(){
+/*$("#loader_msg_main").html('<span>'+L.administration_upgrade.lang_upgrade_success+'</span>')
+$("#loader_msg_sub").html('<span>'+L.administration_upgrade.lang_upgrade_rebooting+'</span>')
+$("#loader_msg_sub").show()
+$("#loader").show()*/
+process_percentage=0
+reflash_process_bar()
+control_timer = setTimeout(function(){
+reboot_back_checker()
+},20000)
+},1000)
+}else{
+$("#loader").hide()
+show_alert(L.common.fail_title, L.administration_upgrade.lang_file_upgrade_fail_msg)
+}
+
+};
+}
+
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+$("#loader").hide()
+show_alert(L.common.success_title, L.common.save_success)
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide()
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+
+function auto_upgrade_control(on){
+var save = false
+if( 'undefined' == typeof(on) )
+save = true
+on = checkbox_switch('auto_upgrade', on)
+
+if(save){
+var target_obj = {}
+target_obj.autofw = $.extend(true, {}, MODIFIED_OBJ_DATA.autofw);
+target_obj.autofw.AutofwP.enable = on.toString()
+$("#loader").show()
+set_obj_data(target_obj)
+}
+
+}
+
+</script>
+

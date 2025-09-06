@@ -1,0 +1,30 @@
+{
+    "connectivity_network": {
+        "lang_network_zone_router_address_title": "路由器地址",
+        "lang_ip_addr_title": "IP 地址",
+        "lang_subnet_mask_title": "子网掩码",
+        "lang_router_name_title": "路由器名称",
+        "lang_network_zone_dhcp_server_setting_title": "DHCP 服务器设置",
+        "lang_dhcp_server_enable_title": "DHCP 服务器",
+        "lang_dhcp_reservation_button": "DHCP 预留",
+        "lang_start_ip_title": "起始 IP 地址",
+        "lang_num_of_user_title": "最大用户数",
+        "lang_ip_range_title": "IP 地址范围",
+        "lang_lease_time_title": "客户端租用时间",
+        "lang_lease_time_unit": "分钟（0 表示一天）",
+        "lang_static_dns_1_title": "静态 DNS 1",
+        "lang_static_dns_2_title": "静态 DNS 2",
+        "lang_static_dns_3_title": "静态 DNS 3",
+        "lang_wins_title": "WINS",
+        "lang_ip_range_to_title": "到",
+        "lang_alert_out_range": "值超出范围",
+        "lang_alert_change_setting": "值超出范围。更改起始 IP 地址或最大用户数。",
+        "lang_alert_illegal_char": "非法字符 [必须为 0 - 9]。",
+        "lang_alert_dev_name_blank": "路由器名称不能为空！",
+        "lang_alert_bridge_mode": "当路由器在桥接模式下运行时，不支持这些功能。",
+        "lang_alert_dev_name_illegal_char": "路由器名称只能包含字母数字字符和破折号。",
+        "lang_alert_dev_name_start_letter": "路由器名称必须以字母开头。",
+        "lang_alert_no_need_setup": "无需设置 LAN 设置。",
+        "lang_alert_gn_ip_range": "已为无线来宾网络保留 192.168.33.0/24 网络（IP 地址 192.168.33.0 - 255）。请使用其他网络地址。"
+    }
+}

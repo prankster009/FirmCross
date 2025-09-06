@@ -1,0 +1,17 @@
+{
+    "troubleshooting_diagnostics": {
+        "lang_diagnostics_zone_ping_test_title": "Kiểm tra Ping",
+        "lang_diagnostics_zone_traceroute_test_title": "Kiểm tra Traceroute",
+        "lang_ping_ip_url_address_title": "Địa chỉ IP hoặc URL",
+        "lang_packet_size_title": "Kích thước gói tin",
+        "lang_size_unit_title": "byte (32 - 65500)",
+        "lang_num_to_ping_title": "Số lần ping",
+        "lang_start_to_ping_button": "Bắt đầu Ping",
+        "lang_tr_ip_url_address_title": "Địa chỉ IP hoặc URL",
+        "lang_start_to_traceroute_button": "Bắt đầu Traceroute",
+        "lang_opt_unlimited": "Không giới hạn",
+        "lang_ping_alert_illegal_char": "Các ký tự không hợp lệ [phải là 0 - 9].",
+        "lang_ping_alert_range": "Giá trị nằm ngoài phạm vi",
+        "lang_alert_ip_url_blank": "Bạn phải nhập một Địa chỉ IP hoặc Tên miền."
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "help_administration_timezone": {
+        "lang_help_administration_timezone_title": "タイム ゾーン",
+        "lang_hat1": "メモ: 変更を加えたら、<b>設定を保存</b>をクリックして変更内容を適用してください。",
+        "lang_hat2": "時間設定",
+        "lang_hat3": "タイム ゾーン",
+        "lang_hat4": "ドロップダウン メニューから、ネットワークのタイム ゾーンを選択してください。",
+        "lang_hat5": "デイライト セービングの変更に対して、クロックを自動で調整します。",
+        "lang_hat6": "このオプションを選択すると、ルーターはデイライト セービング時間に自動で調整されます。",
+        "lang_hat7": "メモ: 詳細な情報については、<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b> のオンライン ユーザー ガイドを参照してください。"
+    }
+}

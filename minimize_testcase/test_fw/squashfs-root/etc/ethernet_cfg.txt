@@ -1,0 +1,10 @@
+#set the vid of the LAN group, the range is 1-4094, and not repeat with wan_vid
+#lan_vid=1;
+
+#et the vid of the WAN group, the range is 1-4094, and not repeat with lan_vid
+#wan_vid=2;
+
+#et the CPU port number, where the switch and CPU are connected.
+# The witch-7530 can be selected as 5 or 6.
+# The switch-7531 can only set one of 5 and 6, or you can set them at the same time
+#cpu_port=6;

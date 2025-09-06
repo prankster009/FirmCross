@@ -1,0 +1,7 @@
+{
+    "connectivity_macclone": {
+        "lang_mac_addr_clone_enable_title": "MAC 주소 복제",
+        "lang_mac_addr_input_title": "MAC 주소",
+        "lang_mac_clone_button": "내 PC의 MAC 복제"
+    }
+}

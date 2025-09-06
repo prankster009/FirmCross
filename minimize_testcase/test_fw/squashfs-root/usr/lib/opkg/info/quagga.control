@@ -1,0 +1,12 @@
+Package: quagga
+Version: 1.1.0-1
+Depends: libc, librt
+Source: package/network/services/quagga
+License: GPL-2.0
+Section: net
+Maintainer: Vasilis Tsiligiannis <acinonyx@openwrt.gr>
+Architecture: ramips_24kec
+Installed-Size: 2530
+Description:  A routing software package that provides TCP/IP based routing services
+ with routing protocols support such as RIPv1, RIPv2, RIPng, OSPFv2,
+ OSPFv3, BGP-4, and BGP-4+

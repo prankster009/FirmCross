@@ -1,0 +1,28 @@
+{
+    "help_connectivity_routing": {
+        "lang_help_connectivity_routing_title": "Advanced Routing",
+        "lang_hcr1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hcr2": "Advanced Routing",
+        "lang_hcr3": "NAT",
+        "lang_hcr4": "Enabled/Disabled",
+        "lang_hcr5": "If this Router shares your Internet connection for your local network, keep the default, <b>Enabled</b>.",
+        "lang_hcr6": "Dynamic Routing (RIP)",
+        "lang_hcr7": "Enabled/Disabled",
+        "lang_hcr8": "When NAT is disabled, this option is available. It allows the Router to automatically exchange routing tables with other router(s).",
+        "lang_hcr9": "Static Routing",
+        "lang_hcr10": "Route Entries",
+        "lang_hcr11": "To set up a static route between the Router and another network, select a number from the drop-down menu. To delete a static route, select its number and click <b>Delete This Entry</b>.",
+        "lang_hcr12": "Enter Route Name",
+        "lang_hcr13": "Enter a name for the route.",
+        "lang_hcr14": "Destination LAN IP",
+        "lang_hcr15": "Enter the IP address of the remote network or host to which you want to assign a static route.",
+        "lang_hcr16": "Subnet Mask",
+        "lang_hcr17": "Enter the subnet mask for the Destination LAN IP address.",
+        "lang_hcr18": "Gateway",
+        "lang_hcr19": "Enter the IP address of the gateway server that enables communication between the Router and the remote network or host.",
+        "lang_hcr20": "Interface",
+        "lang_hcr21": "Select the location of the Destination LAN IP address.",
+        "lang_hcr22": "Click <b>Show Routing Table</b> to view the static routes you have already set up.",
+        "lang_hcr23": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

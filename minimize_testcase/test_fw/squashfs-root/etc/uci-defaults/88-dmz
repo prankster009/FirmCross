@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.dmz
+    set firewall.dmz=include
+    set firewall.dmz.type=script
+    set firewall.dmz.path=/usr/share/security/dmz.include
+    set firewall.dmz.family=ipv4
+    set firewall.dmz.reload=1
+EOT
+
+exit 0

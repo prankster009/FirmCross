@@ -1,0 +1,8 @@
+Package: json.lua
+Version: 1
+Depends: libc
+Source: package/gemtek/json.lua
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 3293
+Description:  json lua function for fcgi

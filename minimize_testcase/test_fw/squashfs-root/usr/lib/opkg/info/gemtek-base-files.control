@@ -1,0 +1,8 @@
+Package: gemtek-base-files
+Version: 1
+Depends: libc, base-files
+Source: package/gemtek/gemtek-base-files
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 55322
+Description:  Gemtek base-files

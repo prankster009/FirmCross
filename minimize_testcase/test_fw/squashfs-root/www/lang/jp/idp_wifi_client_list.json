@@ -1,0 +1,21 @@
+{
+    "idp_wifi_client_list": {
+        "lang_idp_wifi_client_list_title": "ワイヤレス クライアント リスト",
+        "lang_idp_wifi_client_list_sortby_title": "以下で並べ替え",
+        "lang_idp_wifi_client_list_ipaddr": "IP アドレス",
+        "lang_idp_wifi_client_list_mac_addr": "MAC アドレス",
+        "lang_idp_wifi_client_list_status": "状態",
+        "lang_idp_wifi_client_list_name": "クライアント名",
+        "lang_idp_wifi_client_list_name_title": "クライアント名",
+        "lang_idp_wifi_client_list_interface_title": "インターフェイス",
+        "lang_idp_wifi_client_list_ipaddr_title": "IP アドレス",
+        "lang_idp_wifi_client_list_mac_addr_title": "MAC アドレス",
+        "lang_idp_wifi_client_list_status_title": "状態",
+        "lang_idp_wifi_client_list_none_title": "なし",
+        "lang_idp_wifi_client_list_save_to_title": "MAC アドレス フィルター リストへ保存",
+        "lang_idp_wifi_client_list_connected_title": "接続しました。",
+        "lang_idp_wifi_client_list_disconnected_title": "切断済み",
+        "lang_idp_wifi_client_list_wireless_title": "ワイヤレス",
+        "lang_idp_wifi_client_list_lan_title": "LAN"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "help_security_portrangetrigger": {
+        "lang_help_security_portrangetrigger_title": "端口范围触发",
+        "lang_hsprt1": "利用“端口范围触发”，路由器可监视特定端口号的出站数据。路由器会记住发出匹配数据的计算机的 IP 地址，因此，当请求的数据通过路由器返回时，这些数据按照 IP 地址和端口映射规则返回到相应计算机。",
+        "lang_hsprt2": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hsprt3": "端口范围触发",
+        "lang_hsprt4": "应用程序名称",
+        "lang_hsprt5": "输入应用程序的名称。",
+        "lang_hsprt6": "触发范围",
+        "lang_hsprt7": "输入出站流量的起始和结束端口号。",
+        "lang_hsprt8": "转发范围",
+        "lang_hsprt9": "输入入站流量的起始和结束端口号。",
+        "lang_hsprt10": "启用",
+        "lang_hsprt11": "选择“启用”<b></b>可激活端口触发。",
+        "lang_hsprt12": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

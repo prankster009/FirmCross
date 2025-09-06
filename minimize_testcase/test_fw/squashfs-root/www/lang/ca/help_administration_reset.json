@@ -1,0 +1,10 @@
+{
+    "help_administration_reset": {
+        "lang_help_administration_reset_title": "Réinitialisation du périphérique",
+        "lang_har1": "Redémarrer le Routeur",
+        "lang_har2": "Utilisez cette option pour redémarrer votre routeur.",
+        "lang_har3": "Réinitialisation aux réglages d'usine par défaut",
+        "lang_har4": "Cette fonction vous permet de réinitialiser tous les paramètres de configuration du routeur à leurs valeurs par défaut.",
+        "lang_har5": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

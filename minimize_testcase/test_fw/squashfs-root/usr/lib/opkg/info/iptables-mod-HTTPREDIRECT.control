@@ -1,0 +1,8 @@
+Package: iptables-mod-HTTPREDIRECT
+Version: 1.4.21-1
+Depends: libc, iptables
+Source: package/network/utils/iptables
+Section: net
+Architecture: ramips_24kec
+Installed-Size: 2027
+Description:  iptables extension for HTTP Redirect

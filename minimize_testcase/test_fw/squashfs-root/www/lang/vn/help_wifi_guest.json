@@ -1,0 +1,24 @@
+{
+    "help_wifi_guest": {
+        "lang_help_wifi_guest_title": "Truy nhập khách",
+        "lang_hwg1": "Sử dụng tính năng Truy nhập khách để các vị khách tới nhà bạn chỉ truy nhập được Internet. Mạng khách là một mạng không dây tách biệt với mạng cục bộ của bạn.",
+        "lang_hwg2": "Lưu ý: Sau khi thực hiện thay đổi, hãy bấm <b>Lưu cài đặt</b> để áp dụng các thay đổi.",
+        "lang_hwg3": "Truy nhập khách",
+        "lang_hwg4": "Cho phép Truy nhập khách",
+        "lang_hwg5": "Để cho phép truy nhập Internet qua mạng khách, hãy chọn <b>có</b>.",
+        "lang_hwg6": "Tên mạng khách",
+        "lang_hwg7": "Hiển thị tên của mạng khách.",
+        "lang_hwg8": "Mật khẩu khách",
+        "lang_hwg9": "Hiển thị mật khẩu đăng nhập của mạng khách.",
+        "lang_hwg10": "Thay đổi",
+        "lang_hwg11": "Bấm <b>Thay đổi</b> để đổi Mật khẩu khách.",
+        "lang_hwg12": "Thay đổi mật khẩu khách",
+        "lang_hwg13": "Nhập mật khẩu mạng khách mới",
+        "lang_hwg14": "Nhập một mật khẩu dài 4-32 ký tự. Rồi bấm <b>Thay đổi</b>.",
+        "lang_hwg15": "Tổng số khách cho phép",
+        "lang_hwg16": "Chọn số lượng khách tối đa mà bạn muốn cho phép trên mạng khách của bạn.",
+        "lang_hwg17": "Phát rộng SSID",
+        "lang_hwg18": "Khi các thiết bị không dây khảo sát khu vực lân cận để tìm các mạng không dây để kết nối, chúng sẽ phát hiện được SSID (tên mạng không dây) mà Bộ định tuyến đang phát rộng. Để phát rộng SSID của mạng khách, hãy giữ nguyên mặc định, <b>Bật</b>.",
+        "lang_hwg19": "Lưu ý: Để biết thêm thông tin, vui lòng tham khảo Hướng dẫn sử dụng trực tuyến tại <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

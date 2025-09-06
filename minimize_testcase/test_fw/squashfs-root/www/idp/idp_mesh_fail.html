@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="mesh_fail" onsubmit="return false;">
+
+<div class="pop-modal">
+
+<div class="modal-header"></div>
+<div class="modal-body">
+<div class="row">
+<div class="col" style="padding-left: 10px"><img class="img_cursor" src="/img/back.png" width="20px" height="20px" onclick="switch_page('confirm')"></div>
+</div>
+<div class="wiz-content-title"><span class="multi_lang" id="lang_idp_mesh_fail_title"> </span></div>
+<div style="padding-top: 10px; text-align:center">
+<img src="/img/wiz_wps_fail.png" width="150">
+</div>
+</div>
+</div>
+
+
+<div class="modal-footer">
+
+<button type="button" data-dismiss="modal" class="btncancel multi_lang logger_bot" onclick="closePopout()" id="btnCancel"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="switch_page('confirm')" id="lang_idp_mesh_tryagain"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+var WPS_action = {"easyMeshWps":{"action":"wps"}};
+var info_data={};
+var L, L_parent;
+var sel_dev="";
+var dev_list=[];
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+L_parent = window.parent.L.connectivity_mesh;
+$('#loader', window.parent.document).hide();
+dev_list=window.parent.INFO_DATA.hosts;
+inject_log_bot_idp();
+
+resizePopout();
+},1000);
+
+}
+
+function get_info_success_cb(obj) {
+info_data = API.obj.copy(obj);
+}
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+function set_info_success_cb(obj) {
+//displayPopout('wps');
+console.log("pass")
+}
+function set_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function set_info_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.info.set(JSON.parse(obj_content), set_info_success_cb, set_info_error_cb);
+else if(typeof(obj_content) == 'object')
+API.info.set(obj_content, set_info_success_cb, set_info_error_cb);
+}
+function switch_page(dest){
+setTimeout(window.parent.switch_page(dest), 500);
+closePopout();
+}
+
+
+</script>
+
+</FORM></BODY></HTML>

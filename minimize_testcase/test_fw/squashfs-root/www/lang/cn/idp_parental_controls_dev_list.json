@@ -1,0 +1,7 @@
+{
+    "idp_parental_controls_dev_list": {
+        "lang_idp_parental_controls_dev_list_title": "家长控制",
+        "lang_idp_parental_controls_dev_list_info_title": "为以下项设置家长控制：",
+        "lang_idp_parental_controls_dev_list_alert_title": "请先选择设备！"
+    }
+}

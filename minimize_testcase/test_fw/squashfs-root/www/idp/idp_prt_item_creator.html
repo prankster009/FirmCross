@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()">
+<form method="post" action="" name="dhcp">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close logger_bot" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_prt_item_creator_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<tr>
+<td>
+<span class="multi_lang" id="lang_prt_item_app_name_title"></span>
+<td>
+<input type="text" class="num logger_bot" maxlength="20" size="19" id="app_name" name="name" onblur="">
+</td>
+</tr>
+<tr>
+<td>
+<span class="multi_lang" id="lang_prt_item_trigger_range_title"></span>
+<td>
+<input type="text" class="num logger_bot" maxlength="5" style="width:50px" id="port_trigger_start" name="port_trigger_start" onblur="">
+&nbsp;<span class="multi_lang" id="lang_prt_item_to_title"></span>&nbsp;
+<input type="text" class="num logger_bot" maxlength="5" style="width:50px" id="port_trigger_end" name="port_trigger_end" onblur="">
+</td>
+</tr>
+<tr>
+<td>
+<span class="multi_lang" id="lang_prt_item_forward_range_title"></span>
+<td>
+<input type="text" class="num logger_bot" maxlength="5" style="width:50px" id="port_forward_start" name="port_forward_start" onblur="">
+&nbsp;<span class="multi_lang" id="lang_prt_item_to_title"></span>&nbsp;
+<input type="text" class="num logger_bot" maxlength="5" style="width:50px" id="port_forward_end" name="port_forward_end" onblur="">
+</td>
+</tr>
+<tr>
+<td>
+<span id="checkbox_div_prt_item_enable"></span>
+<script>draw_checkbox('prt_item_enable', 'lang_prt_item_enable_title', '1', "prt_item_enable_control()");</script>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="prt_add_item()" id="btnApply"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="closePopout()" id="btnClose"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var lang_idp = eval('window.parent.L.'+localStorage.iframe_idp_name)
+var lang_common = window.parent.L.common
+var L_err = window.parent.L;
+var EDIT_FLAG=0
+var EDIT_INDEX_ID=null
+//resizePopout()
+
+function init()
+{
+setTimeout(function(){
+if(typeof(localStorage.iframe_item_data) != "undefined" && localStorage.iframe_item_data != ""){
+var item_data = JSON.parse(localStorage.iframe_item_data)
+
+$("#app_name").val(item_data.desc)
+$("#port_trigger_start").val(item_data.triggerPortStart)
+$("#port_trigger_end").val(item_data.triggerPortEnd)
+$("#port_forward_start").val(item_data.forwardPortStart)
+$("#port_forward_end").val(item_data.forwardPortEnd)
+prt_item_enable_control(item_data.enable)
+EDIT_INDEX_ID = item_data.index
+EDIT_FLAG = 1
+localStorage.iframe_item_data=""
+localStorage.removeItem('iframe_item_data');
+}else{
+prt_item_enable_control('0')
+}
+$('#loader', window.parent.document).hide();
+inject_log_bot_idp()
+},1000);
+}
+
+function check_rule_range(start, end, target ) {
+if(parseInt(target) >= parseInt(start) && parseInt(target) <= parseInt(end))
+return true;
+else
+return false;
+}
+
+function check_rule_repeat(rule_list, target){
+
+rule_list_length = rule_list.length
+var ret = true
+for(i=0; i< rule_list_length; i++){
+if (EDIT_INDEX_ID == i)
+continue;
+
+if(rule_list[i].desc == target.desc){
+alert(L_err.error_message.lang_error_message_err110);
+ret = false
+break;
+}else if( (rule_list[i].triggerPortStart == target.triggerPortStart && rule_list[i].triggerPortEnd == target.triggerPortEnd) || (rule_list[i].forwardPortStart == target.forwardPortStart && rule_list[i].forwardPortEnd == target.forwardPortEnd)){
+//port range repeat
+alert(L_err.error_message.lang_error_message_err74);
+ret = false
+break;
+}
+else if ( check_rule_range(rule_list[i].triggerPortStart, rule_list[i].triggerPortEnd, target.triggerPortStart) ||  check_rule_range(rule_list[i].forwardPortStart, rule_list[i].forwardPortEnd, target.forwardPortStart) || check_rule_range( target.triggerPortStart,target.triggerPortEnd, rule_list[i].triggerPortEnd) || check_rule_range( target.forwardPortStart,target.forwardPortEnd, rule_list[i].forwardPortEnd) ){
+//port range overlay
+alert(L_err.error_message.lang_error_message_err74);
+ret = false
+break;
+}
+}
+return ret
+}
+
+function prt_item_enable_control(enable){
+enable = checkbox_switch('prt_item_enable', enable)
+}
+
+function prt_add_item(){
+var item={}
+var F = document.forms[0];
+
+if( "" == $("#app_name").val()){
+alert(L_err.error_message.lang_error_message_err64);
+return false
+}
+
+if(valid_range(F.port_trigger_start, 1, 65535, "Port") == false) return false;
+if(valid_range(F.port_trigger_end, 1, 65535, "Port") == false) return false;
+if(valid_range(F.port_forward_start, 1, 65535, "Port") == false) return false;
+if(valid_range(F.port_forward_end, 1, 65535, "Port") == false) return false;
+
+if(parseInt(F.port_trigger_start.value) > parseInt(F.port_trigger_end.value)){
+alert(L_err.error_message.lang_error_message_err31);
+return false;
+}
+if(parseInt(F.port_forward_start.value) > parseInt(F.port_forward_end.value)){
+alert(L_err.error_message.lang_error_message_err31);
+return false;
+}
+item.desc=$("#app_name").val()
+item.triggerPortStart=$("#port_trigger_start").val()
+item.triggerPortEnd=$("#port_trigger_end").val()
+item.forwardPortStart=$("#port_forward_start").val()
+item.forwardPortEnd=$("#port_forward_end").val()
+item.enable=$("#prt_item_enable").prop("checked")?"1":"0";
+
+if(! check_rule_repeat(window.parent.prt_DATA, item)){
+return false;
+}
+
+if(EDIT_FLAG == 1){
+parent.insert_prt_item(item, EDIT_INDEX_ID)
+}else
+parent.insert_prt_item(item)
+closePopout()
+}
+</script>
+
+</FORM></BODY></HTML>

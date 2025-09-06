@@ -1,0 +1,17 @@
+{
+    "connectivity_ipv6": {
+        "lang_ipv6_zone_internet_setup_title": "インターネット セットアップ",
+        "lang_ipv6_auto_title": "IPv6 - 自動",
+        "lang_ipv6_duid_title": "DUID",
+        "lang_ipv6_zone_network_setup_title": "ネットワーク セットアップ",
+        "lang_6rd_tunnel_title": "6 番目のトンネル",
+        "lang_6rd_tunnel_opt_disabled": "無効",
+        "lang_6rd_tunnel_opt_auto_config": "自動構成",
+        "lang_6rd_tunnel_opt_manual_config": "手動構成",
+        "lang_alert_invalid_ip_title": "無効な IP アドレス",
+        "lang_6rd_tunnel_ip6prefix_title": "プレフィックス",
+        "lang_6rd_tunnel_ip6prefixlen_title": "プレフィックス長",
+        "lang_6rd_tunnel_peeraddr_title": "罫線リレー",
+        "lang_6rd_tunnel_ip4prefixlen_title": "IPv4 アドレス マスク"
+    }
+}

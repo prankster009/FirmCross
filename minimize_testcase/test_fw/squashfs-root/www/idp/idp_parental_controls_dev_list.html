@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="parental_controls_dev_list" onsubmit="return false;">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close logger_bot" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_idp_parental_controls_dev_list_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<tr><td><span class="multi_lang" id="lang_idp_parental_controls_dev_list_info_title"></span></td>
+<tr><td><select name="dev_list" id="dev_list" size="7" style="width:100%;" onclick="device_selected(this.value)"></select></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="Okbtn_click()" id="btnOk"></button>
+<button type="button" data-dismiss="modal" class="btncancel multi_lang logger_bot" onclick="closePopout()" id="btnCancel"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var info_data={};
+var L, L_parent;
+var sel_dev="";
+var dev_list=[];
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+L_parent = window.parent.L.parental_control_parental_control;
+$('#loader', window.parent.document).hide();
+
+dev_list=window.parent.INFO_DATA.hosts;
+update_device_list();
+inject_log_bot_idp();
+
+resizePopout();
+},1000);
+
+}
+
+function update_device_list(){
+var pf=window.parent.document.forms['ui-form'];
+var exist;
+var hostname="";
+
+for (var i=0; i < dev_list.length; ++i) {
+exist=0;
+for (var j=0; j < pf.restrict_internet_access.options.length; ++j) {
+if (pf.restrict_internet_access.options[j].value == dev_list[i].mac) {
+exist=1;
+break;
+}
+}
+
+if (exist == 1)
+continue;
+
+if (dev_list[i].hostname == "unknown")
+hostname = L_parent.lang_parental_control_unknow_dev_title;
+else
+hostname = dev_list[i].hostname;
+
+$('#dev_list').append('<option value='+dev_list[i].mac+'>'+hostname+'</option>');
+}
+}
+
+function device_selected(value) {
+sel_dev=value;
+}
+
+function Okbtn_click() {
+var name=$('#dev_list').find(":selected").text();
+
+if (typeof sel_dev != "undefined" && sel_dev != "") {
+window.parent.add_dev_click(name,sel_dev);
+closePopout();
+}
+else
+alert(L.lang_idp_parental_controls_dev_list_alert_title);
+}
+
+function get_info_success_cb(obj) {
+info_data = API.obj.copy(obj);
+}
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+</script>
+
+</FORM></BODY></HTML>

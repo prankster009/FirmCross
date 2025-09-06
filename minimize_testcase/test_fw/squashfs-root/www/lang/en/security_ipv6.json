@@ -1,0 +1,19 @@
+{
+    "security_ipv6": {
+        "lang_ipv6_zone_firewall_title": "IPv6 Firewall Settings",
+        "lang_ipv6_description_title": "Description",
+        "lang_ipv6_address_title": "IPv6 Address",
+        "lang_ipv6_disable": "Disable",
+        "lang_ipv6_tcp": "TCP",
+        "lang_ipv6_udp": "UDP",
+        "lang_ipv6_both": "Both",
+        "lang_ipv6_allow_title": "Allow",
+        "lang_ipv6_to": "to",
+        "lang_ipv6_optional": "(Optional)",
+        "lang_ipv6_allowing_ports": "Allowing Ports",
+        "lang_ipv6_description": "Description",
+        "lang_ipv6_address": "Address",
+        "lang_ipv6_allow": "Allow",
+        "lang_ipv6_error_msg_1": "You entered an invalid IPv6 address, please re-enter the correct IPv6 address."
+    }
+}

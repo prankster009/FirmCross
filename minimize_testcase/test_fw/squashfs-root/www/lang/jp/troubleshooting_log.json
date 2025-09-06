@@ -1,0 +1,8 @@
+{
+    "troubleshooting_log": {
+        "lang_log_title": "ログ",
+        "lang_log_enable_title": "ログ",
+        "lang_view_log_button": "ログを表示",
+        "lang_log_alert_msg": "保存をクリックして、ログを作成します。次に、ログを表示をクリックして、ログを表示します。"
+    }
+}

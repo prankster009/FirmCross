@@ -1,0 +1,20 @@
+{
+    "help_status_wireless": {
+        "lang_help_status_wireless_title": "無線網路",
+        "lang_hsw1": "5 GHz/2.4 GHz 無線網路",
+        "lang_hsw2": "MAC 位址",
+        "lang_hsw3": "顯示路由器無線介面的 MAC 位址。",
+        "lang_hsw4": "模式",
+        "lang_hsw5": "顯示網路所使用的無線模式。",
+        "lang_hsw6": "網路名稱 (SSID)",
+        "lang_hsw7": "顯示無線網絡的名稱，也稱為 SSID。",
+        "lang_hsw8": "通道寬度",
+        "lang_hsw9": "顯示 Wireless-N 裝置使用的無線電道寬度。",
+        "lang_hsw10": "通道",
+        "lang_hsw11": "顯示路由器的工作無線電頻道。",
+        "lang_hsw12": "安全性",
+        "lang_hsw13": "顯示無線網路所使用的無線安全性方法。",
+        "lang_hsw14": "SSID 廣播",
+        "lang_hsw15": "顯示「SSID 廣播」選項的狀態。"
+    }
+}

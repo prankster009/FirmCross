@@ -1,0 +1,9 @@
+Package: dnsrecorder
+Version: 2020-08-19
+Depends: libc, libnfnetlink, libnetfilter-queue, libpcap, libsqlite3
+Source: package/gemtek/dnsrecorder
+Section: utils
+Maintainer: Evans Lai <evans_lai@gemteks.com>
+Architecture: ramips_24kec
+Installed-Size: 5399
+Description:  dnsrecorder for parental control

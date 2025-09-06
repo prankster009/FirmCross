@@ -1,0 +1,14 @@
+{
+    "help_security_vpn": {
+        "lang_help_security_vpn_title": "VPN Passthrough",
+        "lang_hsv1": "หมายเหตุ: หลังจากคุณทำการเปลี่ยนแปลงข้อมูลแล้ว ให้คลิก <b>Save Settings (บันทึกการตั้งค่า)</b> เพื่อนำการเปลี่ยนแปลงของคุณไปใช้",
+        "lang_hsv2": "VPN Passthrough",
+        "lang_hsv3": "IPSec Passthrough",
+        "lang_hsv4": "ไคลเอ็นต์ VPN บนเครือข่ายภายในสามารถเปิดใช้งานช่องทางการเชื่อมต่อ VPN โดยใช้ IPSec ผ่านเราเตอร์ได้",
+        "lang_hsv5": "PPTP Passthrough",
+        "lang_hsv6": "ไคลเอ็นต์ VPN บนเครือข่ายภายในสามารถเปิดใช้งานช่องทางการเชื่อมต่อ VPN โดยใช้ PPTP ผ่านเราเตอร์ได้",
+        "lang_hsv7": "L2TP Passthrough",
+        "lang_hsv8": "ไคลเอ็นต์ VPN บนเครือข่ายภายในสามารถเปิดใช้งานช่องทางการเชื่อมต่อ VPN โดยใช้ L2TP ผ่านเราเตอร์ได้",
+        "lang_hsv9": "หมายเหตุ: หากต้องการข้อมูลเพิ่มเติม โปรดดูในคู่มือผู้ใช้ออนไลน์ที่ <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>"
+    }
+}

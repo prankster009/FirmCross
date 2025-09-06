@@ -1,0 +1,23 @@
+{
+    "help_status_router": {
+        "lang_help_status_router_title": "Routeur",
+        "lang_hsr1": "Renseignements sur le routeur",
+        "lang_hsr2": "Version du micrologiciel",
+        "lang_hsr3": "Le numéro de version du micrologiciel actuel du routeur s’affiche.",
+        "lang_hsr4": "Vérification du micrologiciel",
+        "lang_hsr5": "Le code d’identification du micrologiciel s’affiche.",
+        "lang_hsr6": "Heure actuelle",
+        "lang_hsr7": "L’heure locale s’affiche.",
+        "lang_hsr8": "Adresse MAC Internet",
+        "lang_hsr9": "L’adresse MAC du routeur, telle qu’elle apparaît sur Internet, s’affiche.",
+        "lang_hsr10": "Nom du routeur",
+        "lang_hsr11": "Le nom de l’appareil est le nom NetBIOS du routeur.",
+        "lang_hsr12": "Nom d’hôte",
+        "lang_hsr13": "Le nom d’hôte du routeur s’affiche.",
+        "lang_hsr14": "Nom de domaine",
+        "lang_hsr15": "Le nom de domaine du routeur s’affiche.",
+        "lang_hsr16": "Connexion Internet",
+        "lang_hsr17": "Cette section affiche les renseignements actuels stockés sur le routeur.",
+        "lang_hsr18": "Dans le cas d’une connexion DHCP, cliquez sur <b>Libérer l’adresse IP</b> ou <b>Renouveler l’adresse IP</b>, selon le cas, pour libérer ou renouveler un bail d’adresse IP du serveur DHCP. Dans le cas d’une connexion PPPoE ou semblable, cliquez sur <b>Connecter</b> ou <b>Déconnecter</b>, selon le cas, pour vous connecter à Internet ou vous en déconnecter."
+    }
+}

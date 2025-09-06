@@ -1,0 +1,10 @@
+Package: lua-md5
+Version: 1.2-1
+Depends: libc, lua
+Source: package/lang/lua-md5
+License: MIT
+Section: lang
+Maintainer: Dirk Chang <dirk@kooiot.com>
+Architecture: ramips_24kec
+Installed-Size: 4769
+Description:  MD5 offers basic cryptographic facilities for Lua

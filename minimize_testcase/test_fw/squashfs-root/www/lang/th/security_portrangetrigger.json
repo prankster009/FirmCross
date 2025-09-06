@@ -1,0 +1,12 @@
+{
+    "security_portrangetrigger": {
+        "lang_prt_app_name_title": "ชื่อแอปพลิเคชัน",
+        "lang_prt_port_trigger_range_title": "ช่วงที่ถูกทริกเกอร์",
+        "lang_prt_port_forward_range_title": "ช่วงที่ส่งต่อ",
+        "lang_prt_enabled_title": "เปิดใช้งาน",
+        "lang_prt_action_title": "การดำเนินการ",
+        "lang_prt_add_btn_title": "เพิ่มการทริกเกอร์ช่วงของพอร์ตใหม่",
+        "lang_prt_disabled_title": "ปิดใช้งาน",
+        "lang_prt_remove_btn_title": "ลบ"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "WanP": {
+        "name": "wan",
+        "hostname": "",
+        "ifname": "eth1",
+        "proto": "1",
+        "domainName": ""
+    }
+}

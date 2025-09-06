@@ -1,0 +1,13 @@
+{
+    "wifi_guest": {
+        "lang_guest_zone_guest_access_title": "게스트 액세스는 컴퓨터나 개인 데이터에 대한 액세스 권한을 부여하지 않고도 가정 방문자에게 인터넷 액세스 권한을 제공합니다.",
+        "lang_guest_access_allow_title": "게스트 액세스 허용",
+        "lang_guest_net_name_title": "게스트 네트워크 이름",
+        "lang_guest_password_title": "게스트 암호",
+        "lang_guest_change_pwd_button": "변경",
+        "lang_guest_allow_total_title": "허용된 총 게스트",
+        "lang_ssid_broadcast_title": "SSID 송출",
+        "lang_guest_info_title": "게스트는 웹 브라우저를 열고 게스트 암호를 입력하여 위에 나열된 무선 네트워크에 연결해야 합니다.",
+        "lang_enable_warning": "게스트 액세스 기능을 활성화시키려면 \"기본 무선 설정\"에서 이지메시 체크를 해제해야 합니다."
+    }
+}

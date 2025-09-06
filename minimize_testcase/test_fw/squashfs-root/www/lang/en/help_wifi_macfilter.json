@@ -1,0 +1,24 @@
+{
+    "help_wifi_macfilter": {
+        "lang_help_wifi_macfilter_title": "Wireless MAC Filter",
+        "lang_hwm1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hwm2": "Wireless MAC Filter",
+        "lang_hwm3": "Enabled/Disabled",
+        "lang_hwm4": "To filter wireless users by the MAC addresses of their computers or devices, select <b>Enabled</b>.",
+        "lang_hwm5": "Access Restriction",
+        "lang_hwm6": "Prevent PCs listed below from accessing the wireless network",
+        "lang_hwm7": "Computers on the MAC Address filter list will not have access to the wireless network.",
+        "lang_hwm8": "Permit PCs listed below to access the wireless network",
+        "lang_hwm9": "Only computers on the MAC Address filter list will have access to the wireless network.",
+        "lang_hwm10": "MAC Address Filter List",
+        "lang_hwm11": "Wireless Client List",
+        "lang_hwm12": "Click this option to open the <i>Wireless Client List</i> screen.",
+        "lang_hwm13": "Wireless Client List",
+        "lang_hwm14": "This screen shows computers and other devices currently on the wireless network.",
+        "lang_hwm15": "Select <b>Save to MAC Address Filter List</b> for any device you want to add to the MAC Address Filter List. Then click <b>Add</b>.",
+        "lang_hwm16": "To update the on-screen information, click <b>Refresh</b>. To exit this screen, click <b>Close</b>.",
+        "lang_hwm17": "MAC 01-32",
+        "lang_hwm18": "Enter the MAC addresses of the devices whose wireless access you want to control.",
+        "lang_hwm19": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

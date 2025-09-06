@@ -1,0 +1,9 @@
+{
+    "Dhcp6cP": {
+        "ianaEnable": "1",
+        "iapdEnable": "1",
+        "ip6prefix": "::",
+        "dsliteEnable": "0",
+        "mapEnable": "0"
+    }
+}

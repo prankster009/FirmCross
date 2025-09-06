@@ -1,0 +1,19 @@
+{
+    "security_ipv6": {
+        "lang_ipv6_zone_firewall_title": "การตั้งค่า IPv6 ไฟร์วอลล์",
+        "lang_ipv6_description_title": "คำอธิบาย",
+        "lang_ipv6_address_title": "ที่อยู่ IPv6",
+        "lang_ipv6_disable": "ปิดใช้งาน",
+        "lang_ipv6_tcp": "TCP",
+        "lang_ipv6_udp": "UDP",
+        "lang_ipv6_both": "ทั้งสองอย่าง",
+        "lang_ipv6_allow_title": "อนุญาต",
+        "lang_ipv6_to": "ถึง",
+        "lang_ipv6_optional": "(ระบุหรือไม่ก็ได้)",
+        "lang_ipv6_allowing_ports": "กำลังอนุญาตพอร์ต",
+        "lang_ipv6_description": "คำอธิบาย",
+        "lang_ipv6_address": "ที่อยู่",
+        "lang_ipv6_allow": "อนุญาต",
+        "lang_ipv6_error_msg_1": "คุณป้อน ที่อยู่ IPv6 ที่ไม่ถูกต้อง โปรดป้อน ที่อยู่ IPv6 ที่ถูกต้องอีกครั้ง"
+    }
+}

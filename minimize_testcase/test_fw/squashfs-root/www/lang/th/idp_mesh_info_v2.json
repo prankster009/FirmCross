@@ -1,0 +1,23 @@
+{
+    "idp_mesh_info_v2": {
+        "lang_idp_mesh_confirm_title": "กดปุ่ม WPS บนโหนดลูกค้างไว้ประมาณ 3 วินาที",
+        "lang_idp_mesh_fail_title": "Connecting to your child node took to longer than expected. Try again.",
+        "lang_idp_mesh_tryagain": "ลองอีกครั้ง",
+        "lang_idp_mesh_pass_title": "โหนดย่อยเข้าร่วม Wi-Fi ของคุณแล้ว!",
+        "lang_idp_mesh_plug_title": "เสียบโหนดย่อยของคุณ",
+        "lang_idp_mesh_plug_content1": "รอจนกว่าอุปกรณ์ Easy Mesh ของคุณเปิดเครื่องเสร็จเรียบร้อย ขอเวลา 3 นาที",
+        "lang_idp_mesh_plug_content2": "หากคุณต้องการตั้งค่าโหนดย่อยเพิ่มเติม อย่าลืมดำเนินการทีละโหนดเพื่อหลีกเลี่ยงปัญหา",
+        "lang_idp_mesh_process_title": "กดปุ่ม WPS บนโหนดลูกค้างไว้ประมาณ 3 วินาที",
+        "lang_idp_mesh_info_title": "ข้อมูล Mesh",
+        "lang_idp_parent_info_title": "อุปกรณ์ที่เชื่อมต่ออยู่",
+        "lang_idp_child_info_title": "ข้อมูลโหนดย่อยที่เชื่อมต่อ:",
+        "lang_idp_child_info_name": "ชื่อไคลเอ็นต์",
+        "lang_idp_child_info_interface": "อินเตอร์เฟซ",
+        "lang_idp_child_info_mac": "ที่อยู่ MAC",
+        "lang_idp_child_info_rssi": "RSSI",
+        "lang_idp_child_info_fw": "เวอร์ชันของเฟิร์มแวร์",
+        "lang_idp_child_info_ip": "ที่อยู่ IP",
+        "lang_idp_connected": "อุปกรณ์ที่มีการเชื่อมต่ออยู่",
+        "lang_idp_device_type": "ประเภทของอุปกรณ์"
+    }
+}

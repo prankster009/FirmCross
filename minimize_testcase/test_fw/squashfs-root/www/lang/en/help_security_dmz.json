@@ -1,0 +1,16 @@
+{
+    "help_security_dmz": {
+        "lang_help_security_dmz_title": "DMZ",
+        "lang_hsd1": "The DMZ feature allows one network device to be exposed to the Internet for use of a special-purpose service, such as online gaming. The Router forwards all the ports at the same time to the DMZ device.",
+        "lang_hsd2": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hsd3": "DMZ",
+        "lang_hsd4": "Enabled/Disabled",
+        "lang_hsd5": "To expose one computer as the DMZ device, select <b>Enabled</b>.",
+        "lang_hsd6": "Source IP Address",
+        "lang_hsd7": "To allow any IP address from the Internet to access the DMZ device, select <b>Any IP Address</b>. To specify an IP address or range of IP addresses from the Internet to access the DMZ device, select and complete the IP address range fields.",
+        "lang_hsd8": "Destination",
+        "lang_hsd9": "To specify the DMZ device by IP address, select <b>IP Address</b> and enter its IP address.",
+        "lang_hsd10": "To specify the DMZ device by MAC address, select <b>MAC Address</b> and enter its MAC address. To look up its MAC address, click <b>DHCP Client Table</b>.",
+        "lang_hsd11": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

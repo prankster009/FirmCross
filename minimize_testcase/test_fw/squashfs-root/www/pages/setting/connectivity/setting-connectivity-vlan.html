@@ -1,0 +1,607 @@
+<script type="text/javascript">
+var OBJ_LIST = ['vlan','wan','vlanEnable']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var SAVE_VLAN_WAITING_TIME = 20000;
+</script>
+<form id='ui-form'>
+<table id="vlan_setting" class="table table-info vlan_setting_zone">
+<tbody>
+<tr>
+<td>
+<script>draw_checkbox('vlan_enable', 'lang_vlan_enable_title', 'on', "vlan_enable_checked()");</script>
+<span id="checkbox_div_vlan_enable"></span>
+</td>
+</tr>
+<tr>
+<td><span class="multi_lang" id="lang_select_profile_title"></span></td>
+<td>
+<script>(function(){var profile_str = ['manual'];var profile_val = ['0'];draw_select('vlan_profile', profile_str, profile_val,'vlan_profile_selected(this.value)', '');})();</script>
+<div id="select_div_vlan_profile"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title" style="padding-bottom:30px">
+<span class="multi_lang" id="lang_internet_trunk_title"></span>
+</div>
+<table id="vlan_internet" class="table table-info-bg table-bordered vlan_internet_zone">
+<thead>
+<tr>
+<th><span id="vid_internet_title"></span></th>
+<th><span class="multi_lang" id="lang_id_head"></span></th>
+<th><span class="multi_lang" id="lang_tag_head"></span></th>
+<th><span class="multi_lang" id="lang_priority_head"></span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="multi_lang" id="lang_internet_title"></span></td>
+<td id='td_vid_internet'></td>
+<td id='td_vtage_internet'></td>
+<td id='td_priority_internet'></td>
+</tr>
+</tbody>
+</table>
+<div class="table-title" style="padding-bottom:30px" id="div_ethernet">
+<span class="multi_lang" id="lang_ethernet_title"></span>
+</div>
+<table id="tb_port1" class="table table-info-bg table-bordered vlan_ethernet_zone">
+<thead>
+<tr>
+<th><span id="vid_port1_title"></span></th>
+<th><span class="multi_lang" id="lang_id_head"></span></th>
+<th><span class="multi_lang" id="lang_tag_head"></span></th>
+<th><span class="multi_lang" id="lang_priority_head"></span></th>
+</tr>
+</thead>
+<tbody>
+<tr id='port1' style="display:none;">
+<td><span id="port1_name_title"></span></td>
+<td id='td_vid_port1'></td>
+<td id='td_vtag_port1'></td>
+<td id='td_priority_port1'></td>
+</tr>
+</tbody>
+</table>
+<table id="tb_port2" class="table table-info-bg table-bordered vlan_ethernet_zone">
+<thead>
+<tr>
+<th><span id="vid_port2_title"></span></th>
+<th><span class="multi_lang" id="lang_id_head"></span></th>
+<th><span class="multi_lang" id="lang_tag_head"></span></th>
+<th><span class="multi_lang" id="lang_priority_head"></span></th>
+</tr>
+</thead>
+<tbody>
+<tr id='port2' style="display:none;">
+<td><span id="port2_name_title"></span></td>
+<td id='td_vid_port2'></td>
+<td id='td_vtag_port2'></td>
+<td id='td_priority_port2'></td>
+</tr>
+</tbody>
+</table>
+<table id="tb_port3" class="table table-info-bg table-bordered vlan_ethernet_zone">
+<thead>
+<tr>
+<th><span id="vid_port3_title"></span></th>
+<th><span class="multi_lang" id="lang_id_head"></span></th>
+<th><span class="multi_lang" id="lang_tag_head"></span></th>
+<th><span class="multi_lang" id="lang_priority_head"></span></th>
+</tr>
+</thead>
+<tbody>
+<tr id='port3'>
+<td><span id="port3_name_title"></span></td>
+<td id='td_vid_port3'></td>
+<td id='td_vtag_port3'></td>
+<td id='td_priority_port3'></td>
+</tr>
+</tbody>
+</table>
+<table id="tb_port4" class="table table-info-bg table-bordered vlan_ethernet_zone">
+<thead>
+<tr>
+<th><span id="vid_port4_title"></span></th>
+<th><span class="multi_lang" id="lang_id_head"></span></th>
+<th><span class="multi_lang" id="lang_tag_head"></span></th>
+<th><span class="multi_lang" id="lang_priority_head"></span></th>
+</tr>
+</thead>
+<tbody>
+<tr id='port4'>
+<td><span id="port4_name_title"></span></td>
+<td id='td_vid_port4'></td>
+<td id='td_vtag_port4'></td>
+<td id='td_priority_port4'></td>
+</tr>
+</tbody>
+</table>
+</form>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='connectivity_vlan'
+$(document).ready(function(){
+$.lang_load("connectivity_vlan");
+$.lang_load("error_message");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function set_vlan_table_init(profile) {
+var vlan_state_str = [L.connectivity_vlan.lang_vlan_state_opt_untagged,
+L.connectivity_vlan.lang_vlan_state_opt_tagged];
+var vlan_state_val = ['0','1'];
+var priority_str=['0','1','2','3','4','5','6','7'];
+var priority_val=['0','1','2','3','4','5','6','7'];
+var i;
+
+if (profile != 'manual') {
+$('#td_vid_internet').html('<span name="vlan_id_internet" id="vlan_id_internet"></span>');
+$('#td_vtage_internet').html('<span name="tag_status_internet" id="tag_status_internet"></span>');
+$('#td_priority_internet').html('<span name="priority_internet" id="priority_internet"></span>');
+
+for (i=1; i <= 4; ++i) {
+$('#port'+i+'_name_title').html(L.connectivity_vlan.lang_port_title+i);
+
+$('#td_vid_port'+i).html('<span name="vlan_id_port'+i+'" id="vlan_id_port'+i+'"></span>');
+$('#td_vtag_port'+i).html('<span name="tag_status_port'+i+'" id="tag_status_port'+i+'"></span>');
+$('#td_priority_port'+i).html('<span name="priority_port'+i+'" id="priority_port'+i+'"></span>');
+}
+return;
+}
+
+$('#td_vid_internet').html('<input maxlength="4" name="vlan_id_internet" id="vlan_id_internet" onblur="vlan_id_changed(\'internet\',this.value)" size="5" class="logger_bot">');
+$('#td_vtage_internet').html('<div id="select_div_tag_status_internet"></div>');
+$('#td_priority_internet').html('<div id="select_div_priority_internet"></div>');
+
+draw_select('tag_status_internet', vlan_state_str, vlan_state_val,'', '');
+draw_select('priority_internet', priority_str, priority_val,'', '');
+
+for (i=1; i <= 4; ++i) {
+$('#port'+i+'_name_title').html(L.connectivity_vlan.lang_port_title+i);
+
+$('#td_vid_port'+i).html('<input maxlength="4" name="vlan_id_port'+i+'" id="vlan_id_port'+i+'" onblur="vlan_id_changed(\'port'+i+'\',this.value)" size="5" class="logger_bot">');
+$('#td_vtag_port'+i).html('<div id="select_div_tag_status_port'+i+'"></div>');
+$('#td_priority_port'+i).html('<div id="select_div_priority_port'+i+'"></div>');
+
+draw_select('tag_status_port'+i, vlan_state_str, vlan_state_val,'','');
+draw_select('priority_port'+i, priority_str, priority_val,'', '');
+}
+}
+
+function set_profile_init(obj,sel_index) {
+var profile=obj[sel_index].descName;
+var vids=obj[sel_index].portVID.split(";");
+var tags=obj[sel_index].portTag.split(";");
+var priorities=obj[sel_index].portPriotity.split(";");
+var services=obj[sel_index].portService.split(";");
+var i;
+
+$('#vlan_profile').empty();
+for (i=0; i < obj.length; ++i) {
+$('#vlan_profile').append('<option value="'+obj[i].descName+'">'+eval('L.connectivity_vlan.lang_profile_opt_'+obj[i].descName)+'</option>');
+}
+$('#vlan_profile').val(obj[sel_index].descName);
+update_selected($('#vlan_profile').attr('name'));
+
+if (services[0] != "")
+$('#vid_internet_title').text(L.connectivity_vlan.lang_vlan_id_title+' - '+services[0]);
+else
+$('#vid_internet_title').text(L.connectivity_vlan.lang_vlan_id_title);
+
+for (i=1; i <= 4; ++i) {
+if (services[i] != "")
+$('#vid_port'+i+'_title').text(L.connectivity_vlan.lang_vlan_id_title+' - '+services[i]);
+else
+$('#vid_port'+i+'_title').text(L.connectivity_vlan.lang_vlan_id_title);
+}
+
+if (profile == 'manual') {
+for (i=0; i < 5; ++i) { // W0;L1;L2;L3;L4
+if (tags[i] == "") tags[i]='0';
+if (priorities[i] == "") priorities[i]='0';
+}
+
+$('#vlan_id_internet').val(vids[0]);
+$('#tag_status_internet').val(tags[0]);
+$('#priority_internet').val(priorities[0]);
+
+$('#vlan_id_internet').attr('value',vids[0]);
+
+update_selected($('#tag_status_internet').attr('name'));
+update_selected($('#priority_internet').attr('name'));
+
+for (i=1; i <= 4; ++i) {
+$('#tb_port'+i).show();
+$('#vlan_id_port'+i).val(vids[i]);
+$('#tag_status_port'+i).val(tags[i]);
+$('#priority_port'+i).val(priorities[i]);
+
+$('#vlan_id_port'+i).attr('value',vids[i]);
+
+update_selected($('#tag_status_port'+i).attr('name'));
+update_selected($('#priority_port'+i).attr('name'));
+}
+}
+else {
+for (i=0; i < 5; ++i) {
+if (tags[i] == "" || tags[i] == "0")
+tags[i]=L.connectivity_vlan.lang_vlan_state_opt_untagged;
+else if (tags[i] == "1")
+tags[i]=L.connectivity_vlan.lang_vlan_state_opt_tagged;
+}
+
+$('#vlan_id_internet').text(vids[0]);
+$('#tag_status_internet').text(tags[0]);
+$('#priority_internet').text(priorities[0]);
+
+var hide=0;
+for (i=1; i <= 4; ++i) {
+if (vids[i] == "") {
+$('#tb_port'+i).hide();
+++hide;
+}
+else $('#tb_port'+i).show();
+
+
+$('#vlan_id_port'+i).text(vids[i]);;
+$('#tag_status_port'+i).text(tags[i]);
+$('#priority_port'+i).text(priorities[i]);
+}
+
+if (hide == 4)
+$('#div_ethernet').hide();
+else
+$('#div_ethernet').show();
+}
+
+// port 1 and 2 is not use now
+$('#tb_port1').hide();
+$('#tb_port2').hide();
+}
+
+function set_vlan_init(obj) {
+var i;
+var flag=false;
+var index_manual;
+
+if (obj.vlanEnable.VlanEnableP.vlanEnable == '1')
+$('#vlan_enable').prop('checked',true);
+else
+$('#vlan_enable').prop('checked',false);
+update_checked($('#vlan_enable').attr('name'));
+
+for (i=0; i < obj.vlan.VlanT.length; ++i) {
+if (obj.vlan.VlanT[i].descName == 'manual')
+index_manual=i;
+
+if (!flag && obj.vlan.VlanT[i].enable == '1') {
+flag=true;
+set_vlan_table_init(obj.vlan.VlanT[i].descName);
+set_profile_init(obj.vlan.VlanT,i);
+}
+}
+
+if (!flag) {
+// default select 'manual'
+set_vlan_table_init(obj.vlan.VlanT[index_manual].descName);
+set_profile_init(obj.vlan.VlanT,index_manual);
+}
+
+vlan_enable_checked();
+
+if (obj.wan.WanP.proto == '5') {        // bridge mode
+set_all_element_disable();
+}
+}
+
+function set_all_element_enable() {
+$('#vlan_enable').removeAttr('disabled');
+$('#vlan_profile').removeAttr('disabled');
+$('[name^="tag_status_"]').removeAttr('disabled');
+$('[name^="vlan_id_"]').removeAttr('disabled');
+$('[name^="priority_"]').removeAttr('disabled');
+
+update_selected($('#vlan_profile').attr('name'));
+
+if ($('#vlan_profile').val() != 'manual')
+return;
+
+update_selected($('#tag_status_internet').attr('name'));
+update_selected($('#priority_internet').attr('name'));
+for (i=1;i <= 4; ++i) {
+update_selected($('#tag_status_port'+i).attr('name'));
+update_selected($('#priority_port'+i).attr('name'));
+}
+}
+
+function set_all_element_disable() {
+$('#vlan_enable').attr('disabled','true');;
+$('#vlan_profile').attr('disabled','true');
+$('[name^="tag_status_"]').attr('disabled','true');;
+$('[name^="vlan_id_"]').attr('disabled','true');
+$('[name^="priority_"]').attr('disabled','true');
+
+update_selected($('#vlan_profile').attr('name'));
+
+if ($('#vlan_profile').val() != 'manual')
+return;
+
+update_selected($('#tag_status_internet').attr('name'));
+update_selected($('#priority_internet').attr('name'));
+for (i=1;i <= 4; ++i) {
+update_selected($('#tag_status_port'+i).attr('name'));
+update_selected($('#priority_port'+i).attr('name'));
+}
+}
+
+function vlan_id_changed(port,value) {
+var old_vid = $('#vlan_id_'+port).attr('value');
+
+if (typeof value == 'undefined') {
+$('#vlan_id_'+port).val(old_vid);
+return false;
+}
+
+if (value.length <= 0) {
+if (port == 'internet') {
+alert(L.connectivity_vlan.lang_vlan_alert_range+' [3 - 4094].');
+$('#vlan_id_'+port).val(old_vid);
+return false;
+}
+return true;
+}
+
+if (/^\+?[0-9][\d]*$/.test(value) == false) {
+//alert(L.connectivity_vlan.lang_vlan_alert_illegal_char);
+alert(L.connectivity_vlan.lang_vlan_alert_range+' [3 - 4094].');
+$('#vlan_id_'+port).val(old_vid);
+return false;
+}
+
+if (value < 3 || value > 4094) {
+alert(L.connectivity_vlan.lang_vlan_alert_range+' [3 - 4094].');
+$('#vlan_id_'+port).val(old_vid);
+return false;
+}
+
+if ($('#vlan_profile').val() != 'manual')
+return false;
+
+$('#vlan_id_'+port).attr('value',value);
+
+update_selected($('#tag_status_'+port).attr('name'));
+update_selected($('#priority_'+port).attr('name'));
+
+return true;
+}
+
+function vlan_enable_checked() {
+if ($('#vlan_enable').prop('checked')) {
+set_all_element_enable();
+}
+else {
+set_all_element_disable();
+$('#vlan_enable').removeAttr('disabled');
+}
+}
+
+function vlan_profile_selected(profile) {
+var i;
+
+for (i=0; i < MODIFIED_OBJ_DATA.vlan.VlanT.length; ++i) {
+if (MODIFIED_OBJ_DATA.vlan.VlanT[i].descName == profile) {
+set_vlan_table_init(profile);
+set_profile_init(MODIFIED_OBJ_DATA.vlan.VlanT,i);
+break;
+}
+}
+}
+
+function valid_repeated_vlan_wan() {
+var i,j;
+var desc;
+var vlan_wan, vlan_tmp;
+var VLAN_MAX=5;
+
+//vlan_wan = $('#vlan_id_internet').val() + "," + $('#tag_status_internet').val() + "," + $('#priority_internet').val();
+vlan_wan = $('#vlan_id_internet').val();
+if (typeof(vlan_wan) == 'undefined' || vlan_wan == '')
+return true;
+
+for (i=1; i < VLAN_MAX; ++i) {
+//vlan_tmp = $('#vlan_id_port'+i).val() + "," + $('#tag_status_port'+i).val() + "," + $('#priority_port'+i).val();
+vlan_tmp = $('#vlan_id_port'+i).val();
+
+if (vlan_wan == vlan_tmp) {
+alert(L.error_message.lang_error_message_err106);
+$('#vlan_id_port'+i).focus();
+return false;
+}
+}
+
+return true;
+}
+
+function valid_repeated_vlan() {
+var i,j;
+var desc;
+var data_tmp="",data="";
+var VLAN_MAX=5;
+
+for (i=0; i < VLAN_MAX; ++i) {
+data="";
+if (i == 0) {
+data = data + $('#vlan_id_internet').val() + ",";
+data = data + $('#tag_status_internet').val() + ",";
+data = data + $('#priority_internet').val();
+}
+else {
+data = data + $('#vlan_id_port'+i).val() + ",";
+data = data + $('#tag_status_port'+i).val() + ",";
+data = data + $('#priority_port'+i).val();
+}
+
+for (j=i+1; j < VLAN_MAX; ++j) {
+data_tmp = "";
+data_tmp = data_tmp + $('#vlan_id_port'+i).val() + ",";
+data_tmp = data_tmp + $('#tag_status_port'+i).val() + ",";
+data_tmp = data_tmp + $('#priority_port'+i).val() + ",";
+
+if (data != ',0,0' && data == data_tmp) {
+alert(L.error_message.lang_error_message_err105);
+$('#vlan_id_port'+j).focus();
+return false;
+}
+
+if (i == 0 && $('#vlan_id_internet').val() == $('#vlan_id_port'+j).val() && $('#vlan_id_internet').val() != "") {
+alert(L.error_message.lang_error_message_err106);
+$('#vlan_id_port'+j).focus();
+return false;
+}
+else if ($('#vlan_id_port'+i).val() == $('#vlan_id_port'+j).val() && $('#vlan_id_port'+i).val() != "") {
+alert(L.error_message.lang_error_message_err106);
+$('#vlan_id_port'+j).focus();
+return false;
+}
+}
+}
+return true;
+}
+
+function check_data_modified(port) {
+var def_id="";
+var def_tag="0";
+var def_prio="0";
+
+if ($('#vlan_id_'+port).val() != def_id)
+return true;
+if ($('#tag_status_'+port).val() != def_state)
+return true;
+if ($('#priority_'+port).val() != def_state)
+return true;
+
+return false;
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+get_obj_data(OBJ_LIST);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+},SAVE_VLAN_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+var i;
+var profile=$('#vlan_profile').val();
+var index_manual;
+var val_vid="";
+var val_tag="";
+var val_pri="";
+
+MODIFIED_OBJ_DATA.vlanEnable.VlanEnableP.vlanEnable=$('#vlan_enable').prop('checked') ? '1' : '0';
+
+for (i=0; i < MODIFIED_OBJ_DATA.vlan.VlanT.length; ++i) {
+if (MODIFIED_OBJ_DATA.vlan.VlanT[i].descName == 'manual')
+index_manual=i;
+
+if (MODIFIED_OBJ_DATA.vlan.VlanT[i].descName == profile)
+MODIFIED_OBJ_DATA.vlan.VlanT[i].enable = '1';
+else
+MODIFIED_OBJ_DATA.vlan.VlanT[i].enable = '0';
+}
+
+if (profile == 'manual' && MODIFIED_OBJ_DATA.vlanEnable.VlanEnableP.vlanEnable == '1') {
+if (!valid_repeated_vlan_wan())
+return;
+
+var port;
+for (i=0; i <= 4; ++i) {
+if (i == 0) port='internet';
+else {
+port='port'+i;
+}
+
+/* check ports vid when vlan is enabled. */
+if (!vlan_id_changed(port,$('#vlan_id_'+port).val()))
+return;
+
+if (typeof($('#vlan_id_'+port).val()) != 'undefined' /*&& $('#vlan_id_'+port).val() != ""*/) {
+val_vid += $('#vlan_id_'+port).val() + ';';
+val_tag += $('#tag_status_'+port).val() + ';';;
+val_pri += $('#priority_'+port).val() + ';';;
+}
+}
+
+MODIFIED_OBJ_DATA.vlan.VlanT[index_manual].portVID = val_vid;
+MODIFIED_OBJ_DATA.vlan.VlanT[index_manual].portTag = val_tag;
+MODIFIED_OBJ_DATA.vlan.VlanT[index_manual].portPriotity = val_pri;
+}
+
+if (fake_action == true) return;
+
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA))
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+else {
+delete MODIFIED_OBJ_DATA.wan;
+
+$("#loader").show();
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_vlan_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_vlan_init(MODIFIED_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+</script>
+

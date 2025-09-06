@@ -1,0 +1,20 @@
+{
+    "help_status_wireless": {
+        "lang_help_status_wireless_title": "무선 네트워크",
+        "lang_hsw1": "5GHz/2.4GHz 무선 네트워크",
+        "lang_hsw2": "MAC 주소",
+        "lang_hsw3": "라우터의 무선 인터페이스의 MAC 주소가 표시됩니다.",
+        "lang_hsw4": "모드",
+        "lang_hsw5": "네트워크에서 사용하는 무선 모드가 표시됩니다.",
+        "lang_hsw6": "네트워크 이름(SSID)",
+        "lang_hsw7": "SSID라고도 하는 무선 네트워크의 이름이 표시됩니다.",
+        "lang_hsw8": "채널 폭",
+        "lang_hsw9": "무선-N 장치에서 사용하는 라디오 채널 폭이 표시됩니다.",
+        "lang_hsw10": "채널",
+        "lang_hsw11": "라우터의 작동 라디오 채널이 표시됩니다.",
+        "lang_hsw12": "보안",
+        "lang_hsw13": "무선 네트워크에서 사용하는 무선 보안 방법이 표시됩니다.",
+        "lang_hsw14": "SSID 송출",
+        "lang_hsw15": "SSID 송출 옵션의 상태가 표시됩니다."
+    }
+}

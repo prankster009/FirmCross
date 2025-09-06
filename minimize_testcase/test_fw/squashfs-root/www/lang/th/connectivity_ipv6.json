@@ -1,0 +1,17 @@
+{
+    "connectivity_ipv6": {
+        "lang_ipv6_zone_internet_setup_title": "การตั้งค่าอินเทอร์เน็ต",
+        "lang_ipv6_auto_title": "IPv6 - อัตโนมัติ",
+        "lang_ipv6_duid_title": "DUID",
+        "lang_ipv6_zone_network_setup_title": "การตั้งค่าเครือข่าย",
+        "lang_6rd_tunnel_title": "ช่องทางการเชื่อมต่อที่หก",
+        "lang_6rd_tunnel_opt_disabled": "ปิดใช้งาน",
+        "lang_6rd_tunnel_opt_auto_config": "การกำหนดค่าอัตโนมัติ",
+        "lang_6rd_tunnel_opt_manual_config": "การกำหนดค่าด้วยตนเอง",
+        "lang_alert_invalid_ip_title": "ที่อยู่ IPไม่ถูกต้อง",
+        "lang_6rd_tunnel_ip6prefix_title": "พรีฟิกซ์",
+        "lang_6rd_tunnel_ip6prefixlen_title": "ความยาวพรีฟิกซ์",
+        "lang_6rd_tunnel_peeraddr_title": "รีเลย์บอร์ดเดอร์",
+        "lang_6rd_tunnel_ip4prefixlen_title": "มาส์กของที่อยู่ IPv4"
+    }
+}

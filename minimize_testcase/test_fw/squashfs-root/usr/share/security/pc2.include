@@ -1,0 +1,180 @@
+#!/bin/sh
+
+SERVICE="parental control v2"
+PC_UNBLOCK_FILE="/tmp/pc_unblock"
+DR_QUEUE_NUM=100
+UF_QUEUE_NUM=101
+
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+check_wan() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_is_up up
+
+    if [ "$wan_is_up" != "1" ]; then
+        echo "$SERVICE, wan is down" > /dev/console
+        echo "$SERVICE, exit!" > /dev/console
+        exit 0
+    fi
+}
+
+delete_pc2_chains() {
+    # input: pc_dnsrecorder
+    iptables -t filter -F pc_dnsrecorder
+    iptables -t filter -D input_rule -j pc_dnsrecorder
+    iptables -t filter -X pc_dnsrecorder
+
+    # forward: parental control
+    iptables -t filter -F pc_urlfilter
+    iptables -t filter -F pc_schedule
+    iptables -t filter -F pc_action
+    iptables -t filter -F policy_check
+    iptables -t filter -X pc_urlfilter
+    iptables -t filter -X pc_schedule
+    iptables -t filter -X pc_action
+    iptables -t filter -X policy_check
+    iptables -t filter -F parental_control
+    iptables -t filter -D forwarding_rule -j parental_control
+    iptables -t filter -X parental_control
+}
+
+add_pc2_chains() {
+    # input: pc_dnsrecorder
+    iptables -t filter -N pc_dnsrecorder
+    iptables -t filter -A input_rule -j pc_dnsrecorder
+
+    # forward: parental control
+    iptables -t filter -N parental_control
+    iptables -t filter -A forwarding_rule -j parental_control
+    iptables -t filter -N policy_check
+    iptables -t filter -N pc_urlfilter
+    iptables -t filter -N pc_schedule
+    iptables -t filter -N pc_action
+
+    json_load "$(objReq pcPolicy json)"
+    json_select "PcPolicyT"
+    local Index="1"
+    while json_get_type Type $Index && [ "$Type" = object ]; do
+        json_select "$Index"
+        json_get_vars targetMac blockType
+
+        # Update the unblock file if blockType is changed.
+        grep -q "$targetMac" $PC_UNBLOCK_FILE
+        RET="$?"
+        if [ "$RET" = "0" ]; then
+            BLOCK_TYPE=$(grep "$targetMac" $PC_UNBLOCK_FILE | awk '{print $3}')
+            JOB_ID=$(grep "$targetMac" $PC_UNBLOCK_FILE | awk '{print $1}')
+            if [ "$BLOCK_TYPE" != "$blockType" ]; then
+                atrm $JOB_ID
+                sed -i "/$targetMac/d" $PC_UNBLOCK_FILE
+            fi
+        fi
+
+        # Determine whether the targetMac is in the unblock file
+        grep -q "$targetMac" $PC_UNBLOCK_FILE
+        RET="$?"
+        if [ "$RET" != "0" ]; then
+            iptables -t filter -A parental_control -m mac --mac-source $targetMac -j policy_check
+        fi
+
+        let Index=$Index+1
+        json_select ".."
+    done
+
+    iptables -t filter -A policy_check -j pc_urlfilter
+    iptables -t filter -A policy_check -j pc_schedule
+    iptables -t filter -A policy_check -j pc_action
+}
+
+
+do_pc2() {
+    network_get_ipaddr lanIp lan
+
+    #
+    # dnsrecorder
+    #
+    iptables -t filter -A pc_dnsrecorder -p udp --sport 53 -j NFQUEUE --queue-num $DR_QUEUE_NUM --queue-bypass
+
+    #
+    # urlfilter checking
+    #
+    iptables -t filter -A pc_urlfilter -m mark --mark 0x0/0x1000 -j NFQUEUE --queue-num $UF_QUEUE_NUM --queue-bypass
+
+    #
+    # schedule checking
+    #
+    json_load "$(objReq pcPolicy json)"
+    json_select "PcPolicyT"
+    local Index="1"
+    while json_get_type Type $Index && [ "$Type" = object ]; do
+        json_select "$Index"
+        json_get_vars targetMac blockType workdayTimeStart workdayTimeStop weekendTimeStart weekendTimeStop
+
+        if [ "$blockType" = "1" ]; then
+            # blockType is Always
+            iptables -t filter -A pc_schedule -m mac --mac-source $targetMac -j MARK --set-mark 0x2000/0x2000
+        elif [ "$blockType" = "2" ]; then
+            # blockType is Specific times
+            iptables -t filter -A pc_schedule -m mac --mac-source $targetMac \
+                -m time --kerneltz --timestart $workdayTimeStart --timestop $workdayTimeStop --weekdays Mon,Tue,Wed,Thu,Fri \
+                -j MARK --set-mark 0x2000/0x2000
+            iptables -t filter -A pc_schedule -m mac --mac-source $targetMac \
+                -m time --kerneltz --timestart $weekendTimeStart --timestop $weekendTimeStop --weekdays Sat,Sun \
+                -j MARK --set-mark 0x2000/0x2000
+        fi
+
+        let Index=$Index+1
+        json_select ".."
+    done
+
+    #
+    # action
+    #
+    # UF_MARK_WHITELIST (1u<<14) is set
+    iptables -t filter -A pc_action -m mark --mark 0x4000/0x4000 -j ACCEPT
+
+    # UF_MARK_BLOCK (1u<<13) is set
+    json_load "$(objReq pcPolicy json)"
+    json_select "PcPolicyT"
+    local Index="1"
+    while json_get_type Type $Index && [ "$Type" = object ]; do
+        json_select "$Index"
+        json_get_vars targetMac
+
+        iptables -t filter -A pc_action -p tcp --dport 80 --tcp-flags ALL ACK,PSH \
+            -m mac --mac-source $targetMac -m mark --mark 0x2000/0x2000 \
+            -j HTTPREDIRECT --redirectpage http://$lanIp:55688/pc/blocked?mac=$targetMac --direction back
+
+        let Index=$Index+1
+        json_select ".."
+    done
+    iptables -t filter -A pc_action -p tcp --dport 80 --syn -m mark --mark 0x2000/0x2000 -j ACCEPT
+    iptables -t filter -A pc_action -m mark --mark 0x2000/0x2000 -j DROP
+}
+
+start() {
+    pcEnable=$(objReq pc json | jsonfilter -e '@[*].enable')
+    if [ "$pcEnable" != "1" ]; then
+        echo "$SERVICE, disabled." > /dev/console
+        rm -f $PC_UNBLOCK_FILE
+        at -l | awk '{printf "%s ", $1}' | xargs atrm
+        exit 0
+    fi
+
+    check_wan
+    add_pc2_chains >/dev/null 2>&1
+    do_pc2 >/dev/null 2>&1
+    date -k
+    conntrack -F
+}
+
+stop() {
+    delete_pc2_chains >/dev/null 2>&1
+}
+
+
+stop
+start

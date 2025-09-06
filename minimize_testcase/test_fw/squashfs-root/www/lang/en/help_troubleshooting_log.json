@@ -1,0 +1,13 @@
+{
+    "help_troubleshooting_log": {
+        "lang_help_troubleshooting_log_title": "Log",
+        "lang_htl1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_htl2": "Log",
+        "lang_htl3": "Enabled/Disabled",
+        "lang_htl4": "The Log option allows you to monitor traffic between the local network and the Internet.",
+        "lang_htl5": "View Log",
+        "lang_htl6": "To view the logs, click this option.",
+        "lang_htl7": "The Incoming Log displays a temporary log for the incoming Internet traffic. The Outgoing Log displays a temporary log for the outgoing Internet traffic. The Security log displays the login information for the Router's browser-based utility. The DHCP Client Log displays the local DHCP server status information.",
+        "lang_htl8": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

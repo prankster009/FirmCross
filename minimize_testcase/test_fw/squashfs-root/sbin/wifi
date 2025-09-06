@@ -1,0 +1,324 @@
+#!/usr/bin/env lua
+-- Alternative for OpenWrt's /sbin/wifi.
+-- Copyright Not Reserved.
+-- Hua Shao <nossiac@163.com>
+
+package.path = '/lib/wifi/?.lua;'..package.path
+
+local nixio = require("nixio")
+
+function usage()
+	print("wifi <up|down|reset|reload|status|detect|hello|l1dat> [devname]")
+end
+
+function read_pipe(pipe)
+	local fp = io.popen(pipe)
+	local txt =  fp:read("*a")
+	fp:close()
+	return txt
+end
+
+function exists(path)
+	local fp = io.open(path, "rb")
+	if fp then fp:close() end
+	return fp ~= nil
+end
+
+function spairs(t, order)
+	local keys = {}
+	for k in pairs(t) do keys[#keys+1] = k end
+	table.sort(keys, order)
+
+	local i = 0
+	return function()
+		i = i + 1
+		if keys[i] then
+			return keys[i], t[keys[i]]
+		end
+	end
+end
+
+function string:split(sep)
+	local sep, fields = sep or ":", {}
+	local pattern = string.format("([^%s]+)", sep)
+	self:gsub(pattern, function(c) fields[#fields+1] = c end)
+	return fields
+end
+
+function load_l1profile(path)
+	local l1dat = {}
+	local fd = io.open(path, "rb")
+	if not fd then error("failed to open "..path) return end
+	for line in fd:lines() do
+		local m,n,i,devname = string.find(line, "INDEX(%d)=([^%s\'\"]+)")
+		if i and devname then
+			local devidx = 1
+			for i,dev in ipairs(l1dat) do
+				if dev.chipname == devname then
+					devidx = devidx + 1
+				end
+			end
+			l1dat[tonumber(i)+1] = {}
+			l1dat[tonumber(i)+1]["chipname"] = devname
+			l1dat[tonumber(i)+1]["devname"] = devname.."."..tostring(devidx)
+		end
+		local m,n,i,k,v = string.find(line, "INDEX(%d)_([%w-_]+)=([^%s\'\"]*)")
+		if i and k then
+			-- print(i,k,v)
+			l1dat[tonumber(i)+1][k] = v
+		end
+	end
+
+	-- split dbdc dev into 2 devs
+	local idx = 1
+	local dbdc = {}
+	for i,dev in ipairs(l1dat) do
+		if dev.profile_path:find(";") then
+			-- make a dup first
+			dbdc[idx] = {}
+			for k,v in pairs(dev) do
+				if v:find(";") then
+					local v1v2 = v:split(";")
+					assert(2 == #v1v2)
+					l1dat[i][k] = v1v2[1]
+					dbdc[idx][k] = v1v2[2]
+				else
+					dbdc[idx][k] = v
+				end
+			end
+			dbdc[idx]["devname"] = l1dat[i].devname..".2"
+			l1dat[i]["devname"] = l1dat[i].devname..".1"
+			idx = idx + 1
+		end
+	end
+
+	local idx = #l1dat + 1
+	for _,dev in ipairs(dbdc) do
+		l1dat[idx] = {}
+		for k,v in pairs(dev) do
+			l1dat[idx][k] = v
+		end
+		idx = idx + 1
+	end
+
+	return l1dat
+end
+
+function create_link_for_nvram(l1dat)
+    for _, dev in ipairs(l1dat) do
+        profile = dev.profile_path
+        os.execute("mkdir -p /tmp/mtk/wifi/")
+        if dev.nvram_zone == "dev1" then
+            os.execute("ln -sf " ..profile.." /tmp/mtk/wifi/2860")
+        elseif dev.nvram_zone == "dev2" then
+            os.execute("ln -sf " ..profile.." /tmp/mtk/wifi/rtdev")
+        elseif dev.nvram_zone == "dev3" then
+            os.execute("ln -sf " ..profile.." /tmp/mtk/wifi/wifi3")
+        end
+    end
+end
+
+-- export l1profie as shell env variables
+function export_l1profile_env(l1dat)
+	local l1chips = ""
+	local l1devnames = ""
+	local fd = io.open("/tmp/l1profile.sh", "w")
+	for i,dev in ipairs(l1dat) do
+		local devname = dev.devname:gsub("%.","_")
+		if not l1chips:find(dev.chipname) then
+			l1chips=dev.chipname.." "..l1chips
+		end
+		l1devnames = devname.." "..l1devnames
+		for k,v in pairs(dev) do
+			fd:write("export ",devname,"_",k,"=\"",v,"\"\n")
+			-- print(devname.."_"..k.."="..v)
+		end
+	end
+	-- print("L1CHIPS="..l1chips:gsub("%.","_"))
+	-- print("L1DEVNAMES="..l1devnames:gsub("%.","_"))
+	fd:write("export L1CHIPS=\"",l1chips:gsub("%.","_"),"\"\n")
+	fd:write("export L1DEVNAMES=\"",l1devnames:gsub("%.","_"),"\"\n")
+	fd:close()
+	return "/tmp/l1profile.sh"
+end
+
+
+function wifi_common_up(devname)
+	nixio.syslog("debug", "wifi_common_up "..tostring(devname))
+
+	-- need to find out the vif prefix for this device
+	for _,vif in ipairs(string.split(read_pipe("ls /sys/class/net"), "\n"))
+	do
+		if string.match(vif, "ra%a-%d+") then
+			os.execute("ifconfig "..vif.." up")
+		end
+	end
+	for _,vif in ipairs(string.split(read_pipe("ls /sys/class/net"), "\n"))
+	do
+		if string.match(vif, "apcli%a-%d+") then
+			os.execute("ifconfig "..vif.." up")
+		end
+	end
+end
+
+
+function wifi_common_down(devname)
+	nixio.syslog("debug", "wifi_common_down "..tostring(devname))
+
+	-- need to find out the vif prefix for this device
+	for _,vif in ipairs(string.split(read_pipe("ls /sys/class/net"), "\n"))
+	do
+		if string.match(vif, "apcli%d+")
+		or string.match(vif, "apclii%d+") then
+			os.execute("ifconfig "..vif.." down")
+		end
+	end
+	for _,vif in ipairs(string.split(read_pipe("ls /sys/class/net"), " "))
+	do
+		if string.match(vif, "ra%d+")
+		or string.match(vif, "rai%d+")
+		or string.match(vif, "rae%d+")
+		or string.match(vif, "rax%d+") then
+			os.execute("ifconfig "..vif.." down")
+		end
+	end
+end
+
+function wifi_common_reload(devname)
+	nixio.syslog("debug", "wifi_common_reload "..tostring(devname))
+	wifi_common_up()
+	wifi_common_down()
+end
+
+function wifi_common_reset(devname)
+	nixio.syslog("debug", "wifi_common_reset called!")
+	local curpath = "/etc/wireless/"
+	if devname then
+		curpath = curpath..devname.."/"
+	end
+	local defpath = "/rom"..defpath
+	if exists(defpath) then
+		os.execute("rm -rf "..curpath)
+		os.execute("cp -rf "..defpath.." "..curpath)
+		wifi_common_reload(devname)
+	else
+		nixio.syslog("debug", defpath.." missing, unable to reset!")
+	end
+end
+
+function wifi_common_status(devname)
+	nixio.syslog("debug", "wifi_common_status "..tostring(devname))
+	print(read_pipe("iwconfig"))
+	print(read_pipe("ifconfig -a"))
+end
+
+function wifi_common_detect(devname)
+	nixio.syslog("debug", "wifi_common_detect "..tostring(devname))
+	local l1dat = load_l1profile("/etc/wireless/l1profile.dat")
+	if not l1dat then return end
+	for _,dev in ipairs(l1dat) do
+		print("config wifi-device "..dev.devname..
+			"\n\toption type "..dev.devname..
+			"\n\toption vendor mediatek")
+		print("\nconfig wifi-iface"..
+			"\n\toption device"..dev.devname..
+			"\n\toption ifname"..dev.main_ifname..
+			"\n\toption network lan"..
+			"\n\toption mode ap")
+	end
+end
+
+for _,f in ipairs(string.split(read_pipe("find /lib/wifi/ -name \"*.lua\" 2>/dev/null"), "\n")) do
+	dofile(f)
+end
+
+function wifi(cmd, devname)
+
+	local l1dat = load_l1profile("/etc/wireless/l1profile.dat")
+
+	if not l1dat then
+		error("fatal error, failed to parse l1profile!")
+	end
+	create_link_for_nvram(l1dat) -- nvram_get/naram_set read/write from/to .dat file
+
+	local done = {}
+	for _, dev in ipairs(l1dat) do
+	while true do -- double loop to make "break" works as "continue"
+
+		local compatname = dev.init_compatible
+		if devname and dev.devname ~= devname then break end
+
+		-- to prevent duplicated call
+		if cmd == "restart" or cmd == "reload" then
+			if done[compatname] then break end
+		end
+
+		-- 1. try lua first
+		if _G[compatname.."_"..cmd] then
+			nixio.syslog("info", compatname.."_"..cmd.."("..dev.devname..")")
+			_G[compatname.."_"..cmd](dev.devname)
+			done[compatname] = true
+			break -- escape inner loop
+		end
+
+		-- 2. try shell script
+		local init_script = dev.init_script
+		local env_sh = export_l1profile_env(l1dat)
+		assert(init_script)
+		assert(env_sh)
+		if exists(init_script) then
+			local shcmd = ". "..env_sh..";sh "..init_script.." "..cmd.." "..dev.devname
+			nixio.syslog("info", shcmd)
+			if os.execute(shcmd) ~= 0 then
+				nixio.syslog("err", cmd)
+			end
+			done[compatname] = true
+			break -- break inner loop
+		else
+			assert(false, "cannot find init_script: "..init_script)
+		end
+
+		-- 3. fallback on common api
+		nixio.syslog("info", "fallback on common api!")
+		_G["wifi_common_"..cmd](compatname)
+		break -- always break here to escape from inner loop
+
+	end end -- double loop to make "break" works as "continue"
+
+	-- some wifi services setup after wifi up
+	if cmd == "up" or  cmd == "reload" or cmd == "restart" or cmd == "reset" then
+		if exists("/lib/wifi/wifi_services.lua") then
+			_G["wifi_service_misc"]()
+		elseif exists("/lib/wifi/wifi_services_sh.lua") then
+			os.execute("/lib/wifi/wifi_services_sh.lua wifi_service_misc")
+		end
+	end
+end
+
+
+cmd = arg[1]
+devname = arg[2]
+
+if cmd == "up"
+or cmd == "down"
+or cmd == "status"
+or cmd == "detect"
+or cmd == "hello"
+or cmd == "reload"
+or cmd == "restart"
+or cmd == "reset" then
+	wifi(cmd, devname)
+elseif cmd == "reload_legacy" then
+	nixio.syslog("info", "legacy command "..cmd)
+	wifi("reload", devname)
+elseif cmd == "l1dat" then
+	local l1dat = load_l1profile("/etc/wireless/l1profile.dat")
+	for i,dev in ipairs(l1dat) do
+		for k,v in pairs(dev) do
+			print(string.format("dev[%d].%s=%s",i,k,v))
+		end
+	end
+else
+	usage()
+end
+

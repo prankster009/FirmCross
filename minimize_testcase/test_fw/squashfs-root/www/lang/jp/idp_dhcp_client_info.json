@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_client_info": {
+        "lang_idp_dhcp_client_info_title": "DHCP クライアント テーブル",
+        "lang_idp_dhcp_client_info_sortby_title": "以下で並べ替え",
+        "lang_idp_dhcp_client_info_ipaddr": "IP アドレス",
+        "lang_idp_dhcp_client_info_mac_addr": "MAC アドレス",
+        "lang_idp_dhcp_client_info_interface": "インターフェイス",
+        "lang_idp_dhcp_client_info_name": "クライアント名",
+        "lang_idp_dhcp_client_info_name_title": "クライアント名",
+        "lang_idp_dhcp_client_info_interface_title": "インターフェイス",
+        "lang_idp_dhcp_client_info_ipaddr_title": "IP アドレス",
+        "lang_idp_dhcp_client_info_mac_addr_title": "MAC アドレス",
+        "lang_idp_dhcp_client_info_expire_title": "期限切れの時間",
+        "lang_idp_dhcp_client_info_select_title": "選択する",
+        "lang_idp_dhcp_client_info_interface_wifi": "ワイヤレス"
+    }
+}

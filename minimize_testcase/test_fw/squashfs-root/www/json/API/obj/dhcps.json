@@ -1,0 +1,12 @@
+{
+    "DhcpsP": {
+        "enable": "1",
+        "startIp": "192.168.1.100",
+        "leaseTime": "0",
+        "dns1": "",
+        "dns2": "",
+        "dns3": "",
+        "wins1": "",
+        "maxClient": "50"
+    }
+}

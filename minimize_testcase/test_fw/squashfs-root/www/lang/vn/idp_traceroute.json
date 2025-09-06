@@ -1,0 +1,10 @@
+{
+    "idp_traceroute": {
+        "lang_idp_traceroute_title": "Traceroute",
+        "lang_idp_traceroute_complete_title": "Theo dõi hoàn tất",
+        "lang_idp_traceroute_start_title": "traceroute tới",
+        "lang_idp_traceroute_hop_max_title": "bước nhảy tối đa",
+        "lang_idp_traceroute_data_unit_title": "byte gói tin",
+        "lang_idp_traceroute_unknow_host_title": "máy chủ không xác định"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "security_portfowarding": {
+        "lang_spf_app_name_title": "응용 프로그램 이름",
+        "lang_spf_ext_port_title": "외부 포트",
+        "lang_spf_int_port_title": "내부 포트",
+        "lang_spf_protocol_title": "프로토콜",
+        "lang_spf_to_ip_title": "대상 IP 주소",
+        "lang_spf_enabled_title": "활성화됨",
+        "lang_spf_action_title": "작업",
+        "lang_spf_add_btn_title": "새로운 단일 포트 전달 추가",
+        "lang_spf_disabled_title": "비활성화됨",
+        "lang_spf_remove_btn_title": "제거",
+        "lang_spf_protocol_both": "둘 다",
+        "lang_spf_protocol_tcp": "TCP",
+        "lang_spf_protocol_udp": "UDP"
+    }
+}

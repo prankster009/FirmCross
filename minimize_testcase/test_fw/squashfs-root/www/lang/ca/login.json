@@ -1,0 +1,11 @@
+{
+    "login": {
+        "lang_auth_title": "AUTHENTIFICATION REQUISE",
+        "lang_acnt_username": "Nom d'utilisateur",
+        "lang_acnt_passwd": "Mot de passe",
+        "lang_try_again": "Veuillez vous identifier à nouveau !",
+        "lang_login": "CONNEXION",
+        "lang_login_invalid": "Nom d’utilisateur ou Mot de passe non valide.",
+        "lang_session_fail": "Échec de la session."
+    }
+}

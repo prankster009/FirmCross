@@ -1,0 +1,9 @@
+{
+    "status_ports": {
+        "lang_ports_zone_internet_port_title": "網際網路連接埠連結",
+        "lang_ports_zone_local_ports_title": "本機連接埠連結",
+        "lang_unit_mbps": "Mbps",
+        "lang_internet_title": "網際網路",
+        "lang_port": "連接埠"
+    }
+}

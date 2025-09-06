@@ -1,0 +1,22 @@
+{
+    "connectivity_mesh": {
+        "lang_mesh_title": "Mesh Setup",
+        "lang_ssid_title": "SSID",
+        "lang_auth_type_title": "Loại xác thực",
+        "lang_encrypt_type_title": "Encryption Type",
+        "lang_psword_title": "Chuỗi mật khẩu",
+        "lang_parent_mode_title": "Mesh parent mode state",
+        "lang_apply_button": "Apply/Save",
+        "lang_add_node_button": "Thêm điểm nút mới",
+        "lang_parent_mode_state_enable": "Bật",
+        "lang_parent_mode_state_disable": "Tắt",
+        "lang_ssid_empty_info": "Bạn phải nhập SSID.",
+        "lang_ssid_format_info": "Invalid SSID name.",
+        "lang_mesh_zone_mseh5gsetting_title": "Cài đặt không dây 5 GHz",
+        "lang_mesh_zone_mseh2gsetting_title": "Cài đặt không dây 2.4 GHz",
+        "lang_mesh_info_button": "Thông tin Mesh",
+        "lang_mesh_warning": "Nếu bạn tắt EasyMesh, bạn sẽ không thể thêm các nút con nữa và / hoặc các nút con hiện có sẽ ngắt kết nối khỏi mạng.",
+        "lang_ssid_warning": "Nếu bạn muốn tắt phát SSID, bạn cần bỏ chọn EasyMesh",
+        "lang_mesh_enable_warning": "This device will disable Guest Access and Wireless MAC Filter features automatically when Easymesh is enabled."
+    }
+}

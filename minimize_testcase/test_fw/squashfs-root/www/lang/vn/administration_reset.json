@@ -1,0 +1,13 @@
+{
+    "administration_reset": {
+        "lang_reboot_title": "Khởi động lại bộ định tuyến",
+        "lang_reboot_button": "Khởi động lại",
+        "lang_reset_default_title": "Đặt lại về Càii đặt gốc mặc định",
+        "lang_reset_default_button": "Khôi phục cài đặt gốc",
+        "lang_reboot_confirm": "Bạn thực sự muốn khởi động lại thiết bị?",
+        "lang_reset_default_confirm": "Cảnh báo! Nếu bấm OK, thiết bị sẽ khôi phục lại cài đặt gốc và xóa tất cả các cài đặt trước đây.",
+        "lang_rebooting": "Đang khởi động lại......",
+        "lang_reboot_fail": "Khởi động lại không thành công",
+        "lang_reset_fail": "Khôi phục cài đặt gốc không thành công"
+    }
+}

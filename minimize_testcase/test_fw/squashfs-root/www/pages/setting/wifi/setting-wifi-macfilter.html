@@ -1,0 +1,308 @@
+<script type="text/javascript">
+var OBJ_LIST = ['wlanMacFilter','wlanWps','easyMeshBasic']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var default_mac_addr = "00:00:00:00:00:00";
+var SAVE_MF_WAITING_TIME = 10000;
+</script>
+<form id='ui-form'>
+<table class="table table-info mac_filter_setting_zone">
+<tbody>
+<tr id="tr_wifi_mac_filter_enable" >
+<td><script>draw_checkbox('wifi_mac_filter_enable', 'lang_wifi_mac_filter_enable_title', 'on', "mac_fliter_checked()");</script><span id="checkbox_div_wifi_mac_filter_enable"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+<tr id="tr_hr" >
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id="tr_access_state_prevent" >
+<td colspan="3" id="td_access_prevent">
+<div class="radio">
+<span class="radio_prevent">
+<input type="radio" id="access_state_prevent" name="access_state" value="prevent" onclick="access_radio_seleted(this.value)" class="logger_bot">
+</span>
+</div>
+<span class="multi_lang" style="font-weight:bold;" id="lang_access_state_prevent_title"></span>
+<span class="multi_lang" id="lang_access_state_prevent_info"></span>
+</td>
+</tr>
+<tr id="tr_access_state_permit" >
+<td colspan="2">
+<div class="radio">
+<span class="radio_permit">
+<input type="radio" id="access_state_permit" name="access_state" value="permit" onclick="access_radio_seleted(this.value)" class="logger_bot">
+</span>
+</div>
+<span class="multi_lang" style="font-weight: bold;" id="lang_access_state_permit_title"></span>
+<span class="multi_lang" id="lang_access_state_permit_info"></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title mac_addr_filter_list_zone" style="margin:10px 0px;">
+<span class="multi_lang" id="lang_mafilter_zone_mac_addr_filter_list_title"></span>
+<span >&nbsp;</span>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_client_list_button" onclick="displayPopout('wifi_client_list');"></button>
+</div>
+<hr class="table-title-underline mac_addr_filter_list_zone">
+<table class="table table-info mac_addr_filter_list_zone" id="filter_list">
+<tbody>
+</tbody>
+</table>
+</form>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='wifi_macfilter'
+$(document).ready(function(){
+$.lang_load("wifi_macfilter");
+$.lang_load("error_message");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function set_filter_table_init() {
+var num1, num2
+var mac_addr_text1;
+var mac_addr_text2;
+var id_name1,id_name2;
+
+for (var i=1; i <= 16; ++i) {
+num1=i;
+if (num1 < 10) { num1="0"+num1; }
+mac_addr_text1=L.wifi_macfilter.lang_mac_address_title+"  "+num1;
+
+num2=parseInt(i)+16;
+mac_addr_text2=L.wifi_macfilter.lang_mac_address_title+"  "+num2;
+
+id_name1='mac'+i;
+id_name2='mac'+(i+16);
+
+$('#filter_list tbody').append('<tr><td><span>'+mac_addr_text1+': </span><input maxlength="17" value="'+default_mac_addr+'" name="'+id_name1+'" id="'+id_name1+'" onblur="valid_macs_all(this)" size="15"></td><td><span>'+mac_addr_text2+': </span><input maxlength="17" value="'+default_mac_addr+'" name="'+id_name2+'" id="'+id_name2+'" onblur="valid_macs_all(this)" size="15"></td></tr>');
+}
+}
+
+function set_mac_filter_init(obj) {
+var mac_t;
+
+if (obj.wlanMacFilter.WlanMacFilterT[0].enable == '1') {
+$('#wifi_mac_filter_enable').attr('checked','checked');
+set_all_element_enable();
+}
+else {
+$('#wifi_mac_filter_enable').removeAttr('checked');
+set_all_element_disable();
+}
+
+if (obj.wlanMacFilter.WlanMacFilterT[0].aclmode == '2') {
+access_radio_seleted('prevent');
+}
+else {
+access_radio_seleted('permit');
+}
+
+for (var i=0; i < 32; ++i) {
+eval('mac_t=obj.wlanMacFilter.WlanMacFilterT[0].mac'+i);
+if (typeof(mac_t) == "undefined" || mac_t == "")
+$('#mac'+(i+1)).val(default_mac_addr);
+else
+$('#mac'+(i+1)).val(mac_t);
+}
+
+update_checked($('#wifi_mac_filter_enable').attr('name'));
+}
+
+function set_all_element_enable() {
+$('#access_state_prevent').removeAttr("disabled");
+$('#access_state_permit').removeAttr("disabled");
+$("[name='access_state']").parent('span').removeClass('disabled');
+$('#lang_client_list_button').removeAttr("disabled");
+$("[name^='mac']").removeAttr("disabled");
+}
+
+function set_all_element_disable() {
+$('#access_state_prevent').attr("disabled", "true");
+$('#access_state_permit').attr("disabled", "true");
+$("[name='access_state']").parent('span').addClass('disabled');
+$('#lang_client_list_button').attr("disabled", "true");
+$("[name^='mac']").attr("disabled", "true");
+}
+
+function mac_fliter_checked(){
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+alert(L.wifi_macfilter.lang_enable_warning);
+$('#wifi_mac_filter_enable').removeAttr('checked');
+return;
+}else{
+if ($('#wifi_mac_filter_enable').prop('checked')) {
+if (confirm(L.wifi_macfilter.lang_wps_disable_title) == false) {
+$('#wifi_mac_filter_enable').removeAttr('checked');
+return;
+}
+
+$('#wifi_mac_filter_enable').attr('checked','checked');
+set_all_element_enable();
+}
+else {
+$('#wifi_mac_filter_enable').removeAttr('checked');
+set_all_element_disable();
+}
+}
+}
+
+function access_radio_seleted(state) {
+$("[name='access_state']").parent('span').removeClass('checked');
+eval('var access_class="radio_'+state+'"');
+$("."+access_class).addClass('checked');
+}
+
+function valid_macs_all(I) {
+if (I.value == "") {
+I.value = I.defaultValue;
+}
+else if (I.value.length == 17) {
+if (!valid_mac_17(I)) return false;
+if (!valid_same_macs(I.value)) {
+alert(L.error_message.lang_error_message_err52);
+return false;
+}
+}
+else {
+alert(L.error_message.lang_error_message_err5);
+I.value = I.defaultValue;
+return false;
+}
+
+return true;
+}
+
+function valid_same_macs(mac) {
+var mac_t;
+var is_same = 0;
+var i;
+var len = 32;
+
+for (i=0; i < len; ++i) {
+mac_t = $('#mac'+(i+1)).val();
+if (typeof(mac_t) == "undefined" || mac_t == default_mac_addr || mac_t == "")
+continue;
+
+if (mac == mac_t) {
+if (is_same > 0)
+$('#mac'+(i+1)).val(default_mac_addr);
+is_same = is_same + 1;
+}
+}
+
+if (is_same > 1)
+return false;
+
+return true;
+}
+
+function open_wifi_client_table() {
+displayPopout('wifi_client_list');
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+get_obj_data(OBJ_LIST);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+},SAVE_MF_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+var mac_t;
+var acl_mode;
+
+MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].enable=$('#wifi_mac_filter_enable').prop('checked')?'1':'0';
+if ($('#wifi_mac_filter_enable').prop('checked') == '1') {
+MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].enable = '1';
+// 0:disable, 1:white list, 2:black list
+acl_mode = $('#access_state_prevent').parent('span').hasClass('checked');
+MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].aclmode=acl_mode?'2':'1';
+}
+else {
+MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].enable = '0';
+MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].aclmode = '0';
+}
+
+if (MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].enable == '1')
+MODIFIED_OBJ_DATA.wlanWps.WlanWpsT[0].enable='0';
+
+for (var i=0; i < 32; ++i) {
+mac_t=$('#mac'+(i+1)).val();
+if (typeof(mac_t) == "undefined" || mac_t == default_mac_addr || mac_t == "")
+eval('MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].mac'+i+'=""');
+else
+eval('MODIFIED_OBJ_DATA.wlanMacFilter.WlanMacFilterT[0].mac'+i+'="'+$('#mac'+(i+1)).val()+'"');
+}
+
+if (fake_action == true) return;
+
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA)) {
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+}
+else {
+$("#loader").show();
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_mac_filter_init(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_mac_filter_init(MODIFIED_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST);
+
+set_filter_table_init();
+}
+
+</script>
+

@@ -1,0 +1,6 @@
+{
+    "idp_mesh_fail": {
+        "lang_idp_mesh_fail_title": "子ノードへの接続に、予想よりも長い時間がかかりました。もう一度試してください。",
+        "lang_idp_mesh_tryagain": "もう一度試す"
+    }
+}

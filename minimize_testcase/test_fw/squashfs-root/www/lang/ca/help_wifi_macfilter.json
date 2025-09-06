@@ -1,0 +1,24 @@
+{
+    "help_wifi_macfilter": {
+        "lang_help_wifi_macfilter_title": "Filtre MAC sans fil",
+        "lang_hwm1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hwm2": "Filtre MAC sans fil",
+        "lang_hwm3": "Activé/Désactivé",
+        "lang_hwm4": "Pour filtrer les utilisateurs sans fil à l’aide de l’adresse MAC de leur ordinateur ou périphérique, sélectionnez <b>Activé</b>.",
+        "lang_hwm5": "Restriction d'accès",
+        "lang_hwm6": "Interdire l'accès au réseau sans fil aux ordinateurs indiqués ci-dessous",
+        "lang_hwm7": "Les ordinateurs inscrits sur la Liste de filtrage d'adresses MAC n'auront pas accès au réseau sans fil.",
+        "lang_hwm8": "Autoriser l'accès au réseau sans fil aux ordinateurs indiqués ci-dessous",
+        "lang_hwm9": "Seuls les ordinateurs inscrits sur la Liste de filtrage d'adresses MAC auront accès au réseau sans fil.",
+        "lang_hwm10": "Liste de filtrage d'adresses MAC",
+        "lang_hwm11": "Liste de périphériques clients sans fil",
+        "lang_hwm12": "Cliquez sur cette option pour ouvrir l’écran de la <i>Liste de périphériques clients sans fil</i>.",
+        "lang_hwm13": "Liste de périphériques clients sans fil",
+        "lang_hwm14": "Cet écran affiche les ordinateurs et autres dispositifs utilisant actuellement le réseau sans fil.",
+        "lang_hwm15": "Sélectionnez <b>Enregistrer dans la Liste de filtrage d’adresses MAC</b> si vous voulez ajouter des périphériques à la liste de filtrage d’adresses MAC, puis cliquez sur <b>Ajouter</b>.",
+        "lang_hwm16": "Pour mettre à jour les renseignements, cliquez sur <b>Actualiser</b>. Pour fermer cet écran, cliquez sur <b>Fermer.</b>",
+        "lang_hwm17": "MAC 01-32",
+        "lang_hwm18": "Entrez les adresses MAC des périphériques dont vous voulez contrôler l'accès sans fil.",
+        "lang_hwm19": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

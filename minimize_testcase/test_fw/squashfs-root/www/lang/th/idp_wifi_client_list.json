@@ -1,0 +1,21 @@
+{
+    "idp_wifi_client_list": {
+        "lang_idp_wifi_client_list_title": "รายการไคลเอ็นต์ไร้สาย",
+        "lang_idp_wifi_client_list_sortby_title": "เพื่อเรียงลำดับตาม",
+        "lang_idp_wifi_client_list_ipaddr": "ที่อยู่ IP",
+        "lang_idp_wifi_client_list_mac_addr": "ที่อยู่ MAC",
+        "lang_idp_wifi_client_list_status": "สถานะ",
+        "lang_idp_wifi_client_list_name": "ชื่อไคลเอ็นต์",
+        "lang_idp_wifi_client_list_name_title": "ชื่อไคลเอ็นต์",
+        "lang_idp_wifi_client_list_interface_title": "อินเตอร์เฟซ",
+        "lang_idp_wifi_client_list_ipaddr_title": "ที่อยู่ IP",
+        "lang_idp_wifi_client_list_mac_addr_title": "ที่อยู่ MAC",
+        "lang_idp_wifi_client_list_status_title": "สถานะ",
+        "lang_idp_wifi_client_list_none_title": "ไม่มี",
+        "lang_idp_wifi_client_list_save_to_title": "บันทึกไปยังรายการตัวกรองที่อยู่ MAC",
+        "lang_idp_wifi_client_list_connected_title": "เชื่อมต่อแล้ว",
+        "lang_idp_wifi_client_list_disconnected_title": "ยกเลิกการเชื่อมต่อแล้ว",
+        "lang_idp_wifi_client_list_wireless_title": "ระบบไร้สาย",
+        "lang_idp_wifi_client_list_lan_title": "LAN"
+    }
+}

@@ -1,0 +1,132 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x400a9c",
+                    "ins_addr": "0x400a9c"
+                },
+                {
+                    "function": "execute_command",
+                    "string": "execute_command(<MultiValues(<BV32 stack_base + 0xfffffbf4>)>) @ 0x400ae4",
+                    "ins_addr": "0x400ae4"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV32 stack_base + 0xfffffbf4>)>) @ 0x400a18",
+                "ins_addr": "0x400a18"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4196540
+                ]
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x401306",
+                    "ins_addr": "0x401306"
+                },
+                {
+                    "function": "execute_command",
+                    "string": "execute_command(<MultiValues(<BV64 stack_base + 0xfffffffffffffbf0>)>) @ 0x40133d",
+                    "ins_addr": "0x40133d"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffbf0>)>) @ 0x4012c6",
+                "ins_addr": "0x4012c6"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4198976
+                ]
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x401306",
+                    "ins_addr": "0x401306"
+                },
+                {
+                    "function": "execute_command",
+                    "string": "execute_command(<MultiValues(<BV64 stack_base + 0xfffffffffffffbf0>)>) @ 0x40133d",
+                    "ins_addr": "0x40133d"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffbf0>)>) @ 0x4012c6",
+                "ins_addr": "0x4012c6"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4198976
+                ]
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 0.5061373710632324,
+    "vra_time": 1.0811069011688232,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/test_cmd_exec_different_func/mipsel_program",
+    "name": "mipsel_program",
+    "has_sinks": true,
+    "sha256": "117688eddc65660ddb206988c5696c14ddc3486682f784a68768345932777d95",
+    "sink_times": {
+        "system": 4.697495937347412
+    },
+    "error": null,
+    "mango_time": 4.79352593421936,
+    "sinks": {
+        "system": 2
+    },
+    "time_data": {
+        "0x40128c -> 0x401306 -> 0x4010e0": {
+            "taint_time": 4.571359872817993,
+            "rda_time": 0.12545990943908691
+        }
+    }
+}

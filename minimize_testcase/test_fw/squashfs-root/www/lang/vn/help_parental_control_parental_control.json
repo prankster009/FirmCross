@@ -1,0 +1,29 @@
+{
+    "help_parental_control_parental_control": {
+        "lang_help_parental_control_parental_control_title": "Kiểm soát của cha mẹ",
+        "lang_hpcpc1": "Là một phần của Linksys Connect, Kiểm soát của cha mẹ có thể hạn chế truy nhập Internet cho tối đa năm máy tính hoặc thiết bị. Bạn có thể chặn truy nhập Internet hoặc giới hạn nó trong các khoảng thời gian cụ thể, và cũng có thể chặn các trang web nhất định.",
+        "lang_hpcpc2": "Lưu ý: Sau khi thực hiện thay đổi, hãy bấm Lưu cài đặt để áp dụng các thay đổi.",
+        "lang_hpcpc3": "Kiểm soát của cha mẹ",
+        "lang_hpcpc4": "Bật/Tắt",
+        "lang_hpcpc5": "Để hạn chế truy nhập Internet của các máy tính hoặc thiết bị trong mạng cục bộ, hãy chọn <b>Bật</b>.",
+        "lang_hpcpc6": "Thiết bị đích",
+        "lang_hpcpc7": "Hạn chế truy nhập Internet đối với",
+        "lang_hpcpc8": "Danh sách hiển thị các máy tính đang áp dụng Kiểm soát của cha mẹ.",
+        "lang_hpcpc9": "Thêm",
+        "lang_hpcpc10": "Nếu bạn muốn áp dụng Kiểm soát của cha mẹ cho các máy tính khác, bấm <b>Thêm</b>.",
+        "lang_hpcpc11": "Xoá",
+        "lang_hpcpc12": "Nếu bạn không muốn áp dụng Kiểm soát của cha mẹ cho một thiết bị nào đó, hãy chọn nó và bấm <b>Xóa</b>.",
+        "lang_hpcpc13": "Đổi tên",
+        "lang_hpcpc14": "Để đổi tên của một thiết bị, hãy chọn nó và bấm <b>Đổi tên</b>.",
+        "lang_hpcpc15": "Lịch biểu",
+        "lang_hpcpc16": "Quy định khi nào sẽ chặn truy nhập Internet.",
+        "lang_hpcpc17": "Không bao giờ/Luôn luôn/Thời gian cụ thể",
+        "lang_hpcpc18": "Để không bao giờ chặn truy nhập Internet, chọn <b>Không bao giờ</b>.",
+        "lang_hpcpc19": "Để luôn chặn truy nhập Internet, chọn <b>Luôn luôn</b>.",
+        "lang_hpcpc20": "Để quy định ngày và thời gian chặn truy nhập Internet, chọn <b>Thời gian cụ thể</b>.",
+        "lang_hpcpc21": "Chặn các trang cụ thể",
+        "lang_hpcpc22": "URL 1-8",
+        "lang_hpcpc23": "Trong mỗi trường, hãy nhập một địa chỉ trang web mà bạn muốn chặn.",
+        "lang_hpcpc24": "Lưu ý: Để biết thêm thông tin, vui lòng tham khảo Hướng dẫn sử dụng trực tuyến tại <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

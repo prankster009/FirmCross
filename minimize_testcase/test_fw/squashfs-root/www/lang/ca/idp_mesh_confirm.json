@@ -1,0 +1,6 @@
+{
+    "idp_mesh_confirm": {
+        "lang_idp_mesh_confirm_title": "Appuyez et maintenez enfoncé pendant 3 secondes le bouton WPS sur le nœud enfant",
+        "lang_idp_mesh_confirm_content": "La configuration continue..."
+    }
+}

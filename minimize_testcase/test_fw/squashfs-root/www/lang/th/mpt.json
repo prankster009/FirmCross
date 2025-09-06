@@ -1,0 +1,29 @@
+{
+    "mpt": {
+        "lang_wifi_mpt_title": "ส่งภูมิภาค",
+        "lang_wifi_mpt_info": "กำลังการส่งข้อมูล Wi-Fi ถูกตั้งค่าโดยขีดจำกัดระหว่างภูมิภาค คุณอาจต้องเสียค่าปรับหรือได้รับโทษ หากคุณเลือกภูมิภาคอื่นนอกเหนือจากที่คุณใช้เราเตอร์",
+        "lang_wiz_mpt_title": "เลือกภูมิภาค",
+        "lang_wiz_mpt_info_1": "กำลังการส่งข้อมูล Wi-Fi สูงสุดที่อนุญาตจะแตกต่างกันออกไปตามภูมิภาค การเลือกภูมิภาคจะเป็นตัวกำหนดขีดจำกัดดังกล่าว",
+        "lang_wiz_mpt_info_2": "คุณอาจต้องเสียค่าปรับหรือได้รับโทษ หากคุณเลือกภูมิภาคอื่นนอกเหนือจากที่คุณใช้เราเตอร์",
+        "lang_wiz_mpt_option_initial": "ประเทศหรือภูมิภาค",
+        "lang_mpt_country_CHN": "เอเชีย - จีน",
+        "lang_mpt_country_HKG": "เอเชีย - ฮ่องกง",
+        "lang_mpt_country_IND": "เอเชีย - อินเดีย",
+        "lang_mpt_country_SGP": "เอเชีย - สิงคโปร์",
+        "lang_mpt_country_TWN": "เอเชีย - ไต้หวัน",
+        "lang_mpt_country_THA": "เอเชีย - ไทย",
+        "lang_mpt_country_XAH": "เอเชีย - ประเทศอื่น ๆ ในเอเชีย",
+        "lang_mpt_country_CAN": "แคนาดา",
+        "lang_mpt_country_EEE": "ยุโรป",
+        "lang_mpt_country_SAU": "ตะวันออกกลาง - ซาอุดีอาระเบีย",
+        "lang_mpt_country_XME": "ตะวันออกกลาง",
+        "lang_mpt_country_USA": "สหรัฐอเมริกา",
+        "lang_mpt_country_PHI": "เอเชีย - ฟิลิปปินส์",
+        "lang_mpt_country_KOR": "เอเชีย - เกาหลีใต้",
+        "lang_mpt_country_MAC": "เอเชีย - มาเก๊า",
+        "lang_mpt_country_MYS": "เอเชีย - มาเลเซีย",
+        "lang_mpt_country_VNM": "เอเชีย - เวียดนาม",
+        "lang_mpt_country_AUS": "ออสเตรเลีย",
+        "lang_mpt_country_NZL": "นิวซีแลนด์"
+    }
+}

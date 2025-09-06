@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.port_trigger
+    set firewall.port_trigger=include
+    set firewall.port_trigger.type=script
+    set firewall.port_trigger.path=/usr/share/security/port_trigger.include
+    set firewall.port_trigger.family=ipv4
+    set firewall.port_trigger.reload=1
+EOT
+
+exit 0

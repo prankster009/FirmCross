@@ -1,0 +1,9 @@
+Package: wifi_services
+Version: 1
+Depends: libc, wifi-l1profile
+Source: package/mtk/misc/wifi-scripts
+License: GPL-2.0
+Section: MTK Properties
+Architecture: ramips_24kec
+Installed-Size: 1677
+Description:  wifi services

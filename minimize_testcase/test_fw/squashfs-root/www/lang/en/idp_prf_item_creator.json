@@ -1,0 +1,17 @@
+{
+    "idp_prf_item_creator": {
+        "lang_prf_item_creator_title": "Add a New Port Range Forwarding",
+        "lang_prf_item_app_name_title": "Application Name",
+        "lang_prf_item_port_range_title": "Start ~ End Port",
+        "lang_prf_item_to_title": "to",
+        "lang_prf_item_protocol_title": "Protocol",
+        "lang_prf_item_to_ip_title": "To IP Address",
+        "lang_prf_item_enable_title": "Enabled",
+        "lang_protocol_both": "Both",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "You can't use the Router's IP, network or broadcast address.",
+        "lang_msg_repeated_name": "Repeated Name",
+        "lang_msg_port_overloap": "Port overlap occurred! Please change your entry!"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "wifi_security": {
+        "lang_security_zone_wifi_security_5g_title": "5 GHz Wireless Security",
+        "lang_security_mode_title": "Security Mode",
+        "lang_passphrase_title": "Passphrase",
+        "lang_security_zone_wifi_security_2_4g_title": "2.4 GHz Wireless Security",
+        "lang_security_wpa2_personal": "WPA2 Personal",
+        "lang_security_wpa2_enterprise": "WPA2 Enterprise",
+        "lang_security_disabled": "Disabled",
+        "lang_radius_server_title": "RADIUS Server",
+        "lang_radius_port_title": "RADIUS Port",
+        "lang_radius_key_title": "Shared Key",
+        "lang_security_disable_warning": "Wireless security is currently disabled. Are you sure you want to continue?",
+        "lang_wps_disable_title": "Your new setting will disable Wi-Fi Protected Setup. Do you want to continue?",
+        "lang_security_wpa3_personal": "WPA3 Personal",
+        "lang_security_wpa3_wpa2_personal": "WPA3/WPA2 Mixed"
+    }
+}

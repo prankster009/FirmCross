@@ -1,0 +1,30 @@
+{
+    "connectivity_network": {
+        "lang_network_zone_router_address_title": "ที่อยู่ของเราเตอร์",
+        "lang_ip_addr_title": "ที่อยู่ IP",
+        "lang_subnet_mask_title": "ซับเน็ตมาส์ก",
+        "lang_router_name_title": "ชื่อเราเตอร์",
+        "lang_network_zone_dhcp_server_setting_title": "การตั้งค่าเซิร์ฟเวอร์ DHCP",
+        "lang_dhcp_server_enable_title": "เซิร์ฟเวอร์ DHCP",
+        "lang_dhcp_reservation_button": "การสำรอง DHCP",
+        "lang_start_ip_title": "ที่อยู่ IP เริ่มต้น",
+        "lang_num_of_user_title": "จำนวนผู้ใช้สูงสุด",
+        "lang_ip_range_title": "ช่วงของ ที่อยู่ IP",
+        "lang_lease_time_title": "ค่า Lease Time ของไคลเอ็นต์",
+        "lang_lease_time_unit": "นาที (0 หมายถึงหนึ่งวัน)",
+        "lang_static_dns_1_title": "DNS แบบคงที่ 1",
+        "lang_static_dns_2_title": "DNS แบบคงที่ 2",
+        "lang_static_dns_3_title": "DNS แบบคงที่ 3",
+        "lang_wins_title": "WINS",
+        "lang_ip_range_to_title": "ถึง",
+        "lang_alert_out_range": "ค่าไม่อยู่ในช่วง",
+        "lang_alert_change_setting": "ค่าไม่อยู่ในช่วง เปลี่ยนที่อยู่ IP เริ่มต้นหรือจำนวนผู้ใช้สูงสุด",
+        "lang_alert_illegal_char": "อักขระไม่ถูกต้อง [ต้องเป็น 0 - 9]",
+        "lang_alert_dev_name_blank": "ชื่อเราเตอร์จะปล่อยเว้นว่างไว้ไม่ได้",
+        "lang_alert_bridge_mode": "ไม่สนับสนุนคุณลักษณะคุณลักษณะนี้ เมื่อเราเตอร์กำลังทำงานใน Bridge Mode",
+        "lang_alert_dev_name_illegal_char": "ชื่อเราเตอร์ต้องประกอบด้วยตัวเลขและตัวอักษรและเส้นขีดกลางเท่านั้น",
+        "lang_alert_dev_name_start_letter": "ชื่อเราเตอร์จะต้องขึ้นต้นด้วยตัวอักษร",
+        "lang_alert_no_need_setup": "ไม่จำเป็นต้องตั้งค่า LAN",
+        "lang_alert_gn_ip_range": "เครือข่าย 192.168.33.0/24 (ที่อยู่ IP 192.168.33.0 - 255) ได้รับการสำรองไว้สำหรับเครือข่ายบัญชี Guest ไร้สาย กรุณาเลือกที่อยู่เครือข่ายอื่น"
+    }
+}

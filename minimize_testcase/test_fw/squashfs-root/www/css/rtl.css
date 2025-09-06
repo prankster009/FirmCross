@@ -1,0 +1,189 @@
+/* Login */
+.loginFormBtn {
+	text-align: left;
+}
+
+.loginFormTdl {
+	float: right;
+	padding-right: 0;
+	padding-left: 20px
+}
+
+.loginFormTdr {
+	float: left;
+	padding-right: 0px;
+	padding-left: 5px;
+}
+
+.logo-form {
+	background-position: right center;
+}
+
+.loginError{
+	float: left;
+}
+
+/* End Login */
+
+/*  */
+.text-left {
+	text-align: right;
+}
+
+.text-right {
+	text-align: left;
+}
+
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+	float: right;
+}
+
+@media (min-width: 768px){
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9 {
+	float: right;
+}
+}
+
+@media (min-width: 992px){
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9 {
+	float: right;
+}
+}
+
+.close {
+	float: left;
+}
+
+.modal-footer {
+	text-align: left;
+}
+/* End */
+
+
+/* pages.css */
+a.Logout {
+	margin-left: 0px;
+	margin-right: 20px;
+	padding-left: 0;
+	padding-right: 19px;
+}
+
+a.Logout ,
+a.Help {
+	background-position: right center;
+}
+
+.table-title {
+	padding-left: 0;
+	padding-right: 20px;
+}
+
+.table-info > tbody > tr > td:first-child,
+.table-info > thead > tr > td:first-child {
+	padding-left: 0;
+	padding-right: 20px;
+}
+
+.form-actions {
+	text-align: right;
+}
+
+div.checker {
+	margin-right: 0;
+	margin-left: 10px;
+}
+div.checker.empty {
+	margin-left: 0;
+}
+span.checkstd {
+	margin-left: 0px;
+	margin-right: -10px;
+}
+
+div.radio {
+	margin-right: 0;
+	margin-left: 10px;
+}
+div.radio.empty {
+	margin-left: 0;
+}
+
+span.radiostd {
+	margin-right: -10px;
+	margin-left: 15px;
+}
+
+span.multi_lang {
+	display:inline-block
+}
+
+.left-menu-tri {
+	border-width: 4px 5px 4px 0px;
+	border-color: transparent #fff transparent transparent;
+	margin: 0 1px 0 0;
+}
+
+.wiz-content {
+	text-align: right;
+}
+/* End pages.css */
+
+/* apps.css */
+.container {
+	text-align: right;
+}
+
+#header .toptool {
+	text-align: left;
+}
+
+#header .linksys-Name {
+	float: left;
+}
+
+#header .linksys-Version {
+	text-align: left;
+}
+
+.col-md-2dot4 {
+	float: right;
+}
+
+.col-md-left {
+	padding-left: 16px;
+	padding-right: 8px;
+}
+
+@media (min-width: 720px){
+.col-md-left {
+	float: right;
+}
+.col-md-right {
+	float: right;
+	padding-left: 40px;
+	padding-right: 15px;
+}
+}
+
+@media (max-width:720px){
+.col-md-left {
+	float: right;
+}
+.col-md-right {
+	float: right;
+}
+}
+
+@media screen and (max-width: 720px){
+.left-menu {
+	-webkit-transform: translate(280px);
+	transform: translate(280px);
+}
+}
+
+.copyright p {
+	padding-left: 30px;
+	padding-right: 0;
+}
+/* End app.css */
+

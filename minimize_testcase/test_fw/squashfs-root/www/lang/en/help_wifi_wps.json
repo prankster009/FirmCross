@@ -1,0 +1,27 @@
+{
+    "help_wifi_wps": {
+        "lang_help_wifi_wps_title": "Wi-Fi Protected Setup",
+        "lang_hww1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hww2": "Wi-Fi Protected Setup",
+        "lang_hww3": "Wi-Fi Protected Setup LED Activity",
+        "lang_hww4": "The Wi-Fi Protected Setup LED flashes blue for two minutes during the Wi-Fi Protected Setup process and lights up blue when the Wi-Fi Protected Setup process is successful.",
+        "lang_hww5": "The LED lights up amber for two minutes if there is an error during the Wi-Fi Protected Setup process.",
+        "lang_hww6": "Wait until the LED is continuously lit or off, before starting the next Wi-Fi Protected Setup session.",
+        "lang_hww7": "Use the Wi-Fi Protected Setup Button",
+        "lang_hww8": "Use this method if your client device has a Wi-Fi Protected Setup button.",
+        "lang_hww9": "Note: Make sure you configure one client device at a time.",
+        "lang_hww10": "Click or press the <b>Wi-Fi Protected Setup</b> button on the client device.",
+        "lang_hww11": "Click the <b>Wi-Fi Protected Setup</b> button on the Router's Wi-Fi Protected Setup screen.",
+        "lang_hww12": "After the client device has been configured, click <b>OK</b> on the Router's <i>Wi-Fi Protected Setup</i> screen within two minutes.",
+        "lang_hww13": "Enter the client device's PIN on the Router",
+        "lang_hww14": "Use this method if your client device has a Wi-Fi Protected Setup PIN (Personal Identification Number).",
+        "lang_hww15": "Enter the PIN from the client device in the field on the Router's <I>Wi-Fi Protected Setup</I> screen.",
+        "lang_hww16": "Click the <b>Register</b> button on the Router's Wi-Fi Protected Setup screen.",
+        "lang_hww17": "After the client device has been configured, click <b>OK</b> on the Router's <I>Wi-Fi Protected Setup</I> screen within two minutes.",
+        "lang_hww18": "Enter the Router's PIN on your client device",
+        "lang_hww19": "Use this method if your client device asks for the Router's PIN.",
+        "lang_hww20": "On the client device, enter the PIN listed on the Router's <I>Wi-Fi Protected Setup</I> screen. (It is also listed on the bottom of the Router.)",
+        "lang_hww21": "After the client device has been configured, click <b>OK</b> on the Router's <I>Wi-Fi Protected Setup</I> screen within two minutes.",
+        "lang_hww22": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

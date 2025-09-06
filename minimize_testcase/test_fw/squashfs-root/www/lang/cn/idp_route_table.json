@@ -1,0 +1,12 @@
+{
+    "idp_route_table": {
+        "lang_idp_route_table_title": "路由表",
+        "lang_idp_route_table_dst_ip_title": "目标 LAN IP",
+        "lang_idp_route_table_subnet_mask_title": "子网掩码",
+        "lang_idp_route_table_gateway_title": "网关",
+        "lang_idp_route_table_hop_count_title": "跃点计数",
+        "lang_idp_route_table_interface_title": "接口",
+        "lang_idp_route_table_interface_lan_tilte": "LAN 和无线",
+        "lang_idp_route_table_interface_wan_tilte": "Internet (WAN)"
+    }
+}

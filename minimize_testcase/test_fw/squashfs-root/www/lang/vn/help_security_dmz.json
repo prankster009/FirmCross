@@ -1,0 +1,16 @@
+{
+    "help_security_dmz": {
+        "lang_help_security_dmz_title": "DMZ",
+        "lang_hsd1": "Tính năng DMZ cho phép một thiết bị mạng được tiếp xúc trực tiếp với Internet để sử dụng dịch vụ đặc biệt, ví dụ: chơi trò chơi trực tuyến. Bộ định tuyến sẽ chuyển tiếp tất cả các cổng cùng một lúc tới thiết bị DMZ.",
+        "lang_hsd2": "Lưu ý: Sau khi thực hiện thay đổi, hãy bấm <b>Lưu cài đặt</b> để áp dụng các thay đổi.",
+        "lang_hsd3": "DMZ",
+        "lang_hsd4": "Bật/Tắt",
+        "lang_hsd5": "Để biến một máy tính thành thiết bị DMZ, chọn <b>Bật</b>.",
+        "lang_hsd6": "Địa chỉ IP nguồn",
+        "lang_hsd7": "Để cho phép mọi địa chỉ IP từ Internet truy nhập được thiết bị DMZ, chọn <b>Địa chỉ IP bất kỳ</b>. Để chỉ định địa chỉ IP hoặc dải địa chỉ IP từ Internet được phép truy nhập thiết bị DMZ, chọn và hoàn tất các trường dải địa chỉ IP.",
+        "lang_hsd8": "Đích",
+        "lang_hsd9": "Để chỉ định thiết bị DMZ bằng địa chỉ IP, hãy chọn <b>Địa chỉ IP</b> và nhập địa chỉ IP của nó.",
+        "lang_hsd10": "Để chỉ định thiết bị DMZ bằng địa chỉ MAC, hãy chọn <b>Địa chỉ MAC</b> và nhập địa chỉ MAC của nó. Để tra cứu địa chỉ MAC của nó, bấm <b>Bảng thiết bị khách DHCP</b>.",
+        "lang_hsd11": "Lưu ý: Để biết thêm thông tin, vui lòng tham khảo Hướng dẫn sử dụng trực tuyến tại <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

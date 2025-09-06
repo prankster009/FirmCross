@@ -1,0 +1,20 @@
+{
+    "administration_upgrade": {
+        "lang_current_fw_title": "Version actuelle du micrologiciel",
+        "lang_check_fw_button": "Vérifier le micrologiciel",
+        "lang_upload_fw_title": "Veuillez sélectionner un fichier pour la mise à niveau",
+        "lang_upgrade_fw_button": "Commencer la mise à niveau",
+        "lang_upgrade_fw_progress_warning": "Avertissement",
+        "lang_upgrade_fw_progress_warning_info": "La mise à niveau du micrologiciel peut prendre quelques minutes; ne pas mettre hors tension ni appuyer sur le bouton de réinitialisation.",
+        "lang_upgrade_fw_progress_warning_tip": "La mise à niveau ne doit PAS être interrompue !",
+        "lang_ota_last_version_title": "Version du micrologiciel la plus récente",
+        "lang_ota_upgrade_button": "Mettre à niveau",
+        "lang_file_empty_msg": "Veuillez sélectionner un fichier pour la mise à niveau",
+        "lang_file_format_msg": "Fichier image incorrect.",
+        "lang_upgrade_success": "La mise à niveau du micrologiciel a réussi",
+        "lang_upgrade_rebooting": "Redémarrage en cours",
+        "lang_file_upgrade_fail_msg": "La mise à niveau du micrologiciel a échoué !",
+        "lang_up_to_date_msg": "À jour",
+        "lang_auto_upgrade_title": "Mise à jour automatique du firmware"
+    }
+}

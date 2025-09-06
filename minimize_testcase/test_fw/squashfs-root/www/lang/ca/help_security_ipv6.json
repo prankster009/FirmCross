@@ -1,0 +1,18 @@
+{
+    "help_security_ipv6": {
+        "lang_help_security_ipv6_title": "Pare-feu IPv6",
+        "lang_hsi1": "Le pare-feu IPv6 vous permet de personnaliser les services de port pour différentes applications. Lorsque des utilisateurs envoient ces types de requêtes à votre réseau par Internet, le routeur autorise ces requêtes et les achemine aux ordinateurs (<em>serveurs</em>) appropriés.",
+        "lang_hsi2": "Remarque : une fois les modifications effectuées, cliquez sur Enregistrer les paramètres pour les appliquer.",
+        "lang_hsi3": "Paramètres du pare-feu IPv6",
+        "lang_hsi4": "Description",
+        "lang_hsi5": "Entrez des mots clés pour décrire le paramètre.",
+        "lang_hsi6": "Adresse IPv6",
+        "lang_hsi7": "Entrez l’adresse IPv6 de l'ordinateur qui doit recevoir le trafic.",
+        "lang_hsi8": "Autoriser",
+        "lang_hsi9": "Sélectionnez le(s) protocole(s) et la plage de ports utilisés pour le trafic entrant.",
+        "lang_hsi10": "Appliquer",
+        "lang_hsi11": "Autoriser les ports",
+        "lang_hsi12": "Cet écran énumère les entrées que vous avez créées pour votre pare-feu IPv6.",
+        "lang_hsi13": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

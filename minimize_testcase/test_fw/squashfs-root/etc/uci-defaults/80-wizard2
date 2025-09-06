@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.wizard2
+    set firewall.wizard2=include
+    set firewall.wizard2.type=script
+    set firewall.wizard2.path=/usr/share/security/wizard2.include
+    set firewall.wizard2.family=ipv4
+    set firewall.wizard2.reload=1
+EOT
+
+exit 0

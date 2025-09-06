@@ -1,0 +1,19 @@
+{
+    "help_wifi_wifi_basic": {
+        "lang_help_wifi_wifi_basic_title": "Paramètres de base du réseau sans fil",
+        "lang_hwb1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hwb2": "Configuration du sans-fil (manuelle)",
+        "lang_hwb3": "Réglages réseau sans fil 5 GHz/2,4 GHz",
+        "lang_hwb4": "Mode réseau",
+        "lang_hwb5": "Sélectionnez les normes sans fil prises en charge par votre réseau.",
+        "lang_hwb6": "Nom du réseau (SSID)",
+        "lang_hwb7": "Entrez le nom de votre réseau sans fil.",
+        "lang_hwb8": "Largeur du canal",
+        "lang_hwb9": "Sélectionnez la largeur de canal radio pour vos périphériques sans fil N.",
+        "lang_hwb10": "Canal",
+        "lang_hwb11": "Sélectionnez le canal radio qu'utilisera le routeur.",
+        "lang_hwb12": "Diffusion SSID",
+        "lang_hwb13": "Lorsque des périphériques sans fil rechercheront des réseaux sans fil à proximité auxquels s’associer, ils détecteront le SSID (nom du réseau sans fil) diffusé par le routeur. Pour diffuser le SSID du routeur, conservez la valeur par défaut, soit <b>Activé</b>.",
+        "lang_hwb14": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "Wifi2G": {
+        "MAC": "00:0C:43:26:60:10",
+        "ChannelWidth": "2",
+        "Channel": "0",
+        "SSIDHiden": "0",
+        "Mode": "14",
+        "SSID": "Linksys_5G",
+        "Security": "AES"
+    }
+}

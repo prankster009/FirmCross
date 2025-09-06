@@ -1,0 +1,10 @@
+{
+    "idp_prt_item_creator": {
+        "lang_prt_item_creator_title": "เพิ่มการทริกเกอร์ช่วงของพอร์ตใหม่",
+        "lang_prt_item_app_name_title": "ชื่อแอปพลิเคชัน",
+        "lang_prt_item_trigger_range_title": "ช่วงที่ถูกทริกเกอร์",
+        "lang_prt_item_forward_range_title": "ช่วงที่ส่งต่อ",
+        "lang_prt_item_to_title": "ถึง",
+        "lang_prt_item_enable_title": "เปิดใช้งาน"
+    }
+}

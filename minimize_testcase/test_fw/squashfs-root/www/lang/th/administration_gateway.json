@@ -1,0 +1,9 @@
+{
+    "administration_gateway": {
+        "lang_sip_alg_title": "SIP ALG",
+        "lang_gateway_zone_upnp_title": "UPnP",
+        "lang_upnp_enable_title": "UPnP",
+        "lang_allow_config_title": "อนุญาตให้ผู้ใช้ตั้งค่าเองได้",
+        "lang_allow_disable_net_title": "อนุญาตให้ผู้ใช้ปิดการเข้าถึงอินเทอร์เน็ต"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "idp_mesh_plug": {
+        "lang_idp_mesh_plug_title": "子ノードをコンセントに挿します",
+        "lang_idp_mesh_plug_content1": "Once it's got power, wait about 100 seconds for the node to be ready. You'll know it's ready when the light starts blinking blue.",
+        "lang_idp_mesh_plug_content2": "子ノードをさらにセットアップする場合は、問題を回避するために、一度に 1 つずつ行ってください。",
+        "lang_idp_mesh_plug_content3": "I've Waited 3 Minutes"
+    }
+}

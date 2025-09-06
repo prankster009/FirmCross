@@ -1,0 +1,24 @@
+{
+    "help_wifi_guest": {
+        "lang_help_wifi_guest_title": "Guest Access",
+        "lang_hwg1": "Use the Guest Access feature to provide guests visiting your home with Internet access only. The guest network is a wireless network separate from your local network.",
+        "lang_hwg2": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hwg3": "Guest Access",
+        "lang_hwg4": "Allow Guest Access",
+        "lang_hwg5": "To allow Internet access through a guest network, select <b>yes</b>.",
+        "lang_hwg6": "Guest Network Name",
+        "lang_hwg7": "The name of the guest network is displayed.",
+        "lang_hwg8": "Guest Password",
+        "lang_hwg9": "The login password for the guest network is displayed.",
+        "lang_hwg10": "Change",
+        "lang_hwg11": "Click <b>Change</b> to change the Guest Password.",
+        "lang_hwg12": "Change Guest Password",
+        "lang_hwg13": "Enter a new guest network password",
+        "lang_hwg14": "Enter a password of 4-32 characters. Then click <b>Change</b>.",
+        "lang_hwg15": "Total Guests Allowed",
+        "lang_hwg16": "Select the number of guests you want to allow on your guest network.",
+        "lang_hwg17": "SSID Broadcast",
+        "lang_hwg18": "When wireless devices survey the local area for wireless networks to associate with, they will detect the SSID (wireless network name) broadcast by the Router. To broadcast the SSID of the guest network, keep the default, <b>Enabled</b>.",
+        "lang_hwg19": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "help_security_dmz": {
+        "lang_help_security_dmz_title": "DMZ",
+        "lang_hsd1": "La fonction DMZ permet à un périphérique réseau d'être exposé sur Internet pour être utilisé à des fins particulières, comme par exemple les jeux en ligne. Le routeur redirige tous les ports simultanément vers le périphérique DMZ.",
+        "lang_hsd2": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hsd3": "DMZ",
+        "lang_hsd4": "Activé/Désactivé",
+        "lang_hsd5": "Pour exposer un ordinateur en tant que périphérique DMZ, sélectionnez <b>Activé</b>.",
+        "lang_hsd6": "Adresse IP source",
+        "lang_hsd7": "Pour autoriser n’importe quelle adresse IP sur Internet à accéder au périphérique DMZ, sélectionnez <b>Toute adresse IP</b>. Pour autoriser une adresse ou une plage d’adresses IP sur Internet en particulier à accéder au périphérique DMZ, sélectionnez et remplissez les champs de plage d’adresses IP.",
+        "lang_hsd8": "Destination",
+        "lang_hsd9": "Pour préciser l’appareil DMZ par adresse IP, sélectionnez <b>Adresse IP</b> et saisissez son adresse IP.",
+        "lang_hsd10": "Pour préciser l’appareil DMZ par adresse MAC, sélectionnez <b>Adresse MAC</b> et saisissez son adresse MAC. Pour chercher son adresse MAC, cliquez sur <b>Tableau des clients DHCP</b>.",
+        "lang_hsd11": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

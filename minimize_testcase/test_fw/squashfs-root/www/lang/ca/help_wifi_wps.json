@@ -1,0 +1,27 @@
+{
+    "help_wifi_wps": {
+        "lang_help_wifi_wps_title": "Wi-Fi Protected Setup",
+        "lang_hww1": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hww2": "Wi-Fi Protected Setup",
+        "lang_hww3": "Voyant d'activité Wi-Fi Protected Setup",
+        "lang_hww4": "Le voyant Configuration de l'accès Wi-Fi protégé clignote en bleu durant deux minutes pendant la configuration de l'accès Wi-Fi protégé et demeure allumé en bleu une fois la configuration terminée.",
+        "lang_hww5": "Le voyant s’allume en orange durant deux minutes si une erreur survient durant la configuration Wi-Fi Protected Setup.",
+        "lang_hww6": "Attendez que le voyant demeure allumé avant de commencer la deuxième session de configuration de l’accès Wi-Fi protégé.",
+        "lang_hww7": "Utilisez le bouton Wi-Fi Protected Setup",
+        "lang_hww8": "Suivez cette méthode si votre périphérique client est équipé d'un bouton Wi-Fi Protected Setup (WPS).",
+        "lang_hww9": "Remarque : Assurez-vous de configurer un périphérique client à la fois.",
+        "lang_hww10": "Appuyez sur le bouton <b>Wi-Fi Protected Setup</b> du périphérique.",
+        "lang_hww11": "Cliquez sur le bouton <b>Wi-Fi Protected Setup</b> sur l’écran Wi-Fi Protected Setup du routeur.",
+        "lang_hww12": "Une fois le périphérique client configuré, cliquez sur <b>OK</b> sur l’écran <i>Wi-Fi Protected Setup</i> du routeur dans un délai de deux minutes.",
+        "lang_hww13": "Entrez le NIP du périphérique client sur le routeur",
+        "lang_hww14": "Suivez cette méthode si votre périphérique client possède un NIP (numéro d'identification personnel) pour la configuration selon la norme Wi-Fi Protected Setup.",
+        "lang_hww15": "Entrez le NIP du périphérique client dans le champ correspondant de l’écran <I>Wi-Fi Protected Setup</I> du routeur.",
+        "lang_hww16": "Cliquez sur le bouton <b>Enregistrer</b> dans la page Wi-Fi Protected Setup du routeur.",
+        "lang_hww17": "Une fois le périphérique client configuré, cliquez sur <b>OK</b> sur l’écran <I>Wi-Fi Protected Setup</I> du routeur dans un délai de deux minutes.",
+        "lang_hww18": "Entrez le NIP du routeur sur votre périphérique client",
+        "lang_hww19": "Utilisez cette méthode si votre périphérique client demande le NIP du routeur.",
+        "lang_hww20": "Sur le périphérique client, entrez le NIP indiqué dans la page <I>Wi-Fi Protected Setup</I> du routeur. (Le NIP est également inscrit sur une étiquette apposée sous le routeur).",
+        "lang_hww21": "Une fois le périphérique client configuré, cliquez sur <b>OK</b> sur l’écran <I>Wi-Fi Protected Setup</I> du routeur dans un délai de deux minutes.",
+        "lang_hww22": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

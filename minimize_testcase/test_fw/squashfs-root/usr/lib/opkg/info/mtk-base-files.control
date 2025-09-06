@@ -1,0 +1,9 @@
+Package: mtk-base-files
+Version: 1-unknown
+Depends: libc, base-files, lua
+Source: package/mtk/misc/mtk-base-files
+License: GPL-2.0
+Section: MTK Properties
+Architecture: ramips_24kec
+Installed-Size: 44108
+Description:  This package contains a base filesystem and system scripts for MTK OpenWrt.

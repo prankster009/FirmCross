@@ -1,0 +1,11 @@
+{
+    "login": {
+        "lang_auth_title": "인증 필요",
+        "lang_acnt_username": "사용자 이름",
+        "lang_acnt_passwd": "암호",
+        "lang_try_again": "다시 로그인하십시오!",
+        "lang_login": "로그인",
+        "lang_login_invalid": "잘못된 사용자 이름 또는 암호",
+        "lang_session_fail": "세션 실패."
+    }
+}

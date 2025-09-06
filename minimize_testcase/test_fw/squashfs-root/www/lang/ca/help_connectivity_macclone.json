@@ -1,0 +1,15 @@
+{
+    "help_connectivity_macclone": {
+        "lang_help_connectivity_macclone_title": "Clonage d'adresse MAC",
+        "lang_hcm1": "Si l’adresse MAC de votre ordinateur est enregistrée auprès de votre FAI pour l’accès Internet et que vous ne désirez pas avoir à la réenregistrer, vous pouvez attribuer l’adresse MAC actuellement enregistrée au routeur.",
+        "lang_hcm2": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hcm3": "Clonage d'adresse MAC",
+        "lang_hcm4": "Activé/Désactivé",
+        "lang_hcm5": "Pour que le routeur clone l’adresse MAC que vous indiquez ci-dessous, sélectionnez <b>Activé</b>.",
+        "lang_hcm6": "Adresse MAC",
+        "lang_hcm7": "Entrez l'adresse MAC qui a été enregistrée auprès de votre FAI.",
+        "lang_hcm8": "Dupliquer l'adresse MAC de mon ordinateur",
+        "lang_hcm9": "Cliquez sur cette option pour cloner l'adresse MAC de l'ordinateur que vous utilisez.",
+        "lang_hcm10": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

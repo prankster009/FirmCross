@@ -1,0 +1,14 @@
+{
+    "administration_backup": {
+        "lang_backup_title": "Sauvegarder les configurations",
+        "lang_backup_config_button": "Sauvegarder",
+        "lang_restore_title": "Restaurer les configurations",
+        "lang_restore_config_button": "Commencer la restauration",
+        "lang_file_empty_msg": "Veuillez sélectionner un fichier à restaurer.",
+        "lang_file_format_msg": "Le fichier de configuration est incorrect.",
+        "lang_file_restore_fail_msg": "Le rétablissement de la configuration a échoué !",
+        "lang_restore_success": "Restauration réussie",
+        "lang_restore_rebooting": "Redémarrage en cours",
+        "lang_file_backup_fail_msg": "Échec de la sauvegarde des configurations !"
+    }
+}

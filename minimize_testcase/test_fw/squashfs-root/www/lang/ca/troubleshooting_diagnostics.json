@@ -1,0 +1,17 @@
+{
+    "troubleshooting_diagnostics": {
+        "lang_diagnostics_zone_ping_test_title": "Test Ping",
+        "lang_diagnostics_zone_traceroute_test_title": "Test Traceroute",
+        "lang_ping_ip_url_address_title": "Adresse IP ou URL",
+        "lang_packet_size_title": "Taille de paquet",
+        "lang_size_unit_title": "octets (32 - 65500)",
+        "lang_num_to_ping_title": "Nombre de ping",
+        "lang_start_to_ping_button": "Démarrer le test Ping",
+        "lang_tr_ip_url_address_title": "Adresse IP ou URL",
+        "lang_start_to_traceroute_button": "Démarrer le test Traceroute",
+        "lang_opt_unlimited": "Illimité",
+        "lang_ping_alert_illegal_char": "Caractères non valides [ils doivent être des chiffres entre 0 et 9].",
+        "lang_ping_alert_range": "La valeur se trouve en dehors de la plage permise",
+        "lang_alert_ip_url_blank": "Vous devez entrer une adresse IP ou un nom de domaine."
+    }
+}

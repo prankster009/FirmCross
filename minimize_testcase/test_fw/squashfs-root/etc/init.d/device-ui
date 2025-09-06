@@ -1,0 +1,34 @@
+#!/bin/sh /etc/rc.common
+#
+
+START=49
+
+WWW_DIR=/www
+VERSION_FILE=$WWW_DIR/VERSION
+NODOGSPLASH_HTDOCS=/etc/nodogsplash/htdocs
+
+boot() {
+	local v=$(cat $VERSION_FILE)
+
+	for i in $(find $WWW_DIR -name "*.html"); do
+		cat $i | grep 'all.min.css">' >/dev/null 2>&1
+		[ $? -eq 0 ] && {
+			sed -i 's|all.min.css">|all.min.css?v='$v'">|' $i
+		}
+		cat $i | grep 'all.min.js">' >/dev/null 2>&1
+		[ $? -eq 0 ] && {
+			sed -i 's|all.min.js">|all.min.js?v='$v'" id="UI_VERSION">|' $i
+		}
+	done
+
+	[ -x $(which nodogsplash) ] && {
+		[ ! -s $NODOGSPLASH_HTDOCS/favicon.ico ] && ln -sf $WWW_DIR/favicon.ico $NODOGSPLASH_HTDOCS/favicon.ico
+		[ ! -s $NODOGSPLASH_HTDOCS/img ] && ln -sf $WWW_DIR/img $NODOGSPLASH_HTDOCS/img
+		[ ! -s $NODOGSPLASH_HTDOCS/css ] && ln -sf $WWW_DIR/css $NODOGSPLASH_HTDOCS/css
+		[ ! -s $NODOGSPLASH_HTDOCS/js ] && ln -sf $WWW_DIR/js $NODOGSPLASH_HTDOCS/js
+		[ ! -s $NODOGSPLASH_HTDOCS/json ] && ln -sf $WWW_DIR/json $NODOGSPLASH_HTDOCS/json
+		[ ! -s $NODOGSPLASH_HTDOCS/lang ] && ln -sf $WWW_DIR/lang $NODOGSPLASH_HTDOCS/lang
+		rm -f $NODOGSPLASH_HTDOCS/splash.html
+		ln -sf $WWW_DIR/splash.html $NODOGSPLASH_HTDOCS/splash.html
+	}
+}

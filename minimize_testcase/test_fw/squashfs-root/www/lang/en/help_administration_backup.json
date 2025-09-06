@@ -1,0 +1,12 @@
+{
+    "help_administration_backup": {
+        "lang_help_administration_backup_title": "BackUp",
+        "lang_hab1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hab2": "Back Up and Restore",
+        "lang_hab3": "BackUp Configuration",
+        "lang_hab4": "To backup the Router's configuration settings, click this option and follow the on-screen instructions.",
+        "lang_hab5": "Restore Configuration",
+        "lang_hab6": "To restore the Router's configuration settings, click this option and follow the on-screen instructions. (You must have previously backed up the Router's configuration settings.)",
+        "lang_hab7": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

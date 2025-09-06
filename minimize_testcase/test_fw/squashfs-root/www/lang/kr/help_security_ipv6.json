@@ -1,0 +1,18 @@
+{
+    "help_security_ipv6": {
+        "lang_help_security_ipv6_title": "IPv6 방화벽",
+        "lang_hsi1": "IPv6 방화벽 기능을 사용하면 다양한 응용 프로그램에 대한 포트 서비스를 맞춤화할 수 있습니다. 사용자가 인터넷을 통해 이러한 요청 유형을 네트워크로 전송하는 경우, 라우터가 적절한 컴퓨터(<em>서버</em>라고도 부름)로 이러한 요청을 전달합니다.",
+        "lang_hsi2": "참고: 변경한 후 설정 저장을 클릭하여 변경 사항을 적용하십시오.",
+        "lang_hsi3": "IPv6 방화벽 설정",
+        "lang_hsi4": "설명",
+        "lang_hsi5": "설정을 설명하는 키워드를 입력합니다.",
+        "lang_hsi6": "IPv6 주소",
+        "lang_hsi7": "트래픽을 수신할 컴퓨터의 IPv6 주소를 입력합니다.",
+        "lang_hsi8": "허용",
+        "lang_hsi9": "수신되는 트래픽에 사용되는 포트의 프로토콜 및 범위를 선택합니다.",
+        "lang_hsi10": "적용",
+        "lang_hsi11": "포트 허용",
+        "lang_hsi12": "이는 IPv6 방화벽에 대해 생성한 항목을 나열됩니다.",
+        "lang_hsi13": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

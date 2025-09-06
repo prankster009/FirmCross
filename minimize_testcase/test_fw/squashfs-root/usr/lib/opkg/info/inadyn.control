@@ -1,0 +1,10 @@
+Package: inadyn
+Version: 2.5
+Depends: libc, confuse, libopenssl, ca-certificates
+Source: package/gemtek/inadyn
+License: GPL-2.0
+LicenseFiles: COPYING
+Section: net
+Architecture: ramips_24kec
+Installed-Size: 35905
+Description:  Inadyn is a small and simple Dynamic DNS, DDNS, client with HTTPS support

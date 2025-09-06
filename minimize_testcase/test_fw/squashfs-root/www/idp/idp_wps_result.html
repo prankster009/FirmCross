@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="wps_result">
+
+<div class="pop-modal">
+<div class="modal-body">
+<table height="250px" cellspacing="0">
+<tbody>
+<tr>
+<td><img id="wps_result_state"></td>
+<td class="wpsfont"><span id="wps_result_text"></span></td>
+</tr>
+<tr>
+<td></td>
+<td class="wpsfont"><span id="wps_result_info1"></span></td>
+</tr>
+<tr>
+<td></td>
+<td class="wpsfont"><span id="wps_result_info2"></span></td>
+</tr>
+<tr>
+<td></td>
+<td class="wpsfont" id="wps_result_info3">
+</td>
+</tr>
+<tr>
+<td></td>
+<td class="wpsfont">
+<p style="text-align:right;padding-right:8px;">
+<input class="wpsbutton logger_bot" type="button" name="wps_result_button" id="wps_result_button" onclick="closePopout()">
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var L;
+var wscresult;	// 34:success, 2:fail
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+$('#loader', window.parent.document).hide();
+
+$('#wps_result_button').val(L.lang_idp_wps_result_ok_button);
+
+wscresult=window.parent.WPS_ST;
+show_wps_result();
+inject_log_bot_idp()
+},1000);
+
+}
+
+function show_wps_result() {
+if (wscresult == "34") {
+$('#wps_result_state').attr('src', '../img/wps_success.gif');
+$('#wps_result_text').text(L.lang_idp_wps_result_success_title);
+$('#wps_result_info1').text(L.lang_idp_wps_result_success_info1_title);
+}
+else {
+$('#wps_result_state').attr('src', '../img/wps_fail.gif');
+$('#wps_result_text').text(L.lang_idp_wps_result_fail_title);
+$('#wps_result_info1').text(L.lang_idp_wps_result_fail_info1_title);
+}
+$('#wps_result_info2').text(L.lang_idp_wps_result_info2_title);
+$('#wps_result_info3').html('<P>'+L.lang_idp_wps_result_info3_title+'<b>'+L.lang_idp_wps_result_ok_button+'</b>'+L.lang_idp_wps_result_info4_title+'</P>');
+}
+
+</script>
+
+</FORM></BODY></HTML>

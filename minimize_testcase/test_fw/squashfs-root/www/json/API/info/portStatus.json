@@ -1,0 +1,13 @@
+{
+    "portStatus": {
+        "WAN": {
+            "WanPort0": "1"
+        },
+        "LAN": {
+            "LanPort0": "1",
+            "LanPort1": "0",
+            "LanPort2": "0",
+            "LanPort3": "0"
+        }
+    }
+}

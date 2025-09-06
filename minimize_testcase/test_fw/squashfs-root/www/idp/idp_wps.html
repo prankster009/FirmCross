@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="wps">
+
+<div class="pop-modal">
+<div class="modal-body">
+<table class="table table-info" cellspacing="0">
+<tbody>
+<tr>
+<td class="wpsfont" style="padding-top:30px">
+<span class="multi_lang" id="lang_idp_wps_info_title"></span>
+</td>
+</tr>
+<tr>
+<td class="wpsfont" style="padding-top:10px">
+<span class="multi_lang" id="lang_idp_wps_wait_title"></span>
+</td>
+</tr>
+<tr>
+<td class="wpsfont" style="padding-top:10px">
+</td>
+</tr>
+<tr>
+<td class="wpsfont" style="padding-top:30px">
+<table>
+<tbody>
+<tr>
+<td id="left" class="PROC_STATUS" style="width:0px" bgcolor="#66CC66"></td>
+<td id="right" class="PROC_STATUS1" style="width:300px"></td>
+<td>&nbsp;</td>
+<td id="percent" style="padding-left:20px"></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr height="10">
+<td></td>
+</tr>
+<tr>
+<td class="wpsfont">
+<p style="text-align:right;padding-right:8px;">
+<input class="wpsbutton logger_bot" type="button" name="wps_cancel_button" id="wps_cancel_button" onclick="wps_cancel()">
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var INFO_LIST = ['wscMonitor'];
+var INFO_DATA = {};
+var WPS_SET_STOP = {"wpsProcess":{"Mode":"STOP"}};
+
+var L;
+var tmp_width=0;
+var progressbar_width=300;
+var is_cancel=false;
+var wps_timer;
+var step=5;
+var timer_interval=2000;
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+$('#loader', window.parent.document).hide();
+
+$('#wps_cancel_button').val(L.lang_idp_wps_cancel_button);
+
+get_info_data(INFO_LIST);
+inject_log_bot_idp()
+},1000);
+}
+
+/*
+*	0: not used
+*	1: idle
+*	2: WSC Process Fail
+*	3: Start WSC Process
+*	34: WSC configured
+*
+*	wps search timeout: 120s
+*/
+function get_wps_state() {
+get_info_data(INFO_LIST);
+}
+function get_wscresult(obj) {
+if (obj.ra0 == obj.rai0)
+return obj.ra0;
+
+// wps end of 2.4G or 5G
+if (obj.ra0 == '2' || obj.ra0 == '34')
+return obj.ra0;
+else if (obj.rai0 == '2' || obj.rai0 == '34')
+return obj.rai0;
+
+// wps start of 2.4G or 5G
+if ((obj.ra0  != '0' && obj.ra0  != '1') ||
+(obj.rai0 != '0' && obj.rai0 != '1'))
+return '3';
+
+return '0';
+}
+function wps_process() {
+var per;
+var wscresult;
+
+//if (INFO_DATA.wscMonitor.ra0 == '3') {
+//	$('#lang_idp_wps_info_title').text(L.lang_idp_wps_connect_title);
+//}
+
+wscresult = get_wscresult(INFO_DATA.wscMonitor);
+
+if (wscresult == '0' || wscresult == '2' || wscresult == '34') {
+tmp_width = 300;
+window.parent.WPS_ST = wscresult;
+
+$('#left').attr('style', 'width:'+tmp_width+'px');
+$('#right').attr('style', 'width:'+(progressbar_width-tmp_width)+'px');
+$('#percent').text('99%');
+
+if (tmp_width >= progressbar_width) {
+is_cancel = true;
+setTimeout(window.parent.show_wps_result, 2000);
+closePopout();
+return;
+}
+}
+else {	// start wps
+if (tmp_width >= progressbar_width)
+tmp_width = progressbar_width-1;
+
+$('#left').attr('style', 'width:'+tmp_width+'px');
+$('#right').attr('style', 'width:'+(progressbar_width-tmp_width)+'px');
+
+per=parseInt((tmp_width*100)/progressbar_width);
+$('#percent').text(per+'%');
+
+if (per == 98)
+tmp_width = progressbar_width-step-1;
+else if (wscresult == '3') {
+tmp_width=tmp_width+step;
+}
+}
+}
+
+function wps_cancel() {
+is_cancel=true;
+window.parent.WPS_ST='2';
+set_info_data(WPS_SET_STOP);
+}
+
+function set_info_success_cb(obj) {
+setTimeout(window.parent.show_wps_result, 2000);
+closePopout();
+}
+function set_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function set_info_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.info.set(JSON.parse(obj_content), set_info_success_cb, set_info_error_cb);
+else if(typeof(obj_content) == 'object')
+API.info.set(obj_content, set_info_success_cb, set_info_error_cb);
+}
+function get_info_success_cb(obj) {
+clearTimeout(wps_timer);
+
+INFO_DATA = API.obj.copy(obj);
+
+wps_process();
+if (!is_cancel)
+wps_timer = setTimeout(get_wps_state, timer_interval);
+}
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+else
+wps_cancel();
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+</script>
+
+</FORM></BODY></HTML>

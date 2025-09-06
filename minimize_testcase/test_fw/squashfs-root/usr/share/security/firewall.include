@@ -1,0 +1,144 @@
+#!/bin/sh
+
+SERVICE="firewall"
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+. /lib/hummer/state.sh
+
+
+check_wan() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_is_up up
+
+    if [ "$wan_is_up" != "1" ]; then
+        echo "$SERVICE, wan is down" > /dev/console
+        echo "$SERVICE, exit!" > /dev/console
+        exit 0
+    fi
+}
+
+delete_firewall_chains() {
+    iptables -t filter -F input_wan_firewall
+    iptables -t filter -D input_wan_rule -j input_wan_firewall
+    iptables -t filter -X input_wan_firewall
+    iptables -t filter -F forwarding_lan_firewall
+    iptables -t filter -D forwarding_lan_rule -j forwarding_lan_firewall
+    iptables -t filter -X forwarding_lan_firewall
+    iptables -t filter -F forwarding_wan_firewall
+    iptables -t filter -D forwarding_wan_rule -j forwarding_wan_firewall
+    iptables -t filter -X forwarding_wan_firewall
+}
+
+add_firewall_chains() {
+    iptables -t filter -N input_wan_firewall
+    iptables -t filter -A input_wan_rule -j input_wan_firewall
+    iptables -t filter -N forwarding_lan_firewall
+    iptables -t filter -A forwarding_lan_rule -j forwarding_lan_firewall
+    iptables -t filter -N forwarding_wan_firewall
+    iptables -t filter -A forwarding_wan_rule -j forwarding_wan_firewall
+}
+
+do_firewall() {
+    local wanmode wan_ip wan_ifname ripEnable guest_ip
+    local enable ipv6Enable blockAnonys blockMulti blockIdent blockProxy blockJava blockActX blockCookie
+
+    wanmode=$(objReq wan json | jsonfilter -e '@[*].proto')
+    ripEnable=$(objReq route json | jsonfilter -e '@[*].RIP')
+
+    json_load "$(objReq firewall json)"
+    json_select "FirewallP"
+    json_get_vars enable ipv6Enable blockAnonys blockMulti blockIdent blockProxy blockJava blockActX blockCookie
+    json_select ".."
+
+
+    if [ "$wanmode" = "$WAN_PROTO_L2TP" -o "$wanmode" = "$WAN_PROTO_PPTP" ]; then
+        network_get_ipaddr wan_ip vpn
+        network_get_device wan_ifname vpn
+    else
+        network_get_ipaddr wan_ip wan
+        network_get_device wan_ifname wan
+    fi
+
+    if [ -d /sys/class/net/br-guest ]; then
+        guest_ip="$(ifconfig br-guest | grep 'inet addr' | cut -d: -f2 | awk '{print $1}')"
+    fi
+
+    # Allow PPTP
+    if [ "$wanmode" = "$WAN_PROTO_PPTP" ]; then
+        iptables -t filter -A input_wan_firewall -p tcp -m tcp --dport 1723 -j ACCEPT
+        iptables -t filter -A input_wan_firewall -p gre -j ACCEPT
+    fi
+
+    # Allow RIP
+    if [ "$ripEnable" = "1" ]; then
+        iptables -t filter -A input_wan_firewall -d 224.0.0.9/32 -p udp -m udp --dport 520 -j ACCEPT
+    fi
+
+    if [ "$blockAnonys" != "1" ]; then
+        iptables -t filter -A input_wan_firewall -p icmp --icmp-type 8 -j ACCEPT
+        ip6tables -t filter -A zone_wan_input -p ipv6-icmp -m icmp6 --icmpv6-type 128 -j ACCEPT
+    fi
+
+    if [ "$blockMulti" = "1" ]; then
+        iptables -t filter -A input_wan_firewall -p igmp -d 224.0.0.0/4 -j DROP
+        iptables -t filter -A forwarding_wan_firewall -p udp -d 224.0.0.0/4 -j DROP
+    else
+        iptables -t filter -A input_wan_firewall -p igmp -d 224.0.0.0/4 -j ACCEPT
+        iptables -t filter -A forwarding_wan_firewall -p udp -d 224.0.0.0/4 -j ACCEPT
+    fi
+
+    if [ "$blockIdent" != "1" ]; then
+        iptables -t filter -A input_wan_firewall -p tcp --dport 113 -j ACCEPT
+    fi
+
+    if [ "$blockProxy" = "1" ]; then
+        iptables -t filter -A forwarding_lan_firewall -p tcp -m multiport --dports 80,3128,8000,8080 -m webstr --content 8 -j DROP
+    fi
+
+    if [ "$blockJava" = "1" ]; then
+        iptables -t filter -A forwarding_lan_firewall -p tcp --dport 80 -m webstr --content 1 -j DROP
+    fi
+
+    if [ "$blockActX" = "1" ]; then
+        iptables -t filter -A forwarding_lan_firewall -p tcp --dport 80 -m webstr --content 2 -j DROP
+    fi
+
+    if [ "$blockCookie" = "1" ]; then
+        iptables -t filter -A forwarding_lan_firewall -p tcp --dport 80 -m webstr --content 4 -j DROP
+    fi
+
+    # Port Scan
+    iptables -t filter -A input_wan_firewall -m recent --name portscan --rcheck --seconds 86400 -j DROP
+    iptables -t filter -A input_wan_firewall -m recent --name portscan --remove
+    iptables -t filter -A input_wan_firewall -p tcp -m tcp --dport 139 -m recent --name portscan --set -j DROP
+
+    # SYN Flood
+    iptables -t filter -A input_wan_firewall -m state --state NEW -p tcp -m tcp --syn -m recent --name synflood --set
+    iptables -t filter -A input_wan_firewall -m state --state NEW -p tcp -m tcp --syn -m recent --name synflood --update --seconds 1 --hitcount 20 -j DROP
+
+    # Block LAN Accessing Web UI through WAN Address
+    iptables -t filter -A input_lan_rule -p tcp -m multiport --dports 80,443 -d $wan_ip -j DROP
+
+    # BLock LAN Accessing Web UI through Guest Network Gateway
+    if [ -n "$guest_ip" ]; then
+        iptables -t filter -A input_lan_rule -p tcp -m multiport --dports 80,443 -d $guest_ip -j DROP
+    fi
+}
+
+start() {
+    check_wan
+    add_firewall_chains >/dev/null 2>&1
+    do_firewall >/dev/null 2>&1
+}
+
+stop() {
+    delete_firewall_chains >/dev/null 2>&1
+}
+
+
+
+stop
+start
+

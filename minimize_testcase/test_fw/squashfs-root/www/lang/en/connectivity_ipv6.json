@@ -1,0 +1,17 @@
+{
+    "connectivity_ipv6": {
+        "lang_ipv6_zone_internet_setup_title": "Internet Setup",
+        "lang_ipv6_auto_title": "IPv6 - Automatic",
+        "lang_ipv6_duid_title": "DUID",
+        "lang_ipv6_zone_network_setup_title": "Network Setup",
+        "lang_6rd_tunnel_title": "6rd Tunnel",
+        "lang_6rd_tunnel_opt_disabled": "Disabled",
+        "lang_6rd_tunnel_opt_auto_config": "Automatic Configuration",
+        "lang_6rd_tunnel_opt_manual_config": "Manual Configuration",
+        "lang_alert_invalid_ip_title": "Invalid IP address",
+        "lang_6rd_tunnel_ip6prefix_title": "Prefix",
+        "lang_6rd_tunnel_ip6prefixlen_title": "Prefix Length",
+        "lang_6rd_tunnel_peeraddr_title": "Border Relay",
+        "lang_6rd_tunnel_ip4prefixlen_title": "IPv4 Address Mask"
+    }
+}

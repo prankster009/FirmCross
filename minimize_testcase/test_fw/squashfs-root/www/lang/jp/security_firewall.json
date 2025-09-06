@@ -1,0 +1,17 @@
+{
+    "security_firewall": {
+        "lang_firewall_zone_firewall_title": "ファイアウォール",
+        "lang_ipv6_spi_firewall_title": "IPv6 SPI ファイアウォール保護",
+        "lang_ipv4_spi_firewall_title": "IPv4 SPI ファイアウォール保護",
+        "lang_firewall_zone_net_filter_title": "インターネット フィルター",
+        "lang_anonymous_filter_title": "匿名インターネット リクエストをフィルター",
+        "lang_multicast_filter_title": "マルチキャストをフィルター",
+        "lang_nat_redirection_filter_title": "IPv4 インターネットのみに対してインターネット NAT リダイレクトをフィルター",
+        "lang_ident_title": "IDENT (ポート 113) をフィルター",
+        "lang_firewall_zone_web_filter_title": "Web フィルター",
+        "lang_proxy_filter_title": "プロキシ",
+        "lang_java_filter_title": "Java",
+        "lang_activex_filter_title": "ActiveX",
+        "lang_cookies_filter_title": "Cookie"
+    }
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+
+<form method="post" action="" name="mesh_name" onsubmit="return false;">
+
+<div class="pop-modal">
+
+<div class="modal-header"></div>
+<div class="modal-body">
+<div class="row">
+<div class="col" style="padding-left: 10px"><img class="img_cursor" src="/img/back.png" width="20px" height="20px" onclick="back()"></div>
+</div>
+<div class="wiz-content-title"><span class="multi_lang" id="lang_idp_mesh_name_title">Where is your node?</span></div>
+<div class="row">
+<div class="col-md-12"><span class="multi_lang" style="font-size: 16px;" id="lang_idp_mesh_name_content4">Naming nodes helps you tell them apart when accessing settings.</span></div>
+</div>
+<div class="row">
+<br>
+</div>
+<div style="padding-top: 10px; text-align:center">
+<div class="inputBlock">
+<div class="row" style="text-align:left">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<span class="inputLabel"><span class="multi_lang" style="font-size: 16px;" id="lang_idp_mesh_name_content2">Node Name</span></span>
+</div>
+</div>
+<div class="row" style="padding-top: 5px">
+<div class="col-md-12 col-sm-12 col-xs-12">
+<input id="name" class="input-lg" style="width: 100%;" maxlength="20" size="17" name="router_name"  placeholder="Example: Kitchen, Living room, Bedroom">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="modal-footer">
+
+
+<button type="button" data-dismiss="modal" class="btncancel multi_lang logger_bot" onclick="closePopout()" id="btnCancel">Cancel</button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="page_save()" id="btnNext">Next</button>
+
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var name_action={"easyMeshSetName":{"name":"NAME"}};
+var save_action={"easyMeshNewAgent":{"action":"save"}};
+var L, L_parent;
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+L_parent = window.parent.L.wifi_wifi_basic;
+$('#loader', window.parent.document).hide();
+//$.lang_load("connectivity_network");
+inject_log_bot_idp();
+//$('#name').attr('placeholder',L.lang_idp_mesh_name_content3);
+resizePopout();
+},1000);
+
+}
+function back(){
+setTimeout(window.parent.switch_page("pass"), 500);
+closePopout();
+}
+function page_save(){
+if(!valid_node_name($("#name")[0]))
+return ;
+name_action.easyMeshSetName.name = $("#name").val()
+set_info_data(save_action)
+setTimeout(function(){
+set_info_data(name_action)
+closePopout();
+$('#loader', window.parent.document).show();
+setTimeout(function(){
+$('#loader', window.parent.document).hide();
+setTimeout(window.parent.switch_page("save"), 1000);
+},5000);
+},500);
+}
+function set_info_success_cb(obj) {
+//displayPopout('wps');
+console.log("pass")
+}
+function set_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function set_info_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.info.set(JSON.parse(obj_content), set_info_success_cb, set_info_error_cb);
+else if(typeof(obj_content) == 'object')
+API.info.set(obj_content, set_info_success_cb, set_info_error_cb);
+}
+function valid_node_name(I) {
+if (I.value.length < 1) {
+alert(L.lang_idp_mesh_name_error1);
+I.value = I.defaultValue;
+return false;
+}
+
+var re = new RegExp("[^a-zA-Z0-9-\\s-]+","gi");
+if (re.test(I.value)) {
+alert(L.lang_idp_mesh_name_error2);
+I.value = I.defaultValue;
+return false;
+}
+
+re = new RegExp("^[0-9-]","gi");
+if (re.test(I.value)) {
+alert(L.lang_idp_mesh_name_error3);
+I.value = I.defaultValue;
+return false;
+}
+
+ele_set_default(I,I.value);
+return true;
+}
+
+
+
+</script>
+
+</FORM></BODY></HTML>

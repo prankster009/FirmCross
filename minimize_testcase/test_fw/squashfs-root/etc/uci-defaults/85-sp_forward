@@ -1,0 +1,12 @@
+#!/bin/sh
+
+uci -q batch <<-EOT
+    delete firewall.sp_forward
+    set firewall.sp_forward=include
+    set firewall.sp_forward.type=script
+    set firewall.sp_forward.path=/usr/share/security/sp_forward.include
+    set firewall.sp_forward.family=ipv4
+    set firewall.sp_forward.reload=1
+EOT
+
+exit 0

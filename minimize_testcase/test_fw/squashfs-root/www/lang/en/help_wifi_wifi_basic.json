@@ -1,0 +1,19 @@
+{
+    "help_wifi_wifi_basic": {
+        "lang_help_wifi_wifi_basic_title": "Basic Wireless Settings",
+        "lang_hwb1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hwb2": "Wireless Configuration (Manual)",
+        "lang_hwb3": "5 GHz/2.4 GHz Wireless Settings",
+        "lang_hwb4": "Network Mode",
+        "lang_hwb5": "Select the wireless standards your network will support.",
+        "lang_hwb6": "Network Name (SSID)",
+        "lang_hwb7": "Enter the name of your wireless network.",
+        "lang_hwb8": "Channel Width",
+        "lang_hwb9": "Select the radio channel width for your Wireless-N devices.",
+        "lang_hwb10": "Channel",
+        "lang_hwb11": "Select the radio channel that the Router will use.",
+        "lang_hwb12": "SSID Broadcast",
+        "lang_hwb13": "When wireless devices survey the local area for wireless networks to associate with, they will detect the SSID (wireless network name) broadcast by the Router. To broadcast the Router's SSID, keep the default, <b>Enabled</b>.",
+        "lang_hwb14": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

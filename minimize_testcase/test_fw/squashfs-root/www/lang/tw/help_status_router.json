@@ -1,0 +1,23 @@
+{
+    "help_status_router": {
+        "lang_help_status_router_title": "路由器",
+        "lang_hsr1": "路由器資訊",
+        "lang_hsr2": "韌體版本",
+        "lang_hsr3": "顯示路由器目前韌體的版本號碼。",
+        "lang_hsr4": "韌體驗證",
+        "lang_hsr5": "顯示韌體的唯一識別碼。",
+        "lang_hsr6": "目前時間",
+        "lang_hsr7": "顯示當地時間。",
+        "lang_hsr8": "網際網路 MAC 位址",
+        "lang_hsr9": "顯示從網際網路上看到的路由器 MAC 位址。",
+        "lang_hsr10": "路由器名稱",
+        "lang_hsr11": "裝置名稱是路由器的 NetBIOS 名稱。",
+        "lang_hsr12": "主機名稱",
+        "lang_hsr13": "顯示路由器的主機名稱。",
+        "lang_hsr14": "網域名稱",
+        "lang_hsr15": "顯示路由器的網域名稱。",
+        "lang_hsr16": "網際網路連線",
+        "lang_hsr17": "本節說明了目前儲存在路由器的網路資訊。",
+        "lang_hsr18": "對於 DHCP 連線，請根據需要點選<b>釋放 IP 位址</b>或<b>更新 IP 位址</b>以釋放或更新 DHCP 租用。對於 PPPoE 或類似的連線，請根據需要點選<b>連線</b>或<b>中斷連線</b>以連線到網際網路或中斷網際網路連線。"
+    }
+}

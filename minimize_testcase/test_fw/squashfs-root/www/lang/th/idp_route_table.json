@@ -1,0 +1,12 @@
+{
+    "idp_route_table": {
+        "lang_idp_route_table_title": "ตารางการกำหนดเส้นทาง",
+        "lang_idp_route_table_dst_ip_title": "IP ของ LAN ปลายทาง",
+        "lang_idp_route_table_subnet_mask_title": "ซับเน็ตมาส์ก",
+        "lang_idp_route_table_gateway_title": "เกตเวย์",
+        "lang_idp_route_table_hop_count_title": "จำนวนฮ็อป",
+        "lang_idp_route_table_interface_title": "อินเตอร์เฟซ",
+        "lang_idp_route_table_interface_lan_tilte": "LAN และไร้สาย",
+        "lang_idp_route_table_interface_wan_tilte": "อินเทอร์เน็ต (WAN)"
+    }
+}

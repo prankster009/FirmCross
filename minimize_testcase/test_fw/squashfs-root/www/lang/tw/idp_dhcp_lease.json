@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_lease": {
+        "lang_idp_dhcp_lease_title": "DHCP 用戶端資料表",
+        "lang_idp_dhcp_lease_sortby_title": "排序方式",
+        "lang_idp_dhcp_lease_ipaddr": "IP 位址",
+        "lang_idp_dhcp_lease_mac_addr": "MAC 位址",
+        "lang_idp_dhcp_lease_interface": "介面",
+        "lang_idp_dhcp_lease_name": "用戶端名稱",
+        "lang_idp_dhcp_lease_name_title": "用戶端名稱",
+        "lang_idp_dhcp_lease_interface_title": "介面",
+        "lang_idp_dhcp_lease_ipaddr_title": "IP 位址",
+        "lang_idp_dhcp_lease_mac_addr_title": "MAC 位址",
+        "lang_idp_dhcp_lease_expire_title": "逾期時間",
+        "lang_idp_dhcp_lease_delete_abbreviation": "刪除",
+        "lang_idp_dhcp_lease_interface_wifi": "無線"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "help_security_dmz": {
+        "lang_help_security_dmz_title": "DMZ",
+        "lang_hsd1": "使用 DMZ 功能，可将一个网络设备对 Internet 公开，以使用在线游戏等专用服务。路由器同时将所有端口转发到该 DMZ 设备。",
+        "lang_hsd2": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hsd3": "DMZ",
+        "lang_hsd4": "启用/禁用",
+        "lang_hsd5": "要将一台计算机作为 DMZ 设备公开，请选择“启用”<b></b>。",
+        "lang_hsd6": "源 IP 地址",
+        "lang_hsd7": "要允许 Internet 上的任何 IP 地址访问 DMZ 设备，请选择“任意 IP 地址”<b></b>。要允许 Internet 上的某个 IP 地址或 IP 地址范围访问 DMZ 设备，请选择并填写 IP 地址范围字段。",
+        "lang_hsd8": "目标",
+        "lang_hsd9": "要按 IP 地址指定 DMZ 设备，请选择“IP 地址”<b></b>并输入其 IP 地址。",
+        "lang_hsd10": "要按 MAC 地址指定 DMZ 设备，请选择“MAC 地址”<b></b>并输入其 MAC 地址。要查找其 MAC 地址，请单击“DHCP 客户端表”<b></b>。",
+        "lang_hsd11": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

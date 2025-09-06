@@ -1,0 +1,10 @@
+{
+    "help_administration_reset": {
+        "lang_help_administration_reset_title": "Device Reset",
+        "lang_har1": "Restart the Router",
+        "lang_har2": "Click this option to restart your Router.",
+        "lang_har3": "Reset to Factory Default Settings",
+        "lang_har4": "This feature allows you to reset all of the Router's configuration settings to their default values.",
+        "lang_har5": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "administration_management": {
+        "lang_management_passwd_tips_prefix": "원격 관리를 사용하는 경우 권장됩니다",
+        "lang_management_passwd_tips_link": "관리자 암호 변경 중",
+        "lang_management_passwd_tips_postfix": "보안용.",
+        "lang_management_zone_local_mg_title": "로컬 관리 액세스",
+        "lang_local_http_mode_title": "액세스 경로",
+        "lang_http_title": "HTTP",
+        "lang_https_title": "HTTPS",
+        "lang_local_wireless_title": "무선을 통한 액세스",
+        "lang_management_zone_remote_mg_title": "원격 관리 액세스",
+        "lang_remote_enable_title": "원격 관리",
+        "lang_remote_http_mode_title": "액세스 경로",
+        "lang_remote_upgrade_title": "원격 업그레이드",
+        "lang_remote_allow_ip_any_title": "허용된 원격 IP 주소",
+        "lang_remote_allow_ip_any": "임의의 IP 주소",
+        "lang_remote_port_title": "원격 관리 포트",
+        "lang_to": "-",
+        "lang_default_ps_warning": "라우터가 현재 기본 암호로 설정되어 있습니다. 보안 조치의 하나로, 원격 관리 기능을 사용하기 전에 암호를 변경해야 합니다. 확인 버튼을 클릭하여 암호를 변경합니다.  취소 버튼을 클릭하여 원격 관리 기능을 비활성화된 상태로 유지합니다."
+    }
+}

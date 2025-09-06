@@ -1,0 +1,19 @@
+{
+    "help_wifi_wifi_basic": {
+        "lang_help_wifi_wifi_basic_title": "基本無線設定",
+        "lang_hwb1": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hwb2": "無線設定（手動）",
+        "lang_hwb3": "5 GHz/2.4 GHz 無線設定",
+        "lang_hwb4": "網路模式",
+        "lang_hwb5": "選擇您的網路可支援的無線標準。",
+        "lang_hwb6": "網路名稱 (SSID)",
+        "lang_hwb7": "請輸入您無線網路的名稱。",
+        "lang_hwb8": "通道寬度",
+        "lang_hwb9": "為您的 Wireless-N 裝置選取無線電通道。",
+        "lang_hwb10": "通道",
+        "lang_hwb11": "選擇路由器將使用的無線電通道。",
+        "lang_hwb12": "SSID 廣播",
+        "lang_hwb13": "當無線裝置檢視本地區域，尋找關連的無線網路時，將會偵測到路由器廣播的 SSID（無線網路名稱）。若要廣播路由器的 SSID，請維持預設的<b>已啟用</b>。",
+        "lang_hwb14": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

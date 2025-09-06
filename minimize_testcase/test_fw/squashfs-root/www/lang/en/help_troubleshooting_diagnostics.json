@@ -1,0 +1,23 @@
+{
+    "help_troubleshooting_diagnostics": {
+        "lang_help_troubleshooting_diagnostics_title": "Diagnostics",
+        "lang_htd1": "Diagnostics",
+        "lang_htd2": "Ping Test",
+        "lang_htd3": "Ping checks whether the IP or URL address is reachable.",
+        "lang_htd4": "IP or URL Address",
+        "lang_htd5": "Enter the IP or URL address you want to test.",
+        "lang_htd6": "Packet Size",
+        "lang_htd7": "Enter the packet size you want to send.",
+        "lang_htd8": "Number to Ping",
+        "lang_htd9": "Enter the number of times you wish to test the connection.",
+        "lang_htd10": "Start to Ping",
+        "lang_htd11": "To run the test, click this option. The Ping screen shows if the test is successful.",
+        "lang_htd12": "Traceroute Test",
+        "lang_htd13": "Traceroute displays the route that packets travel between your computer and the IP or URL address.",
+        "lang_htd14": "IP or URL Address",
+        "lang_htd15": "Enter the IP or URL address you want to test.",
+        "lang_htd16": "Start to Traceroute",
+        "lang_htd17": "To run the test, click this option. The Traceroute screen shows if the test is successful.",
+        "lang_htd18": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

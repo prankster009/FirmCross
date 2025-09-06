@@ -1,0 +1,23 @@
+{
+    "help_administration_management": {
+        "lang_help_administration_management_title": "管理",
+        "lang_ham1": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_ham2": "本地管理访问",
+        "lang_ham3": "访问方式",
+        "lang_ham4": "选择本地访问的协议。",
+        "lang_ham5": "通过无线访问",
+        "lang_ham6": "若要允许对路由器基于浏览器的实用工具进行无线访问，请保留默认设置“启用”<b></b>。",
+        "lang_ham7": "远程管理访问",
+        "lang_ham8": "远程管理",
+        "lang_ham9": "要通过 Internet 管理路由器，请选择“启用”<b></b>。",
+        "lang_ham10": "访问方式",
+        "lang_ham11": "选择远程访问的协议。",
+        "lang_ham12": "远程升级",
+        "lang_ham13": "要通过 Internet 升级路由器的固件，请选择“启用”<b></b>。",
+        "lang_ham14": "允许的远程 IP 地址",
+        "lang_ham15": "要允许从任何外部 IP 地址访问路由器，请选择“任意 IP 地址”<b></b>。要指定外部 IP 地址或 IP 地址范围，请选择并填写 IP 地址范围字段。",
+        "lang_ham16": "远程管理端口",
+        "lang_ham17": "输入将对远程访问开放的端口号。",
+        "lang_ham18": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

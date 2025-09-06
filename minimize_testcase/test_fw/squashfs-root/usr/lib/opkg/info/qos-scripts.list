@@ -1,0 +1,8 @@
+/etc/init.d/qos
+/usr/lib/qos/tcrules.awk
+/usr/bin/qos-stat
+/usr/bin/qos-start
+/usr/lib/qos/generate.sh
+/etc/hotplug.d/iface/10-qos
+/etc/config/qos
+/usr/bin/qos-stop

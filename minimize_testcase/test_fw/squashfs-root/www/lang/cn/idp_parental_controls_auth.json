@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_auth": {
+        "lang_idp_parental_controls_auth_title": "家长控制",
+        "lang_idp_parental_controls_auth_info_title": "输入家长控制密码：",
+        "lang_idp_parental_controls_auth_forgot_pwd_title": "我忘记了密码",
+        "lang_idp_parental_controls_auth_errmsg_title": "密码不正确。"
+    }
+}

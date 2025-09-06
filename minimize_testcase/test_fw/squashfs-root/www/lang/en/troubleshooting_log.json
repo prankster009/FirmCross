@@ -1,0 +1,8 @@
+{
+    "troubleshooting_log": {
+        "lang_log_title": "Log",
+        "lang_log_enable_title": "Log",
+        "lang_view_log_button": "View Log",
+        "lang_log_alert_msg": "Click Save to create the log. Then you can click View Log to see the log."
+    }
+}

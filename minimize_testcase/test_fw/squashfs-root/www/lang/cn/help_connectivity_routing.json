@@ -1,0 +1,28 @@
+{
+    "help_connectivity_routing": {
+        "lang_help_connectivity_routing_title": "高级路由",
+        "lang_hcr1": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hcr2": "高级路由",
+        "lang_hcr3": "NAT",
+        "lang_hcr4": "启用/禁用",
+        "lang_hcr5": "如果此路由器共享本地网络的 Internet 连接，请保留默认设置“启用”<b></b>。",
+        "lang_hcr6": "动态路由 (RIP)",
+        "lang_hcr7": "启用/禁用",
+        "lang_hcr8": "如果禁用 NAT，此选项则处于可用状态。这允许路由器自动与其他路由器交换路由表。",
+        "lang_hcr9": "静态路由",
+        "lang_hcr10": "路由条目",
+        "lang_hcr11": "要在路由器和其他网络之间建立静态路由，请从下拉菜单中选择一个数字。要删除静态路由，请选择其编号，然后单击“删除此条目”<b></b>。",
+        "lang_hcr12": "输入路由名称",
+        "lang_hcr13": "输入路由名称。",
+        "lang_hcr14": "目标 LAN IP",
+        "lang_hcr15": "输入您要为其分配静态路由的远程网络或主机的 IP 地址。",
+        "lang_hcr16": "子网掩码",
+        "lang_hcr17": "输入目标 LAN IP 地址的子网掩码。",
+        "lang_hcr18": "网关",
+        "lang_hcr19": "输入支持路由器与远程网络或主机之间通信的网关服务器的 IP 地址。",
+        "lang_hcr20": "接口",
+        "lang_hcr21": "选择目标 LAN IP 地址的位置。",
+        "lang_hcr22": "单击“显示路由表”<b></b>可查看已设置的静态路由。",
+        "lang_hcr23": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

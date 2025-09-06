@@ -1,0 +1,8 @@
+{
+    "idp_guest_pwd": {
+        "lang_idp_guest_pwd_title": "게스트 암호 변경",
+        "lang_idp_guest_pwd_info1_title": "새로운 게스트 네트워크 암호 입력:",
+        "lang_idp_guest_pwd_info2_title": "4 - 32자",
+        "lang_idp_guest_pwd_alert_title": "유효한 암호를 입력하십시오. 유효한 문자는 A-Z, a-z, 0-9입니다."
+    }
+}

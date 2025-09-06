@@ -1,0 +1,11 @@
+Package: luafilesystem
+Version: 1.7.0.2-1
+Depends: libc, liblua
+Source: package/lang/luafilesystem
+Section: lang
+Maintainer: W. Michael Petullo <mike@flyn.org>
+Architecture: ramips_24kec
+Installed-Size: 5343
+Description:  This package contains the LuaFileSystem library, a set of portable
+ functions for directory creation, listing and deletion and for file
+ locking.

@@ -1,0 +1,9 @@
+Package: base-files
+Version: 157.2-unknown
+Depends: libc, netifd, procd, jsonfilter, usign
+Source: package/base-files
+License: GPL-2.0
+Section: base
+Architecture: ramips_24kec
+Installed-Size: 42938
+Description:  This package contains a base filesystem and system scripts for OpenWrt.

@@ -1,0 +1,17 @@
+{
+    "security_portfowarding": {
+        "lang_spf_app_name_title": "应用程序名称",
+        "lang_spf_ext_port_title": "外部端口",
+        "lang_spf_int_port_title": "内部端口",
+        "lang_spf_protocol_title": "协议",
+        "lang_spf_to_ip_title": "目标 IP 地址",
+        "lang_spf_enabled_title": "启用",
+        "lang_spf_action_title": "操作",
+        "lang_spf_add_btn_title": "添加新的单端口转发",
+        "lang_spf_disabled_title": "已禁用",
+        "lang_spf_remove_btn_title": "删除",
+        "lang_spf_protocol_both": "两者",
+        "lang_spf_protocol_tcp": "TCP",
+        "lang_spf_protocol_udp": "UDP"
+    }
+}

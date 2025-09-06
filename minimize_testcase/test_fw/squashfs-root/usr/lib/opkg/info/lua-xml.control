@@ -1,0 +1,8 @@
+Package: lua-xml
+Version: 2017-04-04
+Depends: libc, lua, libstdcpp
+Source: package/lang/lua-xml
+Section: lang
+Architecture: ramips_24kec
+Installed-Size: 24094
+Description:  Very fast XML parser for Lua based on RapidXML.

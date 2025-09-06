@@ -1,0 +1,10 @@
+{
+    "parental_control_blocked": {
+        "lang_document_title": "Accès Internet bloqué",
+        "lang_content_title": "Accès Internet bloqué",
+        "lang_content_info": "L'accès Internet est actuellement bloqué.  Entrez le mot de passe de contrôle parental pour rendre les sites Web et les contenus bloqués accessibles pendant une heure.",
+        "lang_password_title": "Mot de passe :",
+        "lang_unblock_title": "Débloquer",
+        "lang_password_incorrect": "Le mot de passe n'est pas valide."
+    }
+}

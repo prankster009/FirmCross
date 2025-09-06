@@ -1,0 +1,14 @@
+{
+    "administration_backup": {
+        "lang_backup_title": "Sao lưu cấu hình",
+        "lang_backup_config_button": "Sao lưu",
+        "lang_restore_title": "Khôi phục cấu hình",
+        "lang_restore_config_button": "Bắt đầu Khôi phục",
+        "lang_file_empty_msg": "Vui lòng chọn tệp để khôi phục.",
+        "lang_file_format_msg": "Tệp cấu hình không chính xác.",
+        "lang_file_restore_fail_msg": "Khôi phục cấu hình không thành công!",
+        "lang_restore_success": "Khôi phục thành công",
+        "lang_restore_rebooting": "Đang khởi động lại......",
+        "lang_file_backup_fail_msg": "Sao lưu cấu hình không thành công!"
+    }
+}

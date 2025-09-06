@@ -1,0 +1,9 @@
+[
+    {
+        "file": "event_report.lua",
+        "func": "reset_stat_params_config",
+        "idxs": [
+            0
+        ]
+    }
+]

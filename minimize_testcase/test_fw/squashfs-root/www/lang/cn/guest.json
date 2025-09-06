@@ -1,0 +1,12 @@
+{
+    "guest": {
+        "lang_document_title": "来宾访问",
+        "lang_content_title": "来宾访问",
+        "lang_content_info": "请输入来宾访问密码，以访问 Internet。如果您不知道密码，请询问所有者。可使用 Linksys Connect 找到来宾访问密码。",
+        "lang_password_title": "密码",
+        "lang_login_button": "登录",
+        "lang_lang_error_msg": "登录失败",
+        "lang_desktop_view_title": "桌面视图",
+        "lang_mobile_view_title": "移动视图"
+    }
+}

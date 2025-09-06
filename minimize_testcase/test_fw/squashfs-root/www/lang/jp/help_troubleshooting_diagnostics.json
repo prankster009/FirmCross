@@ -1,0 +1,23 @@
+{
+    "help_troubleshooting_diagnostics": {
+        "lang_help_troubleshooting_diagnostics_title": "診断",
+        "lang_htd1": "診断",
+        "lang_htd2": "ping テスト",
+        "lang_htd3": "ping は、IP または URL アドレスに到達できるかどうかをチェックします。",
+        "lang_htd4": "IP または URL アドレス",
+        "lang_htd5": "テストする IP または URL アドレスを入力してください。",
+        "lang_htd6": "パケット サイズ",
+        "lang_htd7": "送信するパケット サイズを入力してください。",
+        "lang_htd8": "ping 数",
+        "lang_htd9": "接続をテストする回数を入力してください。",
+        "lang_htd10": "ping を開始",
+        "lang_htd11": "テストを実行するには、このオプションをクリックしてください。ping 画面はテストが正常に行われているかどうかを表示します。",
+        "lang_htd12": "traceroute テスト",
+        "lang_htd13": "traceroute は、コンピューターと IP または URL アドレスの間でパケットが移動するルートを表示します。",
+        "lang_htd14": "IP または URL アドレス",
+        "lang_htd15": "テストする IP または URL アドレスを入力してください。",
+        "lang_htd16": "traceroute を起動する",
+        "lang_htd17": "テストを実行するには、このオプションをクリックしてください。traceroute 画面はテストが正常に行われているかどうかを表示します。",
+        "lang_htd18": "メモ: 詳細な情報については、<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b> のオンライン ユーザー ガイドを参照してください。"
+    }
+}

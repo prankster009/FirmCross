@@ -1,0 +1,17 @@
+{
+    "idp_prf_item_creator": {
+        "lang_prf_item_creator_title": "Ajouter un nouveau routage de plage de ports",
+        "lang_prf_item_app_name_title": "Nom de l'application",
+        "lang_prf_item_port_range_title": "Port de début et de fin",
+        "lang_prf_item_to_title": "à",
+        "lang_prf_item_protocol_title": "Protocole",
+        "lang_prf_item_to_ip_title": "Adresse IP de destination",
+        "lang_prf_item_enable_title": "Activé",
+        "lang_protocol_both": "Les deux",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "Vous ne pouvez pas utiliser l'adresse de diffusion, de réseau ou IP du routeur.",
+        "lang_msg_repeated_name": "Nom répété",
+        "lang_msg_port_overloap": "Il y a chevauchement de port ! Veuillez modifier votre saisie !"
+    }
+}

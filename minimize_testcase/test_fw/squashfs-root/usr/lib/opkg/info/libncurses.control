@@ -1,0 +1,10 @@
+Package: libncurses
+Version: 5.9-2
+Depends: libc, terminfo
+Source: package/libs/ncurses
+License: MIT
+LicenseFiles: README
+Section: libs
+Architecture: ramips_24kec
+Installed-Size: 121030
+Description:  Terminal handling library

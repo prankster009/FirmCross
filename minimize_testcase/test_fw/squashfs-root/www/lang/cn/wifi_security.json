@@ -1,0 +1,18 @@
+{
+    "wifi_security": {
+        "lang_security_zone_wifi_security_5g_title": "5 GHz 无线安全",
+        "lang_security_mode_title": "安全模式",
+        "lang_passphrase_title": "密码",
+        "lang_security_zone_wifi_security_2_4g_title": "2.4 GHz 无线安全",
+        "lang_security_wpa2_personal": "WPA2 个人",
+        "lang_security_wpa2_enterprise": "WPA2 企业",
+        "lang_security_disabled": "已禁用",
+        "lang_radius_server_title": "RADIUS 服务器",
+        "lang_radius_port_title": "RADIUS 端口",
+        "lang_radius_key_title": "共享密钥",
+        "lang_security_disable_warning": "当前已禁用无线安全设置。是否确定要继续？",
+        "lang_wps_disable_title": "您的新设置将禁用 Wi-Fi 保护设置。是否要继续？",
+        "lang_security_wpa3_personal": "WPA3 个人",
+        "lang_security_wpa3_wpa2_personal": "WPA3/WPA2 Mixed"
+    }
+}

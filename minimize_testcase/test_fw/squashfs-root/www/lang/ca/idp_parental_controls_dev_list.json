@@ -1,0 +1,7 @@
+{
+    "idp_parental_controls_dev_list": {
+        "lang_idp_parental_controls_dev_list_title": "Contrôle parental",
+        "lang_idp_parental_controls_dev_list_info_title": "Définir le contrôle parental pour :",
+        "lang_idp_parental_controls_dev_list_alert_title": "Sélectionnez tout d'abord un appareil !"
+    }
+}

@@ -1,0 +1,2 @@
+/etc/modules.d/32-sit
+/lib/modules/3.10.108/sit.ko

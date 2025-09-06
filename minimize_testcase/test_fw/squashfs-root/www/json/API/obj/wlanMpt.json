@@ -1,0 +1,10 @@
+{
+    "WlanMptP": {
+        "name": "ralink",
+        "support": "1",
+        "enable": "1",
+        "region": "AH",
+        "selectedCountry": "XAH",
+        "dfs_enable": "0"
+    }
+}

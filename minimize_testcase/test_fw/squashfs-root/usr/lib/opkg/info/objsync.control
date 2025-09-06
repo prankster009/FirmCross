@@ -1,0 +1,8 @@
+Package: objsync
+Version: 1
+Depends: libc, libobj
+Source: package/gemtek/objsync
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 4804
+Description:  Gemtek libobj sync tool

@@ -1,0 +1,22 @@
+{
+    "connectivity_mesh": {
+        "lang_mesh_title": "EasyMesh",
+        "lang_ssid_title": "SSID",
+        "lang_auth_type_title": "身份验证类型",
+        "lang_encrypt_type_title": "Encryption Type",
+        "lang_psword_title": "密码",
+        "lang_parent_mode_title": "Mesh parent mode state",
+        "lang_apply_button": "Apply/Save",
+        "lang_add_node_button": "添加一个新节点",
+        "lang_parent_mode_state_enable": "启用",
+        "lang_parent_mode_state_disable": "禁用",
+        "lang_ssid_empty_info": "必须输入一个 SSID。",
+        "lang_ssid_format_info": "Invalid SSID name.",
+        "lang_mesh_zone_mseh5gsetting_title": "5 GHz 无线设置",
+        "lang_mesh_zone_mseh2gsetting_title": "2.4 GHz 无线设置",
+        "lang_mesh_info_button": "网格信息",
+        "lang_mesh_warning": "关闭Easy Mesh后，您将无法再添加子节点 或者将现有子节点断开与网络的连接",
+        "lang_ssid_warning": "如果需要关闭WiFi SSID广播，您必须先在\"基本无线设置\"中，关闭Easy Mesh功能。",
+        "lang_mesh_enable_warning": "启用Easy Mesh后，访客网络和无线MAC地址过滤器功能将无法使用。"
+    }
+}

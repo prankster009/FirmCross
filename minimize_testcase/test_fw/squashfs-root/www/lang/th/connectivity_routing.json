@@ -1,0 +1,20 @@
+{
+    "connectivity_routing": {
+        "lang_routing_zone_advanced_routing_title": "การกำหนดเส้นทางขั้นสูง",
+        "lang_nat_enable_title": "NAT",
+        "lang_routing_zone_dynamic_routing_title": "การกำหนดเส้นทางแบบไดนามิก (RIP)",
+        "lang_dynamic_rt_enable_title": "เปิดใช้งาน",
+        "lang_routing_zone_static_routing_title": "การกำหนดเส้นทางแบบคงที่",
+        "lang_rt_entries_title": "รายการเส้นทาง",
+        "lang_delete_entry_button": "ลบรายการนี้",
+        "lang_rt_name_title": "ป้อนชื่อเส้นทาง",
+        "lang_dst_lan_ip_title": "IP ของ LAN ปลายทาง",
+        "lang_subnet_mask_title": "ซับเน็ตมาส์ก",
+        "lang_gateway_title": "เกตเวย์",
+        "lang_interface_title": "อินเตอร์เฟซ",
+        "lang_rt_table_button": "แสดงตารางการกำหนดเส้นทาง",
+        "lang_interface_opt_lan_wifi": "LAN และไร้สาย",
+        "lang_interface_opt_wan": "อินเทอร์เน็ต (WAN)",
+        "lang_alert_guest_not_availabed_title": "ไม่สามารถใช้การเข้าถึงของแอคเคาท์ Guest ได้ หากปิดใช้งาน NAT ดำเนินการต่อโดยบันทึกการเปลี่ยนแปลงของคุณหรือไม่"
+    }
+}

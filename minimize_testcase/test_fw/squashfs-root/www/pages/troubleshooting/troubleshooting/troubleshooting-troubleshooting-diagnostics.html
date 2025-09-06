@@ -1,0 +1,158 @@
+<script type="text/javascript">
+var OBJ_LIST = []
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var num_to_ping_val_list = ['5','10','15','0'];
+var num_to_ping_str_list = [5,10,15,'opt_unlimited'];
+</script>
+<form id='ui-form'>
+<div class="table-title ping_test_zone">
+<span class="multi_lang" id="lang_diagnostics_zone_ping_test_title"></span>
+</div>
+<hr class="table-title-underline ping_test_zone">
+<table class="table table-info ping_test_zone">
+<tbody>
+<tr id="tr_ping_ip_url_address" >
+<td>
+<span class="multi_lang" id="lang_ping_ip_url_address_title"></span>
+</td>
+<td>
+<input maxlength="39" value="" name="ping_ip_url_address" id="ping_ip_url_address" onblur="valid_name(this,'IP',SPACE_NO)" size="26" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_packet_size" >
+<td>
+<span class="multi_lang" id="lang_packet_size_title"></span>
+</td>
+<td>
+<input maxlength="5" value="" name="packet_size" id="packet_size" onblur="valid_range(this,32,65500,'')" size="6" class="logger_bot">
+<span class="multi_lang" id="lang_size_unit_title"></span>
+<span name="size_unit" id="size_unit" ></span>
+</td>
+</tr>
+<tr id="tr_num_to_ping" >
+<td>
+<span class="multi_lang" id="lang_num_to_ping_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('num_to_ping', num_to_ping_str_list, num_to_ping_val_list,'callback()', '');})();</script>
+<div id="select_div_num_to_ping"></div>
+</td>
+</tr>
+<tr id="tr_start_to_ping" >
+<td>
+<span >&nbsp;</span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_start_to_ping_button" onclick="run_ping()"></button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="table-title traceroute_test_zone">
+<span class="multi_lang" id="lang_diagnostics_zone_traceroute_test_title"></span>
+</div>
+<hr class="table-title-underline traceroute_test_zone">
+<table class="table table-info traceroute_test_zone">
+<tbody>
+<tr id="tr_tr_ip_url_address" >
+<td>
+<span class="multi_lang" id="lang_tr_ip_url_address_title"></span>
+</td>
+<td>
+<input maxlength="39" value="" name="tr_ip_url_address" id="tr_ip_url_address" onblur="valid_name(this,'IP',SPACE_NO)" size="26" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_start_to_traceroute" >
+<td>
+<span >&nbsp;</span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_start_to_traceroute_button" onclick="run_traceroute()"></button>
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+<script type="text/javascript">
+page_tag='troubleshooting_diagnostics'
+$(document).ready(function(){
+$.lang_load("troubleshooting_diagnostics");
+$.lang_load("error_message");
+page_initial()
+inject_log_bot()
+});
+
+function callback(){
+
+}
+
+function run_ping() {
+var pkt_sz = 32;
+
+if ($('#ping_ip_url_address').val() == "") {
+alert(L.troubleshooting_diagnostics.lang_alert_ip_url_blank);
+return;
+}
+
+pkt_sz = parseInt($('#packet_size').val());
+if (isNaN(pkt_sz))
+$('#packet_size').attr('value',32);
+else
+$('#packet_size').attr('value',pkt_sz);
+
+displayPopout('ping');
+}
+
+function run_traceroute() {
+if ($('#tr_ip_url_address').val() == "") {
+alert(L.troubleshooting_diagnostics.lang_alert_ip_url_blank);
+return;
+}
+
+displayPopout('traceroute');
+}
+
+function ping_size_changed(value) {
+if (typeof value == 'undefined') {
+return;
+}
+
+if (value.length <= 0) {
+return;
+}
+
+if (/^\+?[0-9][\d]*$/.test(value) == false) {
+alert(L.troubleshooting_diagnostics.lang_ping_alert_illegal_char);
+return;
+}
+
+if (value < 32 || value > 65500) {
+alert(L.troubleshooting_diagnostics.lang_ping_alert_range+' [32 - 65500].');
+// restore origin value
+return;
+}
+}
+
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+
+$('#packet_size').val('32');
+$('#packet_size').attr('value',32);
+}
+
+</script>
+

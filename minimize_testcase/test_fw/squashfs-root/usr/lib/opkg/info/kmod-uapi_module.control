@@ -1,0 +1,8 @@
+Package: kmod-uapi_module
+Version: 3.10.108+6f0d8ed938f631a4cf0ce86b5a643754e2fd8f5d-1
+Depends: kernel (=3.10.108-1-41b2331d49b4ca2b30f8dd2717544b31)
+Source: package/kernel/uapi_module
+Section: net
+Architecture: ramips_24kec
+Installed-Size: 2980
+Description:  Uevent API module

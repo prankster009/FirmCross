@@ -1,0 +1,124 @@
+<script src="js/ajaxfileupload.js"></script>
+<table class="table table-info backup_zone">
+<tbody>
+<tr id="tr_backup_config" >
+<td>
+<span class="multi_lang" id="lang_backup_title"></span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_backup_config_button" onclick="backup_config()"></button>
+</td>
+</tr>
+<tr id="tr_restore_config" >
+<td>
+<span class="multi_lang" id="lang_restore_title"></span>
+</td>
+<td>
+<input type="file" class="logger_bot" name="restore_file_path" id="restore_file_path" size="26">
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_restore_config_button" onclick="check_upload_file()"></button>
+</td>
+</tr>
+</tbody>
+</table>
+<script language="javascript" type="text/javascript">
+
+page_tag='administration_backup'
+$(document).ready(function(){
+$.lang_load("administration_backup");
+page_initial()
+inject_log_bot()
+});
+function backup_config(){
+API.cgi.download("backup_config");
+}
+
+function check_upload_file(){
+var file_name = $("#restore_file_path").val();
+
+if (typeof(file_name) == "undefined" || file_name == "") {
+alert(L.administration_backup.lang_file_empty_msg);
+return;
+} else {
+if(validation_file_name(file_name) != true) {
+alert(L.administration_backup.lang_file_format_msg);
+} else {
+upload_config_file();
+}
+}
+}
+
+function validation_file_name(f_name) {
+var file_type = f_name.substr(f_name.length - 4 , f_name.length).toLowerCase();
+
+if(file_type == '.bin') {
+return true;
+} else {
+return false;
+}
+}
+
+function upload_config_file() {
+$.ajaxFileUpload({
+url:"cgi-bin/upload_config.cgi",
+secureuri:false,
+fileElementId:'restore_file_path',
+dataType: 'text',
+success: function (data, status){
+var splitdata = data.split("{");
+var splitdata2 = splitdata[1].split("</pre>");
+var current_data = "{"+ splitdata2[0];
+var obj_result = jQuery.parseJSON(current_data);
+
+if (obj_result.result == "success") {
+$("#loader").show()
+upload_config_process();
+} else {
+alert(L.administration_backup.lang_file_restore_fail_msg);
+}
+}
+})
+}
+
+function upload_config_process() {
+var estr = '{}';
+
+$.ajax({
+type: "POST",
+url: "cgi-bin/upgrade_config.cgi",
+data: estr,
+dataType : "text",
+cache: false,
+timeout: 5000,
+async:  false,
+beforeSend: onSend,
+success: onSuccess,
+complete: onComplete,
+error: onError
+});
+function onSend(){};
+function onComplete(){};
+function onError(){};
+function onSuccess(data, status){
+var success = data.search("success");
+var time_out = data.search("timeout");
+if(success != -1){
+$("#loader").hide()
+show_alert(L.common.success_title, L.administration_backup.lang_restore_success)
+setTimeout(function(){
+$("#loader_msg_main").html('<span>'+L.administration_backup.lang_restore_success+'</span>')
+$("#loader_msg_sub").html('<span>'+L.administration_backup.lang_restore_rebooting+'</span>')
+$("#loader_msg_sub").show()
+$("#loader").show()
+control_timer = setTimeout(function(){
+reboot_back_checker()
+},20000)
+},1000)
+}else{
+$("#loader").hide()
+show_alert(L.common.fail_title, L.administration_backup.lang_file_restore_fail_msg)
+}
+
+};
+}
+</script>
+

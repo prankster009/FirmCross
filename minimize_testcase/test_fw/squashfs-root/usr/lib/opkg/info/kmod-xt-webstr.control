@@ -1,0 +1,8 @@
+Package: kmod-xt-webstr
+Version: 3.10.108-1
+Depends: kernel (=3.10.108-1-41b2331d49b4ca2b30f8dd2717544b31), iptables, kmod-ipt-core, kmod-ipt-nat, libip4tc, libip6tc, libxtables
+Source: package/gemtek/xt-webstr
+Section: net
+Architecture: ramips_24kec
+Installed-Size: 2928
+Description:  Module for web content filter

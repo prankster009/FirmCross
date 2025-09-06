@@ -1,0 +1,16 @@
+{
+    "help_administration_gateway": {
+        "lang_help_administration_gateway_title": "Gateway Function",
+        "lang_hag1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hag2": "SIP ALG",
+        "lang_hag3": "The SIP ALG option allows SIP packets to traverse the NAT firewall. To use the SIP ALG for VoIP service, select Enabled. If your VoIP service provider uses other NAT traversal solutions such as STUN, TURN, or ICE, then keep the default, Disabled.",
+        "lang_hag4": "UPnP",
+        "lang_hag5": "UPnP",
+        "lang_hag6": "UPnP allows the appropriate operating system to automatically configure the Router for various applications, such as online gaming and VoIP calls.",
+        "lang_hag7": "Allow Users to Configure",
+        "lang_hag8": "If you want to be able to make manual changes to the Router while using the UPnP feature, keep the default, Enabled.",
+        "lang_hag9": "Allow Users to Disable Internet Access",
+        "lang_hag10": "To prevent local network users from disabling your Internet connection through the UPnP feature, keep the default, <b>Disabled</b>.",
+        "lang_hag11": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

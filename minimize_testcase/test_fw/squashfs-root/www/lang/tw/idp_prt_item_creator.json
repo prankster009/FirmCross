@@ -1,0 +1,10 @@
+{
+    "idp_prt_item_creator": {
+        "lang_prt_item_creator_title": "新增一個新連接埠範圍觸發",
+        "lang_prt_item_app_name_title": "應用程式名稱",
+        "lang_prt_item_trigger_range_title": "已觸發的範圍",
+        "lang_prt_item_forward_range_title": "已轉寄的範圍",
+        "lang_prt_item_to_title": "到",
+        "lang_prt_item_enable_title": "已啓用"
+    }
+}

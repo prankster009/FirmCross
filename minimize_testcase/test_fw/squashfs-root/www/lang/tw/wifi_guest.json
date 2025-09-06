@@ -1,0 +1,13 @@
+{
+    "wifi_guest": {
+        "lang_guest_zone_guest_access_title": "來賓存取為來訪者提供存取網際網路的權限，但沒有存取您的電腦或個人資料的權限。",
+        "lang_guest_access_allow_title": "允許來賓存取",
+        "lang_guest_net_name_title": "來賓網路名稱",
+        "lang_guest_password_title": "來賓密碼",
+        "lang_guest_change_pwd_button": "變更",
+        "lang_guest_allow_total_title": "可允許最大來賓數",
+        "lang_ssid_broadcast_title": "SSID 廣播",
+        "lang_guest_info_title": "您的來賓應透過打開網頁瀏覽器並輸入來賓密碼，來連線到上面列出的無線網路。",
+        "lang_enable_warning": "如果需要開啟【訪客網路】，你需要先在【基本無線設置】中，關閉EasyMesh功能"
+    }
+}

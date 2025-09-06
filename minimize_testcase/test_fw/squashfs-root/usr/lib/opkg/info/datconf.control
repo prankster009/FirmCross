@@ -1,0 +1,9 @@
+Package: datconf
+Version: 1.0-1
+Depends: libc, kvcedit
+Source: package/mtk/applications/datconf
+Section: MTK Properties
+Maintainer: Weijie Gao <weijie.gao@mediatek.com>
+Architecture: ramips_24kec
+Installed-Size: 5434
+Description:  Utility for editing dat files used by MediaTek Wi-Fi drivers

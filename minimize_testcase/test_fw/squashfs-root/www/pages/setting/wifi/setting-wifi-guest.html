@@ -1,0 +1,241 @@
+<script type="text/javascript">
+var OBJ_LIST = ['wlanGuest','wlanBasic','route','easyMeshBasic']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var guest_allow_total_str = ['1','2','3','4','5','6','7','8','9','10'];
+var guest_allow_total_val = ['1','2','3','4','5','6','7','8','9','10'];
+var SAVE_GUEST_WAITING_TIME = 30000;
+</script>
+<table class="table table-info guest_access_zone">
+<tbody>
+<tr>
+<td colspan="2">
+<span class="multi_lang" style="font-weight: bold;" id="lang_guest_zone_guest_access_title"></span>
+</td>
+</tr>
+<tr id="tr_hr" >
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id="tr_guest_access_allow" >
+<td><script>draw_checkbox('guest_access_allow', 'lang_guest_access_allow_title', 'on', "access_allow_checked()");</script><span id="checkbox_div_guest_access_allow"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+<tr id="tr_guest_net_name" >
+<td>
+<span class="multi_lang" id="lang_guest_net_name_title"></span>
+</td>
+<td>
+<span name="guest_net_name" id="guest_net_name" ></span>
+</td>
+</tr>
+<tr id="tr_guest_password" >
+<td>
+<span class="multi_lang" id="lang_guest_password_title"></span>
+</td>
+<td>
+<span name="guest_password" id="guest_password" ></span>
+<span >&nbsp;&nbsp;</span>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_guest_change_pwd_button" onclick="displayPopout('guest_pwd')"></button>
+</td>
+</tr>
+<tr id="tr_guest_allow_total" >
+<td>
+<span class="multi_lang" id="lang_guest_allow_total_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('guest_allow_total', guest_allow_total_str, guest_allow_total_val,'allow_total_selected()', '');})();</script>
+<div id="select_div_guest_allow_total"></div>
+</td>
+</tr>
+<tr id="tr_ssid_broadcast" >
+<td><script>draw_checkbox('ssid_broadcast', 'lang_ssid_broadcast_title', 'on', "ssid_broadcast_checked()");</script><span id="checkbox_div_ssid_broadcast"></span>
+</td>
+<td>
+<span >&nbsp;</span>
+</td>
+</tr>
+<tr id="tr_hr" >
+<td colspan="2"><hr class="table-title-underline"></td>
+</tr>
+<tr id="tr_guest_info" >
+<td colspan="2">
+<span class="multi_lang" style="font-weight: bold;" id="lang_guest_info_title"></span>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script type="text/javascript">
+page_tag='wifi_guest'
+$(document).ready(function(){
+$.lang_load("wifi_guest");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function ssid_broadcast_checked() {
+if ($('#ssid_broadcast').prop('checked'))
+$('#ssid_broadcast').attr('checked', 'checked');
+else
+$('#ssid_broadcast').removeAttr('checked');
+}
+
+function allow_total_selected() {
+}
+
+function guest_pwd_changed(pwd) {
+$('#guest_password').text(pwd);
+}
+
+function access_allow_checked() {
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.deviceRole=='1' && MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+alert(L.wifi_guest.lang_enable_warning);
+$('#guest_access_allow').removeAttr('checked');
+return;
+}
+if ($('#guest_access_allow').prop('checked'))
+$('#guest_access_allow').attr('checked', 'checked');
+else
+$('#guest_access_allow').removeAttr('checked');
+}
+
+function set_guest_info(obj) {
+if (obj.wlanGuest.WlanGuestT[0].enable == '1' || obj.wlanGuest.WlanGuestT[1].enable == '1')
+$('#guest_access_allow').attr('checked', 'checked');
+else
+$('#guest_access_allow').removeAttr('checked');
+
+$('#guest_net_name').html(obj.wlanGuest.WlanGuestT[0].ssid+'<br>'+obj.wlanGuest.WlanGuestT[1].ssid);
+$('#guest_password').text(obj.wlanGuest.WlanGuestT[0].wpaPsk);
+$('#guest_allow_total').val(obj.wlanGuest.WlanGuestT[0].maxStaNum);
+
+if (obj.wlanGuest.WlanGuestT[0].hiddenAP == '0')
+$('#ssid_broadcast').attr('checked', 'checked');
+else
+$('#ssid_broadcast').removeAttr('checked');
+
+if (obj.route.RouteP.NAT == "0")
+set_element_disable(true);
+else
+set_element_disable(false);
+
+update_checked($('#guest_access_allow').attr('name'));
+update_checked($('#ssid_broadcast').attr('name'));
+update_selected($('#guest_allow_total').attr('name'));
+if(MODIFIED_OBJ_DATA.easyMeshBasic.EasyMeshBasicP.enable=='1'){
+set_element_disable(1)
+$('#guest_access_allow').removeAttr('disabled');
+}
+}
+
+function set_element_disable(state) {
+if (state) {
+$('#guest_access_allow').attr('disabled',true);
+$('#lang_guest_change_pwd_button').attr('disabled',true);
+$('#guest_allow_total').attr('disabled',true);
+$('#ssid_broadcast').attr('disabled',true);
+}
+else {
+$('#guest_access_allow').removeAttr('disabled');
+$('#lang_guest_change_pwd_button').removeAttr('disabled');
+$('#guest_allow_total').removeAttr('disabled');
+$('#ssid_broadcast').removeAttr('disabled');
+}
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+
+function set_obj_success_cb(obj) {
+get_obj_data(OBJ_LIST);
+
+setTimeout(function () {
+$("#loader").hide();
+show_alert(L.common.success_title, L.common.save_success);
+},SAVE_GUEST_WAITING_TIME);
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide();
+if (obj.api_return == 403) {
+logout('sto')
+}
+else {
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+var guest_enable = $('#guest_access_allow').prop('checked');
+var wifi_enable;
+
+// set both 2.4G and 5G
+for (var i=0; i < MODIFIED_OBJ_DATA.wlanGuest.WlanGuestT.length; ++i) {
+for (var j=0,wifi_enable=false; j < MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT.length; ++j) {
+if (MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[j].type == MODIFIED_OBJ_DATA.wlanGuest.WlanGuestT[i].type ) {
+wifi_enable = MODIFIED_OBJ_DATA.wlanBasic.WlanBasicT[j].enable == '1';
+break;
+}
+}
+//console.log("guest_enable="+guest_enable+", wifi_enable="+wifi_enable+" , ret="+(guest_enable && wifi_enable))
+MODIFIED_OBJ_DATA.wlanGuest.WlanGuestT[i].enable = (guest_enable && wifi_enable) ? '1':'0';
+
+MODIFIED_OBJ_DATA.wlanGuest.WlanGuestT[i].wpaPsk=$('#guest_password').text();
+MODIFIED_OBJ_DATA.wlanGuest.WlanGuestT[i].maxStaNum=$('#guest_allow_total').val();
+MODIFIED_OBJ_DATA.wlanGuest.WlanGuestT[i].hiddenAP=$('#ssid_broadcast').prop('checked')?'0':'1';
+}
+
+if (fake_action == true) return;
+
+if (JSON.stringify(MODIFIED_OBJ_DATA) == JSON.stringify(ORIGINAL_OBJ_DATA))
+show_alert(L.common.lang_info_title, L.common.lang_config_not_change);
+else {
+delete MODIFIED_OBJ_DATA.wlanBasic;
+delete MODIFIED_OBJ_DATA.route;
+
+$("#loader").show();
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+}
+function page_cancel(){
+//Coding cancel function here
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+set_guest_info(ORIGINAL_OBJ_DATA);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+set_guest_info(MODIFIED_OBJ_DATA);
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+</script>
+

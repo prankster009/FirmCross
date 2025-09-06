@@ -1,0 +1,8 @@
+Package: luci-base
+Version: git-21.330.85840-0c27aaa-1
+Depends: libc, lua, libuci-lua, luci-lib-nixio, luci-lib-ip, rpcd, libubus-lua
+Source: package/mtk/ui/luci-mtk/luci-base
+Section: luci
+Architecture: ramips_24kec
+Installed-Size: 121763
+Description:  LuCI core libraries

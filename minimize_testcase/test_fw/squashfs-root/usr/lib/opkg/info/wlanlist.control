@@ -1,0 +1,8 @@
+Package: wlanlist
+Version: 1
+Depends: libc, libpthread, libcurl
+Source: package/gemtek/wlanlist
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 3145
+Description:  Command for get wireless client list

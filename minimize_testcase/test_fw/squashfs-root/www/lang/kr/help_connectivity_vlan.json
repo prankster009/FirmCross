@@ -1,0 +1,6 @@
+{
+    "help_connectivity_vlan": {
+        "lang_help_connectivity_vlan_title": "VLAN 설정",
+        "lang_hcv1": "VLAN(가상 LAN)을 사용하면 서브넷에서 장치를 그룹화할 수 있습니다. 이러한 장치는 서로 통신할 수 있지만 다른 서브넷의 장치와는 통신할 수 없습니다."
+    }
+}

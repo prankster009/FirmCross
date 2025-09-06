@@ -1,0 +1,13 @@
+Package: logrotate
+Version: 3.10.0-2
+Depends: libc, libpopt
+Source: package/utils/logrotate
+License: GPL-2.0
+Section: utils
+Maintainer: Christian Beier <cb@shoutrlabs.com>
+Architecture: ramips_24kec
+Installed-Size: 24211
+Description:  logrotate is designed to ease administration of systems that generate large
+ numbers of log files. It allows auto-matic rotation, compression, removal and
+ mailing of log files. Each log file may be handled daily, weekly, monthly or
+ when it grows too large.

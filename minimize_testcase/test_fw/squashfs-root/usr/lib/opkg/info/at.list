@@ -1,0 +1,5 @@
+/usr/bin/atrm
+/etc/init.d/atd
+/usr/bin/atq
+/usr/bin/at
+/usr/sbin/atd

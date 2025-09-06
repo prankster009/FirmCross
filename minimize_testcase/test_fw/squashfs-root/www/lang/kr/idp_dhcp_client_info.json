@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_client_info": {
+        "lang_idp_dhcp_client_info_title": "DHCP 클라이언트 테이블",
+        "lang_idp_dhcp_client_info_sortby_title": "정렬 기준:",
+        "lang_idp_dhcp_client_info_ipaddr": "IP 주소",
+        "lang_idp_dhcp_client_info_mac_addr": "MAC 주소",
+        "lang_idp_dhcp_client_info_interface": "인터페이스",
+        "lang_idp_dhcp_client_info_name": "클라이언트 이름",
+        "lang_idp_dhcp_client_info_name_title": "클라이언트 이름",
+        "lang_idp_dhcp_client_info_interface_title": "인터페이스",
+        "lang_idp_dhcp_client_info_ipaddr_title": "IP 주소",
+        "lang_idp_dhcp_client_info_mac_addr_title": "MAC 주소",
+        "lang_idp_dhcp_client_info_expire_title": "종료 시간",
+        "lang_idp_dhcp_client_info_select_title": "선택",
+        "lang_idp_dhcp_client_info_interface_wifi": "무선"
+    }
+}

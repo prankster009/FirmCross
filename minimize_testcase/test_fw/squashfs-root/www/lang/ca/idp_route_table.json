@@ -1,0 +1,12 @@
+{
+    "idp_route_table": {
+        "lang_idp_route_table_title": "Table de routage",
+        "lang_idp_route_table_dst_ip_title": "Adresse IP du réseau local cible",
+        "lang_idp_route_table_subnet_mask_title": "Masque de sous-réseau",
+        "lang_idp_route_table_gateway_title": "Passerelle",
+        "lang_idp_route_table_hop_count_title": "Nombre de sauts",
+        "lang_idp_route_table_interface_title": "Interface",
+        "lang_idp_route_table_interface_lan_tilte": "Réseau local et sans fil",
+        "lang_idp_route_table_interface_wan_tilte": "Internet (WAN)"
+    }
+}

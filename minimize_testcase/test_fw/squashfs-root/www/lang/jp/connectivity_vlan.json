@@ -1,0 +1,30 @@
+{
+    "connectivity_vlan": {
+        "lang_vlan_enable_title": "VLAN",
+        "lang_select_profile_title": "プロファイルを選択:",
+        "lang_internet_trunk_title": "インターネット (トランク)",
+        "lang_internet_title": "インターネット",
+        "lang_ethernet_title": "イーサネット",
+        "lang_port_title": "ポート",
+        "lang_vlan_id_title": "VLAN ID",
+        "lang_id_head": "ID",
+        "lang_tag_head": "タグ",
+        "lang_priority_head": "優先度",
+        "lang_vlan_state_opt_untagged": "タグなし",
+        "lang_vlan_state_opt_tagged": "タグ付き",
+        "lang_vlan_state_opt_excluded": "除外",
+        "lang_vlan_alert_range": "VLAN ID 値を範囲内で設定してください",
+        "lang_vlan_alert_illegal_char": "不正な文字です (0～9にしてください)。",
+        "lang_profile_opt_manual": "手動",
+        "lang_profile_opt_M1": "M1 (ファイバー)",
+        "lang_profile_opt_Maxis_special": "Maxis (特殊ファイバー)",
+        "lang_profile_opt_Maxis": "Maxis (Maxis Infra)",
+        "lang_profile_opt_Singtel_TV": "Singtel (mio TV)",
+        "lang_profile_opt_Singtel_other": "Singtel (その他)",
+        "lang_profile_opt_starhub": "StarHub",
+        "lang_profile_opt_Unifi_Business": "Unifi (@ ビジネス)",
+        "lang_profile_opt_Unifi_Home": "Unifi (@ ホーム)",
+        "lang_profile_opt_Maxis_Fibre": "Maxis (ファイバー)",
+        "lang_profile_opt_Maxis_TM": "Maxis (TM Infra)"
+    }
+}

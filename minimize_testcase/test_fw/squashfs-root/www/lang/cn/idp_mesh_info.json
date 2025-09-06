@@ -1,0 +1,23 @@
+{
+    "idp_mesh_info": {
+        "lang_idp_mesh_confirm_title": "请按住子节点的WPS按钮3秒钟",
+        "lang_idp_mesh_fail_title": "Connecting to your child node took to longer than expected. Try again.",
+        "lang_idp_mesh_tryagain": "请重试",
+        "lang_idp_mesh_pass_title": "子节点已加入您的 Wi-Fi！",
+        "lang_idp_mesh_plug_title": "插入子节点",
+        "lang_idp_mesh_plug_content1": "等待便捷的网状网络设备完全启动。大约需要 3 分钟。",
+        "lang_idp_mesh_plug_content2": "如果要设置更多的子节点，务必一次设置一个，以免出现问题。",
+        "lang_idp_mesh_process_title": "请按住子节点的WPS按钮3秒钟",
+        "lang_idp_mesh_info_title": "网格信息",
+        "lang_idp_parent_info_title": "已连接的设备",
+        "lang_idp_child_info_title": "连接的子节点信息：",
+        "lang_idp_child_info_name": "客户端名称",
+        "lang_idp_child_info_interface": "接口",
+        "lang_idp_child_info_mac": "MAC 地址",
+        "lang_idp_child_info_rssi": "RSSI",
+        "lang_idp_child_info_fw": "固件版本",
+        "lang_idp_child_info_ip": "IP 地址",
+        "lang_idp_connected": "已连接的设备",
+        "lang_idp_device_type": "设备类型"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "security_firewall": {
+        "lang_firewall_zone_firewall_title": "ไฟร์วอลล์",
+        "lang_ipv6_spi_firewall_title": "การป้องกันของไฟร์วอลล์ IPv6 SPI",
+        "lang_ipv4_spi_firewall_title": "การป้องกันของไฟร์วอลล์ IPv4 SPI",
+        "lang_firewall_zone_net_filter_title": "ตัวกรองอินเทอร์เน็ต",
+        "lang_anonymous_filter_title": "กรองการร้องขออินเทอร์เน็ตที่ไม่ระบุชื่อ",
+        "lang_multicast_filter_title": "กรองแบบหลายผู้รับ",
+        "lang_nat_redirection_filter_title": "กรองการเปลี่ยนเส้นทาง NAT อินเทอร์เน็ตสำหรับอินเทอร์เน็ต IPv4 เท่านั้น",
+        "lang_ident_title": "กรอง IDENT (พอร์ต 113)",
+        "lang_firewall_zone_web_filter_title": "ตัวกรองเว็บ",
+        "lang_proxy_filter_title": "พร็อกซี",
+        "lang_java_filter_title": "Java",
+        "lang_activex_filter_title": "ActiveX",
+        "lang_cookies_filter_title": "คุกกี้"
+    }
+}

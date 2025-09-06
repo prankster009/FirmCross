@@ -1,0 +1,17 @@
+{
+    "idp_prf_item_creator": {
+        "lang_prf_item_creator_title": "Thêm Chuyển tiếp dải cổng mới",
+        "lang_prf_item_app_name_title": "Tên ứng dụng",
+        "lang_prf_item_port_range_title": "Cổng Bắt đầu ~ Kết thúc",
+        "lang_prf_item_to_title": "tới",
+        "lang_prf_item_protocol_title": "Giao thức",
+        "lang_prf_item_to_ip_title": "Đến địa chỉ IP",
+        "lang_prf_item_enable_title": "Bật",
+        "lang_protocol_both": "Cả hai",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "Bạn không thể sử dụng IP, mạng hoặc địa chỉ phát rộng của Bộ định tuyến.",
+        "lang_msg_repeated_name": "Tên lặp lại",
+        "lang_msg_port_overloap": "Xảy ra trùng lặp cổng! Vui lòng thay đổi mục nhập của bạn!"
+    }
+}

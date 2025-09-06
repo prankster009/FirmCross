@@ -1,0 +1,9 @@
+Package: urlfilter
+Version: 2020-08-19
+Depends: libc, libnfnetlink, libnetfilter-queue, libpthread, libsqlite3
+Source: package/gemtek/urlfilter
+Section: utils
+Maintainer: Evans Lai <evans_lai@gemteks.com>
+Architecture: ramips_24kec
+Installed-Size: 11068
+Description:  Gemtek URL Filter

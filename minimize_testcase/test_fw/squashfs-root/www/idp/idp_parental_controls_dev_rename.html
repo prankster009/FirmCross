@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="parental_controls_dev_rename" onsubmit="return false;">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_idp_parental_controls_dev_rename_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<tr>
+<td><span class="multi_lang" id="lang_idp_parental_controls_dev_rename_info1_title"></span></td>
+</tr>
+<tr>
+<td><span class="multi_lang" id="lang_idp_parental_controls_dev_rename_info2_title"></span><b id="dev_name"></b></td>
+</tr>
+<tr>
+<td><input maxlength="32" style="width:300px" name="dev_new_name" id="dev_new_name" onblur="valid_name(this,'DeviceName')" onkeypress="if (event.keyCode == 13) {Okbtn_click();}" class="logger_bot"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="Okbtn_click()" id="btnOk"></button>
+<button type="button" data-dismiss="modal" class="btncancel multi_lang logger_bot" onclick="closePopout()" id="btnCancel"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var L;
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+$('#loader', window.parent.document).hide();
+
+update_dev_name();
+inject_log_bot_idp();
+
+resizePopout();
+},1000);
+
+}
+
+function update_dev_name(){
+var pf=window.parent.document.forms['ui-form'];
+var name=pf.restrict_internet_access.options[pf.restrict_internet_access.selectedIndex].text;
+
+$('#dev_name').text(' '+name);
+$('#dev_new_name').val(name);
+}
+
+function Okbtn_click() {
+var name=$('#dev_new_name').val();
+
+if (typeof name != "undefined" && name != "") {
+window.parent.rename_dev_click(name);
+closePopout();
+}
+else
+alert(L.lang_idp_parental_controls_dev_rename_alert_title);
+}
+
+</script>
+
+</FORM></BODY></HTML>

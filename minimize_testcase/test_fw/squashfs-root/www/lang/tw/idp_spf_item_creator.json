@@ -1,0 +1,28 @@
+{
+    "idp_spf_item_creator": {
+        "lang_spf_item_creator_title": "新增一個新的單一連接埠轉寄",
+        "lang_spf_item_app_title": "應用程式",
+        "lang_spf_item_app_name_title": "應用程式名稱",
+        "lang_spf_item_ext_port_title": "外部連接埠",
+        "lang_spf_item_int_port_title": "內部連接埠",
+        "lang_spf_item_protocol_title": "通訊協定",
+        "lang_spf_item_to_ip_title": "到 IP 位址",
+        "lang_spf_item_enable_title": "已啓用",
+        "lang_app_manual": "手動",
+        "lang_app_ftp": "FTP",
+        "lang_app_telnet": "Telnet",
+        "lang_app_smtp": "SMPT",
+        "lang_app_dns": "DNS",
+        "lang_app_tftp": "TFTP",
+        "lang_app_finger": "追蹤",
+        "lang_app_http": "HTTP",
+        "lang_app_pop3": "POP3",
+        "lang_app_nntp": "NNTP",
+        "lang_app_snmp": "SNMP",
+        "lang_app_pptp": "PPTP",
+        "lang_protocol_both": "兩者",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "您無法使用該路由器 IP、網路或廣播位址。"
+    }
+}

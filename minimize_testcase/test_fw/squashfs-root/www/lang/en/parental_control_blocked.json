@@ -1,0 +1,10 @@
+{
+    "parental_control_blocked": {
+        "lang_document_title": "Internet blocked",
+        "lang_content_title": "Internet blocked",
+        "lang_content_info": "Access to the Internet is blocked at this time.  Enter the parental controls password to make all blocked websites and content available for one hour.",
+        "lang_password_title": "Password:",
+        "lang_unblock_title": "Unblock",
+        "lang_password_incorrect": "The password is incorrect."
+    }
+}

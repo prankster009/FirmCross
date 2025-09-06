@@ -1,0 +1,8 @@
+{
+    "idp_guest_pwd": {
+        "lang_idp_guest_pwd_title": "Thay đổi mật khẩu khách",
+        "lang_idp_guest_pwd_info1_title": "Nhập mật khẩu mạng khách mới:",
+        "lang_idp_guest_pwd_info2_title": "4 - 32 ký tự",
+        "lang_idp_guest_pwd_alert_title": "Vui lòng nhập mật khẩu hợp lệ. Các ký tự hợp lệ là A-Z, a-z, 0-9"
+    }
+}

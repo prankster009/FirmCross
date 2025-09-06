@@ -1,0 +1,10 @@
+Package: ipset
+Version: 6.24-1
+Depends: libc, kmod-ipt-ipset, libmnl
+Source: package/network/utils/ipset
+License: GPL-2.0
+Section: net
+Maintainer: Jo-Philipp Wich <jow@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 70071
+Description:  IPset administration utility

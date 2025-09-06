@@ -1,0 +1,29 @@
+{
+    "help_parental_control_parental_control": {
+        "lang_help_parental_control_parental_control_title": "家长控制",
+        "lang_hpcpc1": "Linksys Connect 中的“家长控制”功能最多可限制五台计算机或设备访问 Internet。您可以阻止 Internet 访问或将其限制为特定时间，也可以阻止特定网站。",
+        "lang_hpcpc2": "注意：完成更改后，请单击“保存设置”以应用更改。",
+        "lang_hpcpc3": "家长控制",
+        "lang_hpcpc4": "启用/禁用",
+        "lang_hpcpc5": "要限制本地网络中的计算机或设备的 Internet 访问，请选择“启用”<b></b>。",
+        "lang_hpcpc6": "目标设备",
+        "lang_hpcpc7": "Internet 访问限制对象",
+        "lang_hpcpc8": "该列表显示受“家长控制”功能影响的计算机。",
+        "lang_hpcpc9": "添加",
+        "lang_hpcpc10": "如果要将“家长控制”功能应用于更多计算机，请单击“添加”<b></b>。",
+        "lang_hpcpc11": "删除",
+        "lang_hpcpc12": "如果您不再希望向某台设备应用“家长控制”功能，请选择该设备，然后单击“删除”<b></b>。",
+        "lang_hpcpc13": "重命名",
+        "lang_hpcpc14": "要更改设备的名称，请将其选中，然后单击“重命名”<b></b>。",
+        "lang_hpcpc15": "日程安排",
+        "lang_hpcpc16": "指定阻止 Internet 访问的时间。",
+        "lang_hpcpc17": "从不/始终/特定时间",
+        "lang_hpcpc18": "若要始终允许 Internet 访问，请选择“从不”<b></b>。",
+        "lang_hpcpc19": "若要始终阻止 Internet 访问，请选择“始终”<b></b>。",
+        "lang_hpcpc20": "若要指定阻止 Internet 访问的日期和时间，请选择“特定时间”<b></b>。",
+        "lang_hpcpc21": "阻止特定网站",
+        "lang_hpcpc22": "URL 1-8",
+        "lang_hpcpc23": "在每个字段中，输入您要阻止的网站地址。",
+        "lang_hpcpc24": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

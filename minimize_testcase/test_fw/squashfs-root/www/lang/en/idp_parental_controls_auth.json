@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_auth": {
+        "lang_idp_parental_controls_auth_title": "Parental Controls",
+        "lang_idp_parental_controls_auth_info_title": "Enter the parental controls password:",
+        "lang_idp_parental_controls_auth_forgot_pwd_title": "I forgot my password",
+        "lang_idp_parental_controls_auth_errmsg_title": "The password is incorrect."
+    }
+}

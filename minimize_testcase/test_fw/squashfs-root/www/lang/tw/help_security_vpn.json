@@ -1,0 +1,14 @@
+{
+    "help_security_vpn": {
+        "lang_help_security_vpn_title": "VPN 通過",
+        "lang_hsv1": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hsv2": "VPN 通過",
+        "lang_hsv3": "IPsec 通過",
+        "lang_hsv4": "本機網路上的 VPN 用戶端可以透過路由器建立 IPSec VPN 通道。",
+        "lang_hsv5": "PPTP 通過",
+        "lang_hsv6": "本機網路上的 VPN 戶端可以透過路由器建立 PPTP VPN 通道。",
+        "lang_hsv7": "L2TP 通過",
+        "lang_hsv8": "本機網路上的 VPN 用戶端可以透過路由器建立 L2TP VPN 通道。",
+        "lang_hsv9": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

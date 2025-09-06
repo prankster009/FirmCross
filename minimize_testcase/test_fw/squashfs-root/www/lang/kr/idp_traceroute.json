@@ -1,0 +1,10 @@
+{
+    "idp_traceroute": {
+        "lang_idp_traceroute_title": "경로 추적",
+        "lang_idp_traceroute_complete_title": "추적 완료",
+        "lang_idp_traceroute_start_title": "경로 추적 대상:",
+        "lang_idp_traceroute_hop_max_title": "최대 홉",
+        "lang_idp_traceroute_data_unit_title": "바이트 패킷",
+        "lang_idp_traceroute_unknow_host_title": "알 수 없는 호스트"
+    }
+}

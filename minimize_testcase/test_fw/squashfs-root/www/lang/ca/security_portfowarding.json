@@ -1,0 +1,17 @@
+{
+    "security_portfowarding": {
+        "lang_spf_app_name_title": "Nom de l'application",
+        "lang_spf_ext_port_title": "Port externe",
+        "lang_spf_int_port_title": "Port interne",
+        "lang_spf_protocol_title": "Protocole",
+        "lang_spf_to_ip_title": "Adresse IP de destination",
+        "lang_spf_enabled_title": "Activé",
+        "lang_spf_action_title": "Action",
+        "lang_spf_add_btn_title": "Ajouter un nouveau routage de port unique",
+        "lang_spf_disabled_title": "Désactivé",
+        "lang_spf_remove_btn_title": "Supprimer",
+        "lang_spf_protocol_both": "Les deux",
+        "lang_spf_protocol_tcp": "TCP",
+        "lang_spf_protocol_udp": "UDP"
+    }
+}

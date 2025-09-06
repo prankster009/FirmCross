@@ -1,0 +1,172 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2006-2011 OpenWrt.org
+
+START=10
+STOP=98
+
+. /lib/hummer/api.sh
+link_down_all_ports() {
+    log_info "network" "link down all ports during system up"
+    link_down "4"
+    killall -9 wan_port_monitor
+    ifdown wan
+    ifdown wan6
+
+    for port in 0 1 2 3
+    do
+        link_down $port
+    done
+    echo "keepdown" > /tmp/lanlock
+}
+
+uci_apply_defaults() {
+	. /lib/functions/system.sh
+
+	cd /etc/uci-defaults || return 0
+	files="$(ls)"
+	[ -z "$files" ] && return 0
+	mkdir -p /tmp/.uci
+	for file in $files; do
+		( . "./$(basename $file)" ) && rm -f "$file"
+	done
+	uci commit
+}
+
+dump_devinfo() {
+    DEVINFO="/tmp/.devinfo"
+    mkdir -p /tmp/devinfo
+    gcontrol di show > $DEVINFO
+    while IFS= read -r line; do
+        if [ -n "$line" ]; then
+            key=$(echo $line | awk -F "=" '{print $1}')
+            value=$(echo $line | awk -F "=" '{print $2}')
+            echo $value > /tmp/devinfo/$key
+        fi
+    done < $DEVINFO
+    rm -f $DEVINFO
+}
+
+mt7621_setup() {
+    mknod /dev/gpio c 252 0
+}
+
+mount_mtd_gdata() {
+    GDATA_MTD=$(awk -F: '/gdata/ { print $1 }' /proc/mtd)
+    if [ -z $GDATA_MTD ]; then
+        echo "Cannot find gdata partition" > /dev/console
+        return
+    fi
+
+    GDATA_MTD_DEV=/dev/${GDATA_MTD}
+    GDATA_MTD_NUM="`echo -n $GDATA_MTD | sed 's/mtd//g'`"
+    GDATA_UBIDEV=0
+   
+    mounted=0
+    nvram_restore=0
+    mkdir -p /var/gdata
+
+    ubiattach /dev/ubi_ctrl -m ${GDATA_MTD_NUM} -d ${GDATA_UBIDEV}
+    if mount -o sync -t ubifs ubi${GDATA_UBIDEV}_0 /var/gdata; then
+        mounted=1
+    else
+        nvram_restore=1
+        echo "Failed to mount the gdata partition, try to format it." > /dev/console
+        ubidetach /dev/ubi_ctrl -m ${GDATA_MTD_NUM}
+        flash_erase ${GDATA_MTD_DEV} 0 0
+        ubiformat -q -y ${GDATA_MTD_DEV}
+        ubiattach /dev/ubi_ctrl -m ${GDATA_MTD_NUM}
+        if ! ubimkvol /dev/ubi${GDATA_UBIDEV} -N gdata -m; then
+            echo "Failed to create a UBI volumn." > /dev/console
+            return
+        else
+            if ! mount -o sync -t ubifs ubi${GDATA_UBIDEV}_0 /var/gdata; then
+                echo "Failed to mount the gdata partition. Exit." > /dev/console
+            else
+                mounted=1
+            fi
+        fi
+    fi
+
+    if [ "$mounted" = "1" ]; then
+        # init libobj/gnvram
+        if [ ! -f /var/gdata/conf.dat ]; then
+            nvram_restore=1
+        fi
+
+        echo "gnvram init and check" > /dev/console
+        /usr/bin/gnvram init
+        if [ "$nvram_restore" = "1" ]; then
+            echo "gnvram restore" > /dev/console
+            /usr/bin/gnvram restore
+        else
+            echo "gnvram check" > /dev/console
+            /usr/bin/gnvram check
+        fi
+    fi
+}
+
+boot() {
+	[ -f /proc/mounts ] || /sbin/mount_root
+	[ -f /proc/jffs2_bbc ] && echo "S" > /proc/jffs2_bbc
+	[ -f /proc/net/vlan/config ] && vconfig set_name_type DEV_PLUS_VID_NO_PAD
+
+	mkdir -p /var/run
+	mkdir -p /var/log
+	mkdir -p /var/lock
+	mkdir -p /var/state
+	mkdir -p /tmp/.uci
+	chmod 0700 /tmp/.uci
+	mkdir -p /tmp/.jail
+	touch /var/log/wtmp
+	touch /var/log/lastlog
+	touch /tmp/resolv.conf.auto
+	ln -sf /tmp/resolv.conf.auto /tmp/resolv.conf
+	grep -q debugfs /proc/filesystems && /bin/mount -o noatime -t debugfs debugfs /sys/kernel/debug
+	[ "$FAILSAFE" = "true" ] && touch /tmp/.failsafe
+
+	/sbin/kmodloader
+
+	# allow wifi modules time to settle
+	sleep 1
+
+	/sbin/wifi detect > /tmp/wireless.tmp
+	[ -s /tmp/wireless.tmp ] && {
+		cat /tmp/wireless.tmp >> /etc/config/wireless
+	}
+	rm -f /tmp/wireless.tmp
+
+        #Setup devinfo before mtk config
+	dump_devinfo
+
+	/bin/board_detect
+	uci_apply_defaults
+	
+	# temporary hack until configd exists
+	/sbin/reload_config
+
+	# create /dev/root if it doesn't exist
+	[ -e /dev/root -o -h /dev/root ] || {
+		rootdev=$(awk 'BEGIN { RS=" "; FS="="; } $1 == "root" { print $2 }' < /proc/cmdline)
+		[ -n "$rootdev" ] && ln -s "$rootdev" /dev/root
+	}
+
+	mt7621_setup
+	mount_mtd_gdata
+
+	MFG_MODE=$(gcontrol uenv get ManufactureMode | awk -F"=" '{print $2}')
+	if [ $MFG_MODE = "1" -o $MFG_MODE = "2" ]; then
+		/usr/bin/gcontrol led on orange
+		/etc/init.d/mdnsd disable
+		/etc/init.d/nbnsd disable
+	else
+		#enable btn check
+		/etc/init.d/mdnsd enable
+		/etc/init.d/nbnsd enable
+		/usr/bin/btn_monitor
+	fi
+	/usr/bin/updatesysconfig.sh
+	/usr/bin/checkpw.sh
+	#Move here to let rcConf file can setup
+	mkdir -p /var/rcConfd /var/rcConfd/log /var/run/rcConfd/
+	link_down_all_ports
+}

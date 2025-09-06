@@ -1,0 +1,20 @@
+{
+    "help_status_wireless": {
+        "lang_help_status_wireless_title": "Mạng không dây",
+        "lang_hsw1": "Mạng không dây 5 GHz/2.4 GHz",
+        "lang_hsw2": "Địa chỉ MAC",
+        "lang_hsw3": "Hiển thị địa chỉ MAC của giao diện không dây của Bộ định tuyến.",
+        "lang_hsw4": "Chế độ",
+        "lang_hsw5": "Hiển thị chế độ không dây được mạng sử dụng.",
+        "lang_hsw6": "Tên mạng (SSID)",
+        "lang_hsw7": "Hiển thị tên của mạng không dây, cũng được gọi là SSID.",
+        "lang_hsw8": "Độ rộng kênh",
+        "lang_hsw9": "Hiển thị độ rộng kênh vô tuyến được các thiết bị chuẩn Không dây-N sử dụng.",
+        "lang_hsw10": "Kênh",
+        "lang_hsw11": "Hiển thị kênh vô tuyến đang hoạt động của Bộ định tuyến.",
+        "lang_hsw12": "Bảo mật",
+        "lang_hsw13": "Hiển thị phương thức bảo mật không dây được mạng không dây sử dụng.",
+        "lang_hsw14": "Phát rộng SSID",
+        "lang_hsw15": "Hiển thị trạng thái của tuỳ chọn Phát rộng SSID."
+    }
+}

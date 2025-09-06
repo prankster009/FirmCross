@@ -1,0 +1,15 @@
+{
+    "help_connectivity_macclone": {
+        "lang_help_connectivity_macclone_title": "MAC Address Clone",
+        "lang_hcm1": "If your computer's MAC address is registered with your ISP for Internet access and you do not wish to re-register the MAC address, then you may assign the currently registered MAC address to the Router.",
+        "lang_hcm2": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hcm3": "MAC Address Clone",
+        "lang_hcm4": "Enabled/Disabled",
+        "lang_hcm5": "To have the Router clone the MAC address you specify below, select <b>Enabled</b>.",
+        "lang_hcm6": "MAC Address",
+        "lang_hcm7": "Enter the MAC address registered with your ISP.",
+        "lang_hcm8": "Clone My PC's MAC",
+        "lang_hcm9": "Click this option to clone the MAC address of the computer you are using.",
+        "lang_hcm10": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

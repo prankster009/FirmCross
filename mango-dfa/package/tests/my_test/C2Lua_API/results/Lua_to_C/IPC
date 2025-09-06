@@ -1,0 +1,2 @@
+cmd_bin: ubus                , full_cmd: ubus call nms_report_cache statistics_parms_update '{"type":"%s", "old_time": "%s", "new_time": "%s"}';
+cmd_bin: ubus                , full_cmd: ubus call nms_report_cache report_specific_param '{"type":"%s"}';

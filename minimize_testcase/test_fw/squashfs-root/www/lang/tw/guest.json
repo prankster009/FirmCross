@@ -1,0 +1,12 @@
+{
+    "guest": {
+        "lang_document_title": "來賓存取",
+        "lang_content_title": "來賓存取",
+        "lang_content_info": "輸入來賓存取密碼來取用網際網路。如果您不知道密碼，請詢問所有者。來賓存取密碼可以在 Linksys Connect 中找到。",
+        "lang_password_title": "密碼",
+        "lang_login_button": "登入",
+        "lang_lang_error_msg": "登入失敗",
+        "lang_desktop_view_title": "電腦桌面檢視",
+        "lang_mobile_view_title": "行動裝置檢視"
+    }
+}

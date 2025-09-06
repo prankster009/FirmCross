@@ -1,0 +1,80 @@
+#!/bin/sh
+
+SERVICE="fwacl6"
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+
+check_wan() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_is_up up
+
+    if [ "$wan_is_up" != "1" ]; then
+        echo "$SERVICE, wan is down" > /dev/console
+        echo "$SERVICE, exit!" > /dev/console
+        exit 0
+    fi
+}
+
+delete_fwacl6_chains() {
+    ip6tables -t filter -F forwarding_wan_fwacl6
+    ip6tables -t filter -D forwarding_wan_rule -j forwarding_wan_fwacl6
+    ip6tables -t filter -X forwarding_wan_fwacl6
+}
+
+add_fwacl6_chains() {
+    ip6tables -t filter -N forwarding_wan_fwacl6
+    ip6tables -t filter -A forwarding_wan_rule -j forwarding_wan_fwacl6
+}
+
+do_fwacl6() {
+    json_load "$(objReq fwacl6 json)"
+    json_select "Fwacl6T"
+    local Index="1"
+    while json_get_type Type $Index && [ "$Type" = object ]; do
+        local srcAddr6 serviceProto1 servicePortStart1 servicePortEnd1 serviceProto2 servicePortStart2 servicePortEnd2
+
+        json_select "$Index"
+        json_get_vars srcAddr6 serviceProto1 servicePortStart1 servicePortEnd1 serviceProto2 servicePortStart2 servicePortEnd2
+
+        if [ "$serviceProto1" = "1" ]; then
+            ip6tables -t filter -A forwarding_wan_fwacl6 -d $srcAddr6 -p tcp --dport $servicePortStart1:$servicePortEnd1 -j ACCEPT
+        elif [ "$serviceProto1" = "2" ]; then
+            ip6tables -t filter -A forwarding_wan_fwacl6 -d $srcAddr6 -p udp --dport $servicePortStart1:$servicePortEnd1 -j ACCEPT
+        elif [ "$serviceProto1" = "3" ]; then
+            ip6tables -t filter -A forwarding_wan_fwacl6 -d $srcAddr6 -p tcp --dport $servicePortStart1:$servicePortEnd1 -j ACCEPT
+            ip6tables -t filter -A forwarding_wan_fwacl6 -d $srcAddr6 -p udp --dport $servicePortStart1:$servicePortEnd1 -j ACCEPT
+        fi
+
+        if [ "$serviceProto2" = "1" ]; then
+            ip6tables -t filter -A forwarding_wan_fwacl6 -d $srcAddr6 -p tcp --dport $servicePortStart2:$servicePortEnd2 -j ACCEPT
+        elif [ "$serviceProto2" = "2" ]; then
+            ip6tables -t filter -A forwarding_wan_fwacl6 -d $srcAddr6 -p udp --dport $servicePortStart2:$servicePortEnd2 -j ACCEPT
+        elif [ "$serviceProto2" = "3" ]; then
+            ip6tables -t filter -A forwarding_wan_fwacl6 -d $srcAddr6 -p tcp --dport $servicePortStart2:$servicePortEnd2 -j ACCEPT
+            ip6tables -t filter -A forwarding_wan_fwacl6 -d $srcAddr6 -p udp --dport $servicePortStart2:$servicePortEnd2 -j ACCEPT
+        fi
+
+
+        let Index=$Index+1
+        json_select ".."
+    done
+}
+
+start() {
+    check_wan
+    add_fwacl6_chains >/dev/null 2>&1
+    do_fwacl6 >/dev/null 2>&1
+}
+
+stop() {
+    delete_fwacl6_chains >/dev/null 2>&1
+}
+
+
+
+stop
+start
+

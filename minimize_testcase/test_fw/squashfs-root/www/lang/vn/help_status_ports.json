@@ -1,0 +1,13 @@
+{
+    "help_status_ports": {
+        "lang_help_status_ports_title": "Cổng",
+        "lang_hsp1": "Đèn cổng sau",
+        "lang_hsp2": "Liên kết cổng Internet",
+        "lang_hsp3": "10/100 Mbps hoặc 1 Gbps",
+        "lang_hsp4": "Hiển thị tốc độ tối đa của cổng Internet.",
+        "lang_hsp5": "Liên kết cổng cục bộ",
+        "lang_hsp6": "10/100 Mbps hoặc 1 Gbps",
+        "lang_hsp7": "Hiển thị tốc độ tối đa của từng cổng cục bộ (các Cổng 1-4).",
+        "lang_hsp8": "Bấm <b>Làm mới</b> để cập nhật thông tin trên màn hình."
+    }
+}

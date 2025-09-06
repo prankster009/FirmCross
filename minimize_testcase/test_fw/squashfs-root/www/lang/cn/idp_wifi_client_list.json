@@ -1,0 +1,21 @@
+{
+    "idp_wifi_client_list": {
+        "lang_idp_wifi_client_list_title": "无线客户端列表",
+        "lang_idp_wifi_client_list_sortby_title": "排序方式",
+        "lang_idp_wifi_client_list_ipaddr": "IP 地址",
+        "lang_idp_wifi_client_list_mac_addr": "MAC 地址",
+        "lang_idp_wifi_client_list_status": "状态",
+        "lang_idp_wifi_client_list_name": "客户端名称",
+        "lang_idp_wifi_client_list_name_title": "客户端名称",
+        "lang_idp_wifi_client_list_interface_title": "接口",
+        "lang_idp_wifi_client_list_ipaddr_title": "IP 地址",
+        "lang_idp_wifi_client_list_mac_addr_title": "MAC 地址",
+        "lang_idp_wifi_client_list_status_title": "状态",
+        "lang_idp_wifi_client_list_none_title": "无",
+        "lang_idp_wifi_client_list_save_to_title": "保存到 MAC 地址过滤列表",
+        "lang_idp_wifi_client_list_connected_title": "已连接",
+        "lang_idp_wifi_client_list_disconnected_title": "已断开连接",
+        "lang_idp_wifi_client_list_wireless_title": "无线",
+        "lang_idp_wifi_client_list_lan_title": "LAN"
+    }
+}

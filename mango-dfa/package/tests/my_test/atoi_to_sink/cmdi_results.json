@@ -1,0 +1,142 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x401216",
+                    "ins_addr": "0x401216"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x401327",
+                "ins_addr": "0x401327"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "fgets("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x401216",
+                    "ins_addr": "0x401216"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x401327",
+                "ins_addr": "0x401327"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "fgets("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x4011f6",
+                    "ins_addr": "0x4011f6"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x4012f4",
+                "ins_addr": "0x4012f4"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [
+                    "fgets("
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4198974
+                ]
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main() @ 0x401216",
+                    "ins_addr": "0x401216"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base + 0xfffffffffffffef0>)>) @ 0x401327",
+                "ins_addr": "0x401327"
+            },
+            "depth": 1,
+            "inputs": {
+                "likely": [],
+                "possibly": [
+                    "fgets("
+                ],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.5,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 0.09911513328552246,
+    "vra_time": 0.2140212059020996,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/atoi_to_sink/program",
+    "name": "program",
+    "has_sinks": true,
+    "sha256": "25f14530776580fb341a8a3092a557a05bb5316bda4513b99154c270113774d3",
+    "sink_times": {
+        "system": 1.067765474319458
+    },
+    "error": null,
+    "mango_time": 2.451714038848877,
+    "sinks": {
+        "system": 2
+    },
+    "time_data": {
+        "0x4011f6 -> 0x4010b0": {
+            "taint_time": 0.8489880561828613,
+            "rda_time": 0.18371868133544922
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "troubleshooting_diagnostics": {
+        "lang_diagnostics_zone_ping_test_title": "ping テスト",
+        "lang_diagnostics_zone_traceroute_test_title": "traceroute テスト",
+        "lang_ping_ip_url_address_title": "IP または URL アドレス",
+        "lang_packet_size_title": "パケット サイズ",
+        "lang_size_unit_title": "バイト (32～65500)",
+        "lang_num_to_ping_title": "ping 数",
+        "lang_start_to_ping_button": "ping を開始",
+        "lang_tr_ip_url_address_title": "IP または URL アドレス",
+        "lang_start_to_traceroute_button": "traceroute を起動する",
+        "lang_opt_unlimited": "無制限",
+        "lang_ping_alert_illegal_char": "不正な文字です (0～9にしてください)。",
+        "lang_ping_alert_range": "値が範囲外です。",
+        "lang_alert_ip_url_blank": "IP アドレスまたはドメイン名を入力する必要があります。"
+    }
+}

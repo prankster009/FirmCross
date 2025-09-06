@@ -1,0 +1,20 @@
+{
+    "connectivity_routing": {
+        "lang_routing_zone_advanced_routing_title": "Định tuyến nâng cao",
+        "lang_nat_enable_title": "NAT",
+        "lang_routing_zone_dynamic_routing_title": "Định tuyến động (RIP)",
+        "lang_dynamic_rt_enable_title": "Bật",
+        "lang_routing_zone_static_routing_title": "Định tuyến tĩnh",
+        "lang_rt_entries_title": "Mục nhập Tuyến",
+        "lang_delete_entry_button": "Xóa mục nhập này",
+        "lang_rt_name_title": "Nhập tên tuyến",
+        "lang_dst_lan_ip_title": "LAN IP đích",
+        "lang_subnet_mask_title": "Mặt nạ mạng con",
+        "lang_gateway_title": "Cổng nối",
+        "lang_interface_title": "Giao diện",
+        "lang_rt_table_button": "Hiển thị Bảng định tuyến",
+        "lang_interface_opt_lan_wifi": "LAN & Không dây",
+        "lang_interface_opt_wan": "Internet (WAN)",
+        "lang_alert_guest_not_availabed_title": "Truy nhập khách sẽ không khả dụng nếu NAT bị tắt. Tiến hành lưu các thay đổi của bạn?"
+    }
+}

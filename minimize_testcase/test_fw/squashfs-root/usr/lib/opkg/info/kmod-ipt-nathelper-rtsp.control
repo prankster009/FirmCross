@@ -1,0 +1,10 @@
+Package: kmod-ipt-nathelper-rtsp
+Version: 3.10.108+2.5-1
+Depends: kernel (=3.10.108-1-41b2331d49b4ca2b30f8dd2717544b31), kmod-ipt-core, kmod-ipt-conntrack-extra, kmod-ipt-nat
+Source: package/network/utils/xtables-addons
+License: GPL-2.0
+Section: kernel
+Maintainer: Jo-Philipp Wich <jow@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 8620
+Description:  RTSP Conntrack and NAT netfilter module

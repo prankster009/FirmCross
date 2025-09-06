@@ -1,0 +1,12 @@
+{
+    "idp_wps_result": {
+        "lang_idp_wps_result_fail_title": "Échec de la connexion !",
+        "lang_idp_wps_result_success_title": "Félicitations !",
+        "lang_idp_wps_result_fail_info1_title": "La connexion de votre périphérique client au réseau a échoué.",
+        "lang_idp_wps_result_success_info1_title": "Votre périphérique client est désormais correctement connecté à votre réseau.",
+        "lang_idp_wps_result_info2_title": "Reportez-vous à votre périphérique client pour obtenir des instructions supplémentaires.",
+        "lang_idp_wps_result_info3_title": "Appuyez \"",
+        "lang_idp_wps_result_info4_title": "\" pour continuer.",
+        "lang_idp_wps_result_ok_button": "d'accord"
+    }
+}

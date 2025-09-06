@@ -1,0 +1,8 @@
+Package: flash
+Version: 1
+Depends: libc, libnvram
+Source: package/mtk/applications/nvram
+Section: opt
+Architecture: ramips_24kec
+Installed-Size: 3498
+Description:  flash r/w tool

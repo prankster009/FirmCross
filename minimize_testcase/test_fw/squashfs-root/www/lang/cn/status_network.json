@@ -1,0 +1,17 @@
+{
+    "status_network": {
+        "lang_network_zone_local_network_title": "本地网络",
+        "lang_local_mac_addr_title": "本地 MAC 地址",
+        "lang_router_ip_addr_title": "路由器 IP 地址",
+        "lang_local_netmask_title": "子网掩码",
+        "lang_ipv6_local_addr_title": "IPv6 本地链接地址",
+        "lang_prefix_addr_title": "前缀地址",
+        "lang_network_zone_dhcp_server_title": "DHCP 服务器",
+        "lang_dhcp_server_enable_title": "DHCP 服务器",
+        "lang_dhcp_start_ip_addr_title": "起始 IP 地址",
+        "lang_dhcp_end_ip_addr_title": "结束 IP 地址",
+        "lang_dhcp_client_table_button": "DHCP 客户端表",
+        "lang_dhcp_server_enabled": "启用",
+        "lang_dhcp_server_disabled": "已禁用"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "status_ports": {
+        "lang_ports_zone_internet_port_title": "Internet Port Link",
+        "lang_ports_zone_local_ports_title": "Local Port Link",
+        "lang_unit_mbps": "Mbps",
+        "lang_internet_title": "Internet",
+        "lang_port": "Port"
+    }
+}

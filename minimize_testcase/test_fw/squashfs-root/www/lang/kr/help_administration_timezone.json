@@ -1,0 +1,12 @@
+{
+    "help_administration_timezone": {
+        "lang_help_administration_timezone_title": "시간대",
+        "lang_hat1": "참고: 변경한 후 <b>설정 저장</b>을 클릭하여 변경 사항을 적용하십시오.",
+        "lang_hat2": "시간 설정",
+        "lang_hat3": "시간대",
+        "lang_hat4": "드롭 다운 메뉴에서 네트워크 시간대를 선택하십시오.",
+        "lang_hat5": "일광 절약 시간 변경에 맞게 자동으로 시계 조정",
+        "lang_hat6": "라우터가 일광 절약 시간을 자동으로 조정하게 하려면이 옵션을 선택하십시오.",
+        "lang_hat7": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

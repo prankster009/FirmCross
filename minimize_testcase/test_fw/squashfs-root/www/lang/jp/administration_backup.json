@@ -1,0 +1,14 @@
+{
+    "administration_backup": {
+        "lang_backup_title": "コンフィギュレーションのバックアップ",
+        "lang_backup_config_button": "バックアップ",
+        "lang_restore_title": "コンフィギュレーションの復元",
+        "lang_restore_config_button": "復元を開始",
+        "lang_file_empty_msg": "復元するファイルを選択してください。",
+        "lang_file_format_msg": "構成ファイルが正しくありません。",
+        "lang_file_restore_fail_msg": "構成の復元に失敗しました。",
+        "lang_restore_success": "復元に成功しました",
+        "lang_restore_rebooting": "再起動中......",
+        "lang_file_backup_fail_msg": "バックアップのコンフィギュレーションに失敗しました。"
+    }
+}

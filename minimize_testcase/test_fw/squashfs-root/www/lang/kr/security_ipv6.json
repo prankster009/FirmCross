@@ -1,0 +1,19 @@
+{
+    "security_ipv6": {
+        "lang_ipv6_zone_firewall_title": "IPv6 방화벽 설정",
+        "lang_ipv6_description_title": "설명",
+        "lang_ipv6_address_title": "IPv6 주소",
+        "lang_ipv6_disable": "비활성화",
+        "lang_ipv6_tcp": "TCP",
+        "lang_ipv6_udp": "UDP",
+        "lang_ipv6_both": "둘 다",
+        "lang_ipv6_allow_title": "허용",
+        "lang_ipv6_to": "-",
+        "lang_ipv6_optional": "(선택 사항)",
+        "lang_ipv6_allowing_ports": "포트 허용",
+        "lang_ipv6_description": "설명",
+        "lang_ipv6_address": "주소",
+        "lang_ipv6_allow": "허용",
+        "lang_ipv6_error_msg_1": "잘못된 IPv6 주소를 입력했습니다. 올바른 IPv6 주소를 다시 입력하십시오."
+    }
+}

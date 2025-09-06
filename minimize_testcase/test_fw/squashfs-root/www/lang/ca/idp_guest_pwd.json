@@ -1,0 +1,8 @@
+{
+    "idp_guest_pwd": {
+        "lang_idp_guest_pwd_title": "Modifier le mot de passe d’invité",
+        "lang_idp_guest_pwd_info1_title": "Entrez un nouveau mot de passe de réseau d'invité :",
+        "lang_idp_guest_pwd_info2_title": "4 à 32 caractères",
+        "lang_idp_guest_pwd_alert_title": "Veuillez entrer un mot de passe valide. Les caractères valides sont de A à Z (majuscules ou minuscules) et de 0 à 9"
+    }
+}

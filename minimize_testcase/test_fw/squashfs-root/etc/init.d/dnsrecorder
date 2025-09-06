@@ -1,0 +1,17 @@
+#!/bin/sh /etc/rc.common
+
+NF_QUEUE_NUM=100
+
+start() {
+    doneWizard=$(objReq system json | jsonfilter -e '@[*]' | jsonfilter -e '@.doneWizard')
+    pcEnable=$(objReq pc json | jsonfilter -e '@[*].enable')
+
+    if [ "$pcEnable" = "1" -o "$doneWizard" = "0" ]; then
+        dnsrecorder -n $NF_QUEUE_NUM
+    fi
+}
+
+stop() {
+    killall dnsrecorder
+}
+

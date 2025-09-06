@@ -1,0 +1,30 @@
+{
+    "connectivity_vlan": {
+        "lang_vlan_enable_title": "VLAN",
+        "lang_select_profile_title": "選取設定檔：",
+        "lang_internet_trunk_title": "網際網路（樹狀）",
+        "lang_internet_title": "網際網路",
+        "lang_ethernet_title": "乙太網路",
+        "lang_port_title": "連接埠",
+        "lang_vlan_id_title": "VLAN ID",
+        "lang_id_head": "ID",
+        "lang_tag_head": "標記",
+        "lang_priority_head": "優先權",
+        "lang_vlan_state_opt_untagged": "尚未標記",
+        "lang_vlan_state_opt_tagged": "已標記",
+        "lang_vlan_state_opt_excluded": "已排除",
+        "lang_vlan_alert_range": "請將 VLAN ID 的值設定在範圍內",
+        "lang_vlan_alert_illegal_char": "非法的字元 [必須為 0-9 ]。",
+        "lang_profile_opt_manual": "手動",
+        "lang_profile_opt_M1": "M1 (Fibre)",
+        "lang_profile_opt_Maxis_special": "Maxis (Fibre special)",
+        "lang_profile_opt_Maxis": "Maxis (Maxis Infra)",
+        "lang_profile_opt_Singtel_TV": "Singtel (mio TV)",
+        "lang_profile_opt_Singtel_other": "Singtel（其他）",
+        "lang_profile_opt_starhub": "StarHub",
+        "lang_profile_opt_Unifi_Business": "Unifi (@ Business)",
+        "lang_profile_opt_Unifi_Home": "Unifi (@ Home)",
+        "lang_profile_opt_Maxis_Fibre": "Maxis (Fibre)",
+        "lang_profile_opt_Maxis_TM": "Maxis (TM Infra)"
+    }
+}

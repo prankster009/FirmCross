@@ -1,0 +1,20 @@
+{
+    "wifi_wps": {
+        "lang_wps_info_title": "Wi-Fi Protected Setup cannot be used with<br>WPA2 Enterprise security mode<br>Broadcast SSID disabled<br>2.4 GHz or 5 GHz band disabled<br>MAC Filtering<br>To use WPS, change your security mode, network mode and/or disable MAC Filtering.",
+        "lang_wps_setup_title": "Wi-Fi Protected Setup",
+        "lang_wps_zone_push_btn_title": "Push Button",
+        "lang_push_button_info_title": "If your client device has a Wi-Fi Protected Setup<sup>TM</sup> button, click or press that button and then click the button on the right.",
+        "lang_push_btn_state_success_title": "Success",
+        "lang_push_btn_state_fail_title": "Fail",
+        "lang_push_btn_state_search_title": "Searching ...",
+        "lang_push_btn_state_Connect_title": "Connect",
+        "lang_wps_zone_dev_pin_title": "Device PIN",
+        "lang_dev_pin_info_title": "If your client device has a Wi-Fi Protected Setup<sup>TM</sup> PIN number, enter that number and then click the register.",
+        "lang_dev_pin_register_button": "Register",
+        "lang_wps_zone_router_pin_title": "Router PIN",
+        "lang_router_pin_info_title": "If your client asks for the Router's PIN number, enter this number {number} in your client device",
+        "lang_dev_pin_alert_title": "PIN error.",
+        "lang_macfilter_enable_alert_title": "Wi-Fi Protected Setup cannot be enabled when Wireless MAC Filter is enabled.",
+        "lang_wps_info_title2": "Wi-Fi Protected Setup cannot be used with<br>Broadcast SSID disabled<br>2.4 GHz or 5 GHz band disabled<br>MAC Filtering<br>To use WPS, change your security mode, network mode and/or disable MAC Filtering."
+    }
+}

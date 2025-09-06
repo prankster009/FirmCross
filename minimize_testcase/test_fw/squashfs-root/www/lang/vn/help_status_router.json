@@ -1,0 +1,23 @@
+{
+    "help_status_router": {
+        "lang_help_status_router_title": "Bộ định tuyến",
+        "lang_hsr1": "Thông tin Bộ định tuyến",
+        "lang_hsr2": "Phiên bản Phần mềm điều khiển",
+        "lang_hsr3": "Hiển thị số phiên bản của phần mềm điều khiển hiện tại của Bộ định tuyến.",
+        "lang_hsr4": "Kiểm chứng Phần mềm điều khiển",
+        "lang_hsr5": "Hiển thị mã định danh duy nhất của phần mềm điều khiển.",
+        "lang_hsr6": "Thời gian hiện tại",
+        "lang_hsr7": "Hiển thị giờ địa phương.",
+        "lang_hsr8": "Địa chỉ MAC Internet",
+        "lang_hsr9": "Hiển thị địa chỉ MAC của Bộ định tuyến, theo dạng được nhìn thấy từ Internet.",
+        "lang_hsr10": "Tên bộ định tuyến",
+        "lang_hsr11": "Tên thiết bị chính là tên NetBIOS của Bộ định tuyến.",
+        "lang_hsr12": "Tên máy chủ",
+        "lang_hsr13": "Hiển thị Tên máy chủ của Bộ định tuyến.",
+        "lang_hsr14": "Tên miền",
+        "lang_hsr15": "Hiển thị Tên miền của Bộ định tuyến.",
+        "lang_hsr16": "Kết nối Internet",
+        "lang_hsr17": "Phần này hiển thị các thông tin mạng hiện tại được lưu trong Bộ định tuyến.",
+        "lang_hsr18": "Với kết nối DHCP, bấm <b>Giải phóng địa chỉ IP</b> hoặc <b>Thay mới địa chỉ IP</b> để giải phóng hoặc cho thuê lại DHCP. Với PPPoE hoặc kết nối tương tự như vậy, bấm <b>Kết nối</b> hoặc <b>Ngắt kết nối</b> để kết nối với hoặc ngắt kết nối khỏi Internet."
+    }
+}

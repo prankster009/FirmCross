@@ -1,0 +1,19 @@
+{
+    "idp_ping": {
+        "lang_idp_ping_title": "Ping",
+        "lang_idp_resolve_url_title": "Đang phân giải địa chỉ URL...",
+        "lang_idp_ping_result_trans_title": "Gói tin đã truyền",
+        "lang_idp_ping_result_recv_title": "Gói tin đã nhận",
+        "lang_idp_ping_result_loss_title": "Gói tin bị mất",
+        "lang_idp_ping_data_title": "thống kê dữ liệu",
+        "lang_idp_ping_data_unit_title": "byte dữ liệu",
+        "lang_idp_ping_round_trip_title": "thời gian hồi đáp nhỏ nhất/trung bình/lớn nhất",
+        "lang_idp_ping_data_from_title": "byte từ",
+        "lang_idp_ping_seq_title": "seq",
+        "lang_idp_ping_ttl_title": "ttl",
+        "lang_idp_ping_time_title": "Thời gian",
+        "lang_idp_ping_time_unit_title": "ms",
+        "lang_idp_ping_unknow_host_title": "máy chủ không xác định",
+        "lang_idp_ping_processing_title": "Đang xử lý..."
+    }
+}

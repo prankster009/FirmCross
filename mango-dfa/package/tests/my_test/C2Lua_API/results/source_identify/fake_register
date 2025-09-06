@@ -1,0 +1,39 @@
+{
+    "register_keyword_action:1": [
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:reset_dev_sta_status_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:set_dev_sta_status_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:get_dev_sta_status_config"
+    ],
+    "register_keyword_action:2": [
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:set_stat_report_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:get_stat_report_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:get_stat_params_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:set_dev_sta_status_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:set_stat_params_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:flush_report_event",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:reset_event_report_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:reset_event_params_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:get_stat_support_list",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:reset_stat_report_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:get_dev_sta_status_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:set_event_report_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:get_event_params_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:reset_stat_params_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:get_event_report_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:set_event_params_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:reset_dev_sta_status_config",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:get_event_support",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:flush_report_stat"
+    ],
+    "register_keyword_set_data:2": [
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:modules_nms_support_hanlde_set"
+    ],
+    "register_keyword_data:2": [
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:modules_nms_support_hanlde_get"
+    ],
+    "luci.torchlight.event_api.event_register:2": [
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:handle_cloud_type_event",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:handle_nms_report_event_cfg_changed",
+        "/home/iot_2204/lua_analysis/Luabyte_Taint_large_test/test_case/test8/luci/controller/admin/event_report.luac:handle_nms_report_enable"
+    ]
+}

@@ -1,0 +1,12 @@
+Package: at
+Version: 3.1.16-2
+Depends: libc, libelf1
+Source: package/utils/at
+License: GPL-2.0+ GPL-3.0+ ISC
+LicenseFiles: COPYING Copyright
+Section: utils
+Maintainer: Phil Eichinger <phil@zankapfel.net>
+Architecture: ramips_24kec
+Installed-Size: 24800
+Description:  At and batch read shell commands from standard input storing them as a job to
+ be scheduled for execution in the future.

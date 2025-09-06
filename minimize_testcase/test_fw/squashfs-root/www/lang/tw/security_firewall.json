@@ -1,0 +1,17 @@
+{
+    "security_firewall": {
+        "lang_firewall_zone_firewall_title": "防火牆",
+        "lang_ipv6_spi_firewall_title": "IPv6 SPI 防火牆保護",
+        "lang_ipv4_spi_firewall_title": "IPv4 SPI 防火牆保護",
+        "lang_firewall_zone_net_filter_title": "網際網路篩選",
+        "lang_anonymous_filter_title": "篩選匿名網際網路請求",
+        "lang_multicast_filter_title": "篩選多點傳送",
+        "lang_nat_redirection_filter_title": "僅針對 IPv4 網際網路篩選網際網路 NAT 重新導向",
+        "lang_ident_title": "篩選器身分（連接埠 113）",
+        "lang_firewall_zone_web_filter_title": "網頁篩選器",
+        "lang_proxy_filter_title": "代理伺服器",
+        "lang_java_filter_title": "Java",
+        "lang_activex_filter_title": "ActiveX",
+        "lang_cookies_filter_title": "Cookie"
+    }
+}

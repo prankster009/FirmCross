@@ -1,0 +1,24 @@
+{
+    "help_wifi_guest": {
+        "lang_help_wifi_guest_title": "来宾访问",
+        "lang_hwg1": "使用来宾访问功能，您可以仅为访问您的内容的来宾提供 Internet 访问权限。来宾网络是与您的本地网络独立的无线网络。",
+        "lang_hwg2": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_hwg3": "来宾访问",
+        "lang_hwg4": "允许来宾访问",
+        "lang_hwg5": "要允许通过来宾网络访问 Internet，请选择“是”<b></b>。",
+        "lang_hwg6": "来宾网络名称",
+        "lang_hwg7": "显示来宾网络的名称。",
+        "lang_hwg8": "来宾密码",
+        "lang_hwg9": "显示来宾网络的登录密码。",
+        "lang_hwg10": "更改",
+        "lang_hwg11": "单击“更改”<b></b>可更改来宾密码。",
+        "lang_hwg12": "更改来宾密码",
+        "lang_hwg13": "输入新的来宾网络密码",
+        "lang_hwg14": "输入包含 4-32 个字符的密码。然后单击“更改”<b></b>。",
+        "lang_hwg15": "允许的来宾总数",
+        "lang_hwg16": "选择来宾网络上允许的来宾数量。",
+        "lang_hwg17": "SSID 广播",
+        "lang_hwg18": "当调查局部地区要关联的无线网络时，无线设备可以检测到路由器广播的 SSID（无线网络名称）。要广播来宾网络的 SSID，请保留默认设置“启用”<b></b>。",
+        "lang_hwg19": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "help_connectivity_routing": {
+        "lang_help_connectivity_routing_title": "進階路由",
+        "lang_hcr1": "備註：完成變更後，請按一下<b>儲存設定</b>套用您的變更。",
+        "lang_hcr2": "進階路由",
+        "lang_hcr3": "NAT",
+        "lang_hcr4": "已啟用/已停用",
+        "lang_hcr5": "如果此路由器分享您本機網路的網際網路連線，請維持預設的<b>已啟用</b>。",
+        "lang_hcr6": "動態路由 (RIP)",
+        "lang_hcr7": "已啟用/已停用",
+        "lang_hcr8": "當停用 NAT 時，則可使用本選項。這讓路由器自動與其他路由器交換路由資料表。",
+        "lang_hcr9": "靜態路由",
+        "lang_hcr10": "路由項目",
+        "lang_hcr11": "要在路由器和另一個網路之間建立靜態路由，請從下拉式選單中選擇一個數字。要刪除靜態路由，請選擇其編號，然後點選<b>刪除此項目</b>。",
+        "lang_hcr12": "輸入路由名稱",
+        "lang_hcr13": "輸入路由的名稱。",
+        "lang_hcr14": "目的地 LAN IP",
+        "lang_hcr15": "輸入您要為其指定靜態路由的遠端網路或主機的 IP 位址。",
+        "lang_hcr16": "子網路遮罩",
+        "lang_hcr17": "輸入目的地 LAN IP 址位的子網路遮罩。",
+        "lang_hcr18": "閘道",
+        "lang_hcr19": "輸入閘道伺服器的 IP 地址，可讓路由器與遠端網路或主機之間進行通訊。",
+        "lang_hcr20": "介面",
+        "lang_hcr21": "選擇目的地 LAN IP 位址的位置。",
+        "lang_hcr22": "點選<b>顯示路由資料表</b>查看已設定的靜態路由。",
+        "lang_hcr23": "備註：若要取得更多資訊，請至下列網址參閱線上《使用者指南》：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

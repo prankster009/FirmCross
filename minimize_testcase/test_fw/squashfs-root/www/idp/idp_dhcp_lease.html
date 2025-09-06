@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()">
+<form method="post" action="" name="dhcp">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_idp_dhcp_lease_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<tr>
+<td><span class="multi_lang" id="lang_idp_dhcp_lease_sortby_title"></span></td>
+<td>
+<span id="select_div_sortby"></span>
+<script>
+(function(){
+var str = ['idp_dhcp_lease_ipaddr', 'idp_dhcp_lease_mac_addr', 'idp_dhcp_lease_interface', 'idp_dhcp_lease_name'],
+val = ['ip', 'mac', 'iface', 'name'];
+draw_select('sortby', str, val, 'SoryBy()', '', 1);
+})();
+</script>
+</td>
+</tr>
+</tbody>
+</table>
+<hr class="table-title-underline" style="margin: -1em 0 1em 0">
+<div class="table-box-warpper table-responsive">
+<table class="table table-info-bg table-bordered">
+<thead>
+<tr>
+<td><span class="multi_lang" id="lang_idp_dhcp_lease_name_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_lease_interface_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_lease_ipaddr_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_lease_mac_addr_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_lease_expire_title"></span></td>
+<td>&nbsp;</td>
+</tr>
+</thead>
+<tbody id="dhcp_lease_content"></tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="refreshIdp()" id="btnRefresh"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="closePopout()" id="btnClose"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+//table[0] = new AAA('1300472-NB01','192.168.1.113','40:16:7E:6B:02:B2','15:07:50','LAN');
+
+//test info data
+//IDP_INFO_DATA = {"dhcpClientT": [{"hostname": "UbuntuPC","mac": "11:22:33:44:55:66","assignedIp": "192.168.2.212","interface": "lan","alivetime": "3455"},{"hostname": "test2","mac": "11:22:33:44:55:66","assignedIp": "192.168.2.141","interface": "lan","alivetime": "100000"}]}
+
+
+var IDP_INFO_LIST = [ 'dhcpClientT' ]
+var TABLE = new Array();
+var TARGET_INDEX = 0
+var sortby = "";
+var lang_idp
+
+function idp_set_info_success_cb(obj) {
+if(obj.api_return != 0){
+idp_set_info_error_cb(obj)
+return;
+}
+$('#loader', window.parent.document).hide();
+TABLE.splice(TARGET_INDEX, 1);
+refresh_layout()
+}
+
+function idp_set_info_error_cb(obj) {
+refresh_layout()
+$('#loader', window.parent.document).hide();
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function delete_lease(index)
+{
+$('#loader', window.parent.document).show();
+TARGET_INDEX = index
+var feedback_data = {"dhcpClientT":{"hostname":TABLE[index].name, "mac":TABLE[index].mac, "assignedIp": TABLE[index].ip,"interface":TABLE[index].iface, "alivetime":TABLE[index].time.toString()}}
+API.info.set(feedback_data, idp_set_info_success_cb, idp_set_info_error_cb);
+}
+
+function SoryBy(key)
+{
+lang_idp = eval('window.parent.L.'+localStorage.iframe_idp_name)
+var lang_common = window.parent.L.common
+if( typeof(key) == 'undefined')
+key=$("#sortby").val()
+else
+$("#sortby").val(key)
+
+eval('var dy_id=lang_idp.'+$("#sortby option:selected").attr("id")+'')
+$("#sortby").siblings( ".selectSpan" ).html("<p>"+dy_id+"</p>");
+dhcp_lease_layout(key)
+resizePopout()
+}
+
+function refreshIdp()
+{
+closePopout();
+window.parent.open_dhcp_lease_table();
+}
+
+function refresh_layout(){
+SoryBy($("#sortby").val())
+}
+function idp_get_info_success_cb(obj) {
+if(obj.api_return != 0){
+idp_get_info_error_cb(obj)
+return;
+}
+IDP_INFO_DATA = API.obj.copy(obj);
+IDP_INFO_DATA.dhcpClientT.forEach(function(item, index){
+TABLE[index] = new AAA(item.hostname,item.assignedIp,item.mac,item.alivetime,item.interface);
+});
+
+refresh_layout()
+$('#loader', window.parent.document).hide();
+}
+
+function idp_get_info_error_cb(obj) {
+refresh_layout()
+$('#loader', window.parent.document).hide();
+if(obj.api_return == 403){
+logout('sto')
+return;
+}
+}
+
+function get_info_data(info_list){
+TABLE = [];
+API.info.get(info_list, idp_get_info_success_cb, idp_get_info_error_cb);
+}
+
+function init()
+{
+setTimeout(function(){
+get_info_data(IDP_INFO_LIST)
+},1000);
+
+}
+
+function AAA(name,ip,mac,time,iface)
+{
+this.name = name;
+this.ip = ip;
+this.mac = mac;
+this.time = time;
+this.iface = iface;
+}
+
+function ByName(a,b)
+{
+if( a.name > b.name ) return 1;
+else if (a.name == b.name ) return 0;
+else return -1;
+}
+
+function ByMac(a,b)
+{
+if( a.mac > b.mac ) return 1;
+else if (a.mac == b.mac ) return 0;
+else return -1;
+}
+
+function ByIp(a,b)
+{
+if( a.ip > b.ip ) return 1;
+else if (a.ip == b.ip ) return 0;
+else return -1;
+}
+
+function ByIface(a,b)
+{
+if( a.iface > b.iface ) return 1;
+else if (a.iface == b.iface ) return 0;
+else return -1;
+}
+
+function dhcp_lease_layout(sortby){
+if(sortby == "") {
+sortby = "ip";
+}
+if(sortby == "name") {
+TABLE.sort(ByName);
+}
+else if(sortby == "mac") {
+TABLE.sort(ByMac);
+}
+else if(sortby == "ip") {
+TABLE.sort(ByIp);
+}
+else if(sortby == "iface") {
+TABLE.sort(ByIface);
+}
+var i = 0;
+var ip = new Array();
+var ret = 0;
+table_content=""
+
+for(i=0;;i++) {
+if(TABLE.length == 0) {
+ret = 1;
+}
+else if(TABLE.length == i) {
+break;
+}
+if(ret == 1){
+table_content= table_content + '<tr>'
+table_content= table_content + '<td>&nbsp;</td>'
+table_content= table_content + '<td>&nbsp;</td>'
+table_content= table_content + '<td>&nbsp;</td>'
+table_content= table_content + '<td>&nbsp;</td>'
+table_content= table_content + '<td>&nbsp;</td>'
+table_content= table_content + '<td>&nbsp;</td>'
+}
+else
+{
+var if_name = TABLE[i].iface
+if(	if_name == "wifi")
+if_name = lang_idp.lang_idp_dhcp_lease_interface_wifi
+else
+if_name = if_name.toUpperCase()
+table_content= table_content + '<tr>'
+table_content= table_content + '<td>' + TABLE[i].name + '</td>'
+table_content= table_content + '<td>' + if_name + '</td>'
+table_content= table_content + '<td>' + TABLE[i].ip + '</td>'
+table_content= table_content + '<td>' + TABLE[i].mac.toUpperCase() + '</td>'
+table_content= table_content + '<td>' + sec2time(TABLE[i].time) + '</td>'
+table_content= table_content + '<td>'
+table_content= table_content + '<button type="button" data-dismiss="modal" class="btn logger_bot" name="delete_dhcp_lease" onclick="delete_lease(' + i + ')" >' + lang_idp.lang_idp_dhcp_lease_delete_abbreviation + '</button>'
+table_content= table_content + '</td>'
+}
+table_content= table_content + '</tr>'
+if(ret == 1)
+break;
+}
+$("#dhcp_lease_content").html(table_content)
+inject_log_bot_idp()
+}
+
+</script>
+
+</FORM></BODY></HTML>

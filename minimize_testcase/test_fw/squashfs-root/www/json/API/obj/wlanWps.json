@@ -1,0 +1,12 @@
+{
+    "WlanWpsT": [
+        {
+            "gid": "270270464",
+            "name": "WlanWpsT0",
+            "enable": "1",
+            "wscConfMode": "7",
+            "wscConfStatus": "2",
+            "routerPIN": "11414001"
+        }
+    ]
+}

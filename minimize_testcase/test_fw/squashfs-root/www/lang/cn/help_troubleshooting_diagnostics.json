@@ -1,0 +1,23 @@
+{
+    "help_troubleshooting_diagnostics": {
+        "lang_help_troubleshooting_diagnostics_title": "诊断",
+        "lang_htd1": "诊断",
+        "lang_htd2": "Ping 测试",
+        "lang_htd3": "Ping 可检查 IP 或 URL 地址是否可以访问。",
+        "lang_htd4": "IP 或 URL 地址",
+        "lang_htd5": "输入要测试的 IP 地址或 URL。",
+        "lang_htd6": "数据包大小",
+        "lang_htd7": "输入要发送的数据包大小。",
+        "lang_htd8": "Ping 的次数",
+        "lang_htd9": "输入所需的连接测试次数。",
+        "lang_htd10": "开始 Ping",
+        "lang_htd11": "要运行测试，请单击此选项。Ping 屏幕显示测试是否成功。",
+        "lang_htd12": "路由跟踪测试",
+        "lang_htd13": "路由跟踪显示数据包在计算机与 IP 或 URL 地址之间的传输路径。",
+        "lang_htd14": "IP 或 URL 地址",
+        "lang_htd15": "输入要测试的 IP 地址或 URL。",
+        "lang_htd16": "开始路由跟踪",
+        "lang_htd17": "要运行测试，请单击此选项。路由跟踪屏幕显示测试是否成功。",
+        "lang_htd18": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

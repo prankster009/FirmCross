@@ -1,0 +1,33 @@
+{
+    "parental_control_parental_control": {
+        "lang_parental_control_zone_target_dev_title": "Périphériques cibles",
+        "lang_parental_control_zone_schedule_title": "Programme horaire",
+        "lang_parental_control_zone_block_spec_sites_title": "Bloquer des sites spécifiques",
+        "lang_parental_enable_title": "Contrôle parental",
+        "lang_restrict_internet_access_title": "Restreindre l'accès à Internet sur",
+        "lang_dev_add_button": "Ajouter",
+        "lang_dev_remove_button": "Supprimer",
+        "lang_dev_rename_button": "Renommer",
+        "lang_schedule_never_title": "Jamais",
+        "lang_schedule_always_title": "Toujours",
+        "lang_schedule_spec_time_title": "Périodes précises",
+        "lang_block_internet_access_title": "Bloquer l'accès à Internet",
+        "lang_school_nights_start_title": "Soirées en semaine",
+        "lang_school_nights_end_title": "à",
+        "lang_weekends_start_title": "Fins de semaine",
+        "lang_weekends_end_title": "à",
+        "lang_block_url1_title": "URL 1 :",
+        "lang_block_url2_title": "URL 2 :",
+        "lang_block_url3_title": "URL 3 :",
+        "lang_block_url4_title": "URL 4 :",
+        "lang_block_url5_title": "URL 5 :",
+        "lang_block_url6_title": "URL 6 :",
+        "lang_block_url7_title": "URL 7 :",
+        "lang_block_url8_title": "URL 8 :",
+        "lang_spec_time_opt_midnight": "Minuit",
+        "lang_spec_time_opt_noon": "Après-midi",
+        "lang_spec_time_opt_am": "AM",
+        "lang_spec_time_opt_pm": "PM",
+        "lang_parental_control_unknow_dev_title": "Périphérique réseau"
+    }
+}

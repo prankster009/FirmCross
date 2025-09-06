@@ -1,0 +1,131 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "sub_401e80",
+                    "string": "sub_401e80(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x401e80",
+                    "ins_addr": "0x401e80"
+                },
+                {
+                    "function": "sub_4033e0",
+                    "string": "sub_4033e0(<MultiValues({0: {<BV64 stack_base + 0xdeadc2de>, <BV64 stack_base + 0xdeadc2de>}})>, <MultiValues(<BV64 stack_base + 0xdeadc3de>)>) @ 0x401f78",
+                    "ins_addr": "0x401f78"
+                }
+            ],
+            "sink": {
+                "function": "sprintf",
+                "string": "sprintf(<MultiValues(<BV64 stack_base + 0xfffffffffffffd68>)>, <MultiValues(<BV64 0x405bd3>)>, <MultiValues(<BV64 stack_base + 0xdeadc3de>)>) @ 0x40347c",
+                "ins_addr": "0x40347c"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0.4,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_401e80",
+                    "string": "sub_401e80(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x401e80",
+                    "ins_addr": "0x401e80"
+                },
+                {
+                    "function": "sub_4033e0",
+                    "string": "sub_4033e0(<MultiValues({0: {<BV64 stack_base + 0xdeadc2de>, <BV64 stack_base + 0xdeadc2de>}})>, <MultiValues(<BV64 stack_base + 0xdeadc3de>)>) @ 0x401f78",
+                    "ins_addr": "0x401f78"
+                }
+            ],
+            "sink": {
+                "function": "sprintf",
+                "string": "sprintf(<MultiValues(<BV64 stack_base + 0xfffffffffffffc80>)>, <MultiValues(<BV64 0x405c68>)>, <MultiValues(<BV64 TOP>)>) @ 0x4035c4",
+                "ins_addr": "0x4035c4"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "sub_401e80",
+                    "string": "sub_401e80(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x401e80",
+                    "ins_addr": "0x401e80"
+                },
+                {
+                    "function": "sub_4033e0",
+                    "string": "sub_4033e0(<MultiValues({0: {<BV64 stack_base + 0xdeadc2de>, <BV64 stack_base + 0xdeadc2de>}})>, <MultiValues(<BV64 stack_base + 0xdeadc3de>)>) @ 0x401f78",
+                    "ins_addr": "0x401f78"
+                }
+            ],
+            "sink": {
+                "function": "sprintf",
+                "string": "sprintf(<MultiValues(<BV64 stack_base + 0xfffffffffffffc80>)>, <MultiValues(<BV64 0x405c68>)>, <MultiValues(<BV64 TOP>)>) @ 0x403610",
+                "ins_addr": "0x403610"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": []
+            },
+            "rank": 0,
+            "reachable_from_main": false,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 13.379682540893555,
+    "vra_time": 3.7520010471343994,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/xiaomi/image_2027/portscan",
+    "name": "portscan",
+    "has_sinks": true,
+    "sha256": "26d9514784945da76fa070cc635d2574a06ece58b0f858f6450d78ffb85a04b7",
+    "sink_times": {
+        "sprintf": 5.9006736278533936
+    },
+    "error": null,
+    "mango_time": 6.371650457382202,
+    "sinks": {
+        "sprintf": 1,
+        "snprintf": 1
+    },
+    "time_data": {
+        "0x403654 -> 0x401e80 -> 0x500240": {
+            "taint_time": 1.1760587692260742,
+            "rda_time": 1.1557352542877197
+        },
+        "0x402a40 -> 0x401e80 -> 0x500240": {
+            "taint_time": 1.0675699710845947,
+            "rda_time": 0.9497909545898438
+        },
+        "0x4033e0 -> 0x401e80 -> 0x500240": {
+            "taint_time": 0.5394089221954346,
+            "rda_time": 0.9813902378082275
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "help_connectivity_vlan": {
+        "lang_help_connectivity_vlan_title": "VLAN Setup",
+        "lang_hcv1": "VLAN (virtual local area network) lets you group devices together on a subnet. Those devices can communicate with each other, but not with devices on other subnets."
+    }
+}

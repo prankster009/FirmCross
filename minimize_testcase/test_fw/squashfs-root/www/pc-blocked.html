@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html dir="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Internet blocked</title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache, no-store">
+<meta http-equiv="pragma" content="no-cache">
+<link rel="stylesheet" href="../css/all.min.css">
+<script language="javascript" type="text/javascript" src="../js/all.min.js"></script>
+</head>
+<body id="blocked" >
+<div id="loader" style="display: none;">
+<div class="modal" role="diglog" _v-f353fd1c="">
+<div class="modal-dialog modal-sm">
+<div class="modal-content">
+<div class="loadingImg" _v-f353fd1c="">
+<div class="row">
+<div class="col-md-12">
+<div class="v-spinner">
+<div class="v-clip" style="height: 35px; width: 35px; border-width: 2px; border-style: solid; border-color: rgb(0, 104, 217) rgb(0, 104, 217) transparent; border-radius: 100%; background: transparent !important;">&nbsp;</div>
+</div>
+</div>
+<div class="col-md-12">
+<p id="loader_msg_main">
+<span id="lang_loader_msg_main" class="multi_lang"></span>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="login-container">
+<div class="login-content">
+<div class="login-header">
+<div class="logo-form">&nbsp;</div>
+
+<div class="login-box">
+<div class="section-body">
+<h3 style="margin:0;color:white"><span class="multi_lang" id="lang_content_title">Internet blocked</span></h3>
+</div>
+<div style="padding-top:2em">
+<p><span class="multi_lang" id="lang_content_info">Access to the Internet is blocked at this time.  Enter the parental controls password to make all blocked websites and content available for one hour.</span></p>
+</div>
+<div class="row-fluid login-form">
+<div>
+<div class="loginFormTdl">
+<label for="pc_passwd"><span class="multi_lang" id="lang_password_title">Password:</span></label>
+</div>
+<div class="loginFormTdr">
+<input type="password" class="input-xlarge inputLogin" id="pc_passwd" name="pc_passwd" onblur="">
+</div>
+<div class="clear"></div>
+</div>
+<div class="error loginError" style="display:none">
+<p>
+<span class="multi_lang" id="lang_password_incorrect"></span>
+</p>
+</div>
+</div>
+<div class="row-fluid">
+<div class="loginFormBtn">
+<button class="btn btn-primary loginBtn" name="button" onclick="unlock()"><span class="multi_lang" id="lang_unblock_title">Unblock</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script language="JavaScript">
+var MAC = "00:00:00:00:00:00"
+var URL = ""
+$(document).ready(function(){
+var query_string=queryString();
+if( "undefined" != typeof(query_string.mac) && query_string.mac != "" )
+MAC = query_string.mac
+if( "undefined" != typeof(query_string.url) && query_string.url != "" )
+URL = decodeURIComponent(query_string.url)
+
+$.lang_load("parental_control_blocked");
+});
+
+function unlock()
+{
+pw = $("#pc_passwd").val()
+$(".loginError").hide()
+$("#loader").show()
+$.ajax({
+type: "GET",
+contentType: "application/json",
+dataType: 'json',
+url: '/pc/unlock?mac='+MAC+'&pwd='+pw,
+cache: false,
+timeout: 10000,
+beforeSend: onSend,
+success: onSuccess,
+complete: onComplete,
+error: onError
+});
+function onSend(){};
+function onError(){};
+function onComplete(){
+};
+function onSuccess(data){
+if("Success" == data.status.message){
+setTimeout(function(){
+window.location.href = URL + '?n=' + new Date().getTime(); // random number
+}, 3000);
+}
+else{
+$("#loader").hide()
+$(".loginError").show()
+}
+
+};
+}
+</script>
+</html>

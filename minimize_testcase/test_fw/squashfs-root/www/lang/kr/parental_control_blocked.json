@@ -1,0 +1,10 @@
+{
+    "parental_control_blocked": {
+        "lang_document_title": "인터넷이 차단됨",
+        "lang_content_title": "인터넷이 차단됨",
+        "lang_content_info": "이 시점에 인터넷에 대한 액세스가 차단됩니다.  부모 통제 기능 암호를 입력하면 차단된 모든 웹사이트 및 콘텐츠를 1시간 동안 사용할 수 있습니다.",
+        "lang_password_title": "암호:",
+        "lang_unblock_title": "차단 해제",
+        "lang_password_incorrect": "암호가 잘못되었습니다."
+    }
+}

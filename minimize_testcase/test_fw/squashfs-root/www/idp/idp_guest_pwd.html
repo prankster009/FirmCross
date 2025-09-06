@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="guest_pwd" onsubmit="return false;">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_idp_guest_pwd_title"></span></h3>
+</div>
+<div class="modal-body">
+<table class="table table-info">
+<tbody>
+<tr>
+<td><span class="multi_lang" style="font-weight:bold;" id="lang_idp_guest_pwd_info1_title"></span></td>
+</tr>
+<tr>
+<td><input maxlength="32" size="32" name="guest_new_pwd" id="guest_new_pwd" onblur="" onkeypress="if (event.keyCode == 13) {Changebtn_click();}" class="logger_bot"></td>
+</tr>
+<tr>
+<td><span class="multi_lang" id="lang_idp_guest_pwd_info2_title"></span></td>
+</tr>
+<tr>
+<td><span class="multi_lang" style="color:red;display:none" id="lang_idp_guest_pwd_alert_title"></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="Changebtn_click()" id="btnChange"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="closePopout()" id="btnClose"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var L;
+var name="";
+
+function init()
+{
+setTimeout(function(){
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+$('#lang_idp_guest_pwd_alert_title').hide();
+$('#loader', window.parent.document).hide();
+inject_log_bot_idp()
+
+resizePopout()
+},1000);
+
+}
+
+function set_error_msg_show(state) {
+if (state)
+$('#lang_idp_guest_pwd_alert_title').show();
+else
+$('#lang_idp_guest_pwd_alert_title').hide();
+resizePopout();
+}
+
+function valid_gn_password(pwd) {
+var reg = new RegExp("[^a-zA-Z0-9]","gi");
+
+if (reg.test(pwd) || pwd.length < 4 || pwd.length > 32) {
+set_error_msg_show(true);
+return 1;
+}
+
+set_error_msg_show(false);
+return 0;
+}
+
+function Changebtn_click() {
+var pwd=$('#guest_new_pwd').val();
+
+if (valid_gn_password(pwd) != 0) {
+return;
+}
+
+window.parent.guest_pwd_changed(pwd);
+closePopout();
+}
+
+</script>
+
+</FORM></BODY></HTML>

@@ -1,0 +1,20 @@
+{
+    "administration_upgrade": {
+        "lang_current_fw_title": "Current firmware version",
+        "lang_check_fw_button": "Check Firmware",
+        "lang_upload_fw_title": "Please select a file to upgrade",
+        "lang_upgrade_fw_button": "Start Upgrade",
+        "lang_upgrade_fw_progress_warning": "Warning",
+        "lang_upgrade_fw_progress_warning_info": "Upgrading firmware may take a few minutes; please don't turn off the power or press the reset button.",
+        "lang_upgrade_fw_progress_warning_tip": "Upgrade must NOT be interrupted!!",
+        "lang_ota_last_version_title": "Latest firmware version",
+        "lang_ota_upgrade_button": "Upgrade",
+        "lang_file_empty_msg": "Please select a file to upgrade",
+        "lang_file_format_msg": "The image file is incorrect.",
+        "lang_upgrade_success": "Firmware upgrade is successful",
+        "lang_upgrade_rebooting": "Rebooting......",
+        "lang_file_upgrade_fail_msg": "Firmware upgrade failed!",
+        "lang_up_to_date_msg": "Up to date",
+        "lang_auto_upgrade_title": "Automatic Firmware Upgrade"
+    }
+}

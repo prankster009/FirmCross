@@ -1,0 +1,10 @@
+{
+    "TimeZoneP": {
+        "enable": "1",
+        "tzdata": "GMT-08:00",
+        "dstEnable": "1",
+        "ntpServer0": "0.openwrt.pool.ntp.org",
+        "ntpServer1": "1.openwrt.pool.ntp.org",
+        "zonename": "utc_m_8-0_1_1_pacific"
+    }
+}

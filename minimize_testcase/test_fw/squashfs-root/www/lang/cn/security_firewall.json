@@ -1,0 +1,17 @@
+{
+    "security_firewall": {
+        "lang_firewall_zone_firewall_title": "防火墙",
+        "lang_ipv6_spi_firewall_title": "IPv6 SPI 防火墙保护",
+        "lang_ipv4_spi_firewall_title": "IPv4 SPI 防火墙保护",
+        "lang_firewall_zone_net_filter_title": "Internet 过滤器",
+        "lang_anonymous_filter_title": "过滤匿名 Internet 请求",
+        "lang_multicast_filter_title": "过滤多播",
+        "lang_nat_redirection_filter_title": "仅针对 IPv4 Internet 过滤 Internet NAT 重定向",
+        "lang_ident_title": "过滤 IDENT（端口 113）",
+        "lang_firewall_zone_web_filter_title": "Web 过滤器",
+        "lang_proxy_filter_title": "代理",
+        "lang_java_filter_title": "Java",
+        "lang_activex_filter_title": "ActiveX",
+        "lang_cookies_filter_title": "Cookie"
+    }
+}

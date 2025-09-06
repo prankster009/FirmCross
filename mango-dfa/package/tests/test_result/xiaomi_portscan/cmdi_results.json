@@ -1,0 +1,14 @@
+{
+    "closures": [],
+    "cfg_time": 6.153411388397217,
+    "vra_time": 4.263725996017456,
+    "path": "/home/iot_2204/xiaomi/Xiaomi_AX9000/squashfs-root/usr/sbin/portscan",
+    "name": "portscan",
+    "has_sinks": false,
+    "sha256": "7cdf0dd5cfaebfab10fcd58ccc5c6be224f6603308c31abf93ac17dad7740ebd",
+    "sink_times": {},
+    "error": null,
+    "mango_time": 0.002154111862182617,
+    "sinks": {},
+    "time_data": {}
+}

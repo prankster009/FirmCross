@@ -1,0 +1,26 @@
+{
+    "InternetConnection": {
+        "IPv6": {
+            "DNS3": "",
+            "Netmask": "",
+            "DNS2": "2001:b000:168::2",
+            "DNS1": "2001:b000:168::1",
+            "DHCPLeaseTime": "100",
+            "Gateway": "2001:0db8:86a3:08d3:1319:8a2e:0370:7341",
+            "MTU": "1280",
+            "ConnectionType": "dhcp",
+            "IP": "2001:0db8:86a3:08d3:1319:8a2e:0370:7344"
+        },
+        "IPv4": {
+            "DNS3": "",
+            "Netmask": "255.255.255.0",
+            "DNS2": "",
+            "DNS1": "",
+            "DHCPLeaseTime": "0",
+            "Gateway": "192.168.100.1",
+            "MTU": "1500",
+            "ConnectionType": "dhcp",
+            "IP": "192.168.100.79"
+        }
+    }
+}

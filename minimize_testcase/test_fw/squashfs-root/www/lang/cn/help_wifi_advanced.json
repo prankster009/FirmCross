@@ -1,0 +1,10 @@
+{
+    "help_wifi_advanced": {
+        "lang_help_wifi_advanced_title": "进阶设置",
+        "lang_advanced_hwb1": "注意：完成更改后，请单击“保存设置”<b></b>以应用更改。",
+        "lang_advanced_hwb2": "无线 - 波束成形",
+        "lang_advanced_hwb3": "启用/禁用",
+        "lang_advanced_hwb4": "波束成形技术可增强网络中每台设备的 Wi-Fi 信号。要从波束成形技术中受益，请保留默认设置“启用”<b></b>。",
+        "lang_advanced_hwb5": "注意：如需更多信息，请参考“联机用户指南”，网址为：<b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>。"
+    }
+}

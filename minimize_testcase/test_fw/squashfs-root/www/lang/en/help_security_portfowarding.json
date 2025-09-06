@@ -1,0 +1,21 @@
+{
+    "help_security_portfowarding": {
+        "lang_help_security_portfowarding_title": "Single Port Forwarding",
+        "lang_hsp1": "Single Port Forwarding allows you to customize port services for various applications. When users send these types of requests to your network via the Internet, the Router will forward those requests to the appropriate computers (also called servers).",
+        "lang_hsp2": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_hsp3": "Single Port Forwarding",
+        "lang_hsp4": "Application Name",
+        "lang_hsp5": "Select the preset application, or enter the name of the custom application.",
+        "lang_hsp6": "External Port",
+        "lang_hsp7": "For a custom application, enter the external port number that accepts incoming traffic.",
+        "lang_hsp8": "Internal Port",
+        "lang_hsp9": "For a custom application, enter the internal port number that accepts traffic forwarded by the Router.",
+        "lang_hsp10": "Protocol",
+        "lang_hsp11": "For a custom application, select the protocol(s) used.",
+        "lang_hsp12": "To IP Address",
+        "lang_hsp13": "Enter the IP address of the computer that should receive the traffic.",
+        "lang_hsp14": "Enabled",
+        "lang_hsp15": "Select <b>Enabled</b> to activate port forwarding.",
+        "lang_hsp16": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

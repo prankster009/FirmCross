@@ -1,0 +1,20 @@
+{
+    "connectivity_routing": {
+        "lang_routing_zone_advanced_routing_title": "Routage avancé",
+        "lang_nat_enable_title": "NAT",
+        "lang_routing_zone_dynamic_routing_title": "Routage dynamique (RIP)",
+        "lang_dynamic_rt_enable_title": "Activé",
+        "lang_routing_zone_static_routing_title": "Routage statique",
+        "lang_rt_entries_title": "Entrées de route",
+        "lang_delete_entry_button": "Supprimer cette entrée",
+        "lang_rt_name_title": "Entrer un nom de route",
+        "lang_dst_lan_ip_title": "Adresse IP du réseau local cible",
+        "lang_subnet_mask_title": "Masque de sous-réseau",
+        "lang_gateway_title": "Passerelle",
+        "lang_interface_title": "Interface",
+        "lang_rt_table_button": "Afficher la table de routage",
+        "lang_interface_opt_lan_wifi": "Réseau local et sans fil",
+        "lang_interface_opt_wan": "Internet (WAN)",
+        "lang_alert_guest_not_availabed_title": "L’Accès des invités ne sera pas disponible si NAT est désactivé. Continuer et enregistrer les modifications ?"
+    }
+}

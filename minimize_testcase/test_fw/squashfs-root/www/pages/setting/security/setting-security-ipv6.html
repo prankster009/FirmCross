@@ -1,0 +1,427 @@
+<script type="text/javascript">
+var OBJ_LIST = ['fwacl6']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var ipv6_tcp_udp_1_str_list = ['ipv6_disable', 'ipv6_tcp', 'ipv6_udp', 'ipv6_both']
+var ipv6_tcp_udp_1_val_list = ['0', '1', '2', '3']
+var ipv6_tcp_udp_2_str_list = ['ipv6_disable', 'ipv6_tcp', 'ipv6_udp', 'ipv6_both']
+var ipv6_tcp_udp_2_val_list = ['0', '1', '2', '3']
+var editEntry = 0;
+var Firewall_List = new Array();
+</script>
+<div class="table-title firewall_zone">
+<span class="multi_lang" id="lang_ipv6_zone_firewall_title"></span>
+</div>
+<hr class="table-title-underline firewall_zone">
+<form>
+<table class="table table-info firewall_zone">
+<tbody>
+<tr id="tr_description" >
+<td>
+<span class="multi_lang" id="lang_ipv6_description_title"></span>
+</td>
+<td colspan="3">
+<input maxlength="63" value="" name="desc" id="desc" onblur="" size="20" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_ipv6_address" >
+<td>
+<span class="multi_lang" id="lang_ipv6_address_title"></span>
+</td>
+<td colspan="3">
+<input maxlength="63" value="" name="srcAddr6" id="srcAddr6" onblur="valid_ipv6(this)" size="20" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_ipv6_tcp_udp_1" >
+<td>
+<span class="multi_lang" id="lang_ipv6_allow_title"></span>
+</td>
+<td id="select_td" >
+<script>(function(){draw_select('serviceProto1', ipv6_tcp_udp_1_str_list, ipv6_tcp_udp_1_val_list,'sel_ipv6_tcp_udp_1()', '');})();</script>
+<div id="select_div_serviceProto1" style="display: inline;"></div>
+
+<input maxlength="5" value="" name="servicePortStart1" id="servicePortStart1" onblur="" size="5" class="logger_bot">
+
+<span class="multi_lang" id="lang_ipv6_to"></span>
+
+<input maxlength="5" value="" name="servicePortEnd1" id="servicePortEnd1" onblur="" size="5" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_ipv6_tcp_udp_2" >
+<td>
+<span class="multi_lang" id="lang_ipv6_tcp_udp_2_title"></span>
+</td>
+<td id="select_td" >
+<script>(function(){draw_select('serviceProto2', ipv6_tcp_udp_2_str_list, ipv6_tcp_udp_2_val_list,'sel_ipv6_tcp_udp_2()', '');})();</script>
+<div id="select_div_serviceProto2" style="display: inline;"></div>
+
+<input maxlength="5" value="" name="servicePortStart2" id="servicePortStart2" onblur="" size="5" class="logger_bot">
+
+<span class="multi_lang" id="lang_ipv6_to"></span>
+
+<input maxlength="5" value="" name="servicePortEnd2" id="servicePortEnd2" onblur="" size="5" class="logger_bot">
+
+<span class="multi_lang" id="lang_ipv6_optional"></span>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2">
+<button class="btn btn-primary multi_lang logger_bot" id="btnApply" type="button" name="" onclick="apply_tbl(this.form)"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="cancel_tbl(this.form)"></button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="TitleofContent"><span class="multi_lang" id="lang_ipv6_allowing_ports"></span></div><br>
+<table class="table table-info-bg">
+<thead>
+<tr>
+<th><span class="multi_lang" id="lang_ipv6_description"></span></th>
+<th><span class="multi_lang" id="lang_ipv6_address"></span></th>
+<th><span class="multi_lang" id="lang_ipv6_allow"></span></th>
+<th></th>
+</tr>
+</thead>
+<tbody id="tabSummary"></tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+</form>
+<script language="javascript" type="text/javascript">
+page_tag='security_ipv6'
+$(document).ready(function(){
+$.lang_load("security_ipv6");
+$.lang_load("error_message");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+
+function sel_ipv6_tcp_udp_1(mode){
+if(typeof(mode) == "undefined")
+mode = $("#serviceProto1").val()
+else{
+$("#serviceProto1").val(mode);
+}
+eval('var dy_id="L.security_ipv6.'+$("#serviceProto1 option:selected").attr("id")+'"')
+$("#serviceProto1").siblings( ".selectSpan" ).html(""+eval(dy_id)+"");
+}
+function sel_ipv6_tcp_udp_2(mode){
+if(typeof(mode) == "undefined")
+mode = $("#serviceProto2").val()
+else{
+$("#serviceProto2").val(mode);
+}
+eval('var dy_id="L.security_ipv6.'+$("#serviceProto2 option:selected").attr("id")+'"')
+$("#serviceProto2").siblings( ".selectSpan" ).html(""+eval(dy_id)+"");
+}
+function Firewall_List_Entry(idx, desc, srcAddr6, serviceProto1, servicePortStart1, servicePortEnd1, serviceProto2, servicePortStart2, servicePortEnd2) {
+this.name = "firewall"+idx;
+this.desc = desc;
+this.srcAddr6 = srcAddr6;
+this.serviceProto1 = serviceProto1;
+this.servicePortStart1 = servicePortStart1;
+this.servicePortEnd1 = servicePortEnd1;
+this.serviceProto2 = serviceProto2;
+this.servicePortStart2 = servicePortStart2;
+this.servicePortEnd2 = servicePortEnd2;
+}
+function EditEntry(num)
+{
+CurrentTrId = num; // Save Old TR ID
+var F = document.forms[0];
+F.desc.value = Firewall_List[num].desc;
+F.srcAddr6.value = Firewall_List[num].srcAddr6;
+sel_ipv6_tcp_udp_1(Firewall_List[num].serviceProto1);
+//F.serviceProto1.value = Firewall_List[num].serviceProto1;
+F.servicePortStart1.value = Firewall_List[num].servicePortStart1;
+F.servicePortEnd1.value = Firewall_List[num].servicePortEnd1;
+sel_ipv6_tcp_udp_2(Firewall_List[num].serviceProto2);
+//F.serviceProto2.value = Firewall_List[num].serviceProto2;
+F.servicePortStart2.value = Firewall_List[num].servicePortStart2;
+F.servicePortEnd2.value = Firewall_List[num].servicePortEnd2;
+editEntry = 1;
+}
+
+function reDrawList()
+{
+var tbody = document.getElementById("tabSummary");
+for(var i = tbody.children.length; i > 0; i--) tbody.removeChild(tbody.children[i - 1]);
+for(var i = 0; i < Firewall_List.length; i++) addList(i);
+}
+function value2string(val)
+{
+var pro;
+if(val == "1") pro = L.security_ipv6.lang_ipv6_tcp;
+else if(val == "2") pro = L.security_ipv6.lang_ipv6_udp;
+else if(val == "0") pro = L.security_ipv6.lang_ipv6_disable;
+else pro = L.security_ipv6.lang_ipv6_both;
+return pro;
+}
+function addList(idx)
+{
+var tbody = document.getElementById("tabSummary");
+var row = document.createElement("tr");
+var tdArray = new Array();
+var str = "";
+row.setAttribute("id", 'sum_tr_' + idx);
+var td1 = document.createElement("td");
+td1.style.cssText = 'text-align: center';
+td1.innerHTML = string_break(18, Firewall_List[idx].desc);
+var td2 = document.createElement("td");
+td2.style.cssText = 'text-align: center';
+td2.innerHTML = Firewall_List[idx].srcAddr6;
+var td3 = document.createElement("td");
+td3.style.cssText = 'text-align: center';
+td3.innerHTML = value2string(Firewall_List[idx].serviceProto1) + ': ' + Firewall_List[idx].servicePortStart1 + '~' + Firewall_List[idx].servicePortEnd1;
+if(Firewall_List[idx].servicePortStart2 != '')
+{
+td3.innerHTML += '<br />'
+td3.innerHTML += value2string(Firewall_List[idx].serviceProto2) + ': ' + Firewall_List[idx].servicePortStart2 + '~' + Firewall_List[idx].servicePortEnd2;
+}
+var td4 = document.createElement("td");
+td4.innerHTML = '<button  class="btn" type="button" onclick="EditEntry(' + idx + ')">'+L.common.btnEdit+'</button> ';
+td4.innerHTML += '<button class="btn" type="button" onclick="delRow(' + idx + ')">'+L.common.btnRemove+'</button> ';
+row.appendChild(td1);
+row.appendChild(td2);
+row.appendChild(td3);
+row.appendChild(td4);
+tbody.appendChild(row);
+}
+function string_break(len,src)
+{
+var line = parseInt(src.length/len) ;
+var i ,dst="" ;
+if ( line == 0 ) return src;
+if ( parseInt(src%len) != 0 ) line ++ ;
+for(i=0; i<line; i++)
+{
+dst = dst + src.substring(0,len)+"<BR>";
+src = src.substring(len,src.length);
+}
+return dst ;
+}
+function cancel_tbl(F)
+{
+F.desc.value = "";
+F.srcAddr6.value = "0:0:0:0:0:0:0:0";
+F.serviceProto1.selectedIndex = 1;
+F.servicePortStart1.value = "";
+F.servicePortEnd1.value = "";
+F.serviceProto2.selectedIndex = 1;
+F.servicePortStart2.value = "";
+F.servicePortEnd2.value = "";
+editEntry = 0;
+}
+function delRow(idx) {
+delArrayElement(idx);
+reDrawList();
+editEntry = 0;
+}
+function delArrayElement(idx) {
+var list = [];
+for(var i = 0; i < Firewall_List.length; i++)
+if(idx != i) list.push(Firewall_List[i]);
+Firewall_List = list;
+}
+function apply_tbl(F)
+{
+/*
+if((F.servicePortStart1.value == "" && F.servicePortEnd1.value == "")) {
+
+
+F.servicePortStart1.value = F.servicePortStart2.value;
+F.servicePortEnd1.value = F.servicePortEnd2.value;
+F.servicePortStart2.value = "";
+F.servicePortEnd2.value = "";
+
+}
+*/
+if(valid_range(F.servicePortStart1, 1, 65535, "Port") == false) return false;
+if(valid_range(F.servicePortEnd1, 1, 65535, "Port") == false) return false;
+if(F.servicePortStart2.value != "" || F.servicePortEnd2.value != "") {
+if(valid_range(F.servicePortStart2, 1, 65535, "Port") == false) return false;
+if(valid_range(F.servicePortEnd2, 1, 65535, "Port") == false) return false;
+}
+/*IPv6 address check*/
+var regExp = "^([0-9a-fA-F\:])";
+var ip6addr_tmp = F.srcAddr6.value;
+var buff1 = ip6addr_tmp.split(":");
+var buff2 = ip6addr_tmp.split(/::/);
+for(i = 0; i < ip6addr_tmp.length; i++)
+{
+ch = ip6addr_tmp.charAt(i);
+if(ch.search(regExp) == -1) {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+if(i > 1) {
+if(ch == ":" && ip6addr_tmp.charAt(i - 1) == ":" && ip6addr_tmp.charAt(i - 2) == ":") {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+}
+}
+for(i = 0; i < buff1.length; i++) {
+if(buff1[i].length > 4) {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+}
+if(buff2.length == 1) {
+if(buff1.length != 8 || buff1[0] == "" || buff1[buff1.length - 1] == "") {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+}
+else {
+if(ip6addr_tmp.charAt(0) == ":" && ip6addr_tmp.charAt(1) == ":") {
+if(buff1.length > 9) {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+}
+else if(ip6addr_tmp.charAt(ip6addr_tmp.length) == ":" && ip6addr_tmp.charAt(ip6addr_tmp.length - 1) == ":") {
+if(buff1.length > 9) {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+}
+else {
+if(buff1.length > 8) {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+}
+}
+if(buff2.length == 2) {
+if(buff2[0] == "" && buff2[1] == "") {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+}
+if(buff2.length > 2) {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+if(buff1.length == 8 && buff1[0].match(/ffff/i) && buff1[1].match(/ffff/i) && buff1[2].match(/ffff/i) && buff1[3].match(/ffff/i) && buff1[4].match(/ffff/i) && buff1[5].match(/ffff/i) && buff1[6].match(/ffff/i) && buff1[7].match(/ffff/i)) {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+var illegal = 0;
+for(i = 0; i < buff1.length; i++) {
+if(buff1[i] == 0 || buff1[i] == "") illegal++;
+if(i == buff1.length - 1 && illegal == buff1.length) {
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+}
+if(buff1[0].match(/fe80/i))
+{
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+if(buff1[0].match(/^ff/i))
+{
+alert(L.security_ipv6.lang_ipv6_error_msg_1);
+return false;
+}
+/*IPv6 address check*/
+var idx = 0;
+var desc = F.desc.value;
+var srcAddr6 = F.srcAddr6.value;
+var serviceProto1 = F.serviceProto1.value;
+var servicePortStart1 = F.servicePortStart1.value;
+var servicePortEnd1 = F.servicePortEnd1.value;
+var serviceProto2 = F.serviceProto2.value;
+var servicePortStart2 = F.servicePortStart2.value;
+var servicePortEnd2 = F.servicePortEnd2.value;
+var str;
+if(editEntry == 0) {
+if(Firewall_List.length >= 15) {
+alert(errmsg.exceptions);
+return;
+}
+Firewall_List[Firewall_List.length] = new Firewall_List_Entry(Firewall_List.length ,desc, srcAddr6, serviceProto1, servicePortStart1, servicePortEnd1, serviceProto2, servicePortStart2, servicePortEnd2);
+reDrawList();
+}
+else {
+Firewall_List[CurrentTrId] = new Firewall_List_Entry(CurrentTrId, desc, srcAddr6, serviceProto1, servicePortStart1, servicePortEnd1, serviceProto2, servicePortStart2, servicePortEnd2);
+reDrawList();
+editEntry = 0;
+}
+cancel_tbl(F);
+}
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+$("#loader").hide()
+show_alert(L.common.success_title, L.common.save_success)
+page_initial();
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide()
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+//Coding save function here
+MODIFIED_OBJ_DATA.fwacl6.Fwacl6T=Firewall_List
+
+if (fake_action == true){
+$("#loader").hide()
+return;
+}
+
+set_obj_data(MODIFIED_OBJ_DATA)
+
+}
+function page_cancel(){
+page_initial();
+//Coding cancel function here
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+Firewall_List=MODIFIED_OBJ_DATA.fwacl6.Fwacl6T
+
+reDrawList();
+}
+function get_obj_error_cb(obj) {
+//console.log(obj)
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+sel_ipv6_tcp_udp_1('1')
+sel_ipv6_tcp_udp_2('1')
+$("#srcAddr6").val("0:0:0:0:0:0:0:0");
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+</script>

@@ -1,0 +1,16 @@
+{
+    "security_portrangefowarding": {
+        "lang_prf_app_name_title": "アプリケーション名",
+        "lang_prf_port_range_title": "開始ポート～終了ポート",
+        "lang_prf_protocol_title": "プロトコル",
+        "lang_prf_to_ip_title": "宛先 IP アドレス",
+        "lang_prf_enabled_title": "有効",
+        "lang_prf_action_title": "アクション",
+        "lang_prf_add_btn_title": "新しいポート範囲転送を追加",
+        "lang_prf_disabled_title": "無効",
+        "lang_prf_remove_btn_title": "削除",
+        "lang_prf_protocol_both": "両方",
+        "lang_prf_protocol_tcp": "TCP",
+        "lang_prf_protocol_udp": "UDP"
+    }
+}

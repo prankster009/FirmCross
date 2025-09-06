@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<HTML >
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<meta http-equiv="expires" content="0">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="/css/all.min.css">
+<script src="/js/all.min.js"></script>
+<style>
+body { display: initial }
+.col-md-right { overflow: auto; float: none; height: auto }
+body{
+background-color: white;
+display: block;
+}
+</style>
+</HEAD>
+<BODY onload="init()" onpageshow="resizePopout()">
+<form method="post" action="" name="dhcp_reservation" id="ui-form">
+
+<div class="pop-modal">
+<div class="modal-header">
+<button class="close logger_bot" type="button" onclick="closePopout()">&#215;</button>
+<h3><span class="multi_lang" id="lang_idp_dhcp_reservation_title"></span></h3>
+</div>
+<div class="modal-body">
+<div class="table-title multi_lang" style="text-align:center" id="lang_idp_dhcp_reservation_select_add_title"></div>
+<hr class="table-title-underline">
+<div style="overflow-x:auto;height:300px;">
+<div class="table-box-wrapper table-responsive">
+<table class="table table-info-bg table-bordered">
+<thead>
+<tr>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_client_name_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_interface_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_ip_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_mac_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_select_title"></span></td>
+</tr>
+</thead>
+<tbody id="select_client_table"></tbody>
+</table>
+</div>
+<div class="text-right" style="margin-top:-1em;margin-bottom:1em;">
+<button class="btn short logger_bot" type="button" name="add_client" id="add_client" onclick="add_clients()"></button>
+</div>
+<div class="table-title multi_lang" style="text-align:center" id="lang_idp_dhcp_reservation_manual_add_title"></div>
+<hr class="table-title-underline">
+<div style="table-box-wrapper table-responsive">
+<table class="table table-info-bg table-bordered">
+<thead>
+<tr>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_enter_client_name_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_assign_ip_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_to_mac_title"></span></td>
+<td>&nbsp;</td>
+</tr>
+</thead>
+<tbody id="manually_client_table">
+<tr>
+<td><input class="logger_bot" type="text" maxlength="15" size="13" name="manual_name" id="manual_name" value="" onblur="valid_name1(this,'',SPACE_NO)" onkeypress="if (event.keyCode == 13) {return false;}"></td>
+<td dir="ltr">
+<span id="manual_ip"></span>
+<input class="num logger_bot" type="text" maxlength="3" style="width:40px" name="manual_ip_num" id="manual_ip_num" onblur="valid_ip_range(this);" onkeypress="if (event.keyCode == 13) {return false;}">
+</td>
+<td><input class="logger_bot" type="text" maxlength="17" size="15" name="manual_mac" id="manual_mac" onblur="mac_changed(this)" onkeypress="if (event.keyCode == 13) {return false;}"></td>
+<td><input class="btn logger_bot" type="button" name="manual_add_btn" id="manual_add_btn" onclick="manual_add()"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="TitleofContent multi_lang" style="text-align:center" id="lang_idp_dhcp_reservation_client_reserved_title"></div>
+<div style="table-box-wrapper table-responsive">
+<table class="table table-info-bg table-bordered">
+<thead>
+<tr>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_client_name_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_assign_ip_title"></span></td>
+<td><span class="multi_lang" id="lang_idp_dhcp_reservation_to_mac_title"></span></td>
+<td>&nbsp;</td>
+</tr>
+</thead>
+<tbody id="client_reserved_table"></tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal-footer">
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="save_setting()" id="btnSave"></button>
+<button type="button" data-dismiss="modal" class="btncancel multi_lang logger_bot" onclick="cancel_setting()" id="btnCancel"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="refresh()" id="btnRefresh"></button>
+<button type="button" data-dismiss="modal" class="btn multi_lang logger_bot" onclick="closePopout()" id="btnClose"></button>
+</div>
+<script type="text/javascript">
+//document.title = 'xxxxx';
+
+var INFO_LIST=['dhcpClientT'];
+var INFO_DATA={};
+var OBJ_LIST = ['dhcpStatic']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+
+var L, L_err;
+var L_common;
+var ip_prefix="192.168.1.";
+var MAX_LEASE = 254;
+var table_select = new Array();
+var table_manually = new Array();
+var table_reserved = new Array();
+
+function cancel_setting() {
+get_client_table(INFO_DATA);
+get_reserved_table(ORIGINAL_OBJ_DATA);
+dhcp_reservation_layout();
+}
+
+function valid_reserved() {
+var i,j;
+
+for (i=0; i < table_reserved.length; ++i) {
+if (table_reserved[i].ip == (ip_prefix+window.parent.document.forms['ui-form'].ip_addr_3.value)) {
+alert(L_err.error_message.lang_error_message_err62);
+$('#reserved_ip_num'+i).focus();
+return false;
+}
+
+if (!check_subnet(table_reserved[i].ip.split(".")[3])) {
+//$('#reserved_ip_num'+i).focus();
+return false;
+}
+
+if (table_reserved[i].hostname == "") {
+alert(L_err.error_message.lang_error_message_err54);
+$('#reserved_name'+i).focus();
+return false;
+}
+
+for (j=i+1; j < table_reserved.length; ++j) {
+if (table_reserved[i].ip == table_reserved[j].ip) {
+alert(L_err.error_message.lang_error_message_err55);
+$('#reserved_ip_num'+i).focus();
+return false;
+}
+}
+}
+return true;
+}
+
+function valid_ip_range(I) {
+//valid_range(I,1,254,'IP');
+if (check_subnet(I.value))
+ele_set_default(I,I.value);
+else
+ele_set_default(I,I.defaultValue);
+}
+
+function save_setting() {
+var i, j;
+var is_find=false;
+
+if (!valid_reserved())
+return;
+
+MODIFIED_OBJ_DATA.dhcpStatic.DhcpStaticT=[];
+for (i=0; i < table_reserved.length; ++i) {
+var r_obj={};
+is_find=false;
+
+table_reserved[i].hostname=$('#reserved_name'+i).val();
+table_reserved[i].ip=ip_prefix+$('#reserved_ip_num'+i).val();
+table_reserved[i].mac=$('#reserved_mac'+i).text();
+
+for (j=0; j < ORIGINAL_OBJ_DATA.dhcpStatic.DhcpStaticT.length; ++j) {
+if (table_reserved[i].name == ORIGINAL_OBJ_DATA.dhcpStatic.DhcpStaticT[j].name) {
+is_find=true;
+break;
+}
+}
+
+if (!is_find) {
+// add new
+r_obj.gid=0;
+r_obj.hostname=table_reserved[i].hostname;
+r_obj.assignedIp=table_reserved[i].ip;
+r_obj.mac=table_reserved[i].mac;
+MODIFIED_OBJ_DATA.dhcpStatic.DhcpStaticT.push(r_obj);
+}
+else {
+r_obj.gid=ORIGINAL_OBJ_DATA.dhcpStatic.DhcpStaticT[j].gid;
+r_obj.hostname=table_reserved[i].hostname;
+r_obj.assignedIp=table_reserved[i].ip;
+r_obj.mac=table_reserved[i].mac;
+MODIFIED_OBJ_DATA.dhcpStatic.DhcpStaticT.push(r_obj);
+}
+}
+
+// reset index
+for (var i=0; i < MODIFIED_OBJ_DATA.dhcpStatic.DhcpStaticT.length; ++i)
+MODIFIED_OBJ_DATA.dhcpStatic.DhcpStaticT[i].name='DhcpStaticT'+i;
+
+set_obj_data(MODIFIED_OBJ_DATA);
+}
+
+function refresh() {
+closePopout();
+window.parent.open_dhcp_client_table();
+}
+
+function name_changed(I) {
+var index=parseInt(I.name.replace(/reserved_name/,""));
+
+if (valid_name1(I,'',SPACE_NO) != false)
+table_reserved[index].hostname=I.value;
+}
+
+function ip_changed(I) {
+var index=parseInt(I.name.replace(/reserved_ip_num/,""));
+var val=I.defaultValue;
+
+//if (valid_range(I,1,254,'IP') != false)
+if (check_subnet(I.value)) {
+table_reserved[index].ip=ip_prefix+I.value;
+val = I.value;
+}
+
+ele_set_default(I,val);
+}
+
+function mac_changed(I) {
+if (I.value.length == 17)
+valid_mac_17(I);
+else {
+alert(L_err.error_message.lang_error_message_err5);
+I.value = I.defaultValue;
+}
+}
+
+function select_clients(name) {
+var index=parseInt(name.replace(/select/,""));
+
+if ($('#'+name).prop('checked'))
+table_select[index].check="1";
+else
+table_select[index].check="0";
+}
+
+function add_clients() {
+var t_tmp;
+var i,j;
+var count=0;
+
+if (table_reserved.length >= MAX_LEASE)
+return;
+
+for (i=0; i < table_select.length; ++i) {
+if (table_select[i].check != "1")
+continue;
+
+for (j=0; j < table_reserved.length; ++j) {
+if (table_reserved[j].mac == table_select[i].mac) {
+alert(L_err.error_message.lang_error_message_err52);
+table_select[i].check="0";
+draw_select_table();
+return;
+}
+else if (table_reserved[j].ip == table_select[i].ip) {
+alert(L_err.error_message.lang_error_message_err55);
+table_select[i].check="0";
+draw_select_table();
+return;
+}
+}
+++count;
+
+//ip_num=table_select[i].ip.split(".");
+//t_tmp = new t_reserved('0','',table_select[i].name,ip_prefix+ip_num[3],table_select[i].mac,'');
+t_tmp = new t_reserved('0','',table_select[i].name,table_select[i].ip,table_select[i].mac,'');
+table_reserved.push(t_tmp);
+
+table_select[i].check="0";
+}
+
+if (count == 0) {
+alert(L_err.error_message.lang_error_message_err53);
+return;
+}
+
+dhcp_reservation_layout();
+}
+
+function manual_add() {
+var t_tmp;
+var name=$('#manual_name').val();
+var ip=$('#manual_ip_num').val();
+var mac=$('#manual_mac').val().toLowerCase();
+
+if (table_reserved.length >= MAX_LEASE)
+return;
+
+if (name == "") {
+alert(L_err.error_message.lang_error_message_err54);
+$('#manual_name').focus();
+return;
+}
+
+if (ip == window.parent.document.forms['ui-form'].ip_addr_3.value) {
+alert(L_err.error_message.lang_error_message_err62);
+$('#manual_ip_num').focus();
+return;
+}
+
+if (!check_subnet(ip)) {
+//$('#manual_ip_num').focus();
+return;
+}
+
+if (mac == "00:00:00:00:00:00" || mac == "FF:FF:FF:FF:FF:FF") {
+alert(L_err.error_message.lang_error_message_err17);
+$('#manual_mac').focus();
+return;
+}
+
+for (var j=0; j < table_reserved.length; ++j) {
+if (table_reserved[j].mac == mac) {
+alert(L_err.error_message.lang_error_message_err52);
+return;
+}
+else if (table_reserved[j].ip == (ip_prefix+ip)) {
+alert(L_err.error_message.lang_error_message_err55);
+return;
+}
+}
+
+t_tmp = new t_reserved('0','',name,ip_prefix+ip,mac,'');
+table_reserved.push(t_tmp);
+
+dhcp_reservation_layout();
+}
+
+function check_subnet(ip) {
+var mask = new Array();
+var lanip3;
+var sip_min, sip_max;
+var iplen, iprange;
+
+mask = window.parent.document.getElementById("lan.LanP[netmask]").value.split(".");
+iprange = 256 - parseInt(mask[3]);
+iplen = 256 / iprange;
+lanip3 = window.parent.document.getElementById("ip_addr_3").value;
+sip_min = (parseInt(mask[3]) & lanip3) + 1;
+sip_max = sip_min + iprange - 3;
+
+// range sync with dhcps setting
+if (window.parent.dhcp_start_ip.length == 2) {
+if (sip_min < window.parent.dhcp_start_ip[0])
+sip_min = window.parent.dhcp_start_ip[0];
+if (sip_max > window.parent.dhcp_end_ip[1])
+sip_max = window.parent.dhcp_end_ip[1];
+}
+else {
+if (sip_min < window.parent.dhcp_start_ip[0])
+sip_min = window.parent.dhcp_start_ip[0];
+if (sip_max > window.parent.dhcp_end_ip[0])
+sip_max = window.parent.dhcp_end_ip[0];
+}
+
+if (isNaN(ip) || parseInt(ip) > sip_max || parseInt(ip) < sip_min || ip == "" || ip == "0") {
+alert(L_err.error_message.lang_error_message_err14+'['+sip_min+'-'+sip_max+'].');
+return false;
+}
+return true;
+}
+
+function remove_clients(index) {
+index=parseInt(index);
+table_reserved.splice(index, 1);
+
+dhcp_reservation_layout();
+}
+
+function t_select(name,iface,ip,mac,check)
+{
+this.name = name;
+this.ip = ip;
+this.mac = mac;
+this.iface = iface;
+this.check = check;
+}
+
+function t_reserved(gid,name,hostname,ip,mac,check)
+{
+this.gid=gid;
+this.name=name;
+this.hostname = hostname;
+this.ip = ip;
+this.mac = mac;
+this.check = check;
+}
+
+function set_manual_default() {
+$('#manual_name').val("");
+$('#manual_ip_num').val("0");
+$('#manual_mac').val("00:00:00:00:00:00");
+$('#manual_add_btn').val(L_common.btnAdd);
+
+$('#manual_name').attr('value',"");
+$('#manual_ip_num').attr('value','0');
+$('#manual_mac').attr('value','00:00:00:00:00:00');
+}
+
+function get_client_table(obj) {
+var c_array=obj.dhcpClientT;
+
+for (var i=0; i < c_array.length; ++i) {
+table_select[i] = new t_select(c_array[i].hostname,c_array[i].interface,
+c_array[i].assignedIp,c_array[i].mac,'0');
+}
+
+//table_select[0] = new t_select('1300472-NB01','LAN','192.168.1.144','40:16:7E:6B:02:B2','0');
+//table_select[1] = new t_select('Andriod','WL','192.168.1.143','B0:5A:DA:EB:59:AB','0');
+}
+
+function get_reserved_table(obj) {
+for (var i=0; i < obj.dhcpStatic.DhcpStaticT.length; ++i) {
+table_reserved[i] = new t_reserved(obj.dhcpStatic.DhcpStaticT[i].gid,
+obj.dhcpStatic.DhcpStaticT[i].name,
+obj.dhcpStatic.DhcpStaticT[i].hostname,
+obj.dhcpStatic.DhcpStaticT[i].assignedIp,
+obj.dhcpStatic.DhcpStaticT[i].mac,'0');
+}
+}
+
+function init()
+{
+setTimeout(function(){
+var pf=window.parent.document.forms['ui-form'];
+
+L_common = window.parent.L.common
+L = eval('window.parent.L.'+localStorage.iframe_idp_name)
+
+L_err = window.parent.L;
+
+ip_prefix = pf.ip_addr_0.value+'.'+pf.ip_addr_1.value+'.'+pf.ip_addr_2.value+'.';
+
+$('#add_client').text(L.lang_idp_dhcp_reservation_add_client_button);
+$('#manual_ip').text(ip_prefix);
+set_manual_default();
+
+get_info_data(INFO_LIST);
+
+$('#loader', window.parent.document).hide();
+},1000);
+}
+
+function draw_select_table() {
+var table_content="";
+var i;
+
+for(i=0; i < table_select.length; i++) {
+if (table_select[i].iface == "wifi")
+table_select[i].iface = L.lang_idp_dhcp_reservation_interface_wifi;
+else
+table_select[i].iface = table_select[i].iface.toUpperCase();
+
+table_content= table_content + '<tr>'
+table_content= table_content + '<td>' + table_select[i].name + '</td>'
+table_content= table_content + '<td>' + table_select[i].iface + '</td>'
+table_content= table_content + '<td>' + table_select[i].ip + '</td>'
+table_content= table_content + '<td>' + table_select[i].mac + '</td>'
+table_content= table_content + '<td>'
+table_content= table_content + '<span id="checkbox_div_select'+i+'"></span>';
+table_content= table_content + '</td>'
+table_content= table_content + '</tr>'
+}
+$('#select_client_table').html(table_content);
+
+for (i=0; i < table_select.length; ++i) {
+draw_checkbox("select"+i, "", "on", "select_clients(this.name)", false);
+update_checked($('#select'+i).attr('name'));
+}
+}
+
+function draw_reserved_table() {
+var table_content="";
+var i;
+
+for(i=0; i < table_reserved.length; i++) {
+table_content= table_content + '<tr>'
+table_content= table_content + '<td><input type="text" maxlength="15" size="13" name="reserved_name'+i+'" id="reserved_name'+i+'" value="'+table_reserved[i].hostname+'" onblur="name_changed(this)" class="logger_bot" onkeypress="if (event.keyCode == 13) {return false;}"></td>'
+table_content= table_content + '<td>'+ip_prefix+'<input class="num logger_bot" type="text" maxlength="3" style="width:40px" name="reserved_ip_num'+i+'" value="'+table_reserved[i].ip.split(".")[3]+'" id="reserved_ip_num'+i+'" onblur="ip_changed(this)" onkeypress="if (event.keyCode == 13) {return false;}"></td>'
+table_content= table_content + '<td id="reserved_mac'+i+'">' + table_reserved[i].mac + '</td>'
+table_content= table_content + '<td>'
+table_content= table_content + '<button class="btn logger_bot" value="'+i+'" id="remove'+i+'" onclick="remove_clients(this.value)">'+L.lang_idp_dhcp_reservation_remove_client_button+'</button>';
+table_content= table_content + '</td>'
+table_content= table_content + '</tr>'
+}
+$('#client_reserved_table').html(table_content);
+}
+
+function dhcp_reservation_layout(){
+draw_select_table();
+draw_reserved_table();
+set_manual_default();
+inject_log_bot_idp()
+}
+
+function set_obj_success_cb(obj) {
+closePopout();
+}
+function set_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+closePopout();
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+get_reserved_table(MODIFIED_OBJ_DATA);
+dhcp_reservation_layout();
+}
+function get_obj_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+
+function get_info_success_cb(obj) {
+INFO_DATA = API.obj.copy(obj);
+
+get_client_table(INFO_DATA);
+get_obj_data(OBJ_LIST);
+}
+function get_info_error_cb(obj) {
+if (obj.api_return == 403) {
+logout('sto')
+}
+}
+function get_info_data(info_list) {
+API.info.get(info_list, get_info_success_cb, get_info_error_cb);
+}
+
+</script>
+
+</FORM></BODY></HTML>

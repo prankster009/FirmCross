@@ -1,0 +1,369 @@
+<script type="text/javascript">
+var OBJ_LIST = ['ddns']
+var ORIGINAL_OBJ_DATA = {}
+var MODIFIED_OBJ_DATA = {}
+var DDNS_OBJ_DATA = {}
+//var ddns_service_str_list = ['ddns_service_dyndns_title', 'ddns_service_tzo_title', 'disabled']
+var ddns_service_str_list = ['ddns_service_noip_title', 'ddns_service_dyndns_title', 'disabled'] /*tzo is not support , remove tzo option*/
+var ddns_service_val_list = ['no-ip.com', 'DynDNS.org', '0'] /*tzo is not support , remove tzo option*/
+var dynddns_system_str_list = ['dyndns_sys_dynamic', 'dyndns_sys_static', 'dyndns_sys_custom']
+var dynddns_system_val_list = ['2', '1', '0']
+var dynddns_backup_mx_str_list = ['enabled', 'disabled']
+var dynddns_backup_mx_val_list = ['1', '0']
+var dynddns_wildcard_str_list = ['enabled', 'disabled']
+var dynddns_wildcard_val_list = ['1', '0']
+
+</script>
+<table class="table table-info ddns_zone">
+<tbody>
+<tr id="tr_ddns_service" >
+<td>
+<span class="multi_lang" id="lang_ddns_service_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('ddns_service', ddns_service_str_list, ddns_service_val_list,'sel_ddns_service(this.value)', '');})();</script>
+<div id="select_div_ddns_service"></div>
+</td>
+</tr>
+<tr id="tr_dyndns_username" class="dynddns_zone">
+<td>
+<span class="multi_lang" id="lang_dyndns_username_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="dyndns_username" id="dyndns_username" onblur="" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_dyndns_passwd" class="dynddns_zone" >
+<td>
+<span class="multi_lang" id="lang_dyndns_passwd_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="dyndns_passwd" id="dyndns_passwd" onblur="" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_dyndns_hostname" class="dynddns_zone" >
+<td>
+<span class="multi_lang" id="lang_dyndns_hostname_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="dyndns_hostname" id="dyndns_hostname" onblur="" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_dyndns_system" class="dynddns_zone" >
+<td>
+<span class="multi_lang" id="lang_dyndns_system_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('dyndns_system', dynddns_system_str_list, dynddns_system_val_list,'sel_dyndns_system()', '');})();</script>
+<div id="select_div_dyndns_system"></div>
+</td>
+</tr>
+<tr id="tr_dyndns_mail" class="dynddns_zone" >
+<td>
+<span class="multi_lang" id="lang_dyndns_mail_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="dyndns_mail" id="dyndns_mail" onblur="" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_dyndns_backup_mx" class="dynddns_zone" >
+<td>
+<span class="multi_lang" id="lang_dyndns_backup_mx_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('dyndns_backup_mx', dynddns_backup_mx_str_list, dynddns_backup_mx_val_list,'sel_dyndns_backup_mx()', '');})();</script>
+<div id="select_div_dyndns_backup_mx"></div>
+</td>
+</tr>
+<tr id="tr_dyndns_wildcard" class="dynddns_zone" >
+<td>
+<span class="multi_lang" id="lang_dyndns_wildcard_title"></span>
+</td>
+<td id="select_td">
+<script>(function(){draw_select('dyndns_wildcard', dynddns_wildcard_str_list, dynddns_wildcard_val_list,'sel_dyndns_wildcard()', '');})();</script>
+<div id="select_div_dyndns_wildcard"></div>
+</td>
+</tr>
+<tr id="tr_tzo_acct_email" class="tzo_zone" >
+<td>
+<span class="multi_lang" id="lang_tzo_acct_email_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="tzo_acct_email" id="tzo_acct_email" onblur="" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_tzo_password" class="tzo_zone" >
+<td>
+<span class="multi_lang" id="lang_tzo_password_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="tzo_password" id="tzo_password" onblur="" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_tzo_domain" class="tzo_zone" >
+<td>
+<span class="multi_lang" id="lang_tzo_domain_title"></span>
+</td>
+<td>
+<input maxlength="32" value="" name="tzo_domain" id="tzo_domain" onblur="" size="17" class="logger_bot">
+</td>
+</tr>
+<tr id="tr_ddns_internal_ip" class="ddns_status_zone">
+<td>
+<span class="multi_lang" id="lang_ddns_internal_ip_title"></span>
+</td>
+<td>
+<span name="ddns_internal_ip" id="ddns_internal_ip" ></span>
+</td>
+</tr>
+<tr id="tr_ddns_status" class="ddns_status_zone">
+<td>
+<span class="multi_lang" id="lang_ddns_status_title"></span>
+</td>
+<td>
+<span name="ddns_status" id="ddns_status" ></span>
+</td>
+</tr>
+<tr id="tr_ddns_update" class="ddns_status_zone">
+<td>
+<span >&nbsp;</span>
+</td>
+<td>
+<button class="btn multi_lang logger_bot" type="button" name="" id="lang_ddns_update_button" onclick="ddns_status_update()"></button>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="form-actions">
+<button class="btn btn-primary multi_lang logger_bot" id="btnSave" type="button" name="" onclick="page_save()"></button>
+<button class="btncancel multi_lang logger_bot" id="btnCancel" type="button" name="" onclick="page_cancel()"></button>
+</div>
+<script language="javascript" type="text/javascript">
+page_tag='security_ddns'
+$(document).ready(function(){
+$.lang_load("security_ddns");
+page_initial()
+inject_log_bot()
+escape_detection();
+});
+function callback(){
+
+}
+
+function ddns_status_update(){
+var ddns_action_data = {"ddnsStatus":{"action":"update"}}
+API.info.set(ddns_action_data, ddns_action_success_cb, ddns_action_error_cb);
+}
+
+function ddns_action_success_cb(obj){
+if(obj.api_return != 0){
+ddns_action_error_cb(obj)
+return;
+}
+
+DDNS_OBJ_DATA = API.obj.copy(obj);
+ddns_status(DDNS_OBJ_DATA.ddnsStatus.ddnsStatus.status);
+ddns_internal_ip(DDNS_OBJ_DATA.ddnsStatus.ddnsStatus.ip);
+if(DDNS_OBJ_DATA.ddnsStatus.ddnsStatus.status=='4'){
+setTimeout(function(){
+ddns_status_update();
+}, 2000);
+}
+
+}
+
+function ddns_action_error_cb(obj){
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else
+show_alert(L.common.fail_title, L.common.operation_fail)
+}
+
+function sel_ddns_service(service){
+if(typeof(service) == "undefined")
+service = $("#ddns_service").val()
+
+if(service != '0'){
+//$("#ddns_service").val("1");
+$("#ddns_service").val(service);
+$(".ddns_status_zone").show()
+$(".dynddns_zone").show()
+$(".tzo_zone").hide()
+if(service=="no-ip.com"){
+$("#tr_dyndns_system").hide();
+$("#tr_dyndns_mail").hide();
+$("#tr_dyndns_backup_mx").hide();
+$("#tr_dyndns_wildcard").hide();
+}else{
+$("#tr_dyndns_system").show();
+$("#tr_dyndns_mail").show();
+$("#tr_dyndns_backup_mx").show();
+$("#tr_dyndns_wildcard").show();
+}
+} else{
+$("#ddns_service").val("0");
+$(".ddns_status_zone").hide()
+$(".dynddns_zone").hide()
+$(".tzo_zone").hide()
+}
+
+eval('var dy_id="L.security_ddns.'+$("#ddns_service option:selected").attr("id")+'"')
+$("#ddns_service").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+}
+function sel_dyndns_system(type){
+if(typeof(type) == "undefined")
+type = $("#dyndns_system").val()
+else
+$("#dyndns_system").val(type)
+
+eval('var dy_id="L.security_ddns.'+$("#dyndns_system option:selected").attr("id")+'"')
+$("#dyndns_system").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+}
+
+function sel_dyndns_backup_mx(enabled){
+if(typeof(enabled) == "undefined")
+enabled = $("#dyndns_backup_mx").val()
+else
+$("#dyndns_backup_mx").val(enabled)
+
+eval('var dy_id="L.security_ddns.'+$("#dyndns_backup_mx option:selected").attr("id")+'"')
+$("#dyndns_backup_mx").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+}
+
+function sel_dyndns_wildcard(enabled){
+if(typeof(enabled) == "undefined")
+enabled = $("#dyndns_wildcard").val()
+else
+$("#dyndns_wildcard").val(enabled)
+
+eval('var dy_id="L.security_ddns.'+$("#dyndns_wildcard option:selected").attr("id")+'"')
+$("#dyndns_wildcard").siblings( ".selectSpan" ).html("<p>"+eval(dy_id)+"</p>");
+}
+
+function ddns_status(status){
+if(status == "0")
+$("#ddns_status").html(L.security_ddns.lang_ddns_status_disabled)
+else if(status == "1"){
+$("#ddns_status").html(L.security_ddns.lang_ddns_status_updated_success)
+}else if(status == "2"){
+$("#ddns_status").html(L.security_ddns.lang_ddns_status_auth_fail)
+}else if(status == "3"){
+$("#ddns_status").html(L.security_ddns.lang_ddns_status_invalid_hostname)
+}else if(status == "4"){
+$("#ddns_status").html(L.security_ddns.lang_ddns_status_connecting)
+}else if(status == "5"){
+$("#ddns_status").html(L.security_ddns.lang_ddns_status_no_internet)
+}else if(status == "6"){
+$("#ddns_status").html(L.security_ddns.lang_ddns_status_updated_complete)
+}
+}
+
+function ddns_internal_ip(ip){
+$("#ddns_internal_ip").html(ip)
+}
+
+function set_obj_success_cb(obj) {
+if(obj.api_return != 0){
+set_obj_error_cb(obj)
+return;
+}
+$("#loader").hide()
+show_alert(L.common.success_title, L.common.save_success)
+page_initial();
+}
+function set_obj_error_cb(obj) {
+$("#loader").hide()
+if(obj.api_return == 403){
+logout('sto')
+return;
+}else{
+show_alert(L.common.fail_title, L.common.save_fail)
+}
+}
+function set_obj_data(obj_content){
+if(typeof(obj_content) == 'string')
+API.obj.set(JSON.parse(obj_content), set_obj_success_cb, set_obj_error_cb);
+else if(typeof(obj_content) == 'object')
+API.obj.set(obj_content, set_obj_success_cb, set_obj_error_cb);
+}
+function page_save(fake_action){
+//Coding save function here
+$("#loader").show()
+if($("#ddns_service").val()!="0"){
+MODIFIED_OBJ_DATA.ddns.DdnsP.provider = $("#ddns_service").val();
+MODIFIED_OBJ_DATA.ddns.DdnsP.enable = "1";
+}else{
+MODIFIED_OBJ_DATA.ddns.DdnsP.provider = "";
+MODIFIED_OBJ_DATA.ddns.DdnsP.enable = "0";
+}
+MODIFIED_OBJ_DATA.ddns.DdnsP.username = $("#dyndns_username").val();
+MODIFIED_OBJ_DATA.ddns.DdnsP.hostname = $("#dyndns_hostname").val();
+MODIFIED_OBJ_DATA.ddns.DdnsP.password = $("#dyndns_passwd").val();
+MODIFIED_OBJ_DATA.ddns.DdnsP.system = $("#dyndns_system").val();
+MODIFIED_OBJ_DATA.ddns.DdnsP.mailex = $("#dyndns_mail").val();
+if (fake_action == true && (MODIFIED_OBJ_DATA.ddns.DdnsP.backupmailex=="" || MODIFIED_OBJ_DATA.ddns.DdnsP.wildcard=="")){
+$("#loader").hide()
+return;
+}
+MODIFIED_OBJ_DATA.ddns.DdnsP.backupmailex = $("#dyndns_backup_mx").val();
+MODIFIED_OBJ_DATA.ddns.DdnsP.wildcard = $("#dyndns_wildcard").val();
+
+if (fake_action == true){
+$("#loader").hide()
+return;
+}
+
+set_obj_data(MODIFIED_OBJ_DATA)
+}
+function page_cancel(){
+//Coding cancel function here
+page_initial();
+}
+function get_obj_success_cb(obj) {
+ORIGINAL_OBJ_DATA = API.obj.copy(obj);
+MODIFIED_OBJ_DATA = API.obj.copy(ORIGINAL_OBJ_DATA);
+
+if(MODIFIED_OBJ_DATA.ddns.DdnsP.enable=='0'){
+sel_ddns_service(MODIFIED_OBJ_DATA.ddns.DdnsP.enable);
+}else{
+sel_ddns_service(MODIFIED_OBJ_DATA.ddns.DdnsP.provider);
+}
+ddns_status(MODIFIED_OBJ_DATA.ddns.DdnsP.status);
+$("#dyndns_username").val(MODIFIED_OBJ_DATA.ddns.DdnsP.username);
+$("#dyndns_hostname").val(MODIFIED_OBJ_DATA.ddns.DdnsP.hostname);
+$("#dyndns_passwd").val(MODIFIED_OBJ_DATA.ddns.DdnsP.password);
+sel_dyndns_system(MODIFIED_OBJ_DATA.ddns.DdnsP.system);
+$("#dyndns_mail").val(MODIFIED_OBJ_DATA.ddns.DdnsP.mailex);
+if(MODIFIED_OBJ_DATA.ddns.DdnsP.backupmailex!=""){
+sel_dyndns_backup_mx(MODIFIED_OBJ_DATA.ddns.DdnsP.backupmailex);
+}else{
+sel_dyndns_backup_mx("0");
+}
+if(MODIFIED_OBJ_DATA.ddns.DdnsP.wildcard!=""){
+sel_dyndns_wildcard(MODIFIED_OBJ_DATA.ddns.DdnsP.wildcard);
+}else{
+sel_dyndns_wildcard("0");
+}
+ddns_internal_ip(MODIFIED_OBJ_DATA.ddns.DdnsP.ip);
+ddns_status_update();
+}
+function get_obj_error_cb(obj) {
+//console.log(obj)
+}
+function get_obj_data(obj_list){
+API.obj.get(obj_list, get_obj_success_cb, get_obj_error_cb);
+}
+function page_initial(){
+//Coding initial function here
+get_obj_data(OBJ_LIST)
+}
+
+function escape_modified_check() {
+page_save(true);
+if (UI.obj.cmp(MODIFIED_OBJ_DATA,ORIGINAL_OBJ_DATA))
+return false;
+else
+return true;
+}
+</script>

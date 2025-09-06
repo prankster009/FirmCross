@@ -1,0 +1,19 @@
+{
+    "idp_ping": {
+        "lang_idp_ping_title": "Ping",
+        "lang_idp_resolve_url_title": "Résolution de l’adresse URL…",
+        "lang_idp_ping_result_trans_title": "Paquets transmis",
+        "lang_idp_ping_result_recv_title": "Paquets reçus",
+        "lang_idp_ping_result_loss_title": "Perte de paquets",
+        "lang_idp_ping_data_title": "statistiques de données",
+        "lang_idp_ping_data_unit_title": "octets de données",
+        "lang_idp_ping_round_trip_title": "temps de boucle aller-retour min/moy/max",
+        "lang_idp_ping_data_from_title": "octets de",
+        "lang_idp_ping_seq_title": "seq",
+        "lang_idp_ping_ttl_title": "ttl",
+        "lang_idp_ping_time_title": "Heure",
+        "lang_idp_ping_time_unit_title": "ms",
+        "lang_idp_ping_unknow_host_title": "Hôte inconnu",
+        "lang_idp_ping_processing_title": "En cours de traitement..."
+    }
+}

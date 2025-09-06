@@ -1,0 +1,96 @@
+#!/bin/sh
+
+SERVICE="dmz"
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+. /lib/hummer/state.sh
+
+
+check_wan() {
+    json_load "$(ifstatus wan)"
+    json_get_var wan_is_up up
+
+    if [ "$wan_is_up" != "1" ]; then
+        echo "$SERVICE, wan is down" > /dev/console
+        echo "$SERVICE, exit!" > /dev/console
+        exit 0
+    fi
+}
+
+delete_dmz_chains() {
+    iptables -t nat -F prerouting_wan_dmz
+    iptables -t nat -D prerouting_wan_rule -j prerouting_wan_dmz
+    iptables -t nat -X prerouting_wan_dmz
+    iptables -t filter -F forwarding_wan_dmz
+    iptables -t filter -D forwarding_wan_rule -j forwarding_wan_dmz
+    iptables -t filter -X forwarding_wan_dmz
+}
+
+add_dmz_chains() {
+    iptables -t nat -N prerouting_wan_dmz
+    iptables -t nat -A prerouting_wan_rule -j prerouting_wan_dmz
+    iptables -t filter -N forwarding_wan_dmz
+    iptables -t filter -A forwarding_wan_rule -j forwarding_wan_dmz
+}
+
+do_dmz() {
+    local wan_ip wan_ifname
+    local ipt_iprange ipt_dst
+    local enable srcType srcStartIp srcEndIp dstType dstIp dstMac
+    json_load "$(objReq wan json)"
+    json_select "WanP"
+    json_get_var wanmode proto
+    if [ "$wanmode" = "$WAN_PROTO_L2TP" -o "$wanmode" = "$WAN_PROTO_PPTP" ]; then
+        network_get_ipaddr wan_ip vpn
+        network_get_device wan_ifname vpn
+    else
+        network_get_ipaddr wan_ip wan
+        network_get_device wan_ifname wan
+    fi
+    json_load "$(objReq dmz json)"
+    json_select "DmzP"
+    json_get_vars enable srcType srcStartIp srcEndIp dstType dstIp dstMac
+    
+    if [ "$enable" != "1" ]; then
+        echo "$SERVICE, disabled." > /dev/console
+        exit 0
+    fi
+
+    if [ "$srcType" == "1" ]; then
+        ipt_iprange="-m iprange --src-range ${srcStartIp}-${srcEndIp}"
+    fi
+
+    if [ "$dstType" == "1" ]; then
+        ipt_dst="$(cat /proc/net/arp | grep br-lan | grep -i $dstMac | awk '{print $1}')"
+        if [ -z "$ipt_dst" ]; then
+            echo "$SERVICE, dstType is MAC address, but IP is not available." > /dev/console
+            echo "$SERVICE, exit!" > /dev/console
+            exit 1
+        fi
+    else
+        ipt_dst="$dstIp"
+    fi
+
+    # setup rules
+    iptables -t nat -A prerouting_wan_dmz -i $wan_ifname $ipt_iprange -d $wan_ip -j DNAT --to-destination $ipt_dst
+    iptables -t filter -A forwarding_wan_dmz -s $ipt_dst -m state --state NEW -j DROP
+    iptables -t filter -A forwarding_wan_dmz -i $wan_ifname -d $ipt_dst -j ACCEPT
+}
+
+start() {
+    check_wan
+    add_dmz_chains >/dev/null 2>&1
+    do_dmz >/dev/null 2>&1
+}
+
+stop() {
+    delete_dmz_chains >/dev/null 2>&1
+}
+
+
+
+stop
+start
+

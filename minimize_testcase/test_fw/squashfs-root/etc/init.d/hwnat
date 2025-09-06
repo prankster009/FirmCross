@@ -1,0 +1,54 @@
+#!/bin/sh /etc/rc.common
+
+START=91
+STOP=91
+
+USE_PROCD=1
+
+. /usr/share/libubox/jshn.sh
+
+setup_hw_nat() {
+    json_load "$(objReq route json)"
+    json_select "RouteP"
+    json_get_var NAT NAT
+    json_load "$(objReq qos json)"
+    json_select "QosP"
+    json_get_var QosEnable enable
+    json_load "$(objReq wan json)"
+    json_select "WanP"
+    json_get_var wanmode proto
+
+
+    if [ "$NAT" = "0" -o "$QosEnable" = "1" -o "$wanmode" = "5" -o "$wanmode" = "6" ]; then
+	uci set hwnat.global.enabled='0'
+    else
+	uci set hwnat.global.enabled='1'
+    fi
+    uci commit hwnat
+}
+
+hwnat_reg(){
+	if [ -e "/etc/wireless/l1profile.dat" ]; then
+		iflist=$(cat /etc/wireless/l1profile.dat | grep INDEX[0-9]_main_ifname | cut -d= -f2)
+		echo "$iflist" | while read line; do
+			iwpriv $line set hw_nat_register=1
+		done
+	fi
+}
+
+start_service() {
+	setup_hw_nat
+
+	config_load hwnat
+	local hwnat_en
+	config_get_bool hwnat_en global enabled
+	if [ "$hwnat_en" = "1" ]; then
+		insmod /lib/modules/ralink/hw_nat.ko
+		hwnat_reg
+	fi
+	mknod /dev/hwnat0 c 220 0
+}
+
+stop_service() {
+	rmmod hw_nat.ko
+}

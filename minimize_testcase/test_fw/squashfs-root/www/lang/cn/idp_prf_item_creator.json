@@ -1,0 +1,17 @@
+{
+    "idp_prf_item_creator": {
+        "lang_prf_item_creator_title": "添加新的端口范围转发",
+        "lang_prf_item_app_name_title": "应用程序名称",
+        "lang_prf_item_port_range_title": "起始~结束端口",
+        "lang_prf_item_to_title": "到",
+        "lang_prf_item_protocol_title": "协议",
+        "lang_prf_item_to_ip_title": "目标 IP 地址",
+        "lang_prf_item_enable_title": "启用",
+        "lang_protocol_both": "两者",
+        "lang_protocol_tcp": "TCP",
+        "lang_protocol_udp": "UDP",
+        "lang_msg_ip_fail": "无法使用路由器的 IP、网络或广播地址。",
+        "lang_msg_repeated_name": "名称重复",
+        "lang_msg_port_overloap": "端口发生重叠！请更改输入！"
+    }
+}

@@ -1,0 +1,508 @@
+{
+    "closures": [
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        },
+        {
+            "trace": [
+                {
+                    "function": "main",
+                    "string": "main(<MultiValues(<BV64 TOP + ARGC>)>, <MultiValues(<BV64 stack_base + 0xdeadc0de>)>) @ 0x4013fa",
+                    "ins_addr": "0x4013fa"
+                },
+                {
+                    "function": "vuln",
+                    "string": "vuln(<MultiValues(<BV64 stack_base + 0xdeadc2de>)>, <MultiValues(<BV64 0x4>)>, <MultiValues(<BV64 0x5>)>) @ 0x401604",
+                    "ins_addr": "0x401604"
+                }
+            ],
+            "sink": {
+                "function": "system",
+                "string": "system(<MultiValues(<BV64 stack_base - 0x870>)>) @ 0x4013de",
+                "ins_addr": "0x4013de"
+            },
+            "depth": 2,
+            "inputs": {
+                "likely": [
+                    "ARGV",
+                    "stdin",
+                    "accept(fd: 3)@0x401599_6_6",
+                    "/etc/passwd"
+                ],
+                "possibly": [],
+                "tags": [
+                    "likely",
+                    "possibly"
+                ],
+                "valid_funcs": [
+                    4199300,
+                    4199270,
+                    4199242,
+                    4199214,
+                    4199833,
+                    4199898
+                ]
+            },
+            "rank": 0.6,
+            "reachable_from_main": true,
+            "sanitized": false
+        }
+    ],
+    "cfg_time": 0.19572782516479492,
+    "vra_time": 1.0511703491210938,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/binaries/multi_input/program",
+    "name": "program",
+    "has_sinks": true,
+    "sha256": "53a6f1becb83520f5dd6c623a475d5be3ee78190d659cb3cc8bdc1173f36c950",
+    "sink_times": {
+        "system": 2257.6464581489563
+    },
+    "error": null,
+    "mango_time": 9131.467194318771,
+    "sinks": {
+        "system": 2
+    },
+    "time_data": {
+        "0x4012e9 -> 0x4013fa -> 0x401150": {
+            "taint_time": 377.9611701965332,
+            "rda_time": 361.89523935317993
+        }
+    }
+}

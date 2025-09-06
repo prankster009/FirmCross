@@ -1,0 +1,29 @@
+{
+    "mpt": {
+        "lang_wifi_mpt_title": "전송 지역",
+        "lang_wifi_mpt_info": "Wi-Fi 전송 능력은 지역별 제한에 따라 설정됩니다. 라우터를 사용할 지역이 아닌 곳을 선택하면 벌금과 처벌을 받을 수 있습니다.",
+        "lang_wiz_mpt_title": "지역 선택",
+        "lang_wiz_mpt_info_1": "최대로 허용되는 Wi-Fi 전송량은 지역에 따라 차이가 있습니다. 지역을 선택하면 해당 제한을 설정합니다.",
+        "lang_wiz_mpt_info_2": "라우터를 사용할 지역이 아닌 곳을 선택하면 벌금과 처벌을 받을 수 있습니다.",
+        "lang_wiz_mpt_option_initial": "국가 또는 지역",
+        "lang_mpt_country_CHN": "아시아 - 중국",
+        "lang_mpt_country_HKG": "아시아 - 홍콩",
+        "lang_mpt_country_IND": "아시아 - 인도",
+        "lang_mpt_country_SGP": "아시아 - 싱가포르",
+        "lang_mpt_country_TWN": "아시아 - 대만",
+        "lang_mpt_country_THA": "아시아 - 타이",
+        "lang_mpt_country_XAH": "아시아 - 나머지 아시아 국가",
+        "lang_mpt_country_CAN": "캐나다",
+        "lang_mpt_country_EEE": "유럽",
+        "lang_mpt_country_SAU": "중동 - 사우디 아라비아",
+        "lang_mpt_country_XME": "중동",
+        "lang_mpt_country_USA": "미국",
+        "lang_mpt_country_PHI": "아시아 - 필리핀",
+        "lang_mpt_country_KOR": "아시아 - 대한민국",
+        "lang_mpt_country_MAC": "아시아 - 마카오",
+        "lang_mpt_country_MYS": "아시아 - 말레이시아",
+        "lang_mpt_country_VNM": "아시아 - 베트남",
+        "lang_mpt_country_AUS": "호주",
+        "lang_mpt_country_NZL": "뉴질랜드"
+    }
+}

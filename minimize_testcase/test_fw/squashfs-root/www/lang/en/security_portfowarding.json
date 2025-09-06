@@ -1,0 +1,17 @@
+{
+    "security_portfowarding": {
+        "lang_spf_app_name_title": "Application Name",
+        "lang_spf_ext_port_title": "External Port",
+        "lang_spf_int_port_title": "Internal Port",
+        "lang_spf_protocol_title": "Protocol",
+        "lang_spf_to_ip_title": "To IP Address",
+        "lang_spf_enabled_title": "Enabled",
+        "lang_spf_action_title": "Action",
+        "lang_spf_add_btn_title": "Add a New Single Port Forwarding",
+        "lang_spf_disabled_title": "Disabled",
+        "lang_spf_remove_btn_title": "Remove",
+        "lang_spf_protocol_both": "Both",
+        "lang_spf_protocol_tcp": "TCP",
+        "lang_spf_protocol_udp": "UDP"
+    }
+}

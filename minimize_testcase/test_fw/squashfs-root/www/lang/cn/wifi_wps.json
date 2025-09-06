@@ -1,0 +1,20 @@
+{
+    "wifi_wps": {
+        "lang_wps_info_title": "Wi-Fi 保护设置不可用于<br>WPA2 企业安全模式<br>已禁用广播 SSID<br>已禁用 2.4 GHz 或 5 GHz 频段<br>MAC 筛选<br>要使用 WPS，请更改安全模式、网络模式和/或禁用 MAC 筛选。",
+        "lang_wps_setup_title": "Wi-Fi 保护设置",
+        "lang_wps_zone_push_btn_title": "按钮",
+        "lang_push_button_info_title": "如果您的客户端设备拥有“Wi-Fi 保护 Setup”按钮，请单击或按下该按钮，然后单击右侧的按钮。",
+        "lang_push_btn_state_success_title": "成功",
+        "lang_push_btn_state_fail_title": "失败",
+        "lang_push_btn_state_search_title": "正在搜索...",
+        "lang_push_btn_state_Connect_title": "连接",
+        "lang_wps_zone_dev_pin_title": "设备 PIN",
+        "lang_dev_pin_info_title": "如果您的客户端设备拥有 Wi-Fi 保护 Setup PIN 码，请输入该编码，然后单击注册。",
+        "lang_dev_pin_register_button": "注册",
+        "lang_wps_zone_router_pin_title": "路由器 PIN",
+        "lang_router_pin_info_title": "如果您的客户端要求提供路由器的 PIN，请在您的客户端设备中输入编码  {number}。",
+        "lang_dev_pin_alert_title": "PIN 错误。",
+        "lang_macfilter_enable_alert_title": "启用“无线 MAC 过滤”后，无法启用“Wi-Fi 保护设置”。",
+        "lang_wps_info_title2": "Wi-Fi 保护设置不可用于<br>已禁用广播 SSID<br>已禁用 2.4 GHz 或 5 GHz 频段<br>MAC 筛选<br>要使用 WPS，请更改安全模式、网络模式和/或禁用 MAC 筛选。"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_lease": {
+        "lang_idp_dhcp_lease_title": "Bảng thiết bị khách DHCP",
+        "lang_idp_dhcp_lease_sortby_title": "Sắp xếp theo",
+        "lang_idp_dhcp_lease_ipaddr": "Địa chỉ IP",
+        "lang_idp_dhcp_lease_mac_addr": "Địa chỉ MAC",
+        "lang_idp_dhcp_lease_interface": "Giao diện",
+        "lang_idp_dhcp_lease_name": "Tên thiết bị khách",
+        "lang_idp_dhcp_lease_name_title": "Tên thiết bị khách",
+        "lang_idp_dhcp_lease_interface_title": "Giao diện",
+        "lang_idp_dhcp_lease_ipaddr_title": "Địa chỉ IP",
+        "lang_idp_dhcp_lease_mac_addr_title": "Địa chỉ MAC",
+        "lang_idp_dhcp_lease_expire_title": "Thời gian hết hạn",
+        "lang_idp_dhcp_lease_delete_abbreviation": "Xóa",
+        "lang_idp_dhcp_lease_interface_wifi": "Không dây"
+    }
+}

@@ -1,0 +1,26 @@
+#!/bin/sh /etc/rc.common
+# Copyright (C) 2014 Gemtek
+
+START=95
+STOP=20
+
+
+. /usr/share/libubox/jshn.sh
+. /lib/functions/network.sh
+. /lib/functions.sh
+
+
+start() {
+        json_load "$(objReq ddns json)"
+        json_select DdnsP
+        json_get_var varEnable enable
+
+        if [ $varEnable = "1" ]; then
+                /usr/bin/ddns.sh start
+        fi
+}
+
+stop() {
+        /usr/bin/ddns.sh stop
+}
+

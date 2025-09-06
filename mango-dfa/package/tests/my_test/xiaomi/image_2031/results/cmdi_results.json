@@ -1,0 +1,14 @@
+{
+    "closures": [],
+    "cfg_time": 6.215580463409424,
+    "vra_time": 4.317589044570923,
+    "path": "/home/iot_2204/operation-mango-public/package/tests/my_test/xiaomi/image_2031/portscan",
+    "name": "portscan",
+    "has_sinks": false,
+    "sha256": "7cdf0dd5cfaebfab10fcd58ccc5c6be224f6603308c31abf93ac17dad7740ebd",
+    "sink_times": {},
+    "error": null,
+    "mango_time": 0.002193927764892578,
+    "sinks": {},
+    "time_data": {}
+}

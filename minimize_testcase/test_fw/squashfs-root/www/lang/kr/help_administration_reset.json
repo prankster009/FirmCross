@@ -1,0 +1,10 @@
+{
+    "help_administration_reset": {
+        "lang_help_administration_reset_title": "장치 재설정",
+        "lang_har1": "라우터 재시작",
+        "lang_har2": "라우터를 다시 시작하려면 이 옵션을 클릭하십시오.",
+        "lang_har3": "출하시 기본 설정으로 재설정",
+        "lang_har4": "이 기능을 사용하면 모든 라우터 구성 설정을 기본값으로 재설정할 수 있습니다.",
+        "lang_har5": "참고: 보다 자세한 내용은 <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>의 온라인 사용자 안내서를 참조하십시오."
+    }
+}

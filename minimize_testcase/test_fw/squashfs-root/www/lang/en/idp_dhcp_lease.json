@@ -1,0 +1,17 @@
+{
+    "idp_dhcp_lease": {
+        "lang_idp_dhcp_lease_title": "DHCP Client Table",
+        "lang_idp_dhcp_lease_sortby_title": "To Sort by",
+        "lang_idp_dhcp_lease_ipaddr": "IP Address",
+        "lang_idp_dhcp_lease_mac_addr": "MAC Address",
+        "lang_idp_dhcp_lease_interface": "Interface",
+        "lang_idp_dhcp_lease_name": "Client Name",
+        "lang_idp_dhcp_lease_name_title": "Client Name",
+        "lang_idp_dhcp_lease_interface_title": "Interface",
+        "lang_idp_dhcp_lease_ipaddr_title": "IP Address",
+        "lang_idp_dhcp_lease_mac_addr_title": "MAC Address",
+        "lang_idp_dhcp_lease_expire_title": "Expires Time",
+        "lang_idp_dhcp_lease_delete_abbreviation": "Delete",
+        "lang_idp_dhcp_lease_interface_wifi": "Wireless"
+    }
+}

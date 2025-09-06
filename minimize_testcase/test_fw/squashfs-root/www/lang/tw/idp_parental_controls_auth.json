@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_auth": {
+        "lang_idp_parental_controls_auth_title": "家長監護",
+        "lang_idp_parental_controls_auth_info_title": "輸入家長監護密碼：",
+        "lang_idp_parental_controls_auth_forgot_pwd_title": "我忘記了我的密碼",
+        "lang_idp_parental_controls_auth_errmsg_title": "密碼錯誤。"
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "wifi_macfilter": {
+        "lang_wifi_mac_filter_enable_title": "ตัวกรองเครือข่ายไร้สายของ MAC",
+        "lang_access_state_prevent_title": "ไม่อนุญาต",
+        "lang_access_state_prevent_info": "ให้คอมพิวเตอร์ตามรายการด้านล่างทำการเข้าถึงเครือข่ายไร้สายได้",
+        "lang_access_state_permit_title": "อนุญาต",
+        "lang_access_state_permit_info": "ให้คอมพิวเตอร์ตามรายการด้านล่างเข้าถึงเครือข่ายไร้สายได้",
+        "lang_mafilter_zone_mac_addr_filter_list_title": "รายการตัวกรองที่อยู่ MAC",
+        "lang_client_list_button": "รายการไคลเอ็นต์ไร้สาย",
+        "lang_mac_address_title": "MAC",
+        "lang_wps_disable_title": "การตั้งค่าใหม่ของคุณจะปิดใช้งาน Wi-Fi Protected Setup ต้องการดำเนินการต่อหรือไม่",
+        "lang_enable_warning": "หากคุณต้องการเปิดใช้งาน Wireless MAC Filter คุณต้องไปที่ \"การตั้งค่าเครือข่ายไร้สายพื้นฐาน\" (ปิดการใช้งาน Easymesh)"
+    }
+}

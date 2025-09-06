@@ -1,0 +1,11 @@
+{
+    "login": {
+        "lang_auth_title": "要求認證",
+        "lang_acnt_username": "使用者名稱",
+        "lang_acnt_passwd": "密碼",
+        "lang_try_again": "請再次登入！",
+        "lang_login": "登入",
+        "lang_login_invalid": "使用者名稱或密碼不正確。",
+        "lang_session_fail": "工作階段失敗。"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "idp_parental_controls_auth": {
+        "lang_idp_parental_controls_auth_title": "การควบคุมโดยผู้ปกครอง",
+        "lang_idp_parental_controls_auth_info_title": "ป้อนรหัสผ่านการควบคุมโดยผู้ปกครอง:",
+        "lang_idp_parental_controls_auth_forgot_pwd_title": "ฉันลืมรหัสผ่าน",
+        "lang_idp_parental_controls_auth_errmsg_title": "รหัสผ่านไม่ถูกต้อง"
+    }
+}

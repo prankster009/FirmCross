@@ -1,0 +1,7 @@
+{
+    "connectivity_macclone": {
+        "lang_mac_addr_clone_enable_title": "MAC 地址克隆",
+        "lang_mac_addr_input_title": "MAC 地址",
+        "lang_mac_clone_button": "克隆我个人电脑的 MAC 地址"
+    }
+}

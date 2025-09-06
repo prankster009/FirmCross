@@ -1,0 +1,14 @@
+{
+    "wifi_macfilter": {
+        "lang_wifi_mac_filter_enable_title": "무선 MAC 필터",
+        "lang_access_state_prevent_title": "방지",
+        "lang_access_state_prevent_info": "아래 나열된 PC가 무선 네트워크에 액세스",
+        "lang_access_state_permit_title": "허용",
+        "lang_access_state_permit_info": "아래 나열된 PC가 무선 네트워크에 액세스",
+        "lang_mafilter_zone_mac_addr_filter_list_title": "MAC 주소 필터 목록",
+        "lang_client_list_button": "무선 클라이언트 목록",
+        "lang_mac_address_title": "MAC",
+        "lang_wps_disable_title": "새로운 설정은 Wi-Fi 보호 설정을 비활성화합니다. 계속 진행하시겠습니까?",
+        "lang_enable_warning": "무선 MAC 필터 기능을 활성화시키려면 \"기본 무선 설정\"에서 이지메시 체크를 해제해야 합니다."
+    }
+}

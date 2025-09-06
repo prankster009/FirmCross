@@ -1,0 +1,8 @@
+Package: iptables-mod-whitelist
+Version: 1.4.21-1
+Depends: libc, iptables
+Source: package/network/utils/iptables
+Section: net
+Architecture: ramips_24kec
+Installed-Size: 1615
+Description:  iptables extension for Belkin whitelist

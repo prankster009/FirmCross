@@ -1,0 +1,19 @@
+{
+    "help_security_portrangefowarding": {
+        "lang_help_security_portrangefowarding_title": "Redirection d'une plage de ports",
+        "lang_hspr1": "La redirection d'une plage de ports vous permet de configurer des services publics sur votre réseau, tels que des serveurs Web, des serveurs FTP, des serveurs de courriel ou autres applications Internet dédiées.",
+        "lang_hspr2": "Remarque : une fois les modifications effectuées, cliquez sur <b>Enregistrer les paramètres</b> pour les appliquer.",
+        "lang_hspr3": "Redirection d'une plage de ports",
+        "lang_hspr4": "Nom de l'application",
+        "lang_hspr5": "Entrez le nom de l'application.",
+        "lang_hspr6": "Port de début~fin",
+        "lang_hspr7": "Entrez le numéro de port ou la plage de ports utilisés pour le trafic entrant.",
+        "lang_hspr8": "Protocole",
+        "lang_hspr9": "Sélectionnez le ou les protocoles utilisés pour cette application.",
+        "lang_hspr10": "Adresse IP de destination",
+        "lang_hspr11": "Entrez l'adresse IP du serveur sur lequel s'exécute l'application.",
+        "lang_hspr12": "Activé",
+        "lang_hspr13": "Sélectionnez <b>Activé</b> pour activer la redirection de port.",
+        "lang_hspr14": "Remarque : Pour en savoir davantage, reportez-vous au guide d’utilisation en ligne à l’adresse <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

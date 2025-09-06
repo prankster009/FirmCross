@@ -1,0 +1,20 @@
+{
+    "wifi_wps": {
+        "lang_wps_info_title": "以下の条件下では Wi-Fi 保護セットアップを使用することはできません<br>WPA2 エンタープライズ セキュリティ モード<br>ブロードキャスト SSID が無効<br>2.4 GHz または 5 GHz バンドが無効<br>MAC フィルタリング<br>WPS を使用するには、セキュリティ モード、ネットワーク モードを変更する、および/または MAC フィルタリングを無効にしてください。",
+        "lang_wps_setup_title": "Wi-Fi 保護セットアップ",
+        "lang_wps_zone_push_btn_title": "プッシュ ボタン",
+        "lang_push_button_info_title": "クライアント デバイスに Wi-Fi 保護セットアップ ボタンがある場合、そのボタンをクリックするか押してから、右のボタンをクリックします。",
+        "lang_push_btn_state_success_title": "成功",
+        "lang_push_btn_state_fail_title": "失敗",
+        "lang_push_btn_state_search_title": "検索しています。",
+        "lang_push_btn_state_Connect_title": "接続",
+        "lang_wps_zone_dev_pin_title": "デバイスの PIN",
+        "lang_dev_pin_info_title": "クライアント デバイスに Wi-Fi 保護セットアップ の PIN 番号がある場合、その番号を入力して登録をクリックします。",
+        "lang_dev_pin_register_button": "登録",
+        "lang_wps_zone_router_pin_title": "ルーターの PIN",
+        "lang_router_pin_info_title": "クライアントによってルーターの PIN 番号を求められた場合、クライアント デバイスにこの番号  {number} を入力します",
+        "lang_dev_pin_alert_title": "PIN エラー。",
+        "lang_macfilter_enable_alert_title": "ワイヤレス MAC フィルターが有効な場合、Wi-Fi 保護セットアップは有効にできません。",
+        "lang_wps_info_title2": "以下の条件下では Wi-Fi 保護セットアップを使用することはできません<br>ブロードキャスト SSID が無効<br>2.4 GHz または 5 GHz バンドが無効<br>MAC フィルタリング<br>WPS を使用するには、セキュリティ モード、ネットワーク モードを変更する、および/または MAC フィルタリングを無効にしてください。"
+    }
+}

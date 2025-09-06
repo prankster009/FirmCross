@@ -1,0 +1,12 @@
+{
+    "idp_route_table": {
+        "lang_idp_route_table_title": "ルーティング テーブル",
+        "lang_idp_route_table_dst_ip_title": "同期先の LAN IP",
+        "lang_idp_route_table_subnet_mask_title": "サブネット マスク",
+        "lang_idp_route_table_gateway_title": "ゲートウェイ",
+        "lang_idp_route_table_hop_count_title": "ホップ数",
+        "lang_idp_route_table_interface_title": "インターフェイス",
+        "lang_idp_route_table_interface_lan_tilte": "LAN とワイヤレス",
+        "lang_idp_route_table_interface_wan_tilte": "インターネット (WAN)"
+    }
+}

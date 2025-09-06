@@ -1,0 +1,12 @@
+{
+    "security_dmz": {
+        "lang_dmz_enable_title": "DMZ",
+        "lang_source_ip_addr_title": "Source IP Address",
+        "lang_source_ip_any_title": "Any IP Address",
+        "lang_to": "to",
+        "lang_dest_ip_addr_title": "Destination",
+        "lang_dest_ip_title": "IP Address",
+        "lang_dest_mac_addr": "MAC Address",
+        "lang_dest_dhcp_client_button": "DHCP Client Table"
+    }
+}

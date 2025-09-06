@@ -1,0 +1,7 @@
+{
+    "connectivity_macclone": {
+        "lang_mac_addr_clone_enable_title": "Clonage d'adresse MAC",
+        "lang_mac_addr_input_title": "Adresse MAC",
+        "lang_mac_clone_button": "Dupliquer l'adresse MAC de mon ordinateur"
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "status_network": {
+        "lang_network_zone_local_network_title": "ローカル ネットワーク",
+        "lang_local_mac_addr_title": "ローカル MAC アドレス",
+        "lang_router_ip_addr_title": "ルーター IP アドレス",
+        "lang_local_netmask_title": "サブネット マスク",
+        "lang_ipv6_local_addr_title": "IPv6 リンク - ローカル アドレス",
+        "lang_prefix_addr_title": "プレフィックス アドレス",
+        "lang_network_zone_dhcp_server_title": "DHCP サーバー",
+        "lang_dhcp_server_enable_title": "DHCP サーバー",
+        "lang_dhcp_start_ip_addr_title": "開始 IP アドレス",
+        "lang_dhcp_end_ip_addr_title": "終了 IP アドレス",
+        "lang_dhcp_client_table_button": "DHCP クライアント テーブル",
+        "lang_dhcp_server_enabled": "有効",
+        "lang_dhcp_server_disabled": "無効"
+    }
+}

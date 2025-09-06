@@ -1,0 +1,25 @@
+{
+    "help_status_network": {
+        "lang_help_status_network_title": "Réseau local",
+        "lang_hsn1": "Réseau local",
+        "lang_hsn2": "Adresse MAC locale",
+        "lang_hsn3": "L’adresse MAC de l’interface locale câblée du routeur s’affiche.",
+        "lang_hsn4": "Adresse IPv4",
+        "lang_hsn5": "L’adresse locale IPv4 du routeur s’affiche.",
+        "lang_hsn6": "Masque de sous-réseau IPv4",
+        "lang_hsn7": "Le masque de sous-réseau IPv4 du routeur s'affiche.",
+        "lang_hsn8": "Lien IPv6 – Adresse locale",
+        "lang_hsn9": "L’adresse locale du lien IPv6 du routeur s’affiche.",
+        "lang_hsn10": "Adresse du préfixe",
+        "lang_hsn11": "Le préfixe d’adresse IPv6 du routeur est affiché.",
+        "lang_hsn12": "Serveur DHCP",
+        "lang_hsn13": "Serveur DHCP",
+        "lang_hsn14": "L’état de la fonction de serveur DHCP du routeur s’affiche.",
+        "lang_hsn15": "Adresse IP de début",
+        "lang_hsn16": "Pour la plage d'adresses IP disponibles, l'adresse IP de début s'affiche.",
+        "lang_hsn17": "Adresse IP de fin",
+        "lang_hsn18": "Pour la plage d'adresses IP disponibles, l'adresse IP de fin s'affiche.",
+        "lang_hsn19": "Table des clients DHCP",
+        "lang_hsn20": "Cliquez sur cette option pour afficher la liste des ordinateurs ou autres périphériques qui utilisent le routeur comme serveur DHCP."
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "help_administration_management": {
+        "lang_help_administration_management_title": "Management",
+        "lang_ham1": "Note: After you have made your changes, click <b>Save Settings</b> to apply your changes.",
+        "lang_ham2": "Local Management Access",
+        "lang_ham3": "Access via",
+        "lang_ham4": "Select the protocol for local access.",
+        "lang_ham5": "Access via Wireless",
+        "lang_ham6": "To allow wireless access to the Router's browser-based utility, keep the default, <b>Enabled</b>.",
+        "lang_ham7": "Remote Management Access",
+        "lang_ham8": "Remote Management",
+        "lang_ham9": "To manage the Router over the Internet, select <b>Enabled</b>.",
+        "lang_ham10": "Access via",
+        "lang_ham11": "Select the protocol for remote access.",
+        "lang_ham12": "Remote Upgrade",
+        "lang_ham13": "To upgrade the Router's firmware over the Internet, select <b>Enabled</b>.",
+        "lang_ham14": "Allowed Remote IP Address",
+        "lang_ham15": "To allow access to the Router from any external IP address, select <b>Any IP Address</b>. To specify an external IP address or range of IP addresses, select and complete the IP address range fields.",
+        "lang_ham16": "Remote Management Port",
+        "lang_ham17": "Enter the port number that will be open to remote access.",
+        "lang_ham18": "Note: For more information, refer to the online User Guide at <b><u><a target=\"_blank\" href=\"https://www.linksys.com/\">www.linksys.com</a></u></b>."
+    }
+}

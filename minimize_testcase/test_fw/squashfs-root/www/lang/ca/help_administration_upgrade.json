@@ -1,0 +1,6 @@
+{
+    "help_administration_upgrade": {
+        "lang_help_administration_upgrade_title": "Mise à niveau du micrologiciel",
+        "lang_hau1": "Téléchargez le fichier du nouveau micrologiciel du routeur à partir du site Web <b><u><a target=\"_blank\" href=\"http://www.linksys.com\">www.linksys.com</a></u></b>. Cliquez sur <b>Parcourir/choisir un fichier</b> et sélectionnez le fichier du nouveau micrologiciel. Cliquez ensuite sur <b>Démarrer la mise à niveau</b>."
+    }
+}

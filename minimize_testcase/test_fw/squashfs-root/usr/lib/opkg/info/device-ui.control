@@ -1,0 +1,8 @@
+Package: device-ui
+Version: 68dfce75b41247532ef3642d36aad20e1ec3236a
+Depends: libc
+Source: package/gemtek/device-ui
+Section: utils
+Architecture: ramips_24kec
+Installed-Size: 1196768
+Description:  Device UI

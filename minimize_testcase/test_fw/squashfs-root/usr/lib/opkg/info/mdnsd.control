@@ -1,0 +1,14 @@
+Package: mdnsd
+Version: 576.30.4-2
+Depends: libc
+Source: package/network/mdnsresponder
+License: Apache-2.0
+Section: net
+Maintainer: Steven Barth <cyrus@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 189916
+Description:  Bonjour, also known as zero-configuration networking, enables
+ automatic discovery of computers, devices, and services on
+ IP networks.
+ .
+ This package contains the mDNS server daemon.

@@ -1,0 +1,14 @@
+{
+    "wifi_macfilter": {
+        "lang_wifi_mac_filter_enable_title": "无线 MAC 过滤",
+        "lang_access_state_prevent_title": "防止",
+        "lang_access_state_prevent_info": "下列个人电脑访问无线网络",
+        "lang_access_state_permit_title": "允许",
+        "lang_access_state_permit_info": "下列个人电脑访问无线网络",
+        "lang_mafilter_zone_mac_addr_filter_list_title": "MAC 地址过滤列表",
+        "lang_client_list_button": "无线客户端列表",
+        "lang_mac_address_title": "MAC",
+        "lang_wps_disable_title": "您的新设置将禁用 Wi-Fi 保护设置。是否要继续？",
+        "lang_enable_warning": "如果需要启用【无线MAC地址过滤】功能，您必须先在【基本无线设置】中，关闭Easy Mesh功能。"
+    }
+}
